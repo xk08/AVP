@@ -1,9 +1,109 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>usuarioCadastro</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
+    <ion-row justify-content-center>
+      <!-- Deixa responsivo -->
+      <ion-col
+        size-sm="8"
+        size-md="12"
+        size-lg="3"
+        size-xl="3"
+      >
+        <!-- Responsável pelo logo -->
+        <h1 text-center>
+          <ion-icon
+            name="done-all"
+            color="primary"
+            class="icon-7em"
+          ></ion-icon>
+        </h1>
+        <form #form="ngForm">
 
-<ion-content>
+          <!-- NOME -->
+          <ion-item>
+            <ion-icon
+              name="person"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-input
+              type="text"
+              name="nome"
+              placeholder="Seu nome"
+              autofocus="true"
+              [(ngModel)]='todoUser.nome'
+              required
+            ></ion-input>
+          </ion-item>
+
+          <!-- DATA DE NASCIMENTO -->
+
+          <ion-item>
+            <ion-icon
+              name="calendar"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-input
+              type="date"
+              name="dataDeNascimento"
+              autofocus="true"
+              [(ngModel)]='todoUser.dataNasc'
+              required
+            ></ion-input>
+          </ion-item>
+
+          <!-- EMAIL -->
+
+          <ion-item>
+            <ion-icon
+              name="mail"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-input
+              type="email"
+              name="email"
+              placeholder="Seu e-mail"
+              inputmode="email"
+              autofocus="true"
+              [(ngModel)]='todoUser.email'
+              required
+            ></ion-input>
+          </ion-item>
+
+          <!-- SENHA -->
+
+          <ion-item>
+            <ion-icon
+              name="lock"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-input
+              type="password"
+              name="password"
+              placeholder="Sua senha"
+              [(ngModel)]='todoUser.senha'
+              required
+            ></ion-input>
+          </ion-item>
+
+          <!-- BOTÃO DE CADASTRO -->
+
+          <ion-button
+            expand="block"
+            type="submit"
+            class="login-button"
+            [disabled]="!form.form.valid"
+            (click)="concluiCadastro()"
+          >
+            Participar
+          </ion-button>
+        </form>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

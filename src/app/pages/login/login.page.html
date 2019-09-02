@@ -1,9 +1,81 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
+    <ion-row justify-content-center>
+      <ion-col
+        size-sm="8"
+        size-md="12"
+        size-lg="3"
+        size-xl="3"
+      >
+        <h1 text-center>
+          <ion-icon
+            name="done-all"
+            color="primary"
+            class="icon-7em"
+          ></ion-icon>
+        </h1>
+        <form #form="ngForm">
+          <ion-item>
+            <ion-icon
+              name="mail"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-input
+              type="email"
+              name="email"
+              placeholder="Informe seu e-mail"
+              inputmode="email"
+              autofocus="true"
+              [(ngModel)]="user.email"
+              required
+            ></ion-input>
+          </ion-item>
 
-<ion-content>
+          <ion-item>
+            <ion-icon
+              name="lock"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-input
+              type="password"
+              name="password"
+              placeholder="Inforne sua senha"
+              [(ngModel)]="user.password"
+              required
+            ></ion-input>
+          </ion-item>
+
+          <ion-button
+            expand="block"
+            type="submit"
+            class="login-button"
+            [disabled]="!form.form.valid"
+            (click)="signIn()"
+          >
+            Acessar
+          </ion-button>
+        </form>
+
+        <ion-button
+          expand="block"
+          fill="clear"
+          (click)="createAccount()"
+        >
+          Participar
+        </ion-button>
+        <ion-button expand="block">
+          <ion-icon
+            name="logo-facebook"
+            slot="start"
+          ></ion-icon>
+          Login com Facebook
+        </ion-button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
