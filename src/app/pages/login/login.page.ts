@@ -42,8 +42,7 @@ export class LoginPage {
       this.authService
         .signIn(this.user)
         .then(() => {
-          this.router.navigate(['usuario/cadastro']);
-          console.log('Usuario foi logado');
+          this.router.navigate(['menu/home']);
         })
         .catch((error: any) => {
           if (error.code == 'auth/invalid-email') {

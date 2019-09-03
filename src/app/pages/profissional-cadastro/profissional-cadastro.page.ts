@@ -1,16 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario-cadastro.service';
 import { LoadingController, NavController } from '@ionic/angular';
 import { UsuarioCadastro } from 'src/app/services/usuarioCadastro/usuarioCadastro';
-import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario-cadastro.service';
 
 @Component({
-  selector: 'app-usuario-cadastro',
-  templateUrl: './usuario-cadastro.page.html',
-  styleUrls: ['./usuario-cadastro.page.scss']
+  selector: 'app-profissional-cadastro',
+  templateUrl: './profissional-cadastro.page.html',
+  styleUrls: ['./profissional-cadastro.page.scss']
 })
-export class UsuarioCadastroPage implements OnInit {
+export class ProfissionalCadastroPage implements OnInit {
   public uidUser: any;
 
   @ViewChild('form') form: NgForm;
@@ -38,11 +38,7 @@ export class UsuarioCadastroPage implements OnInit {
 
     //APÓS DADOS CADASTRADOS, ENVIA O USUARIO PARA O INICIO DA APLICAÇÃO
     this.navCtrl.navigateBack('login');
-  }
-
-  async cadastroProfissional() {
-    this.navCtrl.navigateBack('profissional/cadastro');
-    console.log('Redirecionadopara profissional da saúde');
+    console.log('Usuário Profissional foi cadastrado com sucesso !');
   }
 
   //REFERÊNCIA A CLASS USUARIO

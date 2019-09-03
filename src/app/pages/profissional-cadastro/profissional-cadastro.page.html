@@ -36,19 +36,36 @@
             ></ion-input>
           </ion-item>
 
-          <!-- DATA DE NASCIMENTO -->
+          <!-- PROFISSÃO -->
 
           <ion-item>
             <ion-icon
-              name="calendar"
+              name="person-add"
               color="primary"
               slot="start"
             ></ion-icon>
             <ion-input
-              type="date"
-              name="dataDeNascimento"
+              type="text"
+              name="profissao"
+              placeholder="Sua profissão"
               autofocus="true"
-              [(ngModel)]='todoUser.dataNasc'
+              [(ngModel)]='todoUser.profissao'
+              required
+            ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon
+              name="person-add"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-input
+              type="text"
+              name="codigoProfissao"
+              placeholder="Código de sua profissão"
+              autofocus="true"
+              [(ngModel)]='todoUser.codigoProfissao'
               required
             ></ion-input>
           </ion-item>
@@ -98,16 +115,7 @@
             [disabled]="!form.form.valid"
             (click)="concluiCadastro()"
           >
-            Participar
-          </ion-button>
-
-          <ion-button
-            class="login-button"
-            expand="full"
-            color="dark"
-            (click)="cadastroProfissional()"
-          >
-            Sou Profissional da Saúde
+            Colaborar
           </ion-button>
         </form>
       </ion-col>

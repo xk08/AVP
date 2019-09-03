@@ -10,12 +10,27 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: './pages/login/login.module#LoginPageModule'
+    loadChildren: './pages/login/login.module#LoginPageModule',
+    canActivate: [LoginGuard]
   },
 
   {
     path: 'usuario/cadastro',
     loadChildren: './pages/usuario-cadastro/usuario-cadastro.module#UsuarioCadastroPageModule'
+  },
+  {
+    path: 'profissional/cadastro',
+    loadChildren:
+      './pages/profissional-cadastro/profissional-cadastro.module#ProfissionalCadastroPageModule'
+  },
+  {
+    path: 'menu',
+    loadChildren: './pages/menu/menu.module#MenuPageModule'
+  },
+  {
+    path: 'assistente/cadastro',
+    loadChildren:
+      './pages/cadastro-assistente/cadastro-assistente.module#CadastroAssistentePageModule'
   }
 ];
 
