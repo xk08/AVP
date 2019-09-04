@@ -18,6 +18,8 @@ import { File } from '@ionic-native/file/ngx';
 import { Network } from '@ionic-native/network/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
+import { SuperTabsModule } from 'ionic2-super-tabs';
+
 @NgModule({
   imports: [
     IonicModule.forRoot(),
@@ -27,7 +29,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
     AngularFirestoreModule.enablePersistence({
       experimentalTabSynchronization: true
     }),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    SuperTabsModule
   ],
   exports: [BrowserModule, IonicModule],
   providers: [

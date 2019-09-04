@@ -42,7 +42,7 @@ export class LoginPage {
       this.authService
         .signIn(this.user)
         .then(() => {
-          this.router.navigate(['menu/home']);
+          this.router.navigate(['assistente/cadastro']);
         })
         .catch((error: any) => {
           if (error.code == 'auth/invalid-email') {

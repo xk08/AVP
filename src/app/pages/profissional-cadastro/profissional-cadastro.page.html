@@ -1,3 +1,11 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Personalize seu assistente</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content padding>
   <ion-grid>
     <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
@@ -114,6 +122,7 @@
             class="login-button"
             [disabled]="!form.form.valid"
             (click)="concluiCadastro()"
+            color='dark'
           >
             Colaborar
           </ion-button>

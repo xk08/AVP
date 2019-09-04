@@ -3,8 +3,6 @@ import { Observable } from 'rxjs';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { User } from './user';
 
-// import { User } from './user';
-
 @Injectable({
   providedIn: 'root'
 })
