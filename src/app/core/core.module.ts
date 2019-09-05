@@ -8,17 +8,15 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 import { environment } from 'src/environments/environment';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage/public_api';
 
 import { Camera } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { Network } from '@ionic-native/network/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
-
-import { SuperTabsModule } from 'ionic2-super-tabs';
 
 @NgModule({
   imports: [
@@ -29,8 +27,7 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     AngularFirestoreModule.enablePersistence({
       experimentalTabSynchronization: true
     }),
-    AngularFireStorageModule,
-    SuperTabsModule
+    AngularFireStorageModule
   ],
   exports: [BrowserModule, IonicModule],
   providers: [

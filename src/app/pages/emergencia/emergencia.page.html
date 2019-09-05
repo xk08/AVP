@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Aqui você encontra ajuda</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+
+
+
+
+
+      <ion-tab-button
+        tab="emergencia-utilizacao"
+        (click)="emergenciaUSelected()"
+      >
+        <ion-icon name="moon"></ion-icon>
+        <ion-label>Acessar</ion-label>
+      </ion-tab-button>
+      <ion-tab-button
+        tab="emergencia-cadastro"
+        (click)="emergenciaCSelected()"
+      >
+        <ion-icon name="sunny"></ion-icon>
+        <ion-label>Cadastrar</ion-label>
+      </ion-tab-button>
+
+
+
+
+
+    </ion-tab-bar>
+  </ion-tabs>
+
+
+
+
+
+</ion-content>

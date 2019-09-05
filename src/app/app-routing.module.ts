@@ -32,6 +32,11 @@ const routes: Routes = [
     path: 'assistente/cadastro',
     loadChildren:
       './pages/cadastro-assistente/cadastro-assistente.module#CadastroAssistentePageModule'
+  },
+  {
+    path: 'emergencia',
+    loadChildren: '../emergencia/emergencia.module#EmergenciaPageModule',
+    canActivate: [AuthGuard]
   }
 ];
 
