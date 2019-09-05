@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'emergencia',
-    loadChildren: '../emergencia/emergencia.module#EmergenciaPageModule',
+    loadChildren: './pages/emergencia/emergencia.module#EmergenciaPageModule',
     canActivate: [AuthGuard]
   }
 ];
