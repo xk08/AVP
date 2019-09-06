@@ -1,5 +1,96 @@
 <ion-content>
+  <ion-grid>
+    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
+    <ion-row justify-content-center>
+      <!-- Deixa responsivo -->
+      <ion-col
+        size-sm="8"
+        size-md="12"
+        size-lg="3"
+        size-xl="3"
+      >
 
-  <ion-label>Teste</ion-label>
+        <form #form="ngForm">
+
+          <ion-text text-align="justify-content-center">Número de pessoas proximas a você</ion-text>
+
+          <!-- PRIMEIRO NÚMERO -->
+          <ion-item>
+            <ion-icon
+              name="person"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-input
+              type="text"
+              name="primeiroNumero"
+              placeholder="Primeiro número"
+              autofocus="true"
+              [(ngModel)]='todas.primeiroNumero'
+              required
+            ></ion-input>
+          </ion-item>
+
+          <!-- SEGUNDO NÚMERO -->
+          <ion-item>
+            <ion-icon
+              name="person"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-input
+              type="text"
+              name="segundoNumero"
+              placeholder="Segundo número"
+              autofocus="true"
+              [(ngModel)]='todas.segundoNumero'
+              required
+            ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon
+              name="person"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-textarea
+              name="frase"
+              autofocus="true"
+              [(ngModel)]='todas.frase'
+              required
+              rows="4"
+              cols="10"
+              placeholder="Frase que você gosta e admira..."
+            ></ion-textarea>
+          </ion-item>
+          <ion-title>
+            <ion-label>Foto que você gosta e admira</ion-label>
+            <ion-item (click)="abrirGaleria()">
+              <ion-icon
+                name="add"
+                color="primary"
+                slot="start"
+              ></ion-icon>
+              Clique para escolher
+            </ion-item>
+          </ion-title>
+
+          <!-- BOTÃO DE CADASTRO -->
+
+          <ion-button
+            expand="block"
+            type="submit"
+            class="login-button"
+            [disabled]="!form.form.valid"
+            (click)="saveTodo()"
+            color='dark'
+          >
+            Salvar Informações
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
