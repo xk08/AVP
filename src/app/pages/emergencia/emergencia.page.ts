@@ -10,11 +10,7 @@ export class EmergenciaPage implements OnInit {
 
   ngOnInit() {}
 
-  emergenciaUSelected() {
-    console.log('Funcionado até aqui');
-  }
+  emergenciaUSelected() {}
 
-  emergenciaCSelected() {
-    console.log('Funcionado até aqui');
-  }
+  emergenciaCSelected() {}
 }

@@ -37,6 +37,11 @@ const routes: Routes = [
     path: 'emergencia',
     loadChildren: './pages/emergencia/emergencia.module#EmergenciaPageModule',
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'quero-conversar',
+    loadChildren: './pages/quero-conversar/quero-conversar.module#QueroConversarPageModule',
+    canActivate: [AuthGuard]
   }
 ];
 

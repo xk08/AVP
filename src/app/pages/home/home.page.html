@@ -1,13 +1,28 @@
 <ion-header>
   <ion-toolbar color="secondary">
+
     <ion-buttons>
-      <ion-button shape="round" fill="outline" class="#align" (click)="direcionaPraTela()">Quero Conversar </ion-button>
+      <ion-menu-button autoHide="true"></ion-menu-button>
+      <ion-button
+        shape="round"
+        fill="outline"
+        (click)="direcionaPraTela()"
+      >
+        Quero Conversar
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button routerLink="/emergencia" routerDirection="forward">
+<ion-fab
+  vertical="bottom"
+  horizontal="end"
+  slot="fixed"
+>
+  <ion-fab-button
+    routerLink="/emergencia"
+    routerDirection="forward"
+  >
     S.O.S
   </ion-fab-button>
 </ion-fab>
