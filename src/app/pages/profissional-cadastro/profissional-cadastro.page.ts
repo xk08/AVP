@@ -13,7 +13,7 @@ import { UsuarioCadastro } from 'src/app/services/usuarioCadastro/usuarioCadastr
 export class ProfissionalCadastroPage implements OnInit {
   public uidUser: any;
 
-  @ViewChild('form') form: NgForm;
+  @ViewChild('form', null) form: NgForm;
 
   constructor(
     private afAuth: AngularFireAuth,

@@ -13,7 +13,7 @@ import { Network } from '@ionic-native/network/ngx';
 })
 export class LoginPage {
   user: User = new User();
-  @ViewChild('form') form: NgForm;
+  @ViewChild('form', null) form: NgForm;
 
   constructor(
     public router: Router,

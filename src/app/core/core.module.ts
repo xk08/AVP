@@ -25,7 +25,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
     AngularFireAuthModule,
     //Essa parte é referente a salvar os dados offline
     AngularFirestoreModule.enablePersistence({
-      experimentalTabSynchronization: true
+      synchronizeTabs: true
     }),
     AngularFireStorageModule
   ],

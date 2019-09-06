@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { AssistenteCadastro } from 'src/app/services/assistenteCadastro/assistenteCadastro';
 import { ActivatedRoute } from '@angular/router';
 import { LoadingController, NavController, Platform } from '@ionic/angular';
@@ -7,6 +6,7 @@ import { AssistenteCadastroService } from 'src/app/services/assistenteCadastro/a
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { StorageService } from 'src/app/services/storage/storage.service';
 import { File } from '@ionic-native/file/ngx';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro-assistente',
@@ -14,7 +14,7 @@ import { File } from '@ionic-native/file/ngx';
   styleUrls: ['./cadastro-assistente.page.scss']
 })
 export class CadastroAssistentePage implements OnInit {
-  @ViewChild('form') form: NgForm;
+  @ViewChild('form', null) form: NgForm;
   public idAssistenteCadastro: string;
   public todas: AssistenteCadastro = {
     //os dados que estão sendo mantidos
