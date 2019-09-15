@@ -14,9 +14,11 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./cadastro-assistente.page.scss']
 })
 export class CadastroAssistentePage implements OnInit {
+
   @ViewChild('form', null) form: NgForm;
+  
   public idAssistenteCadastro: string;
-  public todas: AssistenteCadastro = {
+   public todas: AssistenteCadastro = {
     //os dados que estão sendo mantidos
     apelido: '',
     icone: ''

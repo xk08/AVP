@@ -30,14 +30,16 @@ export class StorageService {
   }
 
   //Ver se esse aqui ta funcionando
-  uploadImagemAssistenteCadastro(idCategoria: string, blob: Blob) {
-    const ref = this.afs.ref('AssistenteCadastro/' + idCategoria + '.jpg');
+  uploadImagemAssistenteCadastro(idAssistenteCadastro: string, blob: Blob) {
+    const ref = this.afs.ref('AssistenteCadastro/' + idAssistenteCadastro + '.jpg');
     const task = ref.put(blob);
     return ref.getDownloadURL();
   }
+ 
   uploadImagemEmergenciaCadastro(idEmergenciaCadastro: string, blob: Blob) {
     const ref = this.afs.ref('EmergenciaCadastro/' + idEmergenciaCadastro + '.jpg');
     const task = ref.put(blob);
     return ref.getDownloadURL();
   }
+
 }
