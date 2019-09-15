@@ -30,7 +30,7 @@
     "@ionic-native/status-bar": "^5.13.0",
     "@ionic/angular": "^4.9.0",
     "angularfire2": "^5.2.1",
-    "cordova-android": "^8.0.0",
+    "cordova-android": "8.0.0",
     "cordova-browser": "^6.0.0",
     "cordova-plugin-badge": "^0.8.8",
     "cordova-plugin-camera": "^4.1.0",
@@ -38,7 +38,9 @@
     "cordova-plugin-local-notification": "^0.9.0-beta.2",
     "cordova-plugin-network-information": "^2.0.2",
     "core-js": "^2.5.4",
+    "core-util-is": "^1.0.2",
     "firebase": "^6.6.0",
+    "ionic": "^5.2.8",
     "ionic2-super-tabs": "^4.3.1",
     "rxjs": "^6.5.3",
     "tslib": "^1.10.0",
@@ -89,8 +91,7 @@
       "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
-      "browser",
-      "android"
+      "browser"
     ]
   }
 }
