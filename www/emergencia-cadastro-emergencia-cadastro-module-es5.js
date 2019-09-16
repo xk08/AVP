@@ -177,48 +177,8 @@ var EmergenciaCadastroPage = /** @class */ (function () {
     };
     EmergenciaCadastroPage.prototype.abrirGaleria = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var opcao, fileUrl, file, path, buffer, error_1;
-            var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        opcao = {
-                            quality: 30,
-                            destinationType: this.camera.DestinationType.FILE_URI,
-                            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-                            correctOrientation: true
-                        };
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 4, , 5]);
-                        return [4 /*yield*/, this.camera.getPicture(opcao)];
-                    case 2:
-                        fileUrl = _a.sent();
-                        file = void 0;
-                        if (this.platform.is('ios')) {
-                            //IOS RETORNA IMG_23456789.jpg
-                            file = fileUrl.split('/').pop();
-                        }
-                        else {
-                            //ANDROID RETORNA IMG_23456.jpg?23456789 SENDO ASSIM O TRATAMENTO É DIFERENTE
-                            file = fileUrl.substring(fileUrl.lastIndexOf('/') + 1, fileUrl.indexOf('?'));
-                        }
-                        path = fileUrl.substring(0, fileUrl.lastIndexOf('/'));
-                        return [4 /*yield*/, this.file.readAsArrayBuffer(path, file)];
-                    case 3:
-                        buffer = _a.sent();
-                        this.blob = new Blob([buffer], { type: 'image/jpg' });
-                        this.storageService
-                            .uploadImagemEmergenciaCadastro(this.todas.idAlternativo, this.blob)
-                            .subscribe(function (res) {
-                            _this.todas.foto = res;
-                        });
-                        return [3 /*break*/, 5];
-                    case 4:
-                        error_1 = _a.sent();
-                        return [3 /*break*/, 5];
-                    case 5: return [2 /*return*/];
-                }
+                return [2 /*return*/];
             });
         });
     };
@@ -312,6 +272,85 @@ var EmergenciaCadastroService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
     ], EmergenciaCadastroService);
     return EmergenciaCadastroService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/storage/storage.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/services/storage/storage.service.ts ***!
+  \*****************************************************/
+/*! exports provided: StorageService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StorageService", function() { return StorageService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_fire_storage_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/storage/storage */ "./node_modules/@angular/fire/storage/storage.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+ //Ver se n vai dar pau aqui
+
+var StorageService = /** @class */ (function () {
+    function StorageService(afs, alertController) {
+        this.afs = afs;
+        this.alertController = alertController;
+        //Mudar para o genérico
+    }
+    StorageService.prototype.presentAlert = function (msg) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var alert;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.alertController.create({
+                            header: 'Alert',
+                            subHeader: 'Subtitle',
+                            message: msg,
+                            buttons: ['OK']
+                        })];
+                    case 1:
+                        alert = _a.sent();
+                        return [4 /*yield*/, alert.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    StorageService.prototype.uploadImagemUsuario = function (uidUsuarioCadastro, photo) {
+        var ref = this.afs.ref('UsuarioCadastro/' + uidUsuarioCadastro);
+        ref.putString(photo, 'data_url');
+        return ref.getDownloadURL();
+    };
+    StorageService.prototype.uploadImagemAssistenteCadastro = function (idAssistenteCadastro, photo) {
+        console.log(photo);
+        var ref = this.afs.ref('AssistenteCadastro/' + idAssistenteCadastro);
+        ref.putString(photo, 'data_url');
+        return ref.getDownloadURL();
+    };
+    StorageService.prototype.uploadImagemEmergenciaCadastro = function (idEmergenciaCadastro, photo) {
+        console.log(photo);
+        var ref = this.afs.ref('EmergenciaCadastro/' + idEmergenciaCadastro);
+        ref.putString(photo, 'data_url');
+        return ref.getDownloadURL();
+    };
+    StorageService.ctorParameters = function () { return [
+        { type: _angular_fire_storage_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"] }
+    ]; };
+    StorageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_storage_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]])
+    ], StorageService);
+    return StorageService;
 }());
 
 

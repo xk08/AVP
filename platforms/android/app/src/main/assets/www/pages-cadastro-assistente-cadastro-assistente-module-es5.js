@@ -80,10 +80,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/assistenteCadastro/assistente-cadastro.service */ "./src/app/services/assistenteCadastro/assistente-cadastro.service.ts");
 /* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
-/* harmony import */ var src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/storage/storage.service */ "./src/app/services/storage/storage.service.ts");
-/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/overlay.service */ "./src/app/core/overlay.service.ts");
 
 
 
@@ -93,23 +91,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var CadastroAssistentePage = /** @class */ (function () {
-    function CadastroAssistentePage(route, loadingController, assistenteCadastroService, navCtrl, camera, platform, file, storageService) {
+    function CadastroAssistentePage(route, loadingController, assistenteCadastroService, navCtrl, camera, overlay
+    // private core: Core
+    ) {
         this.route = route;
         this.loadingController = loadingController;
         this.assistenteCadastroService = assistenteCadastroService;
         this.navCtrl = navCtrl;
         this.camera = camera;
-        this.platform = platform;
-        this.file = file;
-        this.storageService = storageService;
+        this.overlay = overlay;
         this.todas = {
-            //os dados que estão sendo mantidos
             apelido: '',
             icone: ''
         };
+        this.photo = '';
     }
     CadastroAssistentePage.prototype.ngOnInit = function () {
-        this.idAssistenteCadastro = this.route.snapshot.params['apelido']; // Why ?
+        this.idAssistenteCadastro = this.route.snapshot.params['id'];
         if (this.idAssistenteCadastro) {
             this.loadTodo();
         }
@@ -121,7 +119,7 @@ var CadastroAssistentePage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.loadingController.create({
-                            message: 'Carregando Categoria...'
+                            message: 'Carregando Dados do Assistente...'
                         })];
                     case 1:
                         loading = _a.sent();
@@ -144,7 +142,7 @@ var CadastroAssistentePage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.loadingController.create({
-                            message: 'Salvando os Dados do Assistente'
+                            message: 'Salvando dados cadastrados do assistente...'
                         })];
                     case 1:
                         loading = _a.sent();
@@ -152,14 +150,19 @@ var CadastroAssistentePage = /** @class */ (function () {
                     case 2:
                         _a.sent();
                         if (this.idAssistenteCadastro) {
-                            /* TESTA SE JA EXISTE, ENTÃO FAZ UPDATE */
+                            if (this.photo != '') {
+                                this.todas.icone = this.photo;
+                            }
+                            console.log(this.photo);
                             this.assistenteCadastroService.updateTodo(this.todas, this.idAssistenteCadastro).then(function () {
                                 loading.dismiss();
                                 _this.navCtrl.navigateBack('/menu/home');
                             });
                         }
                         else {
-                            /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
+                            if (this.photo != '') {
+                                this.todas.icone = this.photo;
+                            }
                             this.assistenteCadastroService.addTodo(this.todas).then(function () {
                                 loading.dismiss();
                                 _this.navCtrl.navigateBack('/menu/home');
@@ -172,48 +175,34 @@ var CadastroAssistentePage = /** @class */ (function () {
     };
     CadastroAssistentePage.prototype.abrirGaleria = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var opcao, fileUrl, file, path, buffer, error_1;
+            var opcao;
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        opcao = {
-                            quality: 30,
-                            destinationType: this.camera.DestinationType.FILE_URI,
-                            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-                            correctOrientation: true
-                        };
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 4, , 5]);
-                        return [4 /*yield*/, this.camera.getPicture(opcao)];
-                    case 2:
-                        fileUrl = _a.sent();
-                        file = void 0;
-                        if (this.platform.is('ios')) {
-                            //IOS RETORNA IMG_23456789.jpg
-                            file = fileUrl.split('/').pop();
-                        }
-                        else {
-                            //ANDROID RETORNA IMG_23456.jpg?23456789 SENDO ASSIM O TRATAMENTO É DIFERENTE
-                            file = fileUrl.substring(fileUrl.lastIndexOf('/') + 1, fileUrl.indexOf('?'));
-                        }
-                        path = fileUrl.substring(0, fileUrl.lastIndexOf('/'));
-                        return [4 /*yield*/, this.file.readAsArrayBuffer(path, file)];
-                    case 3:
-                        buffer = _a.sent();
-                        this.blob = new Blob([buffer], { type: 'image/jpg' });
-                        this.storageService
-                            .uploadImagemAssistenteCadastro(this.todas.apelido, this.blob)
-                            .subscribe(function (res) {
-                            _this.todas.icone = res;
-                        });
-                        return [3 /*break*/, 5];
-                    case 4:
-                        error_1 = _a.sent();
-                        return [3 /*break*/, 5];
-                    case 5: return [2 /*return*/];
+                opcao = {
+                    quality: 100,
+                    destinationType: this.camera.DestinationType.DATA_URL,
+                    encodingType: this.camera.EncodingType.JPEG,
+                    sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                    //mediaType: this.camera.MediaType.PICTURE,
+                    allowEdit: true,
+                    targetWidth: 300,
+                    targetHeight: 300,
+                    correctOrientation: true
+                };
+                try {
+                    this.camera.getPicture(opcao).then(function (imageData) {
+                        // imageData is either a base64 encoded string or a file URI
+                        // If it's base64 (DATA_URL):
+                        var base64Image = 'data:image/jpeg;base64,' + imageData;
+                        _this.photo = base64Image;
+                    }, function (err) {
+                        // Handle error
+                    });
                 }
+                catch (error) {
+                    this.overlay.alert(error);
+                }
+                return [2 /*return*/];
             });
         });
     };
@@ -223,13 +212,11 @@ var CadastroAssistentePage = /** @class */ (function () {
         { type: src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_4__["AssistenteCadastroService"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
         { type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_5__["Camera"] },
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"] },
-        { type: _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__["File"] },
-        { type: src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__["StorageService"] }
+        { type: src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_7__["OverlayService"] }
     ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('form', null),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_8__["NgForm"])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgForm"])
     ], CadastroAssistentePage.prototype, "form", void 0);
     CadastroAssistentePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -242,9 +229,9 @@ var CadastroAssistentePage = /** @class */ (function () {
             src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_4__["AssistenteCadastroService"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
             _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_5__["Camera"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"],
-            _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__["File"],
-            src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__["StorageService"]])
+            src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_7__["OverlayService"]
+            // private core: Core
+        ])
     ], CadastroAssistentePage);
     return CadastroAssistentePage;
 }());

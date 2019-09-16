@@ -10,7 +10,6 @@
 var map = {
 	"../emergencia-cadastro/emergencia-cadastro.module": [
 		"./src/app/pages/emergencia-cadastro/emergencia-cadastro.module.ts",
-		"common",
 		"emergencia-cadastro-emergencia-cadastro-module"
 	],
 	"../emergencia-utilizacao/emergencia-utilizacao.module": [
@@ -23,7 +22,6 @@ var map = {
 	],
 	"./pages/cadastro-assistente/cadastro-assistente.module": [
 		"./src/app/pages/cadastro-assistente/cadastro-assistente.module.ts",
-		"common",
 		"pages-cadastro-assistente-cadastro-assistente-module"
 	],
 	"./pages/emergencia/emergencia.module": [

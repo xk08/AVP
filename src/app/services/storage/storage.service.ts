@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/storage/storage';
+import { AngularFireStorage } from '@angular/fire/storage/storage'; //Ver se n vai dar pau aqui
 import { AlertController } from '@ionic/angular';
 
 @Injectable({
@@ -29,17 +29,18 @@ export class StorageService {
     return ref.getDownloadURL();
   }
 
-  //Ver se esse aqui ta funcionando
-  uploadImagemAssistenteCadastro(idAssistenteCadastro: string, blob: Blob) {
-    const ref = this.afs.ref('AssistenteCadastro/' + idAssistenteCadastro + '.jpg');
-    const task = ref.put(blob);
-    return ref.getDownloadURL();
+  uploadImagemAssistenteCadastro(idAssistenteCadastro: string, photo: string){
+    console.log(photo);
+    const ref = this.afs.ref('AssistenteCadastro/'+ idAssistenteCadastro);
+    ref.putString(photo, 'data_url');
+    return ref.getDownloadURL() ;
   }
- 
-  uploadImagemEmergenciaCadastro(idEmergenciaCadastro: string, blob: Blob) {
-    const ref = this.afs.ref('EmergenciaCadastro/' + idEmergenciaCadastro + '.jpg');
-    const task = ref.put(blob);
-    return ref.getDownloadURL();
+
+  uploadImagemEmergenciaCadastro(idEmergenciaCadastro: string, photo: string){
+    console.log(photo);
+    const ref = this.afs.ref('EmergenciaCadastro/'+ idEmergenciaCadastro);
+    ref.putString(photo, 'data_url');
+    return ref.getDownloadURL() ; 
   }
 
 }
