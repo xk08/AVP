@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n\r\n  <ion-label>Teste</ion-label>\r\n\r\n</ion-content>\r\n"
+module.exports = "<ion-content>\n\n  <ion-label>Teste</ion-label>\n\n</ion-content>\n"
 
 /***/ }),
 

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar color=\"secondary\">\r\n\r\n    <ion-buttons>\r\n      <ion-menu-button autoHide=\"true\"></ion-menu-button>\r\n      <ion-button\r\n        shape=\"round\"\r\n        fill=\"outline\"\r\n        (click)=\"direcionaPraTela()\"\r\n      >\r\n        Quero Conversar\r\n      </ion-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-fab\r\n  vertical=\"bottom\"\r\n  horizontal=\"end\"\r\n  slot=\"fixed\"\r\n>\r\n  <ion-fab-button\r\n    routerLink=\"/emergencia\"\r\n    routerDirection=\"forward\"\r\n  >\r\n    S.O.S\r\n  </ion-fab-button>\r\n</ion-fab>\r\n\r\n<ion-content></ion-content>\r\n"
+module.exports = "<ion-header>\n  <ion-toolbar color=\"secondary\">\n\n    <ion-buttons>\n      <ion-menu-button autoHide=\"true\"></ion-menu-button>\n      <ion-button\n        shape=\"round\"\n        fill=\"outline\"\n        (click)=\"direcionaPraTela()\"\n      >\n        Quero Conversar\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-fab\n  vertical=\"bottom\"\n  horizontal=\"end\"\n  slot=\"fixed\"\n>\n  <ion-fab-button\n    routerLink=\"/emergencia\"\n    routerDirection=\"forward\"\n  >\n    S.O.S\n  </ion-fab-button>\n</ion-fab>\n\n<ion-content></ion-content>\n"
 
 /***/ }),
 

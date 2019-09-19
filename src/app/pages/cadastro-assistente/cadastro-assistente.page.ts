@@ -1,11 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AssistenteCadastro } from 'src/app/services/assistenteCadastro/assistenteCadastro';
 import { ActivatedRoute } from '@angular/router';
-import { LoadingController, NavController, Platform } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 import { AssistenteCadastroService } from 'src/app/services/assistenteCadastro/assistente-cadastro.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { StorageService } from 'src/app/services/storage/storage.service';
-import { File } from '@ionic-native/file/ngx';
 import { NgForm } from '@angular/forms';
 import { OverlayService } from 'src/app/core/overlay.service';
 
@@ -15,29 +13,28 @@ import { OverlayService } from 'src/app/core/overlay.service';
   styleUrls: ['./cadastro-assistente.page.scss']
 })
 export class CadastroAssistentePage implements OnInit {
-
   @ViewChild('form', null) form: NgForm;
   public todas: AssistenteCadastro = {
+    id: '',
     apelido: '',
     icone: ''
   };
   public photo: string = '';
   private idAssistenteCadastro: string;
-  
 
-  constructor(private route: ActivatedRoute, 
-              private loadingController: LoadingController, 
-              private assistenteCadastroService: AssistenteCadastroService,
-              private navCtrl: NavController,
-              private camera: Camera,
-              private overlay: OverlayService
-             // private core: Core
-             )
-             { }
+  constructor(
+    private route: ActivatedRoute,
+    private loadingController: LoadingController,
+    private assistenteCadastroService: AssistenteCadastroService,
+    private navCtrl: NavController,
+    private camera: Camera,
+    private overlay: OverlayService
+  ) {}
 
   ngOnInit() {
     this.idAssistenteCadastro = this.route.snapshot.params['id'];
-    if (this.idAssistenteCadastro)  {
+
+    if (this.idAssistenteCadastro) {
       this.loadTodo();
     }
   }
@@ -47,19 +44,19 @@ export class CadastroAssistentePage implements OnInit {
       message: 'Carregando Dados do Assistente...'
     });
     await loading.present();
- 
+
     this.assistenteCadastroService.getTodo(this.idAssistenteCadastro).subscribe(res => {
       loading.dismiss();
       this.todas = res;
     });
   }
- 
+
   async saveTodo() {
     const loading = await this.loadingController.create({
       message: 'Salvando dados cadastrados do assistente...'
     });
     await loading.present();
- 
+
     if (this.idAssistenteCadastro) {
       if (this.photo != '') {
         this.todas.icone = this.photo;
@@ -80,7 +77,7 @@ export class CadastroAssistentePage implements OnInit {
     }
   }
 
-  async abrirGaleria(){
+  async abrirGaleria() {
     const opcao: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -94,18 +91,19 @@ export class CadastroAssistentePage implements OnInit {
     };
 
     try {
-      this.camera.getPicture(opcao).then((imageData) => {
-        // imageData is either a base64 encoded string or a file URI
-        // If it's base64 (DATA_URL):
-        let base64Image = 'data:image/jpeg;base64,' + imageData;
-        this.photo = base64Image;
-       }, (err) => {
-        // Handle error
-       });
-
+      this.camera.getPicture(opcao).then(
+        imageData => {
+          // imageData is either a base64 encoded string or a file URI
+          // If it's base64 (DATA_URL):
+          let base64Image = 'data:image/jpeg;base64,' + imageData;
+          this.photo = base64Image;
+        },
+        err => {
+          // Handle error
+        }
+      );
     } catch (error) {
       this.overlay.alert(error);
     }
   }
-
 }
