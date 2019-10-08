@@ -83,6 +83,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/storage/storage.service */ "./src/app/services/storage/storage.service.ts");
 /* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
 /* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+/* harmony import */ var src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/overlay.service */ "./src/app/core/overlay.service.ts");
+
 
 
 
@@ -93,7 +95,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var EmergenciaCadastroPage = /** @class */ (function () {
-    function EmergenciaCadastroPage(route, loadingController, emergenciaCadastroService, navCtrl, camera, platform, file, storageService) {
+    function EmergenciaCadastroPage(route, loadingController, emergenciaCadastroService, navCtrl, camera, platform, file, storageService, overlay) {
         this.route = route;
         this.loadingController = loadingController;
         this.emergenciaCadastroService = emergenciaCadastroService;
@@ -102,6 +104,7 @@ var EmergenciaCadastroPage = /** @class */ (function () {
         this.platform = platform;
         this.file = file;
         this.storageService = storageService;
+        this.overlay = overlay;
         this.todas = {
             //os dados que estão sendo mantidos
             idAlternativo: '',
@@ -110,6 +113,7 @@ var EmergenciaCadastroPage = /** @class */ (function () {
             segundoNumero: '',
             frase: ''
         };
+        this.photo = '';
     }
     EmergenciaCadastroPage.prototype.ngOnInit = function () {
         this.idEmergenciaCadastro = this.route.snapshot.params['idAlternativo']; // Why ?
@@ -155,6 +159,9 @@ var EmergenciaCadastroPage = /** @class */ (function () {
                     case 2:
                         _a.sent();
                         if (this.idEmergenciaCadastro) {
+                            if (this.photo != '') {
+                                this.todas.foto = this.photo;
+                            }
                             /* TESTA SE JA EXISTE, ENTÃO FAZ UPDATE */
                             this.emergenciaCadastroService.updateTodo(this.todas, this.idEmergenciaCadastro).then(function () {
                                 loading.dismiss();
@@ -163,6 +170,9 @@ var EmergenciaCadastroPage = /** @class */ (function () {
                             });
                         }
                         else {
+                            if (this.photo != '') {
+                                this.todas.foto = this.photo;
+                            }
                             /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
                             this.emergenciaCadastroService.addTodo(this.todas).then(function () {
                                 loading.dismiss();
@@ -177,7 +187,33 @@ var EmergenciaCadastroPage = /** @class */ (function () {
     };
     EmergenciaCadastroPage.prototype.abrirGaleria = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var opcao;
+            var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                opcao = {
+                    quality: 100,
+                    destinationType: this.camera.DestinationType.DATA_URL,
+                    encodingType: this.camera.EncodingType.JPEG,
+                    sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                    //mediaType: this.camera.MediaType.PICTURE,
+                    allowEdit: true,
+                    targetWidth: 300,
+                    targetHeight: 300,
+                    correctOrientation: true
+                };
+                try {
+                    this.camera.getPicture(opcao).then(function (imageData) {
+                        // imageData is either a base64 encoded string or a file URI
+                        // If it's base64 (DATA_URL):
+                        var base64Image = 'data:image/jpeg;base64,' + imageData;
+                        _this.photo = base64Image;
+                    }, function (err) {
+                        // Handle error
+                    });
+                }
+                catch (error) {
+                    this.overlay.alert(error);
+                }
                 return [2 /*return*/];
             });
         });
@@ -190,7 +226,8 @@ var EmergenciaCadastroPage = /** @class */ (function () {
         { type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_8__["Camera"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"] },
         { type: _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__["File"] },
-        { type: src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__["StorageService"] }
+        { type: src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__["StorageService"] },
+        { type: src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_9__["OverlayService"] }
     ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('form', null),
@@ -209,7 +246,8 @@ var EmergenciaCadastroPage = /** @class */ (function () {
             _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_8__["Camera"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"],
             _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__["File"],
-            src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__["StorageService"]])
+            src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__["StorageService"],
+            src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_9__["OverlayService"]])
     ], EmergenciaCadastroPage);
     return EmergenciaCadastroPage;
 }());

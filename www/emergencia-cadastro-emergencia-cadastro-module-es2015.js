@@ -161,6 +161,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/storage/storage.service */ "./src/app/services/storage/storage.service.ts");
 /* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
 /* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+/* harmony import */ var src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/overlay.service */ "./src/app/core/overlay.service.ts");
+
 
 
 
@@ -171,7 +173,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let EmergenciaCadastroPage = class EmergenciaCadastroPage {
-    constructor(route, loadingController, emergenciaCadastroService, navCtrl, camera, platform, file, storageService) {
+    constructor(route, loadingController, emergenciaCadastroService, navCtrl, camera, platform, file, storageService, overlay) {
         this.route = route;
         this.loadingController = loadingController;
         this.emergenciaCadastroService = emergenciaCadastroService;
@@ -180,6 +182,7 @@ let EmergenciaCadastroPage = class EmergenciaCadastroPage {
         this.platform = platform;
         this.file = file;
         this.storageService = storageService;
+        this.overlay = overlay;
         this.todas = {
             //os dados que estão sendo mantidos
             idAlternativo: '',
@@ -188,6 +191,7 @@ let EmergenciaCadastroPage = class EmergenciaCadastroPage {
             segundoNumero: '',
             frase: ''
         };
+        this.photo = '';
     }
     ngOnInit() {
         this.idEmergenciaCadastro = this.route.snapshot.params['idAlternativo']; // Why ?
@@ -214,6 +218,9 @@ let EmergenciaCadastroPage = class EmergenciaCadastroPage {
             });
             yield loading.present();
             if (this.idEmergenciaCadastro) {
+                if (this.photo != '') {
+                    this.todas.foto = this.photo;
+                }
                 /* TESTA SE JA EXISTE, ENTÃO FAZ UPDATE */
                 this.emergenciaCadastroService.updateTodo(this.todas, this.idEmergenciaCadastro).then(() => {
                     loading.dismiss();
@@ -222,6 +229,9 @@ let EmergenciaCadastroPage = class EmergenciaCadastroPage {
                 });
             }
             else {
+                if (this.photo != '') {
+                    this.todas.foto = this.photo;
+                }
                 /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
                 this.emergenciaCadastroService.addTodo(this.todas).then(() => {
                     loading.dismiss();
@@ -233,6 +243,30 @@ let EmergenciaCadastroPage = class EmergenciaCadastroPage {
     }
     abrirGaleria() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const opcao = {
+                quality: 100,
+                destinationType: this.camera.DestinationType.DATA_URL,
+                encodingType: this.camera.EncodingType.JPEG,
+                sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                //mediaType: this.camera.MediaType.PICTURE,
+                allowEdit: true,
+                targetWidth: 300,
+                targetHeight: 300,
+                correctOrientation: true
+            };
+            try {
+                this.camera.getPicture(opcao).then(imageData => {
+                    // imageData is either a base64 encoded string or a file URI
+                    // If it's base64 (DATA_URL):
+                    let base64Image = 'data:image/jpeg;base64,' + imageData;
+                    this.photo = base64Image;
+                }, err => {
+                    // Handle error
+                });
+            }
+            catch (error) {
+                this.overlay.alert(error);
+            }
         });
     }
 };
@@ -244,7 +278,8 @@ EmergenciaCadastroPage.ctorParameters = () => [
     { type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_8__["Camera"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"] },
     { type: _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__["File"] },
-    { type: src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__["StorageService"] }
+    { type: src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__["StorageService"] },
+    { type: src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_9__["OverlayService"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('form', null),
@@ -263,7 +298,8 @@ EmergenciaCadastroPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_8__["Camera"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"],
         _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__["File"],
-        src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__["StorageService"]])
+        src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__["StorageService"],
+        src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_9__["OverlayService"]])
 ], EmergenciaCadastroPage);
 
 

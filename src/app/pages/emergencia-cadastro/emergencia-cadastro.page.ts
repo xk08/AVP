@@ -7,6 +7,7 @@ import { EmergenciaCadastroService } from 'src/app/services/emergenciaCadastro/e
 import { StorageService } from 'src/app/services/storage/storage.service';
 import { File } from '@ionic-native/file/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { OverlayService } from 'src/app/core/overlay.service';
 
 @Component({
   selector: 'app-emergencia-cadastro',
@@ -25,6 +26,7 @@ export class EmergenciaCadastroPage implements OnInit {
     frase: ''
   };
   private blob: Blob;
+  public photo: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -34,7 +36,8 @@ export class EmergenciaCadastroPage implements OnInit {
     private camera: Camera,
     private platform: Platform,
     private file: File,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private overlay: OverlayService
   ) {}
 
   ngOnInit() {
@@ -63,6 +66,9 @@ export class EmergenciaCadastroPage implements OnInit {
     await loading.present();
 
     if (this.idEmergenciaCadastro) {
+      if (this.photo != '') {
+        this.todas.foto = this.photo;
+      }
       /* TESTA SE JA EXISTE, ENTÃO FAZ UPDATE */
       this.emergenciaCadastroService.updateTodo(this.todas, this.idEmergenciaCadastro).then(() => {
         loading.dismiss();
@@ -70,6 +76,9 @@ export class EmergenciaCadastroPage implements OnInit {
         console.log('Até aqui ta indo, salvo com sucesso');
       });
     } else {
+      if (this.photo != '') {
+        this.todas.foto = this.photo;
+      }
       /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
       this.emergenciaCadastroService.addTodo(this.todas).then(() => {
         loading.dismiss();
@@ -80,6 +89,32 @@ export class EmergenciaCadastroPage implements OnInit {
   }
 
   async abrirGaleria() {
-   
+    const opcao: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      //mediaType: this.camera.MediaType.PICTURE,
+      allowEdit: true,
+      targetWidth: 300,
+      targetHeight: 300,
+      correctOrientation: true
+    };
+
+    try {
+      this.camera.getPicture(opcao).then(
+        imageData => {
+          // imageData is either a base64 encoded string or a file URI
+          // If it's base64 (DATA_URL):
+          let base64Image = 'data:image/jpeg;base64,' + imageData;
+          this.photo = base64Image;
+        },
+        err => {
+          // Handle error
+        }
+      );
+    } catch (error) {
+      this.overlay.alert(error);
+    }
   }
 }

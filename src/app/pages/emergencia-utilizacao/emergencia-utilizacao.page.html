@@ -1,5 +1,28 @@
 <ion-content>
+  <ion-grid>
+    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
+    <ion-row justify-content-center>
+      <!-- Deixa responsivo -->
+      <ion-col
+        size-sm="8"
+        size-md="12"
+        size-lg="3"
+        size-xl="3"
+      >
 
-  <ion-label>Teste</ion-label>
+        <form #form="ngForm">
+
+          <ion-text text-align="justify-content-center">Número de pessoas proximas a você</ion-text>
+
+          <!-- PRIMEIRO NÚMERO -->
+
+          <ion-title>
+            <ion-label>Foto que você gosta e admira</ion-label>
+          </ion-title>
+
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
