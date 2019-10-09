@@ -10,10 +10,12 @@
 var map = {
 	"../emergencia-cadastro/emergencia-cadastro.module": [
 		"./src/app/pages/emergencia-cadastro/emergencia-cadastro.module.ts",
+		"common",
 		"emergencia-cadastro-emergencia-cadastro-module"
 	],
 	"../emergencia-utilizacao/emergencia-utilizacao.module": [
 		"./src/app/pages/emergencia-utilizacao/emergencia-utilizacao.module.ts",
+		"common",
 		"emergencia-utilizacao-emergencia-utilizacao-module"
 	],
 	"../home/home.module": [
