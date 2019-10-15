@@ -38,7 +38,6 @@ export class ProfissionalCadastroPage implements OnInit {
 
     //APÓS DADOS CADASTRADOS, ENVIA O USUARIO PARA O INICIO DA APLICAÇÃO
     this.navCtrl.navigateBack('login');
-    console.log('Usuário Profissional foi cadastrado com sucesso !');
   }
 
   //REFERÊNCIA A CLASS USUARIO
@@ -52,6 +51,6 @@ export class ProfissionalCadastroPage implements OnInit {
     email: '',
     senha: '',
     isAdmin: false,
-    isProfissional: false
+    isProfissional: true
   };
 }

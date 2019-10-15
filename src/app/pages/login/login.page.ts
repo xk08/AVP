@@ -38,11 +38,12 @@ export class LoginPage {
   }
 
   signIn() {
+    // achar aqui uma maneira de redirecinar
     if (this.form.form.valid) {
       this.authService
         .signIn(this.user)
         .then(() => {
-          this.router.navigate(['assistente/cadastro']);
+          this.router.navigate(['assistente/cadastro']); //Direciona após logado
         })
         .catch((error: any) => {
           if (error.code == 'auth/invalid-email') {

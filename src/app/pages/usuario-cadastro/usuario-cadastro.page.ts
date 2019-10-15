@@ -42,7 +42,6 @@ export class UsuarioCadastroPage implements OnInit {
 
   async cadastroProfissional() {
     this.navCtrl.navigateBack('profissional/cadastro');
-    console.log('Redirecionadopara profissional da saúde');
   }
 
   //REFERÊNCIA A CLASS USUARIO

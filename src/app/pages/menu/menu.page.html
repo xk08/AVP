@@ -16,8 +16,9 @@
             <ion-avatar>
               <img src="{{ foto }}">
             </ion-avatar>
-            <ion-label>Olá, {{ nome }}</ion-label>
-            <!-- mudar para o assistente, DPS -->
+
+            <ion-label *ngFor="let v of listAC">Olá, {{ v.apelido }}</ion-label>
+            <!-- mudar para o assistente, DPS  pega expecidfico -->
           </ion-chip>
         </ion-item>
         <ion-list>
@@ -33,6 +34,9 @@
               <ion-label>{{p.title}}</ion-label>
             </ion-item>
           </ion-menu-toggle>
+
+          <!-- Menus dos ADMS -->
+
           <ion-list *ngIf="isAdmin">
             <ion-menu-toggle
               autoHide="false"
@@ -47,6 +51,24 @@
               </ion-item>
             </ion-menu-toggle>
           </ion-list>
+
+          <!-- Menus dos profissionais -->
+
+          <ion-list *ngIf="isProfissional">
+            <ion-menu-toggle
+              autoHide="false"
+              *ngFor="let pagina of paginasProfissional; let i = index"
+            >
+              <ion-item [routerLink]="pagina.url">
+                <ion-icon
+                  slot="start"
+                  [name]="pagina.icon"
+                ></ion-icon>
+                <ion-label>{{pagina.title}}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+
           <ion-menu-toggle autoHide="false">
             <ion-item
               button
