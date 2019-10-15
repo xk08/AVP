@@ -2,5 +2,5 @@
 export class QueroConversar {
   id?: string;
   textoLivre: string;
-  avaliacao?: string;
+  avaliacao?: number;
 }
