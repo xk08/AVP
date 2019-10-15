@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ajude as pessoas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+
+      <ion-tab-button
+        tab="profissional-conteudo-texto"
+        (click)="profissionalConteudoTexto()"
+      >
+        <ion-icon name="moon"></ion-icon>
+        <ion-label>Texto</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button
+        tab="profissional-conteudo-imagem"
+        (click)="profissionalConteudoImagem()"
+      >
+        <ion-icon name="sunny"></ion-icon>
+        <ion-label>Imagem</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button
+        tab="profissional-conteudo-video"
+        (click)="profissionalConteudoVideo()"
+      >
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Video</ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+
+</ion-content>

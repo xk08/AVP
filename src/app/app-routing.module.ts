@@ -42,6 +42,13 @@ const routes: Routes = [
     path: 'quero-conversar',
     loadChildren: './pages/quero-conversar/quero-conversar.module#QueroConversarPageModule',
     canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'profissional-conteudo',
+    loadChildren:
+      './pages/profissional-conteudo/profissional-conteudo.module#ProfissionalConteudoPageModule',
+    canActivate: [AuthGuard]
   }
 ];
 
