@@ -22,8 +22,21 @@ var map = {
 		"./src/app/pages/home/home.module.ts",
 		"home-home-module"
 	],
+	"../profissional-conteudo-imagem/profissional-conteudo-imagem.module": [
+		"./src/app/pages/profissional-conteudo-imagem/profissional-conteudo-imagem.module.ts",
+		"profissional-conteudo-imagem-profissional-conteudo-imagem-module"
+	],
+	"../profissional-conteudo-texto/profissional-conteudo-texto.module": [
+		"./src/app/pages/profissional-conteudo-texto/profissional-conteudo-texto.module.ts",
+		"profissional-conteudo-texto-profissional-conteudo-texto-module"
+	],
+	"../profissional-conteudo-video/profissional-conteudo-video.module": [
+		"./src/app/pages/profissional-conteudo-video/profissional-conteudo-video.module.ts",
+		"profissional-conteudo-video-profissional-conteudo-video-module"
+	],
 	"./pages/cadastro-assistente/cadastro-assistente.module": [
 		"./src/app/pages/cadastro-assistente/cadastro-assistente.module.ts",
+		"common",
 		"pages-cadastro-assistente-cadastro-assistente-module"
 	],
 	"./pages/emergencia/emergencia.module": [
@@ -37,12 +50,17 @@ var map = {
 	"./pages/menu/menu.module": [
 		"./src/app/pages/menu/menu.module.ts",
 		"default~pages-menu-menu-module~pages-profissional-cadastro-profissional-cadastro-module~pages-usuari~4f739784",
+		"common",
 		"pages-menu-menu-module"
 	],
 	"./pages/profissional-cadastro/profissional-cadastro.module": [
 		"./src/app/pages/profissional-cadastro/profissional-cadastro.module.ts",
 		"default~pages-menu-menu-module~pages-profissional-cadastro-profissional-cadastro-module~pages-usuari~4f739784",
 		"pages-profissional-cadastro-profissional-cadastro-module"
+	],
+	"./pages/profissional-conteudo/profissional-conteudo.module": [
+		"./src/app/pages/profissional-conteudo/profissional-conteudo.module.ts",
+		"pages-profissional-conteudo-profissional-conteudo-module"
 	],
 	"./pages/quero-conversar/quero-conversar.module": [
 		"./src/app/pages/quero-conversar/quero-conversar.module.ts",
@@ -498,7 +516,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n"
+module.exports = "<ion-app>\r\n  <ion-router-outlet></ion-router-outlet>\r\n</ion-app>\r\n"
 
 /***/ }),
 
@@ -557,6 +575,11 @@ const routes = [
     {
         path: 'quero-conversar',
         loadChildren: './pages/quero-conversar/quero-conversar.module#QueroConversarPageModule',
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+    },
+    {
+        path: 'profissional-conteudo',
+        loadChildren: './pages/profissional-conteudo/profissional-conteudo.module#ProfissionalConteudoPageModule',
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
     }
 ];

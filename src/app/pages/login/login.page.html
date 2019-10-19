@@ -8,15 +8,17 @@
         size-lg="3"
         size-xl="3"
       >
-        <ion-item>
-          <img
-            style="width: auto; height: auto"
-            src="../../../assets/img/avp.png"
-          >
-        </ion-item>
+     <!-- arrumar essas pohha de padding -->
 
-        <form #form="ngForm">
-          <ion-item>
+      <div class="ion-text-cent">
+        <ion-col size="12" size-sm="6">
+          <img width = "240px" height = "180px" src="../../../assets/img/avp.png">
+        </ion-col>
+
+      </div>
+      
+      <form #form="ngForm">
+        <ion-item>
             <ion-icon
               name="mail"
               color="primary"
@@ -47,24 +49,28 @@
               required
             ></ion-input>
           </ion-item>
-
-          <ion-button
-            expand="block"
-            type="submit"
-            class="login-button"
-            (click)="signIn()"
-          >
-            Acessar
-          </ion-button>
         </form>
 
-        <ion-button
-          expand="block"
-          fill="clear"
-          (click)="createAccount()"
-        >
-          Participar
-        </ion-button>
+        <ion-content>
+    <ion-button
+    expand="block"
+    type="submit"
+    class="login-button"
+    (click)="signIn()"
+  >
+    Acessar
+  </ion-button>
+
+<ion-button
+  expand="block"
+  fill="clear"
+  (click)="createAccount()"
+>
+  Participar
+</ion-button>
+
+</ion-content>
+          
 
       </ion-col>
     </ion-row>

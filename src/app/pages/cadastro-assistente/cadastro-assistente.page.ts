@@ -34,7 +34,7 @@ export class CadastroAssistentePage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.idAssistenteCadastro = this.auth.auth.currentUser.uid ; 
+    this.idAssistenteCadastro = this.route.snapshot.params['id'];
 
     if (this.idAssistenteCadastro) {
       this.loadTodo();

@@ -776,6 +776,65 @@ const findCheckedOption = (el, tagName) => {
 
 /***/ }),
 
+/***/ "./src/app/services/assistenteCadastro/assistente-cadastro.service.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/services/assistenteCadastro/assistente-cadastro.service.ts ***!
+  \****************************************************************************/
+/*! exports provided: AssistenteCadastroService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AssistenteCadastroService", function() { return AssistenteCadastroService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+let AssistenteCadastroService = class AssistenteCadastroService {
+    constructor(db) {
+        this.todosCollection = db.collection('AssistenteCadastro');
+    }
+    getTodos() {
+        return this.todosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+            return actions.map(a => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return Object.assign({ id }, data);
+            });
+        }));
+    }
+    getTodo(id) {
+        return this.todosCollection.doc(id).valueChanges();
+    }
+    updateTodo(toda, id) {
+        return this.todosCollection.doc(id).update(toda);
+    }
+    addTodo(toda) {
+        return this.todosCollection.add(toda);
+    }
+    removeTodo(id) {
+        return this.todosCollection.doc(id).delete();
+    }
+};
+AssistenteCadastroService.ctorParameters = () => [
+    { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] }
+];
+AssistenteCadastroService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
+], AssistenteCadastroService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/emergenciaCadastro/emergencia-cadastro.service.ts":
 /*!****************************************************************************!*\
   !*** ./src/app/services/emergenciaCadastro/emergencia-cadastro.service.ts ***!
