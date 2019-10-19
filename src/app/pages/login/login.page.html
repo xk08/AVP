@@ -10,18 +10,18 @@
       >
      <!-- arrumar essas pohha de padding -->
 
-      <div class="ion-text-cent">
-        <ion-col size="12" size-sm="6">
-          <img width = "240px" height = "180px" src="../../../assets/img/avp.png">
-        </ion-col>
+      
+    <h1 style=text-align:center>
+      <img src="../../../assets/img/avp.png" width="180px" height="160px">
+    </h1>
+        
 
-      </div>
       
       <form #form="ngForm">
         <ion-item>
-            <ion-icon
+            <ion-icon 
+              id="corRoxa"
               name="mail"
-              color="primary"
               slot="start"
             ></ion-icon>
             <ion-input
@@ -37,8 +37,8 @@
 
           <ion-item>
             <ion-icon
+              id="corRoxa"
               name="lock"
-              color="primary"
               slot="start"
             ></ion-icon>
             <ion-input
@@ -55,8 +55,10 @@
     <ion-button
     expand="block"
     type="submit"
-    class="login-button"
+    color="secondary"
     (click)="signIn()"
+    
+
   >
     Acessar
   </ion-button>
