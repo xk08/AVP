@@ -8,6 +8,7 @@ import { StorageService } from 'src/app/services/storage/storage.service';
 import { File } from '@ionic-native/file/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { OverlayService } from 'src/app/core/overlay.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-emergencia-cadastro',
@@ -17,9 +18,10 @@ import { OverlayService } from 'src/app/core/overlay.service';
 export class EmergenciaCadastroPage implements OnInit {
   @ViewChild('form', null) form: NgForm;
   public idEmergenciaCadastro: string;
+  public idUsuario: string ; 
   public todas: EmergenciaCadastro = {
     //os dados que estão sendo mantidos
-    idAlternativo: '',
+    idUsuario: '',
     foto: '',
     primeiroNumero: '',
     segundoNumero: '',
@@ -37,11 +39,13 @@ export class EmergenciaCadastroPage implements OnInit {
     private platform: Platform,
     private file: File,
     private storageService: StorageService,
-    private overlay: OverlayService
+    private overlay: OverlayService,
+    private auth: AngularFireAuth
   ) {}
 
   ngOnInit() {
-    this.idEmergenciaCadastro = this.route.snapshot.params['idAlternativo']; // Why ?
+    this.idUsuario = this.auth.auth.currentUser.uid;
+    this.idEmergenciaCadastro = this.route.snapshot.params['id'];
     if (this.idEmergenciaCadastro) {
       this.loadTodo();
     }
@@ -80,7 +84,7 @@ export class EmergenciaCadastroPage implements OnInit {
         this.todas.foto = this.photo;
       }
       /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
-      this.emergenciaCadastroService.addTodo(this.todas).then(() => {
+      this.emergenciaCadastroService.addTodo(this.todas, this.idUsuario).then(() => {
         loading.dismiss();
         this.navCtrl.navigateBack('/menu/home');
         console.log('Até aqui ta indo, salvo com sucesso');

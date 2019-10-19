@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToastController } from '@ionic/angular';
 import { Network } from '@ionic-native/network/ngx';
+import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario-cadastro.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AssistenteCadastroService } from 'src/app/services/assistenteCadastro/assistente-cadastro.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +22,10 @@ export class LoginPage {
     public router: Router,
     private authService: AuthService,
     private toastController: ToastController,
-    private network: Network
+    private network: Network,
+    private usuarioCadastro: UsuarioCadastroService,
+    private assistenteCadastro: AssistenteCadastroService,
+    private auth: AngularFireAuth
   ) {
     let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
       this.presentToast('NetWork Desconectada! :-(');
@@ -43,7 +49,13 @@ export class LoginPage {
       this.authService
         .signIn(this.user)
         .then(() => {
-          this.router.navigate(['assistente/cadastro']); //Direciona após logado
+          this.usuarioCadastro.getUsuario(this.auth.auth.currentUser.uid).subscribe( res => {
+            if(!res.isProfissional){
+              this.router.navigate(['profissional-conteudo']); //Direciona após logado
+            }else{
+              this.router.navigate(['menu/home']); //Direciona após logad
+            }
+          });
         })
         .catch((error: any) => {
           if (error.code == 'auth/invalid-email') {

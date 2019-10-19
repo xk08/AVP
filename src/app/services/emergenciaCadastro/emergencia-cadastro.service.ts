@@ -9,16 +9,17 @@ import { map } from 'rxjs/operators';
 export class EmergenciaCadastroService {
   private todosCollection: AngularFirestoreCollection<EmergenciaCadastro>;
 
-  constructor(db: AngularFirestore) {
+  constructor(private db: AngularFirestore) {
     this.todosCollection = db.collection<EmergenciaCadastro>('EmergenciaCadastro');
   }
 
-  getTodos() {
-    return this.todosCollection.snapshotChanges().pipe(
+  getTodos(idUsuario: string) {
+    return this.db.collection<EmergenciaCadastro>('EmergenciaCadastro', ref => ref.where('idUsuario', '==', idUsuario)).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
           const id = a.payload.doc.id;
+          console.log(id);
           return { id, ...data };
         });
       })
@@ -33,8 +34,8 @@ export class EmergenciaCadastroService {
     return this.todosCollection.doc(id).update(toda);
   }
 
-  addTodo(toda: EmergenciaCadastro) {
-    return this.todosCollection.add(toda);
+  addTodo(toda: EmergenciaCadastro, idUsuario: string) {
+    return this.todosCollection.doc(idUsuario).set(toda);
   }
 
   removeTodo(id) {

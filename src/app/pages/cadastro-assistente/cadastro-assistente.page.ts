@@ -6,7 +6,7 @@ import { AssistenteCadastroService } from 'src/app/services/assistenteCadastro/a
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { NgForm } from '@angular/forms';
 import { OverlayService } from 'src/app/core/overlay.service';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-cadastro-assistente',
@@ -22,6 +22,7 @@ export class CadastroAssistentePage implements OnInit {
   };
   public photo: string = '';
   private idAssistenteCadastro: string;
+  private idUsuario: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,12 +31,13 @@ export class CadastroAssistentePage implements OnInit {
     private navCtrl: NavController,
     private camera: Camera,
     private overlay: OverlayService,
-    private auth: AngularFireAuth
+    private afAuth: AngularFireAuth
   ) {}
 
   ngOnInit() {
     this.idAssistenteCadastro = this.route.snapshot.params['id'];
-
+    this.idUsuario = this.afAuth.auth.currentUser.uid;
+    console.log(this.idUsuario);
     if (this.idAssistenteCadastro) {
       this.loadTodo();
     }
@@ -43,7 +45,7 @@ export class CadastroAssistentePage implements OnInit {
 
   async loadTodo() {
     const loading = await this.loadingController.create({
-      message: 'Carregando Dados do Assistente...'
+      message: 'Carregando ""algoo""...'
     });
     await loading.present();
 
@@ -52,7 +54,6 @@ export class CadastroAssistentePage implements OnInit {
       this.todas = res;
     });
   }
-
   async saveTodo() {
     const loading = await this.loadingController.create({
       message: 'Salvando dados cadastrados do assistente...'
@@ -60,11 +61,7 @@ export class CadastroAssistentePage implements OnInit {
     await loading.present();
 
     if (this.idAssistenteCadastro) {
-      if (this.photo != '') {
-        this.todas.icone = this.photo;
-      }
-      console.log(this.photo);
-      this.assistenteCadastroService.updateTodo(this.todas, this.idAssistenteCadastro).then(() => {
+      this.assistenteCadastroService.updateTodo(this.todas, this.idUsuario).then(() => {
         loading.dismiss();
         this.navCtrl.navigateBack('/menu/home');
       });

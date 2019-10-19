@@ -73,6 +73,7 @@ export class MenuPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.list.unsubscribe() ; 
     this.subscriptionList.unsubscribe();
   }
 }

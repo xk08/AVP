@@ -10,24 +10,25 @@ import { environment } from 'src/environments/environment';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage/public_api';
 
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { Network } from '@ionic-native/network/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 @NgModule({
   imports: [
     IonicModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFireStorageModule,
     //Essa parte é referente a salvar os dados offline
     AngularFirestoreModule.enablePersistence({
       synchronizeTabs: true
     }),
-    AngularFireStorageModule
+
   ],
   exports: [BrowserModule, IonicModule],
   providers: [

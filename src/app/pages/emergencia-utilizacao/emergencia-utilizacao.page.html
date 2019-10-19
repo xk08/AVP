@@ -20,11 +20,11 @@
             <ion-label>Foto que você gosta e admira</ion-label>
           </ion-title>
 
-          <ion-item *ngFor="let emergencia of listEmergenciaCadastro ; let index = index">
-            {{index}}Numero 01: {{emergencia.primeiroNumero}}
-            {{index}} Número 02: {{emergencia.segundoNumero}}
-            {{index}} Frase: {{emergencia.frase}}
-            <img [src]="emergencia.foto">
+          <ion-item [routerLink]="['/emergencia/emergencia-cadastro', idEmergencia]">
+            Numero 01: {{ n1 }}
+            Número 02: {{ n2 }}
+            Frase: {{ frase }}
+            <img [src]="foto">
           </ion-item>
 
         </form>

@@ -10,6 +10,8 @@ export class AssistenteCadastroService {
   private todosCollection: AngularFirestoreCollection<AssistenteCadastro>;
 
   constructor(db: AngularFirestore) {
+
+
     this.todosCollection = db.collection<AssistenteCadastro>('AssistenteCadastro');
   }
 

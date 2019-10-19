@@ -1,6 +1,6 @@
 export class EmergenciaCadastro {
   id?: string;
-  idAlternativo?: string;
+  idUsuario?: string;
   primeiroNumero?: string;
   segundoNumero?: string;
   frase?: string;

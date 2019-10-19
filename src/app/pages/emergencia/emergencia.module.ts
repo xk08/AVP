@@ -14,6 +14,11 @@ const routes: Routes = [
           '../emergencia-cadastro/emergencia-cadastro.module#EmergenciaCadastroPageModule'
       },
       {
+        path: 'emergencia-cadastro/:id',
+        loadChildren:
+          '../emergencia-cadastro/emergencia-cadastro.module#EmergenciaCadastroPageModule'
+      },
+      {
         path: 'emergencia-utilizacao',
         loadChildren:
           '../emergencia-utilizacao/emergencia-utilizacao.module#EmergenciaUtilizacaoPageModule'

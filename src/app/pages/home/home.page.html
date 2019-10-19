@@ -1,3 +1,4 @@
+<ion-app *ngIf="!admin">
 <ion-header>
   <ion-toolbar color="secondary">
 
@@ -131,11 +132,51 @@
                     </ion-item>
                   </ion-card>
             
-           
-           
-
-       
-
-
-   
+          
 </ion-content>
+</ion-app>
+
+
+<ion-app *ngIf="admin">
+<ion-header>
+  <ion-toolbar color="secondary">
+
+    <ion-buttons>
+      <ion-menu-button autoHide="true"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-tabs>
+      <ion-tab-bar slot="top">
+
+        <ion-tab-button
+          tab="profissional-conteudo-texto"
+         
+        >
+          <ion-icon name="moon"></ion-icon>
+          <ion-label>Texto</ion-label>
+        </ion-tab-button>
+  
+        <ion-tab-button
+          tab="profissional-conteudo-imagem"
+          
+        >
+          <ion-icon name="sunny"></ion-icon>
+          <ion-label>Imagem</ion-label>
+        </ion-tab-button>
+  
+        <ion-tab-button
+          tab="profissional-conteudo-video"
+          
+        >
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Video</ion-label>
+        </ion-tab-button>
+  
+      </ion-tab-bar>
+    </ion-tabs>
+  
+  </ion-content>
+</ion-app>
