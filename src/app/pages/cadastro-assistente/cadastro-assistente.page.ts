@@ -6,6 +6,7 @@ import { AssistenteCadastroService } from 'src/app/services/assistenteCadastro/a
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { NgForm } from '@angular/forms';
 import { OverlayService } from 'src/app/core/overlay.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-cadastro-assistente',
@@ -28,11 +29,12 @@ export class CadastroAssistentePage implements OnInit {
     private assistenteCadastroService: AssistenteCadastroService,
     private navCtrl: NavController,
     private camera: Camera,
-    private overlay: OverlayService
+    private overlay: OverlayService,
+    private auth: AngularFireAuth
   ) {}
 
   ngOnInit() {
-    this.idAssistenteCadastro = this.route.snapshot.params['id'];
+    this.idAssistenteCadastro = this.auth.auth.currentUser.uid ; 
 
     if (this.idAssistenteCadastro) {
       this.loadTodo();
