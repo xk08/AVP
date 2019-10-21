@@ -15,38 +15,83 @@
           <ion-text text-align="justify-content-center">Número de pessoas proximas a você</ion-text>
 
           <!-- PRIMEIRO NÚMERO -->
-          <ion-item>
-            <ion-icon
-              name="person"
-              color="primary"
-              slot="start"
-            ></ion-icon>
-            <ion-input
-              type="text"
-              name="primeiroNumero"
-              placeholder="Primeiro número"
-              autofocus="true"
-              [(ngModel)]='todas.primeiroNumero'
-              required
-            ></ion-input>
-          </ion-item>
+        <ion-row>
+          <ion-col>
+              <ion-item>
+                  <ion-icon
+                    name="person"
+                    color="primary"
+                    slot="start"
+                  ></ion-icon>
+                  <ion-input
+                    type="number"
+                    name="primeiroNumero"
+                    placeholder="Primeiro número"
+                    autofocus="true"
+                    [(ngModel)]='todas.primeiroNumero'
+                    required
+                  ></ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col>
+              <ion-item>
+                  <ion-icon
+                    name="home"
+                    color="dark"
+                    slot="start"
+                  ></ion-icon>
+                  <ion-input
+                    type="text"
+                    name="nomePrimeiroNumero"
+                    placeholder="Descrição..."
+                    autofocus="true"
+                    [(ngModel)]='todas.nomePrimeiroNumero'
+                    required
+                  ></ion-input>
+              </ion-item>
 
+          </ion-col>
+        </ion-row>
+          
+      
           <!-- SEGUNDO NÚMERO -->
-          <ion-item>
-            <ion-icon
-              name="person"
-              color="primary"
-              slot="start"
-            ></ion-icon>
-            <ion-input
-              type="text"
-              name="segundoNumero"
-              placeholder="Segundo número"
-              autofocus="true"
-              [(ngModel)]='todas.segundoNumero'
-              required
-            ></ion-input>
-          </ion-item>
+          <ion-row>
+              <ion-col>
+                  <ion-item>
+                      <ion-icon
+                        name="person"
+                        color="primary"
+                        slot="start"
+                      ></ion-icon>
+                      <ion-input
+                        type="number"
+                        name="segundoNumero"
+                        placeholder="Segundo número"
+                        autofocus="true"
+                        [(ngModel)]='todas.segundoNumero'
+                        required
+                      ></ion-input>
+                  </ion-item>
+              </ion-col>
+              <ion-col>
+                  <ion-item>
+                      <ion-icon
+                        name="home"
+                        color="dark"
+                        slot="start"
+                      ></ion-icon>
+                      <ion-input
+                        type="text"
+                        name="nomeSegundoNumero"
+                        placeholder="Descrição..."
+                        autofocus="true"
+                        [(ngModel)]='todas.nomeSegundoNumero'
+                        required
+                      ></ion-input>
+                  </ion-item>
+    
+              </ion-col>
+            </ion-row>
 
           <ion-item>
             <ion-icon

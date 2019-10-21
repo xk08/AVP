@@ -15,14 +15,16 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class CadastroAssistentePage implements OnInit {
   @ViewChild('form', null) form: NgForm;
+ 
+  public idCadastroAssistente: string ; 
+  public idUsuario: string ; 
+  public photo: string = '';
+
   public todas: AssistenteCadastro = {
-    id: '',
+    idUsuario: '',
     apelido: '',
     icone: ''
   };
-  public photo: string = '';
-  private idAssistenteCadastro: string;
-  private idUsuario: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,14 +33,14 @@ export class CadastroAssistentePage implements OnInit {
     private navCtrl: NavController,
     private camera: Camera,
     private overlay: OverlayService,
-    private afAuth: AngularFireAuth
+    private auth: AngularFireAuth
   ) {}
 
   ngOnInit() {
-    this.idAssistenteCadastro = this.route.snapshot.params['id'];
-    this.idUsuario = this.afAuth.auth.currentUser.uid;
-    console.log(this.idUsuario);
-    if (this.idAssistenteCadastro) {
+    this.idUsuario = this.auth.auth.currentUser.uid ; 
+    this.idCadastroAssistente = this.route.snapshot.params['id'];
+  
+    if (this.idCadastroAssistente) {
       this.loadTodo();
     }
   }
@@ -49,7 +51,7 @@ export class CadastroAssistentePage implements OnInit {
     });
     await loading.present();
 
-    this.assistenteCadastroService.getTodo(this.idAssistenteCadastro).subscribe(res => {
+    this.assistenteCadastroService.getTodo(this.idCadastroAssistente).subscribe(res => {
       loading.dismiss();
       this.todas = res;
     });
@@ -60,8 +62,9 @@ export class CadastroAssistentePage implements OnInit {
     });
     await loading.present();
 
-    if (this.idAssistenteCadastro) {
-      this.assistenteCadastroService.updateTodo(this.todas, this.idUsuario).then(() => {
+    if (this.idCadastroAssistente) {
+
+      this.assistenteCadastroService.updateTodo(this.todas, this.idCadastroAssistente).then(() => {
         loading.dismiss();
         this.navCtrl.navigateBack('/menu/home');
       });
@@ -69,7 +72,7 @@ export class CadastroAssistentePage implements OnInit {
       if (this.photo != '') {
         this.todas.icone = this.photo;
       }
-      this.assistenteCadastroService.addTodo(this.todas).then(() => {
+      this.assistenteCadastroService.addTodo(this.todas, this.idUsuario).then(() => {
         loading.dismiss();
         this.navCtrl.navigateBack('/menu/home');
       });

@@ -39,34 +39,32 @@ export class MenuPage implements OnInit, OnDestroy {
   public isProfissional: boolean;
   public nome: String;
   public foto: any;
-  private subscriptionList: Subscription;
+  public list: Subscription;
 
-  private apelido: String;
 
-  private list: Subscription;
-  public listAC = new Array<AssistenteCadastro>();
+  //-----
+  public todoAssistente: AssistenteCadastro[];
+  public apelido: string;
+  public icone: any ;  
+  public idAssistente: string;
+
 
   constructor(
     private authService: AngularFireAuth,
-    private usuarioCadastroService: UsuarioCadastroService,
     private assistenteCadastroService: AssistenteCadastroService
   ) {}
 
   ngOnInit() {
-    this.subscriptionList = this.usuarioCadastroService
-      .getUsuario(this.authService.auth.currentUser.uid)
-      .subscribe(res => {
-        this.nome = res.nome;
-        this.foto = res.foto;
-        this.isAdmin = res.isAdmin;
-        this.isProfissional = res.isProfissional;
+        this.idAssistente = this.authService.auth.currentUser.uid;
+        console.log(this.idAssistente) ; 
+
+        this.list = this.assistenteCadastroService.getTodo(this.idAssistente).subscribe(res => {
+        this.apelido = res.apelido ;
+        this.icone = res.icone ;
       });
 
-    // Descobrir como pega só 1 elemento, o id da pessoa ou do assisnte em si
-    this.list = this.assistenteCadastroService.getTodos().subscribe(res => {
-      this.listAC = res;
-    });
   }
+      
 
   signOut() {
     this.authService.auth.signOut();
@@ -74,6 +72,6 @@ export class MenuPage implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.list.unsubscribe() ; 
-    this.subscriptionList.unsubscribe();
+  
   }
 }

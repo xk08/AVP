@@ -9,18 +9,17 @@ import { map } from 'rxjs/operators';
 export class AssistenteCadastroService {
   private todosCollection: AngularFirestoreCollection<AssistenteCadastro>;
 
-  constructor(db: AngularFirestore) {
-
-
+  constructor(private db: AngularFirestore) {
     this.todosCollection = db.collection<AssistenteCadastro>('AssistenteCadastro');
   }
 
-  getTodos() {
-    return this.todosCollection.snapshotChanges().pipe(
+  getTodos(idUsuario: string) {
+    return this.db.collection<AssistenteCadastro>('AssistenteCadastro', ref => ref.where('idUsuario', '==', idUsuario)).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
           const id = a.payload.doc.id;
+          console.log(id);
           return { id, ...data };
         });
       })
@@ -35,8 +34,8 @@ export class AssistenteCadastroService {
     return this.todosCollection.doc(id).update(toda);
   }
 
-  addTodo(toda: AssistenteCadastro) {
-    return this.todosCollection.add(toda);
+  addTodo(toda: AssistenteCadastro, idUsuario: string) {
+    return this.todosCollection.doc(idUsuario).set(toda);
   }
 
   removeTodo(id) {

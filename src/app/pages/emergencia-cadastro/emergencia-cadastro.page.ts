@@ -17,17 +17,21 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class EmergenciaCadastroPage implements OnInit {
   @ViewChild('form', null) form: NgForm;
+
   public idEmergenciaCadastro: string;
+
   public idUsuario: string ; 
+ 
   public todas: EmergenciaCadastro = {
     //os dados que estão sendo mantidos
     idUsuario: '',
     foto: '',
     primeiroNumero: '',
+    nomePrimeiroNumero: '',
     segundoNumero: '',
+    nomeSegundoNumero: '',
     frase: ''
   };
-  private blob: Blob;
   public photo: string = '';
 
   constructor(
@@ -46,6 +50,7 @@ export class EmergenciaCadastroPage implements OnInit {
   ngOnInit() {
     this.idUsuario = this.auth.auth.currentUser.uid;
     this.idEmergenciaCadastro = this.route.snapshot.params['id'];
+    
     if (this.idEmergenciaCadastro) {
       this.loadTodo();
     }
@@ -53,7 +58,7 @@ export class EmergenciaCadastroPage implements OnInit {
 
   async loadTodo() {
     const loading = await this.loadingController.create({
-      message: 'Carregando ""algoo""...'
+      message: 'Carregando seus dados, aguarde.'
     });
     await loading.present();
 
@@ -65,7 +70,7 @@ export class EmergenciaCadastroPage implements OnInit {
 
   async saveTodo() {
     const loading = await this.loadingController.create({
-      message: 'Salvando os Dados do mecanismo de S.O.S'
+      message: 'Salvando dados de S.O.S'
     });
     await loading.present();
 
@@ -77,7 +82,7 @@ export class EmergenciaCadastroPage implements OnInit {
       this.emergenciaCadastroService.updateTodo(this.todas, this.idEmergenciaCadastro).then(() => {
         loading.dismiss();
         this.navCtrl.navigateBack('/menu/home');
-        console.log('Até aqui ta indo, salvo com sucesso');
+        
       });
     } else {
       if (this.photo != '') {
@@ -87,7 +92,7 @@ export class EmergenciaCadastroPage implements OnInit {
       this.emergenciaCadastroService.addTodo(this.todas, this.idUsuario).then(() => {
         loading.dismiss();
         this.navCtrl.navigateBack('/menu/home');
-        console.log('Até aqui ta indo, salvo com sucesso');
+       
       });
     }
   }

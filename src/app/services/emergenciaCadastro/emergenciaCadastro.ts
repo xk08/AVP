@@ -2,7 +2,9 @@ export class EmergenciaCadastro {
   id?: string;
   idUsuario?: string;
   primeiroNumero?: string;
-  segundoNumero?: string;
+  nomePrimeiroNumero?: string ;
+  segundoNumero?: string ;
+  nomeSegundoNumero?: string ;
   frase?: string;
-  foto?: String;
+  foto?: string;
 }

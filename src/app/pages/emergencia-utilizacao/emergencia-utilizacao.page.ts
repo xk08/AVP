@@ -24,13 +24,13 @@ export class EmergenciaUtilizacaoPage implements OnInit {
     private auth: AngularFireAuth
   ) {}
 
-  public listEmergenciaCadastro = new Array<EmergenciaCadastro>();
 
   private list: Subscription;
 
   ngOnInit() {
     this.idEmergencia = this.auth.auth.currentUser.uid;
-    //Achar uma forma de pegar só 1 index
+ 
+    
     this.list = this.emergenciaCadastroService.getTodo(this.idEmergencia).subscribe(res => {
       this.n1 = res.primeiroNumero;
       this.n2 = res.segundoNumero;
