@@ -24,11 +24,19 @@ export class HomePage implements OnInit, OnDestroy {
     });
   }
 
+  // REfrente ao profissional
+  profissionalConteudoTexto() {}
+
+  profissionalConteudoImagem() {}
+
+  profissionalConteudoVideo() {}
+
+
   direcionaPraTela() {
-    this.navctrl.navigateForward('assistente/cadastro');
+    this.navctrl.navigateForward('quero-conversar');
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 

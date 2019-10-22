@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar color=\"dark\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"menu/home\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Aqui você encontra ajuda</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-tabs>\r\n    <ion-tab-bar slot=\"top\">\r\n\r\n      <ion-tab-button\r\n        tab=\"emergencia-utilizacao\"\r\n        (click)=\"emergenciaUSelected()\"\r\n      >\r\n        <ion-icon name=\"moon\"></ion-icon>\r\n        <ion-label>Acessar</ion-label>\r\n      </ion-tab-button>\r\n      <ion-tab-button\r\n        tab=\"emergencia-cadastro\"\r\n        (click)=\"emergenciaCSelected()\"\r\n      >\r\n        <ion-icon name=\"sunny\"></ion-icon>\r\n        <ion-label>Cadastrar</ion-label>\r\n      </ion-tab-button>\r\n\r\n    </ion-tab-bar>\r\n  </ion-tabs>\r\n\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"dark\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"menu/home\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Aqui você encontra ajuda</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-tabs>\r\n    <ion-tab-bar slot=\"top\">\r\n\r\n      <ion-tab-button\r\n        tab=\"emergencia-utilizacao\"\r\n        (click)=\"emergenciaUSelected()\"\r\n      >\r\n        <ion-icon name=\"ios-eye\"></ion-icon>\r\n        <ion-label>Visualizar</ion-label>\r\n      </ion-tab-button>\r\n      <ion-tab-button\r\n        tab=\"emergencia-cadastro\"\r\n        (click)=\"emergenciaCSelected()\"\r\n      >\r\n        <ion-icon name=\"ios-add-circle\"></ion-icon>\r\n        <ion-label>Cadastrar</ion-label>\r\n      </ion-tab-button>\r\n\r\n    </ion-tab-bar>\r\n  </ion-tabs>\r\n\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -129,6 +129,10 @@ var routes = [
         children: [
             {
                 path: 'emergencia-cadastro',
+                loadChildren: '../emergencia-cadastro/emergencia-cadastro.module#EmergenciaCadastroPageModule'
+            },
+            {
+                path: 'emergencia-cadastro/:id',
                 loadChildren: '../emergencia-cadastro/emergencia-cadastro.module#EmergenciaCadastroPageModule'
             },
             {

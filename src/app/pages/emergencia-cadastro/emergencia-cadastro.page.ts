@@ -81,7 +81,7 @@ export class EmergenciaCadastroPage implements OnInit {
       /* TESTA SE JA EXISTE, ENTÃO FAZ UPDATE */
       this.emergenciaCadastroService.updateTodo(this.todas, this.idEmergenciaCadastro).then(() => {
         loading.dismiss();
-        this.navCtrl.navigateBack('/menu/home');
+        this.navCtrl.navigateBack('emergencia/emergencia-utilizacao');
         
       });
     } else {
@@ -91,7 +91,7 @@ export class EmergenciaCadastroPage implements OnInit {
       /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
       this.emergenciaCadastroService.addTodo(this.todas, this.idUsuario).then(() => {
         loading.dismiss();
-        this.navCtrl.navigateBack('/menu/home');
+        this.navCtrl.navigateBack('emergencia/emergencia-utilizacao');
        
       });
     }

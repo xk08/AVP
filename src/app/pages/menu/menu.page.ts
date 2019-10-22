@@ -16,33 +16,27 @@ export class MenuPage implements OnInit, OnDestroy {
       title: 'Home',
       url: '/menu/home',
       icon: 'home'
+    },
+    {
+      title: 'Cadastrar Assistente',
+      url: '/assistente/cadastro',
+      icon: 'logo-angular'
     }
   ];
 
-  paginasAdmin = [
-    {
-      title: 'Home',
-      url: '/menu/home',
-      icon: 'home'
-    }
-  ];
 
   paginasProfissional = [
-    {
-      title: 'HTesteome',
-      url: '/menu/home',
-      icon: 'add'
-    }
+    
   ];
 
   public isAdmin: boolean;
   public isProfissional: boolean;
-  public nome: String;
-  public foto: any;
+  public nomeUsuario: String;
+  public fotoUsuario: any;
+
   public list: Subscription;
+  public listUsuario: Subscription;
 
-
-  //-----
   public todoAssistente: AssistenteCadastro[];
   public apelido: string;
   public icone: any ;  
@@ -51,10 +45,12 @@ export class MenuPage implements OnInit, OnDestroy {
 
   constructor(
     private authService: AngularFireAuth,
-    private assistenteCadastroService: AssistenteCadastroService
+    private assistenteCadastroService: AssistenteCadastroService,
+    private usuarioCadastroService: UsuarioCadastroService
   ) {}
 
   ngOnInit() {
+    // Pegando dados do assistente para exibir na tela
         this.idAssistente = this.authService.auth.currentUser.uid;
         console.log(this.idAssistente) ; 
 
@@ -63,7 +59,13 @@ export class MenuPage implements OnInit, OnDestroy {
         this.icone = res.icone ;
       });
 
-  }
+  // Pegando dados do Usuário para exibir na tela
+      this.listUsuario = this.usuarioCadastroService.getUsuario(this.authService.auth.currentUser.uid).subscribe(res => {
+        this.nomeUsuario = res.nome;
+        this.fotoUsuario = res.foto;
+        this.isProfissional = res.isProfissional;
+      });
+}
       
 
   signOut() {
@@ -72,6 +74,5 @@ export class MenuPage implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.list.unsubscribe() ; 
-  
   }
 }

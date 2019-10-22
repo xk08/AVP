@@ -1,35 +1,86 @@
-<ion-content>
-  <ion-grid>
-    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
-    <ion-row justify-content-center>
-      <!-- Deixa responsivo -->
-      <ion-col
-        size-sm="8"
-        size-md="12"
-        size-lg="3"
-        size-xl="3"
+<ion-app *ngIf="!n1">
+  <ion-content>
+      <ion-toolbar>
+          <ion-title style="text-align: center; font-size: 15pt"> Opss...</ion-title>
+        </ion-toolbar>
+        <ion-card>
+          <ion-card-content>
+            Até o momento, nenhum conteúdo de emergência foi cadastrado.
+          </ion-card-content>
+
+        </ion-card>
+
+        <ion-button
+        expand="block"
+        type="submit"
+        color="secondary"
+        (click)="mandaPraTelaCadastroEmergencia()"
       >
+        Clique para cadastrar
+      </ion-button>
+          
+  </ion-content>
+</ion-app>
 
-        <form #form="ngForm">
+<ion-app *ngIf="n1">
 
-          <ion-text text-align="justify-content-center">Número de pessoas proximas a você</ion-text>
+    <ion-header translucent>
+        <ion-toolbar color="#FFFF">
 
-          <!-- PRIMEIRO NÚMERO -->
+          <ion-title style="text-align: center; font-size: 15pt"> Importantes para você</ion-title>
+        </ion-toolbar>
+    </ion-header>
+  <ion-content>
+  
+      <ion-card-header>
+        <ion-card-subtitle style="font-size: 12pt; text-align: center">Foto que você gosta</ion-card-subtitle>
+        <ion-card [routerLink]="['/emergencia/emergencia-cadastro', idEmergencia]">
+          <img [src]="foto" width="380px" height="320px"/>
+        </ion-card>
+      </ion-card-header>
 
-          <ion-title>
-            <ion-label>Foto que você gosta e admira</ion-label>
-          </ion-title>
+      <ion-card-header>
+          <ion-card-subtitle style="font-size: 12pt; text-align: center">Frase que te inspira</ion-card-subtitle>
+          <ion-card [routerLink]="['/emergencia/emergencia-cadastro', idEmergencia]">
+            <ion-card-title>" {{frase}} "</ion-card-title>
+          </ion-card>
+      </ion-card-header>
 
-          <ion-item [routerLink]="['/emergencia/emergencia-cadastro', idEmergencia]">
-            Numero 01: {{ n1 }}
-            Número 02: {{ n2 }}
-            Frase: {{ frase }}
-            <img [src]="foto">
-          </ion-item>
-
-        </form>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+      <ion-card-header>
+          <ion-card-subtitle style="font-size: 12pt; text-align: center">Precisa de ajuda ? Ligue para</ion-card-subtitle>
+          <ion-card>
+              <ion-row>
+                  <ion-col>
+                    <ion-item href="" class="activated" style="color: lightseagreen">
+                        <ion-label class="ion-text-center">{{nomeN1}}</ion-label>
+                    </ion-item>
+                  </ion-col>
+      
+                  <ion-col>
+                    <ion-item href="" class="activated" style="color: lightseagreen">
+                        <ion-label class="ion-text-center">{{nomeN2}}</ion-label>
+                    </ion-item>
+                  </ion-col>
+      
+                  <ion-col>
+                    <ion-item href="" class="activated" style="color: lightseagreen">
+                        <ion-label class="ion-text-center">CVV</ion-label>
+                    </ion-item>
+                  </ion-col>
+      
+                </ion-row>
+          </ion-card>
+      </ion-card-header>
+             
 
 </ion-content>
+</ion-app>
+        
+        
+
+
+  
+      
+
+
+

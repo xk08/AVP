@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="login"></ion-back-button>
     </ion-buttons>
-    <ion-title>Verificando seus dados</ion-title>
+    <ion-title>Suas informações</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
@@ -18,19 +18,23 @@
         size-xl="3"
       >
 
+      <h1 style=text-align:center>
+          <img src="../../../assets/img/avp.png" width="130px" height="100px">
+      </h1>
+
         <form #form="ngForm">
 
           <!-- NOME -->
           <ion-item>
             <ion-icon
+              color="dark"
               name="person"
-              color="primary"
               slot="start"
             ></ion-icon>
             <ion-input
               type="text"
               name="nome"
-              placeholder="Seu nome"
+              placeholder="Nome"
               autofocus="true"
               [(ngModel)]='todoUser.nome'
               required
@@ -41,14 +45,14 @@
 
           <ion-item>
             <ion-icon
-              name="person-add"
-              color="primary"
+              name="md-briefcase"
+              color="dark"
               slot="start"
             ></ion-icon>
             <ion-input
               type="text"
               name="profissao"
-              placeholder="Sua profissão"
+              placeholder="Profissão exercida"
               autofocus="true"
               [(ngModel)]='todoUser.profissao'
               required
@@ -57,14 +61,14 @@
 
           <ion-item>
             <ion-icon
-              name="person-add"
-              color="primary"
+              name="md-checkbox"
+              color="dark"
               slot="start"
             ></ion-icon>
             <ion-input
               type="text"
               name="codigoProfissao"
-              placeholder="Código de sua profissão"
+              placeholder="Código da profissão"
               autofocus="true"
               [(ngModel)]='todoUser.codigoProfissao'
               required
@@ -76,13 +80,13 @@
           <ion-item>
             <ion-icon
               name="mail"
-              color="primary"
+              color="dark"
               slot="start"
             ></ion-icon>
             <ion-input
               type="email"
               name="email"
-              placeholder="Seu e-mail"
+              placeholder="E-mail"
               inputmode="email"
               autofocus="true"
               [(ngModel)]='todoUser.email'
@@ -95,13 +99,13 @@
           <ion-item>
             <ion-icon
               name="lock"
-              color="primary"
+              color="dark"
               slot="start"
             ></ion-icon>
             <ion-input
               type="password"
               name="password"
-              placeholder="Sua senha"
+              placeholder="Senha"
               [(ngModel)]='todoUser.senha'
               required
             ></ion-input>
@@ -114,7 +118,7 @@
             type="submit"
             class="login-button"
             (click)="concluiCadastro()"
-            color='dark'
+            color="dark"
           >
             Colaborar
           </ion-button>

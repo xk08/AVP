@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n  <ion-grid>\r\n    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->\r\n    <ion-row justify-content-center>\r\n      <!-- Deixa responsivo -->\r\n      <ion-col\r\n        size-sm=\"8\"\r\n        size-md=\"12\"\r\n        size-lg=\"3\"\r\n        size-xl=\"3\"\r\n      >\r\n\r\n        <form #form=\"ngForm\">\r\n\r\n          <ion-text text-align=\"justify-content-center\">Número de pessoas proximas a você</ion-text>\r\n\r\n          <!-- PRIMEIRO NÚMERO -->\r\n          <ion-item>\r\n            <ion-icon\r\n              name=\"person\"\r\n              color=\"primary\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-input\r\n              type=\"text\"\r\n              name=\"primeiroNumero\"\r\n              placeholder=\"Primeiro número\"\r\n              autofocus=\"true\"\r\n              [(ngModel)]='todas.primeiroNumero'\r\n              required\r\n            ></ion-input>\r\n          </ion-item>\r\n\r\n          <!-- SEGUNDO NÚMERO -->\r\n          <ion-item>\r\n            <ion-icon\r\n              name=\"person\"\r\n              color=\"primary\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-input\r\n              type=\"text\"\r\n              name=\"segundoNumero\"\r\n              placeholder=\"Segundo número\"\r\n              autofocus=\"true\"\r\n              [(ngModel)]='todas.segundoNumero'\r\n              required\r\n            ></ion-input>\r\n          </ion-item>\r\n\r\n          <ion-item>\r\n            <ion-icon\r\n              name=\"person\"\r\n              color=\"primary\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-textarea\r\n              name=\"frase\"\r\n              autofocus=\"true\"\r\n              [(ngModel)]='todas.frase'\r\n              required\r\n              rows=\"4\"\r\n              cols=\"10\"\r\n              placeholder=\"Frase que você gosta e admira...\"\r\n            ></ion-textarea>\r\n          </ion-item>\r\n          <ion-title>\r\n            <ion-label>Foto que você gosta e admira</ion-label>\r\n            <ion-item (click)=\"abrirGaleria()\">\r\n              <ion-icon\r\n                name=\"add\"\r\n                color=\"primary\"\r\n                slot=\"start\"\r\n              ></ion-icon>\r\n              Clique para escolher\r\n            </ion-item>\r\n          </ion-title>\r\n\r\n          <!-- BOTÃO DE CADASTRO -->\r\n\r\n          <ion-button\r\n            expand=\"block\"\r\n            type=\"submit\"\r\n            class=\"login-button\"\r\n            (click)=\"saveTodo()\"\r\n            color='dark'\r\n          >\r\n            Salvar Informações\r\n          </ion-button>\r\n        </form>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n</ion-content>\r\n"
+module.exports = "<ion-content>\r\n  <ion-grid>\r\n    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->\r\n    <ion-row justify-content-center>\r\n      <!-- Deixa responsivo -->\r\n      <ion-col\r\n        size-sm=\"8\"\r\n        size-md=\"12\"\r\n        size-lg=\"3\"\r\n        size-xl=\"3\"\r\n      >\r\n      <form #form=\"ngForm\">\r\n\r\n        <!-- PRIMEIRO NÚMERO -->\r\n          <ion-card>\r\n              <ion-card-header>\r\n                <ion-card-title style=\"font-size: 17px; text-align: center;\" >Informações da Primeira pessoa</ion-card-title>\r\n              </ion-card-header>\r\n\r\n              <ion-item>\r\n                  <ion-icon\r\n                    name=\"md-call\"\r\n                    color=\"dark\"\r\n                    slot=\"start\"\r\n                  ></ion-icon>\r\n                  <ion-input\r\n                    type=\"number\"\r\n                    name=\"primeiroNumero\"\r\n                    placeholder=\"Numero de celular\"\r\n                    autofocus=\"true\"\r\n                    [(ngModel)]='todas.primeiroNumero'\r\n                    required\r\n                  ></ion-input>\r\n                </ion-item>\r\n\r\n                <ion-item>\r\n                    <ion-icon\r\n                      name=\"ios-person\"\r\n                      color=\"dark\"\r\n                      slot=\"start\"\r\n                    ></ion-icon>\r\n                    <ion-input\r\n                      type=\"text\"\r\n                      name=\"nomePrimeiroNumero\"\r\n                      placeholder=\"Nome ou apelido\"\r\n                      autofocus=\"true\"\r\n                      [(ngModel)]='todas.nomePrimeiroNumero'\r\n                      required\r\n                    ></ion-input>\r\n                </ion-item>\r\n          </ion-card>\r\n\r\n          <!-- SEGUNDO NÚMERO -->\r\n\r\n          <ion-card>\r\n              <ion-card-header>\r\n                <ion-card-title style=\"font-size: 17px; text-align: center;\">Informações da Segunda pessoa</ion-card-title>\r\n              </ion-card-header>\r\n\r\n              <ion-item>\r\n                  <ion-icon\r\n                    name=\"md-call\"\r\n                    color=\"dark\"\r\n                    slot=\"start\"\r\n                  ></ion-icon>\r\n                  <ion-input\r\n                        type=\"number\"\r\n                        name=\"segundoNumero\"\r\n                        placeholder=\"Segundo número\"\r\n                        autofocus=\"true\"\r\n                        [(ngModel)]='todas.segundoNumero'\r\n                        required\r\n                      ></ion-input>\r\n                </ion-item>\r\n\r\n                <ion-item>\r\n                    <ion-icon\r\n                      name=\"ios-person\"\r\n                      color=\"dark\"\r\n                      slot=\"start\"\r\n                    ></ion-icon>\r\n                    <ion-input\r\n                        type=\"text\"\r\n                        name=\"nomeSegundoNumero\"\r\n                        placeholder=\"Nome ou apelido\"\r\n                        autofocus=\"true\"\r\n                        [(ngModel)]='todas.nomeSegundoNumero'\r\n                        required\r\n                      ></ion-input>\r\n                </ion-item>\r\n          </ion-card>\r\n\r\n          <!-- FRASE QUE GOSTA -->\r\n\r\n          <ion-card>\r\n              <ion-card-header>\r\n                <ion-card-title style=\"font-size: 17px; text-align: center;\">Frase que você gosta</ion-card-title>\r\n              </ion-card-header>\r\n          <ion-item>\r\n            <ion-icon\r\n              name=\"ios-bulb\"\r\n              color=\"dark\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-textarea\r\n              name=\"frase\"\r\n              autofocus=\"true\"\r\n              [(ngModel)]='todas.frase'\r\n              required\r\n              rows=\"5\"\r\n              cols=\"10\"\r\n              placeholder=\"Escreva aqui sua frase...\"\r\n            ></ion-textarea>\r\n          </ion-item>\r\n          </ion-card>\r\n\r\n          <!-- FOTO QUE GOSTA -->\r\n\r\n          <ion-card>\r\n              <ion-card-header>\r\n                <ion-card-title style=\"font-size: 17px; text-align: center;\">Foto que você gosta e admira</ion-card-title>\r\n              </ion-card-header>\r\n\r\n              <ion-item (click)=\"abrirGaleria()\">\r\n\r\n              <ion-icon\r\n                name=\"add\"\r\n                color=\"primary\"\r\n                slot=\"start\"\r\n              ></ion-icon>\r\n              Clique para escolher\r\n            </ion-item>\r\n            <ion-item>\r\n              <ion-label>Prè-Visualização\r\n              </ion-label>\r\n              <img [src]=\"todas.foto\">\r\n            </ion-item>\r\n        </ion-card>\r\n  \r\n\r\n          <!-- BOTÃO DE CADASTRO -->\r\n\r\n          <ion-button\r\n            expand=\"block\"\r\n            type=\"submit\"\r\n            class=\"login-button\"\r\n            (click)=\"saveTodo()\"\r\n            color='dark'\r\n          >\r\n            Salvar Informações\r\n          </ion-button>\r\n        </form>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -84,6 +84,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
 /* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
 /* harmony import */ var src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/overlay.service */ "./src/app/core/overlay.service.ts");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(angularfire2_auth__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -95,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var EmergenciaCadastroPage = /** @class */ (function () {
-    function EmergenciaCadastroPage(route, loadingController, emergenciaCadastroService, navCtrl, camera, platform, file, storageService, overlay) {
+    function EmergenciaCadastroPage(route, loadingController, emergenciaCadastroService, navCtrl, camera, platform, file, storageService, overlay, auth) {
         this.route = route;
         this.loadingController = loadingController;
         this.emergenciaCadastroService = emergenciaCadastroService;
@@ -105,18 +108,22 @@ var EmergenciaCadastroPage = /** @class */ (function () {
         this.file = file;
         this.storageService = storageService;
         this.overlay = overlay;
+        this.auth = auth;
         this.todas = {
             //os dados que estão sendo mantidos
-            idAlternativo: '',
+            idUsuario: '',
             foto: '',
             primeiroNumero: '',
+            nomePrimeiroNumero: '',
             segundoNumero: '',
+            nomeSegundoNumero: '',
             frase: ''
         };
         this.photo = '';
     }
     EmergenciaCadastroPage.prototype.ngOnInit = function () {
-        this.idEmergenciaCadastro = this.route.snapshot.params['idAlternativo']; // Why ?
+        this.idUsuario = this.auth.auth.currentUser.uid;
+        this.idEmergenciaCadastro = this.route.snapshot.params['id'];
         if (this.idEmergenciaCadastro) {
             this.loadTodo();
         }
@@ -128,7 +135,7 @@ var EmergenciaCadastroPage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.loadingController.create({
-                            message: 'Carregando ""algoo""...'
+                            message: 'Carregando seus dados, aguarde.'
                         })];
                     case 1:
                         loading = _a.sent();
@@ -151,7 +158,7 @@ var EmergenciaCadastroPage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.loadingController.create({
-                            message: 'Salvando os Dados do mecanismo de S.O.S'
+                            message: 'Salvando dados de S.O.S'
                         })];
                     case 1:
                         loading = _a.sent();
@@ -165,8 +172,7 @@ var EmergenciaCadastroPage = /** @class */ (function () {
                             /* TESTA SE JA EXISTE, ENTÃO FAZ UPDATE */
                             this.emergenciaCadastroService.updateTodo(this.todas, this.idEmergenciaCadastro).then(function () {
                                 loading.dismiss();
-                                _this.navCtrl.navigateBack('/menu/home');
-                                console.log('Até aqui ta indo, salvo com sucesso');
+                                _this.navCtrl.navigateBack('emergencia/emergencia-utilizacao');
                             });
                         }
                         else {
@@ -174,10 +180,9 @@ var EmergenciaCadastroPage = /** @class */ (function () {
                                 this.todas.foto = this.photo;
                             }
                             /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
-                            this.emergenciaCadastroService.addTodo(this.todas).then(function () {
+                            this.emergenciaCadastroService.addTodo(this.todas, this.idUsuario).then(function () {
                                 loading.dismiss();
-                                _this.navCtrl.navigateBack('/menu/home');
-                                console.log('Até aqui ta indo, salvo com sucesso');
+                                _this.navCtrl.navigateBack('emergencia/emergencia-utilizacao');
                             });
                         }
                         return [2 /*return*/];
@@ -227,7 +232,8 @@ var EmergenciaCadastroPage = /** @class */ (function () {
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"] },
         { type: _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__["File"] },
         { type: src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__["StorageService"] },
-        { type: src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_9__["OverlayService"] }
+        { type: src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_9__["OverlayService"] },
+        { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_10__["AngularFireAuth"] }
     ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('form', null),
@@ -247,7 +253,8 @@ var EmergenciaCadastroPage = /** @class */ (function () {
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"],
             _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_7__["File"],
             src_app_services_storage_storage_service__WEBPACK_IMPORTED_MODULE_6__["StorageService"],
-            src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_9__["OverlayService"]])
+            src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_9__["OverlayService"],
+            angularfire2_auth__WEBPACK_IMPORTED_MODULE_10__["AngularFireAuth"]])
     ], EmergenciaCadastroPage);
     return EmergenciaCadastroPage;
 }());

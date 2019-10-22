@@ -50,8 +50,8 @@ export class LoginPage {
         .signIn(this.user)
         .then(() => {
           this.usuarioCadastro.getUsuario(this.auth.auth.currentUser.uid).subscribe( res => {
-            if(!res.isProfissional){
-              this.router.navigate(['profissional-conteudo']); //Direciona após logado
+            if(res.isProfissional){
+              this.router.navigate(['menu/home']); //Direciona após logado
             }else{
               this.router.navigate(['menu/home']); //Direciona após logad
             }

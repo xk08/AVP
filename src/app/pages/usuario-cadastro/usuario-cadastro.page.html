@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="login"></ion-back-button>
     </ion-buttons>
-    <ion-title>Conhecendo você melhor</ion-title>
+    <ion-title>Mais sobre você</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
@@ -19,9 +19,10 @@
       >
       <div class="ion-text-center">
           <ion-col size="12" size-sm="6">
-            <img width = "180px" height = "150px" src="../../../assets/img/avp.png">
+            <img width = "130px" height = "100px" src="../../../assets/img/avp.png">
           </ion-col>
-        </div>
+      </div>
+      
         <form #form="ngForm">
 
           <!-- NOME -->
@@ -34,7 +35,7 @@
             <ion-input
               type="text"
               name="nome"
-              placeholder="Seu nome"
+              placeholder="Nome"
               autofocus="true"
               [(ngModel)]='todoUser.nome'
               required
@@ -51,6 +52,7 @@
             ></ion-icon>
             <ion-input
               type="date"
+              aria-placeholder="Data de nascimento"
               name="dataDeNascimento"
               autofocus="true"
               [(ngModel)]='todoUser.dataNasc'
@@ -69,7 +71,7 @@
             <ion-input
               type="email"
               name="email"
-              placeholder="Seu e-mail"
+              placeholder="E-mail"
               inputmode="email"
               autofocus="true"
               [(ngModel)]='todoUser.email'
@@ -88,7 +90,7 @@
             <ion-input
               type="password"
               name="password"
-              placeholder="Sua senha"
+              placeholder="Senha"
               [(ngModel)]='todoUser.senha'
               required
             ></ion-input>
@@ -108,7 +110,7 @@
           <ion-button
             class="login-button"
             expand="full"
-            color="dark"
+            color="medium"
             (click)="cadastroProfissional()"
           >
             Sou Profissional da Saúde

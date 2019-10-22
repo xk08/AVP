@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="dark">
-      <ion-back-button defaultHref="login"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Personalize seu assistente</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="menu/home"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Personalize seu assistente</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
   <ion-card>
@@ -46,8 +46,9 @@
             <ion-button
               expand="full"
               (click)="saveTodo()"
+              color="dark"
             >
-              Salvar
+              Salvar informações
             </ion-button>
           </ion-col>
         </ion-row>

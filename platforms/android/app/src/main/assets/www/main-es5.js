@@ -10,18 +10,17 @@
 var map = {
 	"../emergencia-cadastro/emergencia-cadastro.module": [
 		"./src/app/pages/emergencia-cadastro/emergencia-cadastro.module.ts",
-		"default~emergencia-cadastro-emergencia-cadastro-module~emergencia-utilizacao-emergencia-utilizacao-m~9f76d718",
-		"common",
+		"default~emergencia-cadastro-emergencia-cadastro-module~emergencia-utilizacao-emergencia-utilizacao-module",
 		"emergencia-cadastro-emergencia-cadastro-module"
 	],
 	"../emergencia-utilizacao/emergencia-utilizacao.module": [
 		"./src/app/pages/emergencia-utilizacao/emergencia-utilizacao.module.ts",
-		"default~emergencia-cadastro-emergencia-cadastro-module~emergencia-utilizacao-emergencia-utilizacao-m~9f76d718",
-		"common",
+		"default~emergencia-cadastro-emergencia-cadastro-module~emergencia-utilizacao-emergencia-utilizacao-module",
 		"emergencia-utilizacao-emergencia-utilizacao-module"
 	],
 	"../home/home.module": [
 		"./src/app/pages/home/home.module.ts",
+		"default~home-home-module~pages-login-login-module~pages-profissional-cadastro-profissional-cadastro-~c1875691",
 		"home-home-module"
 	],
 	"../profissional-conteudo-imagem/profissional-conteudo-imagem.module": [
@@ -38,7 +37,6 @@ var map = {
 	],
 	"./pages/cadastro-assistente/cadastro-assistente.module": [
 		"./src/app/pages/cadastro-assistente/cadastro-assistente.module.ts",
-		"default~emergencia-cadastro-emergencia-cadastro-module~emergencia-utilizacao-emergencia-utilizacao-m~9f76d718",
 		"common",
 		"pages-cadastro-assistente-cadastro-assistente-module"
 	],
@@ -48,18 +46,18 @@ var map = {
 	],
 	"./pages/login/login.module": [
 		"./src/app/pages/login/login.module.ts",
+		"default~home-home-module~pages-login-login-module~pages-profissional-cadastro-profissional-cadastro-~c1875691",
+		"common",
 		"pages-login-login-module"
 	],
 	"./pages/menu/menu.module": [
 		"./src/app/pages/menu/menu.module.ts",
-		"default~emergencia-cadastro-emergencia-cadastro-module~emergencia-utilizacao-emergencia-utilizacao-m~9f76d718",
 		"common",
 		"pages-menu-menu-module"
 	],
 	"./pages/profissional-cadastro/profissional-cadastro.module": [
 		"./src/app/pages/profissional-cadastro/profissional-cadastro.module.ts",
-		"default~emergencia-cadastro-emergencia-cadastro-module~emergencia-utilizacao-emergencia-utilizacao-m~9f76d718",
-		"common",
+		"default~home-home-module~pages-login-login-module~pages-profissional-cadastro-profissional-cadastro-~c1875691",
 		"pages-profissional-cadastro-profissional-cadastro-module"
 	],
 	"./pages/profissional-conteudo/profissional-conteudo.module": [
@@ -68,13 +66,11 @@ var map = {
 	],
 	"./pages/quero-conversar/quero-conversar.module": [
 		"./src/app/pages/quero-conversar/quero-conversar.module.ts",
-		"default~emergencia-cadastro-emergencia-cadastro-module~emergencia-utilizacao-emergencia-utilizacao-m~9f76d718",
 		"pages-quero-conversar-quero-conversar-module"
 	],
 	"./pages/usuario-cadastro/usuario-cadastro.module": [
 		"./src/app/pages/usuario-cadastro/usuario-cadastro.module.ts",
-		"default~emergencia-cadastro-emergencia-cadastro-module~emergencia-utilizacao-emergencia-utilizacao-m~9f76d718",
-		"common",
+		"default~home-home-module~pages-login-login-module~pages-profissional-cadastro-profissional-cadastro-~c1875691",
 		"pages-usuario-cadastro-usuario-cadastro-module"
 	]
 };
@@ -735,12 +731,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/index.js");
 /* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/index.js");
-/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/index.js");
-/* harmony import */ var _angular_fire_storage_public_api__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/fire/storage/public_api */ "./node_modules/@angular/fire/storage/public_api.js");
-/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
-/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
-/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/ngx/index.js");
-/* harmony import */ var _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/local-notifications/ngx */ "./node_modules/@ionic-native/local-notifications/ngx/index.js");
+/* harmony import */ var _angular_fire_storage_public_api__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/fire/storage/public_api */ "./node_modules/@angular/fire/storage/public_api.js");
+/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/ngx/index.js");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/ngx/index.js");
+/* harmony import */ var _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/local-notifications/ngx */ "./node_modules/@ionic-native/local-notifications/ngx/index.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_15__);
 
 
 
@@ -766,21 +763,21 @@ var CoreModule = /** @class */ (function () {
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
                 _angular_fire__WEBPACK_IMPORTED_MODULE_8__["AngularFireModule"].initializeApp(src_environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].firebase),
                 _angular_fire_auth__WEBPACK_IMPORTED_MODULE_9__["AngularFireAuthModule"],
+                _angular_fire_storage_public_api__WEBPACK_IMPORTED_MODULE_10__["AngularFireStorageModule"],
                 //Essa parte é referente a salvar os dados offline
-                _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_10__["AngularFirestoreModule"].enablePersistence({
+                angularfire2_firestore__WEBPACK_IMPORTED_MODULE_15__["AngularFirestoreModule"].enablePersistence({
                     synchronizeTabs: true
                 }),
-                _angular_fire_storage_public_api__WEBPACK_IMPORTED_MODULE_11__["AngularFireStorageModule"]
             ],
             exports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"]],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__["StatusBar"],
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__["SplashScreen"],
                 { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] },
-                _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_12__["Camera"],
-                _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_13__["File"],
-                _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_14__["Network"],
-                _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_15__["LocalNotifications"]
+                _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_11__["Camera"],
+                _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_12__["File"],
+                _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_13__["Network"],
+                _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_14__["LocalNotifications"]
             ]
         })
     ], CoreModule);
@@ -1018,7 +1015,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\tcc\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\marcos\TCC\tcc\src\main.ts */"./src/main.ts");
 
 
 /***/ })

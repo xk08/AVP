@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n  <ion-grid>\r\n    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->\r\n    <ion-row justify-content-center>\r\n      <!-- Deixa responsivo -->\r\n      <ion-col\r\n        size-sm=\"8\"\r\n        size-md=\"12\"\r\n        size-lg=\"3\"\r\n        size-xl=\"3\"\r\n      >\r\n\r\n        <form #form=\"ngForm\">\r\n\r\n          <ion-text text-align=\"justify-content-center\">Número de pessoas proximas a você</ion-text>\r\n\r\n          <!-- PRIMEIRO NÚMERO -->\r\n\r\n          <ion-title>\r\n            <ion-label>Foto que você gosta e admira</ion-label>\r\n          </ion-title>\r\n\r\n          <ion-item *ngFor=\"let emergencia of listEmergenciaCadastro ; let index = index\">\r\n            {{index}}Numero 01: {{emergencia.primeiroNumero}}\r\n            {{index}} Número 02: {{emergencia.segundoNumero}}\r\n            {{index}} Frase: {{emergencia.frase}}\r\n            <img [src]=\"emergencia.foto\">\r\n          </ion-item>\r\n\r\n        </form>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n</ion-content>\r\n"
+module.exports = "<ion-app *ngIf=\"!n1\">\r\n  <ion-content>\r\n      <ion-toolbar>\r\n          <ion-title style=\"text-align: center; font-size: 15pt\"> Opss...</ion-title>\r\n        </ion-toolbar>\r\n        <ion-card>\r\n          <ion-card-content>\r\n            Até o momento, nenhum conteúdo de emergência foi cadastrado.\r\n          </ion-card-content>\r\n\r\n        </ion-card>\r\n\r\n        <ion-button\r\n        expand=\"block\"\r\n        type=\"submit\"\r\n        color=\"secondary\"\r\n        (click)=\"mandaPraTelaCadastroEmergencia()\"\r\n      >\r\n        Clique para cadastrar\r\n      </ion-button>\r\n          \r\n  </ion-content>\r\n</ion-app>\r\n\r\n<ion-app *ngIf=\"n1\">\r\n\r\n    <ion-header translucent>\r\n        <ion-toolbar style=\"color: slateblue\">\r\n\r\n          <ion-title style=\"text-align: center; font-size: 15pt\"> Importantes para você</ion-title>\r\n        </ion-toolbar>\r\n    </ion-header>\r\n  <ion-content>\r\n  \r\n      <ion-card-header>\r\n        <ion-card-subtitle style=\"font-size: 12pt; text-align: center\">Foto que você gosta</ion-card-subtitle>\r\n        <ion-card [routerLink]=\"['/emergencia/emergencia-cadastro', idEmergencia]\">\r\n          <img [src]=\"foto\" width=\"380px\" height=\"320px\"/>\r\n        </ion-card>\r\n      </ion-card-header>\r\n\r\n      <ion-card-header>\r\n          <ion-card-subtitle style=\"font-size: 12pt; text-align: center\">Frase que te inspira</ion-card-subtitle>\r\n          <ion-card [routerLink]=\"['/emergencia/emergencia-cadastro', idEmergencia]\">\r\n            <ion-card-title>\" {{frase}} \"</ion-card-title>\r\n          </ion-card>\r\n      </ion-card-header>\r\n\r\n      <ion-card-header>\r\n          <ion-card-subtitle style=\"font-size: 12pt; text-align: center\">Precisa de ajuda ? Ligue para</ion-card-subtitle>\r\n          <ion-card>\r\n              <ion-row>\r\n                  <ion-col>\r\n                    <ion-item href=\"\" class=\"activated\" style=\"color: lightseagreen\">\r\n                        <ion-label class=\"ion-text-center\">{{nomeN1}}</ion-label>\r\n                    </ion-item>\r\n                  </ion-col>\r\n      \r\n                  <ion-col>\r\n                    <ion-item href=\"\" class=\"activated\" style=\"color: lightseagreen\">\r\n                        <ion-label class=\"ion-text-center\">{{nomeN2}}</ion-label>\r\n                    </ion-item>\r\n                  </ion-col>\r\n      \r\n                  <ion-col>\r\n                    <ion-item href=\"\" class=\"activated\" style=\"color: lightseagreen\">\r\n                        <ion-label class=\"ion-text-center\">CVV</ion-label>\r\n                    </ion-item>\r\n                  </ion-col>\r\n      \r\n                </ion-row>\r\n          </ion-card>\r\n      </ion-card-header>\r\n             \r\n\r\n</ion-content>\r\n</ion-app>\r\n        \r\n        \r\n\r\n\r\n  \r\n      \r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -78,26 +78,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_services_emergenciaCadastro_emergencia_cadastro_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/emergenciaCadastro/emergencia-cadastro.service */ "./src/app/services/emergenciaCadastro/emergencia-cadastro.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/index.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
 
 
 
 
 var EmergenciaUtilizacaoPage = /** @class */ (function () {
-    function EmergenciaUtilizacaoPage(emergenciaCadastroService, router) {
+    function EmergenciaUtilizacaoPage(emergenciaCadastroService, router, auth, navctrl) {
         this.emergenciaCadastroService = emergenciaCadastroService;
         this.router = router;
-        this.listEmergenciaCadastro = new Array();
+        this.auth = auth;
+        this.navctrl = navctrl;
     }
     EmergenciaUtilizacaoPage.prototype.ngOnInit = function () {
         var _this = this;
-        //Achar uma forma de pegar só 1 index
-        this.list = this.emergenciaCadastroService.getTodos().subscribe(function (res) {
-            _this.listEmergenciaCadastro = res;
+        this.idEmergencia = this.auth.auth.currentUser.uid;
+        this.list = this.emergenciaCadastroService.getTodo(this.idEmergencia).subscribe(function (res) {
+            _this.n1 = res.primeiroNumero;
+            _this.n2 = res.segundoNumero;
+            _this.frase = res.frase;
+            _this.foto = res.foto;
+            _this.nomeN1 = res.nomePrimeiroNumero;
+            _this.nomeN2 = res.nomeSegundoNumero;
         });
+    };
+    EmergenciaUtilizacaoPage.prototype.mandaPraTelaCadastroEmergencia = function () {
+        this.navctrl.navigateForward('/emergencia/emergencia-cadastro');
+    };
+    EmergenciaUtilizacaoPage.prototype.ngOnDestroy = function () {
+        this.list.unsubscribe();
     };
     EmergenciaUtilizacaoPage.ctorParameters = function () { return [
         { type: src_app_services_emergenciaCadastro_emergencia_cadastro_service__WEBPACK_IMPORTED_MODULE_2__["EmergenciaCadastroService"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+        { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuth"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavController"] }
     ]; };
     EmergenciaUtilizacaoPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -106,7 +124,9 @@ var EmergenciaUtilizacaoPage = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./emergencia-utilizacao.page.scss */ "./src/app/pages/emergencia-utilizacao/emergencia-utilizacao.page.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_emergenciaCadastro_emergencia_cadastro_service__WEBPACK_IMPORTED_MODULE_2__["EmergenciaCadastroService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuth"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavController"]])
     ], EmergenciaUtilizacaoPage);
     return EmergenciaUtilizacaoPage;
 }());

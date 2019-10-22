@@ -1,4 +1,10 @@
-<ion-content padding>
+<ion-header>
+    <ion-toolbar color="secondary">
+      <ion-title>Acessando o assistente</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content padding>
   <ion-grid>
     <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
     <ion-row justify-content-center>
@@ -20,7 +26,7 @@
       <form #form="ngForm">
         <ion-item>
             <ion-icon 
-              id="corRoxa"
+              color="medium"
               name="mail"
               slot="start"
             ></ion-icon>
@@ -37,7 +43,7 @@
 
           <ion-item>
             <ion-icon
-              id="corRoxa"
+             color="medium"
               name="lock"
               slot="start"
             ></ion-icon>

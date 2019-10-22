@@ -24,7 +24,7 @@
   slot="fixed"
 >
   <ion-fab-button
-    routerLink="/emergencia"
+    routerLink="/emergencia/emergencia-utilizacao"
     routerDirection="forward"
     color="secondary"
   >
@@ -35,7 +35,7 @@
 <ion-content>
     <ion-header translucent>
         <ion-toolbar>
-          <ion-title style="text-align: center; font-size: 15pt"> Recomenados para você</ion-title>
+          <ion-title style="text-align: center; font-size: 15pt"> Recomendados para você</ion-title>
         </ion-toolbar>
       </ion-header>
 
@@ -138,45 +138,48 @@
 
 
 <ion-app *ngIf="admin">
-<ion-header>
-  <ion-toolbar color="secondary">
-
-    <ion-buttons>
-      <ion-menu-button autoHide="true"></ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+  <ion-header>
+    <ion-toolbar color="secondary">
+  
+      <ion-buttons>
+        <ion-menu-button autoHide="true"></ion-menu-button>
+        <div>
+          <ion-title>Proporcionando conteúdos</ion-title>
+      </div>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
-    <ion-tabs>
-      <ion-tab-bar slot="top">
+  <ion-tabs>
+    <ion-tab-bar slot="top">
 
         <ion-tab-button
           tab="profissional-conteudo-texto"
-         
+          (click)="profissionalConteudoTexto()"
         >
-          <ion-icon name="moon"></ion-icon>
+          <ion-icon name="ios-text"></ion-icon>
           <ion-label>Texto</ion-label>
         </ion-tab-button>
   
         <ion-tab-button
           tab="profissional-conteudo-imagem"
-          
+          (click)="profissionalConteudoImagem()"
         >
-          <ion-icon name="sunny"></ion-icon>
+          <ion-icon name="ios-images"></ion-icon>
           <ion-label>Imagem</ion-label>
         </ion-tab-button>
   
         <ion-tab-button
           tab="profissional-conteudo-video"
-          
+          (click)="profissionalConteudoVideo()"
         >
-          <ion-icon name="home"></ion-icon>
+          <ion-icon name="ios-videocam"></ion-icon>
           <ion-label>Video</ion-label>
         </ion-tab-button>
   
       </ion-tab-bar>
     </ion-tabs>
-  
-  </ion-content>
+    
+</ion-content>
 </ion-app>

@@ -5,6 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { LoadingController, NavController } from '@ionic/angular';
 import { QueroConversarService } from 'src/app/services/queroConversar/quero-conversar.service';
 import { OverlayService } from 'src/app/core/overlay.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Subscription } from 'rxjs';
+import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario-cadastro.service';
 
 @Component({
   selector: 'app-quero-conversar',
@@ -12,12 +15,17 @@ import { OverlayService } from 'src/app/core/overlay.service';
   styleUrls: ['./quero-conversar.page.scss']
 })
 export class QueroConversarPage implements OnInit {
+  //Dados do usuario
+  public nomeUsuarioLogado: string ;
+  public list: Subscription;
+
   //Refernete ao ratebar
   @Input() numStars: number = 5;
   @Input() valor: number = 0;
   @Output() ionClick: EventEmitter<number> = new EventEmitter<number>();
 
   stars: string[] = [];
+
 
   @ViewChild('form', null) form: NgForm;
 
@@ -35,7 +43,9 @@ export class QueroConversarPage implements OnInit {
     private loadingController: LoadingController,
     private queroConversarService: QueroConversarService,
     private navCtrl: NavController,
-    private overlay: OverlayService
+    private overlay: OverlayService,
+    private auth: AngularFireAuth,
+    private usuarioCadastroService: UsuarioCadastroService
   ) {}
 
   //RatebarStar
@@ -69,6 +79,11 @@ export class QueroConversarPage implements OnInit {
     if (this.idQueroConversar) {
       this.loadTodo();
     }
+
+    //Pegando dados do Usuário para exibir na tela
+      this.list = this.usuarioCadastroService.getUsuario(this.auth.auth.currentUser.uid).subscribe(res => {
+        this.nomeUsuarioLogado = res.nome;
+      });
   }
 
   async loadTodo() {
