@@ -12,16 +12,14 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./emergencia-utilizacao.page.scss']
 })
 export class EmergenciaUtilizacaoPage implements OnInit, OnDestroy {
-
   public todoEmergencia: EmergenciaCadastro[];
   public n1: string;
   public n2: string;
-  public nomeN1: string ; 
-  public nomeN2: string ; 
+  public nomeN1: string;
+  public nomeN2: string;
   public frase: string;
-  public foto: string ;
+  public foto: string;
   public idEmergencia: string;
-
 
   constructor(
     private emergenciaCadastroService: EmergenciaCadastroService,
@@ -30,13 +28,11 @@ export class EmergenciaUtilizacaoPage implements OnInit, OnDestroy {
     private navctrl: NavController
   ) {}
 
-
   public list: Subscription;
 
   ngOnInit() {
     this.idEmergencia = this.auth.auth.currentUser.uid;
- 
-    
+
     this.list = this.emergenciaCadastroService.getTodo(this.idEmergencia).subscribe(res => {
       this.n1 = res.primeiroNumero;
       this.n2 = res.segundoNumero;
@@ -49,10 +45,10 @@ export class EmergenciaUtilizacaoPage implements OnInit, OnDestroy {
 
   mandaPraTelaCadastroEmergencia() {
     this.navctrl.navigateForward('/emergencia/emergencia-cadastro');
+    this.list;
   }
 
   ngOnDestroy() {
     this.list.unsubscribe();
   }
-
 }
