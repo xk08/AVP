@@ -16,7 +16,7 @@ import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario
 })
 export class QueroConversarPage implements OnInit {
   //Dados do usuario
-  public nomeUsuarioLogado: string ;
+  public nomeUsuarioLogado: String ;
   public list: Subscription;
 
   //Refernete ao ratebar
