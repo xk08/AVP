@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header></ion-header>\r\n\r\n<ion-content>\r\n  <ion-label>Aqui Textos e outras pohha</ion-label>\r\n</ion-content>\r\n"
+module.exports = "<ion-header></ion-header>\r\n\r\n<ion-content>\r\n    <ion-label>Aqui vai o cadastro de Textos</ion-label>\r\n</ion-content>\r\n"
 
 /***/ }),
 

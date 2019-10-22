@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\r\n  <ion-split-pane>\r\n\r\n    <ion-menu>\r\n\r\n      <ion-toolbar color=\"primary\">\r\n        <ion-title>Menu</ion-title>\r\n        <ion-buttons slot=\"end\">\r\n          <ion-menu-button autoHide=\"true\"></ion-menu-button>\r\n        </ion-buttons>\r\n      </ion-toolbar>\r\n\r\n      <ion-content>\r\n        <ion-item>\r\n          <ion-chip>\r\n            <ion-avatar>\r\n              <img src=\"{{icone}}\">\r\n            </ion-avatar>\r\n\r\n            <ion-label>Olá,eu sou {{apelido}} seu assistente</ion-label>\r\n            <!-- mudar para o assistente, DPS  pega expecidfico -->\r\n          </ion-chip>\r\n        </ion-item>\r\n        <ion-list>\r\n          <ion-menu-toggle\r\n            autoHide=\"false\"\r\n            *ngFor=\"let p of paginas; let i = index\"\r\n          >\r\n            <ion-item [routerLink]=\"p.url\">\r\n              <ion-icon\r\n                slot=\"start\"\r\n                [name]=\"p.icon\"\r\n              ></ion-icon>\r\n              <ion-label>{{p.title}}</ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n\r\n          <!-- Menus dos ADMS -->\r\n\r\n          <ion-list *ngIf=\"isAdmin\">\r\n            <ion-menu-toggle\r\n              autoHide=\"false\"\r\n              *ngFor=\"let a of paginasAdmin; let i = index\"\r\n            >\r\n              <ion-item [routerLink]=\"a.url\">\r\n                <ion-icon\r\n                  slot=\"start\"\r\n                  [name]=\"a.icon\"\r\n                ></ion-icon>\r\n                <ion-label>{{a.title}}</ion-label>\r\n              </ion-item>\r\n            </ion-menu-toggle>\r\n          </ion-list>\r\n\r\n          <!-- Menus dos profissionais -->\r\n\r\n          <ion-list *ngIf=\"isProfissional\">\r\n            <ion-menu-toggle\r\n              autoHide=\"false\"\r\n              *ngFor=\"let pagina of paginasProfissional; let i = index\"\r\n            >\r\n              <ion-item [routerLink]=\"pagina.url\">\r\n                <ion-icon\r\n                  slot=\"start\"\r\n                  [name]=\"pagina.icon\"\r\n                ></ion-icon>\r\n                <ion-label>{{pagina.title}}</ion-label>\r\n              </ion-item>\r\n            </ion-menu-toggle>\r\n          </ion-list>\r\n\r\n          <ion-menu-toggle autoHide=\"false\">\r\n            <ion-item\r\n              button\r\n              (click)=\"signOut()\"\r\n            >\r\n              <ion-icon\r\n                slot=\"start\"\r\n                name=\"power\"\r\n              ></ion-icon>\r\n              <ion-label>Sair</ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n      </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n\r\n  </ion-split-pane>\r\n\r\n</ion-app>\r\n"
+module.exports = "<ion-app>\r\n  <ion-split-pane>\r\n\r\n    <ion-menu>\r\n\r\n      <ion-toolbar color=\"primary\">\r\n        <ion-title>Menu</ion-title>\r\n        <ion-buttons slot=\"end\">\r\n          <ion-menu-button autoHide=\"true\"></ion-menu-button>\r\n        </ion-buttons>\r\n      </ion-toolbar>\r\n\r\n      <ion-content>\r\n        <ion-item *ngIf=\"!isProfissional\">\r\n          <ion-chip>\r\n\r\n            <ion-avatar *ngIf=\"icone != ''\">\r\n              <img src=\"{{icone}}\">\r\n            </ion-avatar>\r\n\r\n            <ion-avatar *ngIf=\"icone == ''\">\r\n              <img src=\"../../../assets/img/avp.png\">\r\n            </ion-avatar>\r\n\r\n            <ion-label *ngIf=\"apelido == ''\">Assistente não cadastrado</ion-label>\r\n            <ion-label *ngIf=\"apelido != ''\">Olá, sou {{apelido}} seu assistente</ion-label>\r\n            <!-- mudar para o assistente, DPS  pega expecidfico -->\r\n          </ion-chip>\r\n        </ion-item>\r\n\r\n        <ion-item *ngIf=\"isProfissional\">\r\n          <ion-chip>\r\n\r\n            <ion-avatar *ngIf=\"fotoUsuario != ''\">\r\n              <img src=\"{{fotoUsuario}}\">\r\n            </ion-avatar>\r\n\r\n            <ion-avatar *ngIf=\"fotoUsuario == ''\">\r\n                <img src=\"../../../assets/img/avp.png\">\r\n              </ion-avatar>\r\n\r\n            <ion-label>Bem vindo {{nomeUsuario}}</ion-label>\r\n           \r\n          </ion-chip>\r\n        </ion-item>\r\n\r\n        <ion-list>\r\n          <ion-menu-toggle\r\n            autoHide=\"false\"\r\n            *ngFor=\"let p of paginas; let i = index\"\r\n          >\r\n            <ion-item [routerLink]=\"p.url\">\r\n              <ion-icon\r\n                slot=\"start\"\r\n                [name]=\"p.icon\"\r\n              ></ion-icon>\r\n              <ion-label>{{p.title}}</ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n\r\n         \r\n          <!-- Menus dos profissionais -->\r\n\r\n          <ion-list *ngIf=\"isProfissional\">\r\n            <ion-menu-toggle\r\n              autoHide=\"false\"\r\n              *ngFor=\"let pagina of paginasProfissional; let i = index\"\r\n            >\r\n              <ion-item [routerLink]=\"pagina.url\">\r\n                <ion-icon\r\n                  slot=\"start\"\r\n                  [name]=\"pagina.icon\"\r\n                ></ion-icon>\r\n                <ion-label>{{pagina.title}}</ion-label>\r\n              </ion-item>\r\n            </ion-menu-toggle>\r\n          </ion-list>\r\n\r\n          <ion-menu-toggle autoHide=\"false\">\r\n            <ion-item\r\n              button\r\n              (click)=\"signOut()\"\r\n            >\r\n              <ion-icon\r\n                slot=\"start\"\r\n                name=\"power\"\r\n              ></ion-icon>\r\n              <ion-label>Sair</ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n      </ion-content>\r\n    </ion-menu>\r\n\r\n    <ion-router-outlet main></ion-router-outlet>\r\n\r\n  </ion-split-pane>\r\n\r\n</ion-app>\r\n"
 
 /***/ }),
 
@@ -88,43 +88,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
 /* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_auth__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/assistenteCadastro/assistente-cadastro.service */ "./src/app/services/assistenteCadastro/assistente-cadastro.service.ts");
+/* harmony import */ var src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/usuarioCadastro/usuario-cadastro.service */ "./src/app/services/usuarioCadastro/usuario-cadastro.service.ts");
+/* harmony import */ var src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/assistenteCadastro/assistente-cadastro.service */ "./src/app/services/assistenteCadastro/assistente-cadastro.service.ts");
+
 
 
 
 
 let MenuPage = class MenuPage {
-    constructor(authService, assistenteCadastroService) {
+    constructor(authService, assistenteCadastroService, usuarioCadastroService) {
         this.authService = authService;
         this.assistenteCadastroService = assistenteCadastroService;
+        this.usuarioCadastroService = usuarioCadastroService;
         this.paginas = [
             {
                 title: 'Home',
                 url: '/menu/home',
                 icon: 'home'
-            }
-        ];
-        this.paginasAdmin = [
+            },
             {
-                title: 'Home',
-                url: '/menu/home',
-                icon: 'home'
+                title: 'Cadastrar Assistente',
+                url: '/assistente/cadastro',
+                icon: 'logo-angular'
             }
         ];
-        this.paginasProfissional = [
-            {
-                title: 'HTesteome',
-                url: '/menu/home',
-                icon: 'add'
-            }
-        ];
+        this.paginasProfissional = [];
     }
     ngOnInit() {
+        // Pegando dados do assistente para exibir na tela
         this.idAssistente = this.authService.auth.currentUser.uid;
         console.log(this.idAssistente);
         this.list = this.assistenteCadastroService.getTodo(this.idAssistente).subscribe(res => {
             this.apelido = res.apelido;
             this.icone = res.icone;
+        });
+        // Pegando dados do Usuário para exibir na tela
+        this.listUsuario = this.usuarioCadastroService.getUsuario(this.authService.auth.currentUser.uid).subscribe(res => {
+            this.nomeUsuario = res.nome;
+            this.fotoUsuario = res.foto;
+            this.isProfissional = res.isProfissional;
         });
     }
     signOut() {
@@ -136,7 +138,8 @@ let MenuPage = class MenuPage {
 };
 MenuPage.ctorParameters = () => [
     { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"] },
-    { type: src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_3__["AssistenteCadastroService"] }
+    { type: src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_4__["AssistenteCadastroService"] },
+    { type: src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_3__["UsuarioCadastroService"] }
 ];
 MenuPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -145,7 +148,8 @@ MenuPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [__webpack_require__(/*! ./menu.page.scss */ "./src/app/pages/menu/menu.page.scss")]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"],
-        src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_3__["AssistenteCadastroService"]])
+        src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_4__["AssistenteCadastroService"],
+        src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_3__["UsuarioCadastroService"]])
 ], MenuPage);
 
 

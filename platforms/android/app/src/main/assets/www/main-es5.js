@@ -20,7 +20,7 @@ var map = {
 	],
 	"../home/home.module": [
 		"./src/app/pages/home/home.module.ts",
-		"default~home-home-module~pages-login-login-module~pages-profissional-cadastro-profissional-cadastro-~c1875691",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~35539472",
 		"home-home-module"
 	],
 	"../profissional-conteudo-imagem/profissional-conteudo-imagem.module": [
@@ -46,18 +46,19 @@ var map = {
 	],
 	"./pages/login/login.module": [
 		"./src/app/pages/login/login.module.ts",
-		"default~home-home-module~pages-login-login-module~pages-profissional-cadastro-profissional-cadastro-~c1875691",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~35539472",
 		"common",
 		"pages-login-login-module"
 	],
 	"./pages/menu/menu.module": [
 		"./src/app/pages/menu/menu.module.ts",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~35539472",
 		"common",
 		"pages-menu-menu-module"
 	],
 	"./pages/profissional-cadastro/profissional-cadastro.module": [
 		"./src/app/pages/profissional-cadastro/profissional-cadastro.module.ts",
-		"default~home-home-module~pages-login-login-module~pages-profissional-cadastro-profissional-cadastro-~c1875691",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~35539472",
 		"pages-profissional-cadastro-profissional-cadastro-module"
 	],
 	"./pages/profissional-conteudo/profissional-conteudo.module": [
@@ -66,11 +67,12 @@ var map = {
 	],
 	"./pages/quero-conversar/quero-conversar.module": [
 		"./src/app/pages/quero-conversar/quero-conversar.module.ts",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~35539472",
 		"pages-quero-conversar-quero-conversar-module"
 	],
 	"./pages/usuario-cadastro/usuario-cadastro.module": [
 		"./src/app/pages/usuario-cadastro/usuario-cadastro.module.ts",
-		"default~home-home-module~pages-login-login-module~pages-profissional-cadastro-profissional-cadastro-~c1875691",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~35539472",
 		"pages-usuario-cadastro-usuario-cadastro-module"
 	]
 };
@@ -524,7 +526,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\r\n  <ion-router-outlet></ion-router-outlet>\r\n</ion-app>\r\n"
+module.exports = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n"
 
 /***/ }),
 
@@ -648,7 +650,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.initializeApp = function () {
         var _this = this;
         this.platform.ready().then(function () {
-            _this.statusBar.styleDefault();
+            _this.statusBar.styleLightContent();
             _this.splashScreen.hide();
         });
     };
@@ -1015,7 +1017,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\marcos\TCC\tcc\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\tcc\src\main.ts */"./src/main.ts");
 
 
 /***/ })

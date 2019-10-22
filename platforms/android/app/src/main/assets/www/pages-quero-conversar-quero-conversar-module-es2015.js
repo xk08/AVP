@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"login\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Pode falar</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card>\r\n    <ion-grid>\r\n      <form #form=\"ngForm\">\r\n        <ion-row>\r\n          <ion-col size=\"12\">\r\n            <ion-item>\r\n              <ion-textarea\r\n                name=\"textoLivre\"\r\n                autofocus=\"true\"\r\n                [(ngModel)]='todas.textoLivre'\r\n                required\r\n                rows=\"4\"\r\n                cols=\"10\"\r\n                placeholder=\"O que você está pensando ?\"\r\n              ></ion-textarea>\r\n            </ion-item>\r\n          </ion-col>\r\n\r\n\r\n            <ion-item>\r\n              <ion-label>Como está se sentindo hoje ?</ion-label>\r\n            </ion-item>\r\n\r\n\r\n          <ion-item\r\n            *ngFor=\"let star of stars ; let i = index\"\r\n            tappable\r\n            (click)=\"starClicked(i)\"\r\n            [(ngModel)]=\"todas.avaliacao\"\r\n            name=\"avaliacao\"\r\n          >\r\n            <ion-icon [name]=\"star\"></ion-icon>\r\n          </ion-item>\r\n\r\n          <ion-col></ion-col>\r\n          <ion-col size=\"12\">\r\n            <ion-list>\r\n              <ion-grid fixed>\r\n\r\n                <ion-col size=\"12\"></ion-col>\r\n              </ion-grid>\r\n            </ion-list>\r\n          </ion-col>\r\n          <ion-col size=\"12\">\r\n            <ion-button\r\n              expand=\"full\"\r\n              (click)=\"saveTodo()\"\r\n            >\r\n              OK\r\n            </ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </form>\r\n\r\n    </ion-grid>\r\n  </ion-card>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"menu/home\"></ion-back-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n<ion-content>\r\n    <ion-grid>\r\n      <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->\r\n      <ion-row justify-content-center>\r\n        <!-- Deixa responsivo -->\r\n        <ion-col\r\n          size-sm=\"8\"\r\n          size-md=\"12\"\r\n          size-lg=\"3\"\r\n          size-xl=\"3\"\r\n        >\r\n        <form #form=\"ngForm\">\r\n  \r\n    \r\n            <ion-card>\r\n              <ion-card-header>\r\n                  <ion-card-subtitle>{{nomeUsuarioLogado}}</ion-card-subtitle>\r\n                  <ion-card-title style=\"font-size: 17px; text-align: center;\" >No que você está pensando agora ?</ion-card-title>\r\n              </ion-card-header>\r\n\r\n                <ion-item>\r\n                    <ion-textarea\r\n                      name=\"textoLivre\"\r\n                      autofocus=\"true\"\r\n                      [(ngModel)]='todas.textoLivre'\r\n                      required\r\n                      rows=\"5\"\r\n                      cols=\"15\"\r\n                      placeholder=\"Escreva seu texto aqui ...\"\r\n                    ></ion-textarea>\r\n                </ion-item>\r\n            </ion-card>\r\n\r\n            <ion-card>\r\n             \r\n                <ion-card-header>\r\n                  <ion-card-title style=\"font-size: 17px; text-align: center;\" >Como você está nesse momento ?</ion-card-title>\r\n                </ion-card-header>\r\n\r\n               <ion-row>\r\n                <ion-item\r\n                    *ngFor=\"let star of stars ; let i = index\"\r\n                    tappable\r\n                    (click)=\"starClicked(i)\"\r\n                    [(ngModel)]=\"todas.avaliacao\"\r\n                    name=\"avaliacao\"\r\n                >\r\n                    <ion-icon [name]=\"star\"></ion-icon>\r\n                </ion-item>\r\n              </ion-row>\r\n             \r\n            </ion-card>\r\n\r\n            <ion-button\r\n            expand=\"block\"\r\n            type=\"submit\"\r\n            class=\"login-button\"\r\n            (click)=\"saveTodo()\"\r\n            color='dark'\r\n          >\r\n            Enviar\r\n          </ion-button>\r\n        </form>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -57,7 +57,7 @@ QueroConversarPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ion-rating-container {\n  font-size: 30;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvcXVlcm8tY29udmVyc2FyL0Q6XFxtYXJjb3NcXFRDQ1xcdGNjL3NyY1xcYXBwXFxwYWdlc1xccXVlcm8tY29udmVyc2FyXFxxdWVyby1jb252ZXJzYXIucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9xdWVyby1jb252ZXJzYXIvcXVlcm8tY29udmVyc2FyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3F1ZXJvLWNvbnZlcnNhci9xdWVyby1jb252ZXJzYXIucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXJhdGluZy1jb250YWluZXIge1xyXG4gIGZvbnQtc2l6ZTogMzA7XHJcbn1cclxuIiwiaW9uLXJhdGluZy1jb250YWluZXIge1xuICBmb250LXNpemU6IDMwO1xufSJdfQ== */"
+module.exports = "ion-rating-container {\n  font-size: 30;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvcXVlcm8tY29udmVyc2FyL0Q6XFx0Y2Mvc3JjXFxhcHBcXHBhZ2VzXFxxdWVyby1jb252ZXJzYXJcXHF1ZXJvLWNvbnZlcnNhci5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3F1ZXJvLWNvbnZlcnNhci9xdWVyby1jb252ZXJzYXIucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvcXVlcm8tY29udmVyc2FyL3F1ZXJvLWNvbnZlcnNhci5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tcmF0aW5nLWNvbnRhaW5lciB7XHJcbiAgZm9udC1zaXplOiAzMDtcclxufVxyXG4iLCJpb24tcmF0aW5nLWNvbnRhaW5lciB7XG4gIGZvbnQtc2l6ZTogMzA7XG59Il19 */"
 
 /***/ }),
 
@@ -78,6 +78,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var src_app_services_queroConversar_quero_conversar_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/queroConversar/quero-conversar.service */ "./src/app/services/queroConversar/quero-conversar.service.ts");
 /* harmony import */ var src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/overlay.service */ "./src/app/core/overlay.service.ts");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/usuarioCadastro/usuario-cadastro.service */ "./src/app/services/usuarioCadastro/usuario-cadastro.service.ts");
+
+
 
 
 
@@ -86,12 +91,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let QueroConversarPage = class QueroConversarPage {
-    constructor(route, loadingController, queroConversarService, navCtrl, overlay) {
+    constructor(route, loadingController, queroConversarService, navCtrl, overlay, auth, usuarioCadastroService) {
         this.route = route;
         this.loadingController = loadingController;
         this.queroConversarService = queroConversarService;
         this.navCtrl = navCtrl;
         this.overlay = overlay;
+        this.auth = auth;
+        this.usuarioCadastroService = usuarioCadastroService;
         //Refernete ao ratebar
         this.numStars = 5;
         this.valor = 0;
@@ -132,6 +139,10 @@ let QueroConversarPage = class QueroConversarPage {
         if (this.idQueroConversar) {
             this.loadTodo();
         }
+        //Pegando dados do Usuário para exibir na tela
+        this.list = this.usuarioCadastroService.getUsuario(this.auth.auth.currentUser.uid).subscribe(res => {
+            this.nomeUsuarioLogado = res.nome;
+        });
     }
     loadTodo() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -173,7 +184,9 @@ QueroConversarPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"] },
     { type: src_app_services_queroConversar_quero_conversar_service__WEBPACK_IMPORTED_MODULE_5__["QueroConversarService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] },
-    { type: src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_6__["OverlayService"] }
+    { type: src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_6__["OverlayService"] },
+    { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"] },
+    { type: src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_8__["UsuarioCadastroService"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -201,7 +214,9 @@ QueroConversarPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"],
         src_app_services_queroConversar_quero_conversar_service__WEBPACK_IMPORTED_MODULE_5__["QueroConversarService"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"],
-        src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_6__["OverlayService"]])
+        src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_6__["OverlayService"],
+        angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"],
+        src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_8__["UsuarioCadastroService"]])
 ], QueroConversarPage);
 
 
