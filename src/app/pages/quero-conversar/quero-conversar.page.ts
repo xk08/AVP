@@ -25,11 +25,11 @@ export class QueroConversarPage implements OnInit {
   @Output() ionClick: EventEmitter<number> = new EventEmitter<number>();
 
   stars: string[] = [];
-
+  geral: number;
 
   @ViewChild('form', null) form: NgForm;
 
-  geral: number;
+
   public todas: QueroConversar = {
     id: '',
     textoLivre: '',
@@ -49,7 +49,6 @@ export class QueroConversarPage implements OnInit {
   ) {}
 
   //RatebarStar
-
   calc() {
     this.stars = [];
     let tmp = this.valor;
