@@ -11,12 +11,96 @@
       <!-- Deixa responsivo -->
       <ion-col size-sm="8" size-md="12" size-lg="3" size-xl="3">
         <form #form="ngForm">
-          <!-- FRASE QUE GOSTA -->
+          <ion-card>
+            <ion-card-header style="background-color: skyblue;;">
+              <ion-card-title style="font-size: 17px; text-align: center;"
+                >Divulgue uma frase de apoio</ion-card-title
+              >
+            </ion-card-header>
+            <ion-item>
+              <ion-icon name="ios-bulb" color="dark" slot="start"></ion-icon>
+              <ion-textarea
+                name="texto"
+                autofocus="true"
+                [(ngModel)]="todas.texto"
+                required
+                rows="3"
+                cols="10"
+                placeholder="Utilize este espaço para escrever..."
+              ></ion-textarea>
+            </ion-item>
+          </ion-card>
+
+          <ion-item href="" class="activated" color="primary">
+            <ion-label class="ion-text-center">Preencher mais informações </ion-label>
+          </ion-item>
+
+          <ion-card style="background-color: lightsteelblue;">
+            <ion-item>
+              <ion-icon name="add" slot="start" color="primary"> </ion-icon>
+              <ion-input
+                type="text"
+                name="tituloTexo"
+                placeholder="Titulo"
+                autofocus="true"
+                [(ngModel)]="todas.tituloTexto"
+                required
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-icon name="add" slot="start" color="primary"> </ion-icon>
+              <ion-input
+                type="text"
+                name="autorTexto"
+                placeholder="Autor do texto"
+                autofocus="true"
+                [(ngModel)]="todas.autorTexto"
+                required
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-icon name="add" color="primary" slot="start"></ion-icon>
+              <ion-textarea
+                name="maisInfo"
+                autofocus="true"
+                [(ngModel)]="todas.maisInfoTexto"
+                required
+                rows="2"
+                cols="5"
+                placeholder="Informações complementares..."
+              ></ion-textarea>
+            </ion-item>
+          </ion-card>
+
+          <ion-item href="" class="activated" color="primary">
+            <ion-label class="ion-text-center">Filtros de conteúdo </ion-label>
+          </ion-item>
 
           <ion-card>
             <ion-card-header>
-              <ion-card-title style="font-size: 17px; text-align: center;"
-                >Como você está nesse momento ?</ion-card-title
+              <ion-card-title style="font-size: 17px; text-align: center;">
+                Como você está nesse momento ?</ion-card-title
+              >
+            </ion-card-header>
+            <ion-row>
+              <ion-radio-group [(ngModel)]="todas.idade"> <!-- Ver essa parte aqui-->
+                <ion-item>
+                  <ion-label>Masculino</ion-label>
+                  <ion-radio value="Masculino"></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label>Fem</ion-label>
+                  <ion-radio value="Fem"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+            </ion-row>
+
+            <ion-card-header>
+              <ion-card-title style="font-size: 17px; text-align: center;">
+                Como você está nesse momento ?</ion-card-title
               >
             </ion-card-header>
 
@@ -28,7 +112,7 @@
                 [(ngModel)]="todas.avaliacao"
                 name="avaliacao"
               >
-                <ion-icon [name]="star"></ion-icon>
+                <ion-icon [name]="star" color="primary"></ion-icon>
               </ion-item>
             </ion-row>
           </ion-card>
