@@ -21,6 +21,18 @@ export class ProfissionalConteudoTextoPage implements OnInit {
   stars: string[] = [];
   geral: number;
 
+  //Referente a parte de esconder botões da tela
+  public mostraMaisInfo: boolean;
+  public mostraFiltro: boolean;
+
+  changeFiltro() {
+    console.log(this.mostraMaisInfo);
+  }
+
+  changeMaisInfo() {
+    console.log(this.mostraFiltro);
+  }
+
   @ViewChild('form', null) form: NgForm;
   public idConteudoTexto: string;
   public idUsuario: string;
@@ -56,8 +68,6 @@ export class ProfissionalConteudoTextoPage implements OnInit {
       else this.stars.push('star-outline');
     }
   }
-
-
 
   starClicked(index) {
     this.valor = index + 1;
