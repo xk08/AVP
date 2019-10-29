@@ -57,7 +57,7 @@ export class ProfissionalConteudoTextoPage implements OnInit {
     }
   }
 
-  //https://www.youtube.com/watch?v=WiuFgIyCV0s
+
 
   starClicked(index) {
     this.valor = index + 1;

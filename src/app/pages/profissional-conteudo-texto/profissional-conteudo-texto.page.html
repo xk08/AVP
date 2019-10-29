@@ -4,21 +4,29 @@
   </ion-toolbar>
 </ion-header> -->
 
+
 <ion-content>
   <ion-grid>
     <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
     <ion-row justify-content-center>
       <!-- Deixa responsivo -->
-      <ion-col size-sm="8" size-md="12" size-lg="3" size-xl="3">
+      <ion-col
+        size-sm="8"
+        size-md="12"
+        size-lg="3"
+        size-xl="3"
+      >
         <form #form="ngForm">
           <ion-card>
-            <ion-card-header style="background-color: skyblue;;">
-              <ion-card-title style="font-size: 17px; text-align: center;"
-                >Divulgue uma frase de apoio</ion-card-title
-              >
+            <ion-card-header style="background-color: lightsteelblue;">
+              <ion-card-title style="font-size: 17px; text-align: center;">Divulgue uma frase de apoio</ion-card-title>
             </ion-card-header>
             <ion-item>
-              <ion-icon name="ios-bulb" color="dark" slot="start"></ion-icon>
+              <ion-icon
+                name="ios-bulb"
+                color="dark"
+                slot="start"
+              ></ion-icon>
               <ion-textarea
                 name="texto"
                 autofocus="true"
@@ -31,13 +39,29 @@
             </ion-item>
           </ion-card>
 
-          <ion-item href="" class="activated" color="primary">
-            <ion-label class="ion-text-center">Preencher mais informações </ion-label>
+
+
+
+
+          <ion-item
+            href
+            class="activated"
+            color="primary"
+          >
+            <ion-label class="ion-text-center">Preencher mais informações</ion-label>
           </ion-item>
+
+
+
 
           <ion-card style="background-color: lightsteelblue;">
             <ion-item>
-              <ion-icon name="add" slot="start" color="primary"> </ion-icon>
+              <ion-icon
+                name="add"
+                slot="start"
+                color="primary"
+              >
+              </ion-icon>
               <ion-input
                 type="text"
                 name="tituloTexo"
@@ -48,8 +72,16 @@
               ></ion-input>
             </ion-item>
 
+
+
+
             <ion-item>
-              <ion-icon name="add" slot="start" color="primary"> </ion-icon>
+              <ion-icon
+                name="add"
+                slot="start"
+                color="primary"
+              >
+              </ion-icon>
               <ion-input
                 type="text"
                 name="autorTexto"
@@ -60,8 +92,15 @@
               ></ion-input>
             </ion-item>
 
+
+
+
             <ion-item>
-              <ion-icon name="add" color="primary" slot="start"></ion-icon>
+              <ion-icon
+                name="add"
+                color="primary"
+                slot="start"
+              ></ion-icon>
               <ion-textarea
                 name="maisInfo"
                 autofocus="true"
@@ -74,35 +113,125 @@
             </ion-item>
           </ion-card>
 
-          <ion-item href="" class="activated" color="primary">
-            <ion-label class="ion-text-center">Filtros de conteúdo </ion-label>
+
+
+
+          <ion-item
+            href
+            class="activated"
+            color="primary"
+          >
+            <ion-label class="ion-text-center">Filtros de conteúdo</ion-label>
           </ion-item>
 
+
+
+
           <ion-card>
-            <ion-card-header>
-              <ion-card-title style="font-size: 17px; text-align: center;">
-                Como você está nesse momento ?</ion-card-title
-              >
+            <ion-card-header style="background-color: lightsteelblue;">
+              <ion-card-title style="font-size: 17px; text-align: center;">Faixa etária destinada</ion-card-title>
             </ion-card-header>
-            <ion-row>
-              <ion-radio-group [(ngModel)]="todas.idade"> <!-- Ver essa parte aqui-->
-                <ion-item>
-                  <ion-label>Masculino</ion-label>
-                  <ion-radio value="Masculino"></ion-radio>
-                </ion-item>
 
-                <ion-item>
-                  <ion-label>Fem</ion-label>
-                  <ion-radio value="Fem"></ion-radio>
-                </ion-item>
-              </ion-radio-group>
-            </ion-row>
 
-            <ion-card-header>
-              <ion-card-title style="font-size: 17px; text-align: center;">
-                Como você está nesse momento ?</ion-card-title
-              >
+
+
+            <ion-radio-group
+              [(ngModel)]="todas.idade"
+              name="selecionaIdade"
+            >
+              <ion-item>
+                <ion-label>8 a 12 anos</ion-label>
+                <ion-radio
+                  name="8a12"
+                  value="8 a 12"
+                  slot="start"
+                ></ion-radio>
+              </ion-item>
+
+
+
+
+              <ion-item>
+                <ion-label>13 a 17 anos</ion-label>
+                <ion-radio
+                  name="13a17"
+                  value="13 a 17"
+                  slot="start"
+                ></ion-radio>
+              </ion-item>
+
+
+
+
+
+              <ion-item>
+                <ion-label>18 a 35 anos</ion-label>
+                <ion-radio
+                  name="18a35"
+                  value="18 a 35"
+                  slot="start"
+                ></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+
+
+
+
+            <ion-card-header style="background-color: lightsteelblue;">
+              <ion-card-title style="font-size: 17px; text-align: center;">Nível de emergência</ion-card-title>
             </ion-card-header>
+
+
+
+
+            <ion-radio-group
+              [(ngModel)]="todas.nivelEmergencia"
+              name="selecionaEmergencia"
+            >
+              <ion-item>
+                <ion-label>Normal</ion-label>
+                <ion-radio
+                  name="normal"
+                  value="normal"
+                  slot="start"
+                ></ion-radio>
+              </ion-item>
+
+
+
+
+              <ion-item>
+                <ion-label>Preocupante</ion-label>
+                <ion-radio
+                  name="Preocupante"
+                  value="preocupante"
+                  slot="start"
+                ></ion-radio>
+              </ion-item>
+
+
+
+
+
+              <ion-item>
+                <ion-label>Urgente</ion-label>
+                <ion-radio
+                  name="urgente"
+                  value="urgente"
+                  slot="start"
+                ></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+
+
+
+
+            <ion-card-header style="background-color: lightsteelblue;">
+              <ion-card-title style="font-size: 17px; text-align: center;">Avaliação do usuário</ion-card-title>
+            </ion-card-header>
+
+
+
 
             <ion-row>
               <ion-item
@@ -112,10 +241,17 @@
                 [(ngModel)]="todas.avaliacao"
                 name="avaliacao"
               >
-                <ion-icon [name]="star" color="primary"></ion-icon>
+                <ion-icon
+                  [name]="star"
+                  color="primary"
+                ></ion-icon>
               </ion-item>
             </ion-row>
           </ion-card>
+
+
+
+
 
           <ion-button
             expand="block"
