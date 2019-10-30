@@ -25,10 +25,17 @@ const routes: Routes = [
         loadChildren:
           '../profissional-conteudo-video/profissional-conteudo-video.module#ProfissionalConteudoVideoPageModule'
       },
-
+      /*
+      Responsável pela rota genérica
       {
         path: '',
         redirectTo: '/profissional-conteudo/profissional-conteudo-texto',
+        pathMatch: 'full'
+      }
+      */
+      {
+        path: '',
+        redirectTo: '/menu/profissional-conteudo',
         pathMatch: 'full'
       }
     ]

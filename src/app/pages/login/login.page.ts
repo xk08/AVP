@@ -28,7 +28,7 @@ export class LoginPage {
     private auth: AngularFireAuth
   ) {
     let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
-      this.presentToast('NetWork Desconectada! :-(');
+      this.presentToast('Sem Internet no Momento');
     });
   }
   async presentToast(msg: string) {
@@ -49,14 +49,16 @@ export class LoginPage {
       this.authService
         .signIn(this.user)
         .then(() => {
-          this.usuarioCadastro.getUsuario(this.auth.auth.currentUser.uid).subscribe( res => {
-            if(res.isProfissional){
-              this.router.navigate(['menu/home']); //Direciona após logado
-            }else{
+          this.usuarioCadastro.getUsuario(this.auth.auth.currentUser.uid).subscribe(res => {
+            if (res.isProfissional) {
+              this.router.navigate(['menu/profissional-conteudo']); //Direciona após logado
+            } else {
               this.router.navigate(['menu/home']); //Direciona após logad
             }
           });
         })
+
+        //Verificar esta parte
         .catch((error: any) => {
           if (error.code == 'auth/invalid-email') {
             this.presentToast('E-mail invalido');

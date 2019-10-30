@@ -1,9 +1,12 @@
 <ion-header>
-  <ion-toolbar color="dark">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="menu/home"></ion-back-button>
+  <ion-toolbar color="secondary">
+
+    <ion-buttons>
+      <ion-menu-button autoHide="true"></ion-menu-button>
+      <div>
+        <ion-title>Proporcionando conteúdos</ion-title>
+      </div>
     </ion-buttons>
-    <ion-title>Ajude as pessoas</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +18,7 @@
         tab="profissional-conteudo-texto"
         (click)="profissionalConteudoTexto()"
       >
-        <ion-icon name="moon"></ion-icon>
+        <ion-icon name="ios-text"></ion-icon>
         <ion-label>Texto</ion-label>
       </ion-tab-button>
 
@@ -23,7 +26,7 @@
         tab="profissional-conteudo-imagem"
         (click)="profissionalConteudoImagem()"
       >
-        <ion-icon name="sunny"></ion-icon>
+        <ion-icon name="ios-images"></ion-icon>
         <ion-label>Imagem</ion-label>
       </ion-tab-button>
 
@@ -31,7 +34,7 @@
         tab="profissional-conteudo-video"
         (click)="profissionalConteudoVideo()"
       >
-        <ion-icon name="home"></ion-icon>
+        <ion-icon name="ios-videocam"></ion-icon>
         <ion-label>Video</ion-label>
       </ion-tab-button>
 

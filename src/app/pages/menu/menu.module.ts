@@ -15,6 +15,11 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
+        path: 'profissional-conteudo',
+        loadChildren: '../profissional-conteudo/profissional-conteudo.module#ProfissionalConteudoPageModule',
+        canActivate: [AuthGuard]
+      },
+      {
         path: '',
         redirectTo: 'home'
       }

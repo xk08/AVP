@@ -1,7 +1,13 @@
 <ion-app>
   <ion-split-pane>
 
+
+
+
     <ion-menu>
+
+
+
 
       <ion-toolbar color="primary">
         <ion-title>Menu</ion-title>
@@ -10,41 +16,87 @@
         </ion-buttons>
       </ion-toolbar>
 
+
+
+
       <ion-content>
+
+
+
+
+        <!-- Se for USUÁRIO normal, pega foto e nome ou padrão -->
         <ion-item *ngIf="!isProfissional">
           <ion-chip>
+
+
+
 
             <ion-avatar *ngIf="icone != ''">
               <img src="{{icone}}">
             </ion-avatar>
 
+
+
+
             <ion-avatar *ngIf="icone == ''">
               <img src="../../../assets/img/avp.png">
             </ion-avatar>
 
+
+
+
             <ion-label *ngIf="apelido == ''">Assistente não cadastrado</ion-label>
             <ion-label *ngIf="apelido != ''">Olá, sou {{apelido}} seu assistente</ion-label>
-            <!-- mudar para o assistente, DPS  pega expecidfico -->
+
+
+
+
           </ion-chip>
         </ion-item>
 
+
+
+
+        <!-- Se for PROFISSIONAL  normal, pega foto e nome ou padrão -->
         <ion-item *ngIf="isProfissional">
           <ion-chip>
+
+
+
 
             <ion-avatar *ngIf="fotoUsuario != ''">
               <img src="{{fotoUsuario}}">
             </ion-avatar>
 
+
+
+
             <ion-avatar *ngIf="fotoUsuario == ''">
-                <img src="../../../assets/img/avp.png">
-              </ion-avatar>
+              <img src="../../../assets/img/avp.png">
+            </ion-avatar>
+
+
+
 
             <ion-label>Bem vindo {{nomeUsuario}}</ion-label>
-           
+
+
+
+
           </ion-chip>
         </ion-item>
 
-        <ion-list>
+
+
+
+        <ion-list
+          ion-list
+          *ngIf="!isProfissional"
+        >
+
+
+
+
           <ion-menu-toggle
             autoHide="false"
             *ngFor="let p of paginas; let i = index"
@@ -57,43 +109,64 @@
               <ion-label>{{p.title}}</ion-label>
             </ion-item>
           </ion-menu-toggle>
+        </ion-list>
 
-         
-          <!-- Menus dos profissionais -->
 
-          <ion-list *ngIf="isProfissional">
-            <ion-menu-toggle
-              autoHide="false"
-              *ngFor="let pagina of paginasProfissional; let i = index"
-            >
-              <ion-item [routerLink]="pagina.url">
-                <ion-icon
-                  slot="start"
-                  [name]="pagina.icon"
-                ></ion-icon>
-                <ion-label>{{pagina.title}}</ion-label>
-              </ion-item>
-            </ion-menu-toggle>
-          </ion-list>
 
-          <ion-menu-toggle autoHide="false">
-            <ion-item
-              button
-              (click)="signOut()"
-            >
+        <!-- Menus dos profissionais -->
+
+
+
+        <ion-list *ngIf="isProfissional">
+
+
+          <ion-menu-toggle
+            autoHide="false"
+            *ngFor="let pagina of paginasProfissional; let i = index"
+          >
+            <ion-item [routerLink]="pagina.url">
               <ion-icon
                 slot="start"
-                name="power"
+                [name]="pagina.icon"
               ></ion-icon>
-              <ion-label>Sair</ion-label>
+              <ion-label>{{pagina.title}}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+
+
+
+
+        <ion-menu-toggle autoHide="false">
+          <ion-item
+            button
+            (click)="signOut()"
+          >
+            <ion-icon
+              slot="start"
+              name="power"
+            ></ion-icon>
+            <ion-label>Sair</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+
+
+
       </ion-content>
     </ion-menu>
 
+
+
+
     <ion-router-outlet main></ion-router-outlet>
 
+
+
+
   </ion-split-pane>
+
+
+
 
 </ion-app>

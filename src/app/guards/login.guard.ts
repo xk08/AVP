@@ -6,11 +6,10 @@ import { NavController } from '@ionic/angular';
 @Injectable({
   providedIn: 'root'
 })
-
-//GUARD, SERVE PARA CUIDAR SE O USUARIO ESTA LOGADO, DEFENE AS PAGINAS QUE PODE DIRETO NAS ROTAS.
-//SE USUARIO ESTIVER LOGADO ELE DIRECIONA DIRETO PARA A PAGINA INICIAL DO APLICATIVO 'MENU'
-export class LoginGuard implements CanActivate {
-  constructor(private authService: AuthService, private navCTRL: NavController) {}
+export class LoginGuard {
+  constructor() {}
+  /*
+  MECANISMO DESSTIVADO POR ENQUANTO
 
   canActivate(): Promise<boolean> {
     return new Promise(resolve => {
@@ -21,4 +20,6 @@ export class LoginGuard implements CanActivate {
       });
     });
   }
+
+  */
 }

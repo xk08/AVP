@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { LoginGuard } from './guards/login.guard';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -11,8 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: './pages/login/login.module#LoginPageModule',
-    canActivate: [LoginGuard]
+    loadChildren: './pages/login/login.module#LoginPageModule'
   },
 
   {
@@ -31,7 +29,8 @@ const routes: Routes = [
   {
     path: 'assistente/cadastro',
     loadChildren:
-      './pages/cadastro-assistente/cadastro-assistente.module#CadastroAssistentePageModule'
+      './pages/cadastro-assistente/cadastro-assistente.module#CadastroAssistentePageModule',
+    canActivate: [AuthGuard]
   },
   {
     path: 'emergencia',
@@ -42,14 +41,15 @@ const routes: Routes = [
     path: 'quero-conversar',
     loadChildren: './pages/quero-conversar/quero-conversar.module#QueroConversarPageModule',
     canActivate: [AuthGuard]
-  },
+  }
 
-  {
+  /* {
     path: 'profissional-conteudo',
     loadChildren:
       './pages/profissional-conteudo/profissional-conteudo.module#ProfissionalConteudoPageModule',
     canActivate: [AuthGuard]
   }
+  */
 ];
 
 @NgModule({
