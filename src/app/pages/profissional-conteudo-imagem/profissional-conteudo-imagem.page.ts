@@ -6,6 +6,7 @@ import { ProfissionalConteudoImagemService } from 'src/app/services/profissional
 import { OverlayService } from 'src/app/core/overlay.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-profissional-conteudo-imagem',
@@ -43,7 +44,7 @@ public todas: ProfissionalConteudoImagem = {
   idUsuario:"",
   idade:"",
   nivelEmergencia:"",
-  avaliacao:"",
+  avaliacao: 0,
   tituloImagem:"",
   autorImagem:"",
   imagem:"",
