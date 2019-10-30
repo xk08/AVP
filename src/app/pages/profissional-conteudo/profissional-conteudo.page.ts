@@ -68,4 +68,7 @@ export class ProfissionalConteudoPage implements OnInit {
   profissionalConteudoImagem() {}
 
   profissionalConteudoVideo() {}
+
+  //Referente a API do google
+
 }
