@@ -17,13 +17,23 @@
         size-lg="3"
         size-xl="3"
       >
-      <div class="ion-text-center">
-          <ion-col size="12" size-sm="6">
-            <img width = "130px" height = "100px" src="../../../assets/img/avp.png">
+        <div class="ion-text-center">
+          <ion-col
+            size="12"
+            size-sm="6"
+          >
+            <img
+              width="130px"
+              height="100px"
+              src="../../../assets/img/avp.png"
+            >
           </ion-col>
-      </div>
-      
+        </div>
+
+
+
         <form #form="ngForm">
+
 
           <!-- NOME -->
           <ion-item>
@@ -42,7 +52,11 @@
             ></ion-input>
           </ion-item>
 
+
+
           <!-- DATA DE NASCIMENTO -->
+
+
 
           <ion-item>
             <ion-icon
@@ -50,17 +64,22 @@
               color="primary"
               slot="start"
             ></ion-icon>
-            <ion-input
-              type="date"
-              aria-placeholder="Data de nascimento"
+            <ion-label>Data de Nascimento</ion-label>
+            <ion-datetime
+              displayFormat="MM/YYYY"
+              pickerFormat="MMMM YYYY"
               name="dataDeNascimento"
               autofocus="true"
               [(ngModel)]='todoUser.dataNasc'
               required
-            ></ion-input>
+            ></ion-datetime>
           </ion-item>
 
+
+
           <!-- EMAIL -->
+
+
 
           <ion-item>
             <ion-icon
@@ -79,7 +98,19 @@
             ></ion-input>
           </ion-item>
 
+
+
+
+
+
+
           <!-- SENHA -->
+
+
+
+
+
+
 
           <ion-item>
             <ion-icon
@@ -96,7 +127,19 @@
             ></ion-input>
           </ion-item>
 
+
+
+
+
+
+
           <!-- BOTÃO DE CADASTRO -->
+
+
+
+
+
+
 
           <ion-button
             expand="block"
@@ -106,6 +149,12 @@
           >
             Participar
           </ion-button>
+
+
+
+
+
+
 
           <ion-button
             class="login-button"
@@ -119,5 +168,11 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+
+
+
+
+
 
 </ion-content>
