@@ -49,6 +49,8 @@ export class ProfissionalConteudoTextoPage implements OnInit {
     avaliacao: 0
   };
 
+  public todasTexto: ProfissionalConteudoTexto[] ; 
+
   constructor(
     private route: ActivatedRoute,
     private loadingController: LoadingController,
@@ -86,20 +88,17 @@ export class ProfissionalConteudoTextoPage implements OnInit {
     this.idUsuario = this.auth.auth.currentUser.uid;
     this.idConteudoTexto = this.route.snapshot.params['id']; //Pegando o id para uma futura edição
 
-    if (this.idConteudoTexto) {
+    //if (this.idConteudoTexto) {
       this.loadTodo();
-    }
+   // }
   }
 
   async loadTodo() {
-    const loading = await this.loadingController.create({
-      message: 'Carregando seus dados, aguarde.'
-    });
-    await loading.present();
 
-    this.conteudoTextoService.getTodo(this.idConteudoTexto).subscribe(res => {
-      loading.dismiss();
-      this.todas = res;
+
+    this.conteudoTextoService.getTodosPorId(this.idUsuario).subscribe(res => {
+    
+      this.todasTexto = res;
     });
   }
 
@@ -119,6 +118,7 @@ export class ProfissionalConteudoTextoPage implements OnInit {
     } else {
       /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
       this.todas.avaliacao = this.geral;
+      this.todas.idUsuario = this.idUsuario;
       this.conteudoTextoService.addTodo(this.todas).then(() => {
         loading.dismiss();
         this.navCtrl.navigateForward('menu/home');

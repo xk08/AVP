@@ -9,12 +9,24 @@ import { map } from 'rxjs/operators';
 export class ProfissionalConteudoTextoService {
   private todosCollection: AngularFirestoreCollection<ProfissionalConteudoTexto>;
 
-  constructor(db: AngularFirestore) {
+  constructor(private db: AngularFirestore) {
     this.todosCollection = db.collection<ProfissionalConteudoTexto>('ProfissionalConteudoTexto'); // Criando a coleção
   }
 
   getTodos() {
     return this.todosCollection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
+  }
+
+  getTodosPorId(idUsuario: string) {
+    return this.db.collection<ProfissionalConteudoTexto>('ProfissionalConteudoTexto', ref => ref.where('idUsuario','==', idUsuario)).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
