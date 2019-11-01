@@ -34,6 +34,7 @@ export class ProfissionalConteudoTextoPage implements OnInit {
   }
 
   @ViewChild('form', null) form: NgForm;
+
   public idConteudoTexto: string;
   public idUsuario: string;
 
@@ -48,8 +49,6 @@ export class ProfissionalConteudoTextoPage implements OnInit {
     nivelEmergencia: '',
     avaliacao: 0
   };
-
-  public todasTexto: ProfissionalConteudoTexto[] ; 
 
   constructor(
     private route: ActivatedRoute,
@@ -78,29 +77,17 @@ export class ProfissionalConteudoTextoPage implements OnInit {
     this.geral = this.valor;
   }
 
-  logRatingChange(rating) {
-    console.log('changed rating: ', rating);
-    // do your stuff
-  }
-
   ngOnInit() {
     this.calc();
     this.idUsuario = this.auth.auth.currentUser.uid;
     this.idConteudoTexto = this.route.snapshot.params['id']; //Pegando o id para uma futura edição
 
     //if (this.idConteudoTexto) {
-      this.loadTodo();
-   // }
+    this.loadTodo();
+    // }
   }
 
-  async loadTodo() {
-
-
-    this.conteudoTextoService.getTodosPorId(this.idUsuario).subscribe(res => {
-    
-      this.todasTexto = res;
-    });
-  }
+  async loadTodo() {}
 
   async saveTodo() {
     const loading = await this.loadingController.create({

@@ -13,13 +13,15 @@ export class HomePage implements OnInit, OnDestroy {
   private idUsuario: string;
   public admin: boolean;
   private subscription: Subscription;
-  constructor(private navctrl: NavController,
-              private auth: AngularFireAuth,
-              private usuarioCadastro: UsuarioCadastroService) {}
+  constructor(
+    private navctrl: NavController,
+    private auth: AngularFireAuth,
+    private usuarioCadastro: UsuarioCadastroService
+  ) {}
 
   ngOnInit() {
     this.idUsuario = this.auth.auth.currentUser.uid;
-    this.subscription = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe( res => {
+    this.subscription = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(res => {
       this.admin = res.isProfissional;
     });
   }
@@ -31,7 +33,6 @@ export class HomePage implements OnInit, OnDestroy {
 
   profissionalConteudoVideo() {}
 
-
   direcionaPraTela() {
     this.navctrl.navigateForward('quero-conversar');
   }
@@ -39,5 +40,4 @@ export class HomePage implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
 }
