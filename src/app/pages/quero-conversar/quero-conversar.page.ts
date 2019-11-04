@@ -16,8 +16,10 @@ import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario
 })
 export class QueroConversarPage implements OnInit {
   //Dados do usuario
-  public nomeUsuarioLogado: String ;
+  public nomeUsuarioLogado: String;
   public list: Subscription;
+
+  public idUsuario: string;
 
   //Refernete ao ratebar
   @Input() numStars: number = 5;
@@ -29,9 +31,9 @@ export class QueroConversarPage implements OnInit {
 
   @ViewChild('form', null) form: NgForm;
 
-
   public todas: QueroConversar = {
     id: '',
+    idUsuario: '',
     textoLivre: '',
     avaliacao: 0
   };
@@ -72,6 +74,7 @@ export class QueroConversarPage implements OnInit {
   }
 
   ngOnInit() {
+    this.idUsuario = this.auth.auth.currentUser.uid;
     this.calc();
     this.idQueroConversar = this.route.snapshot.params['id'];
 
@@ -80,7 +83,9 @@ export class QueroConversarPage implements OnInit {
     }
 
     //Pegando dados do Usuário para exibir na tela
-      this.list = this.usuarioCadastroService.getUsuario(this.auth.auth.currentUser.uid).subscribe(res => {
+    this.list = this.usuarioCadastroService
+      .getUsuario(this.auth.auth.currentUser.uid)
+      .subscribe(res => {
         this.nomeUsuarioLogado = res.nome;
       });
   }
@@ -111,7 +116,8 @@ export class QueroConversarPage implements OnInit {
       });
     } else {
       this.todas.avaliacao = this.geral;
-      this.queroConversarService.addTodo(this.todas).then(() => {
+      this.todas.idUsuario = this.idUsuario;
+      this.queroConversarService.addTodo(this.todas, this.idUsuario).then(() => {
         loading.dismiss();
         this.navCtrl.navigateBack('/menu/home');
       });

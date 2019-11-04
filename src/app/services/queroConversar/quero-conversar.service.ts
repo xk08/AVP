@@ -9,9 +9,27 @@ import { map } from 'rxjs/operators';
 export class QueroConversarService {
   private todosCollection: AngularFirestoreCollection<QueroConversar>;
 
-  constructor(db: AngularFirestore) {
+  constructor(private db: AngularFirestore) {
     this.todosCollection = db.collection<QueroConversar>('QueroConversar'); // Criando a coleção
   }
+
+  /*
+  getTodosPorId(idUsuario: string) {
+    return this.db
+      .collection<QueroConversar>('QueroConversar', ref => ref.where('idUsuario', '==', idUsuario))
+      .snapshotChanges()
+      .pipe(
+        map(actions => {
+          return actions.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            console.log(id);
+            return { id, ...data };
+          });
+        })
+      );
+  }
+  */
 
   getTodos() {
     return this.todosCollection.snapshotChanges().pipe(
@@ -33,8 +51,8 @@ export class QueroConversarService {
     return this.todosCollection.doc(id).update(toda);
   }
 
-  addTodo(toda: QueroConversar) {
-    return this.todosCollection.add(toda);
+  addTodo(toda: QueroConversar, idUsuario: string) {
+    return this.todosCollection.doc(idUsuario).set(toda);
   }
 
   removeTodo(id) {
