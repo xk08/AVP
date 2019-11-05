@@ -119,7 +119,7 @@ export class QueroConversarPage implements OnInit {
       this.todas.idUsuario = this.idUsuario;
       this.queroConversarService.addTodo(this.todas, this.idUsuario).then(() => {
         loading.dismiss();
-        this.navCtrl.navigateBack('/menu/home');
+        this.navCtrl.navigateBack('/menu/conteudo-especifico');
       });
     }
   }

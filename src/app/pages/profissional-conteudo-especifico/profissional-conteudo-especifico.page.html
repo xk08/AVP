@@ -1,23 +1,14 @@
 <ion-header>
-  <ion-toolbar color="secondary">
-
+  <ion-toolbar color="medium">
 
     <ion-buttons>
       <ion-menu-button autoHide="true"></ion-menu-button>
       <div>
-        <ion-button
-          shape="round"
-          fill="outline"
-          (click)="direcionaPraTela()"
-        >
-          Quero Conversar
-        </ion-button>
+        <ion-title>Para te ajudar neste momento</ion-title>
       </div>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-
 
 <ion-fab
   vertical="bottom"
@@ -27,25 +18,17 @@
   <ion-fab-button
     routerLink="/emergencia/emergencia-utilizacao"
     routerDirection="forward"
-    color="secondary"
+    color="primary"
   >
     S.O.S
   </ion-fab-button>
 </ion-fab>
 
-
-<ion-header translucent>
-  <ion-toolbar>
-    <ion-title style="text-align: center; font-size: 15pt">Recomendados para você</ion-title>
-  </ion-toolbar>
-</ion-header>
 <ion-content>
-
 
   <ion-card>
     <img src="../../../assets/img/fraseamigos.PNG">
   </ion-card>
-
 
   <ion-card>
     <img src="../../../assets/img/serfeliz.PNG">
@@ -54,7 +37,6 @@
       <ion-card-title>{{tituloTela}}?</ion-card-title>
     </ion-card-header>
     <ion-card-content>{{textoTela}}</ion-card-content>
-
 
     <ion-item
       href
@@ -75,7 +57,6 @@
                 Deus nos dá o dom de eternizar em nós o que vale a pena, e esquecer definitivamente aquilo que não vale.”
     </ion-card-content>
 
-
     <ion-item
       href
       class="activated"
@@ -84,7 +65,6 @@
       <ion-label class="ion-text-center">Ver mais informações</ion-label>
     </ion-item>
   </ion-card>
-
 
   <ion-card>
     <img src="../../../assets/img/tulipas.PNG">
@@ -95,8 +75,6 @@
       </ion-card-title>
     </ion-card-header>
 
-
-
     <ion-item
       href
       class="activated"
@@ -105,10 +83,7 @@
       <ion-label class="ion-text-center">Ver mais informações</ion-label>
     </ion-item>
 
-
-
   </ion-card>
-
 
   <ion-card>
     <img src="../../../assets/img/abrirmente.PNG">
@@ -121,7 +96,6 @@
                     Depois desse vídeo você vai saber a como aproveitar a vida muito mais!
     </ion-card-content>
 
-
     <ion-item
       href
       class="activated"
@@ -130,7 +104,6 @@
       <ion-label class="ion-text-center">Assistir ao video completo</ion-label>
     </ion-item>
   </ion-card>
-
 
   <ion-card>
     <ion-card-header>
@@ -141,7 +114,6 @@
       Amo minha família do jeito que é; pode não ser perfeita, mas o que importa é que nela sobram amor e compreensão.
     </ion-card-content>
 
-
     <ion-item
       href
       class="activated"
@@ -150,7 +122,6 @@
       <ion-label class="ion-text-center">Ver mais informações</ion-label>
     </ion-item>
   </ion-card>
-
 
   <ion-card>
     <ion-card-header>

@@ -15,8 +15,16 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
+        path: 'conteudo-especifico',
+        loadChildren:
+          '../profissional-conteudo-especifico/profissional-conteudo-especifico.module#ProfissionalConteudoEspecificoPageModule',
+        canActivate: [AuthGuard]
+      },
+
+      {
         path: 'profissional-conteudo',
-        loadChildren: '../profissional-conteudo/profissional-conteudo.module#ProfissionalConteudoPageModule',
+        loadChildren:
+          '../profissional-conteudo/profissional-conteudo.module#ProfissionalConteudoPageModule',
         canActivate: [AuthGuard]
       },
       {
