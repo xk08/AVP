@@ -15,23 +15,23 @@
       <ion-col size-sm="8" size-md="12" size-lg="3" size-xl="3">
         <form #form="ngForm">
           <ion-card>
-            <ion-card-header>
-              <ion-card-title style="font-size: 17px; text-align: center;"
-                >Mxarablaus</ion-card-title
-              >
-            </ion-card-header>
+            <ion-title>
+              Titulo: {{tituloTela}}
+            </ion-title>
 
-            <ion-item>
-              <ion-textarea
-                name="textoLivre"
-                autofocus="true"
-                required
-                rows="5"
-                cols="15"
-                placeholder="Escreva seu texto aqui ..."
-              ></ion-textarea>
-            </ion-item>
+            <ion-title>
+                Texto: {{textoTela}}
+              </ion-title>
+
+              <ion-title>
+                  Autor: {{autorTextoTela}}
+                </ion-title>
+
+                
+
+
           </ion-card>
+  
 
           <ion-button expand="block" type="submit" class="login-button" color="dark">
             Voltar

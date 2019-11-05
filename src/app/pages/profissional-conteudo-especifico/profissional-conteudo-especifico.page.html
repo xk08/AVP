@@ -27,7 +27,7 @@
   <ion-card
     *ngFor="let texto of profissionalConteudoTexto"
     style="background-color:lightgray;"
-    [routerLink]="['/menu/texto-detalhes', idUsuario]"
+    [routerLink]="['/menu/texto-detalhes', texto.id]"
   >
     <ion-card-header *ngIf="!tituloTextoTela">
       <ion-card-title hidden></ion-card-title>
