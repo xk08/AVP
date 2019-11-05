@@ -24,7 +24,11 @@
     <img src="../../../assets/img/fraseamigos.PNG" />
   </ion-card>
 
-  <ion-card *ngFor="let texto of profissionalConteudoTexto" style="background-color:lightgray;">
+  <ion-card
+    *ngFor="let texto of profissionalConteudoTexto"
+    style="background-color:lightgray;"
+    [routerLink]="['/menu/texto-detalhes', idUsuario]"
+  >
     <ion-card-header *ngIf="!tituloTextoTela">
       <ion-card-title hidden></ion-card-title>
     </ion-card-header>

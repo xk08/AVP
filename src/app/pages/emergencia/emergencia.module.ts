@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     component: EmergenciaPage,
     children: [
-      {
+      { 
         path: 'emergencia-cadastro',
         loadChildren:
           '../emergencia-cadastro/emergencia-cadastro.module#EmergenciaCadastroPageModule'

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mais sobre o texto</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="true"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
+    <ion-row justify-content-center>
+      <!-- Deixa responsivo -->
+      <ion-col size-sm="8" size-md="12" size-lg="3" size-xl="3">
+        <form #form="ngForm">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title style="font-size: 17px; text-align: center;"
+                >Mxarablaus</ion-card-title
+              >
+            </ion-card-header>
+
+            <ion-item>
+              <ion-textarea
+                name="textoLivre"
+                autofocus="true"
+                required
+                rows="5"
+                cols="15"
+                placeholder="Escreva seu texto aqui ..."
+              ></ion-textarea>
+            </ion-item>
+          </ion-card>
+
+          <ion-button expand="block" type="submit" class="login-button" color="dark">
+            Voltar
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
