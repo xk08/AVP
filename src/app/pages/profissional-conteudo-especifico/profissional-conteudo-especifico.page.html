@@ -1,6 +1,5 @@
 <ion-header>
   <ion-toolbar color="medium">
-
     <ion-buttons>
       <ion-menu-button autoHide="true"></ion-menu-button>
       <div>
@@ -10,11 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-fab
-  vertical="bottom"
-  horizontal="end"
-  slot="fixed"
->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button
     routerLink="/emergencia/emergencia-utilizacao"
     routerDirection="forward"
@@ -25,49 +20,50 @@
 </ion-fab>
 
 <ion-content>
-
   <ion-card>
-    <img src="../../../assets/img/fraseamigos.PNG">
+    <img src="../../../assets/img/fraseamigos.PNG" />
+  </ion-card>
+
+  <ion-card *ngFor="let texto of profissionalConteudoTexto" style="background-color:lightgray;">
+    <ion-card-header *ngIf="!tituloTextoTela">
+      <ion-card-title hidden></ion-card-title>
+    </ion-card-header>
+
+    <ion-card-header *ngIf="tituloTextoTela">
+      <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content *ngIf="descricaoTextoTela" style="text-align: center;">
+      “{{ texto.texto }}”
+    </ion-card-content>
+    <ion-card-content *ngIf="!descricaoTextoTela" style="text-align: center;">
+      Nenhum texto foi cadastrado até o momento
+    </ion-card-content>
+
+    <ion-card-header>
+      <ion-card-subtitle *ngIf="!autorTextoTela" style="text-align: right;"
+        >Autor desconhecido</ion-card-subtitle
+      >
+      <ion-card-subtitle *ngIf="autorTextoTela" style="text-align: right;"
+        >Autor: {{ texto.autorTexto }}</ion-card-subtitle
+      >
+    </ion-card-header>
   </ion-card>
 
   <ion-card>
-    <img src="../../../assets/img/serfeliz.PNG">
-    <ion-card-header>
-      <ion-card-subtitle>Video do Youtube</ion-card-subtitle>
-      <ion-card-title>{{tituloTela}}?</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>{{textoTela}}</ion-card-content>
-
-    <ion-item
-      href
-      class="activated"
-      style="color: lightseagreen"
-    >
+    <ion-item href class="activated" style="color: lightseagreen">
       <ion-label class="ion-text-center">Assistir ao video completo</ion-label>
     </ion-item>
   </ion-card>
 
   <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Frase do dia</ion-card-subtitle>
-      <ion-card-title>Sobre o amor</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      “Você é quem decide o que vai ser eterno em você, no seu coração.
-                Deus nos dá o dom de eternizar em nós o que vale a pena, e esquecer definitivamente aquilo que não vale.”
-    </ion-card-content>
-
-    <ion-item
-      href
-      class="activated"
-      style="color: lightseagreen"
-    >
+    <ion-item href class="activated" style="color: lightseagreen">
       <ion-label class="ion-text-center">Ver mais informações</ion-label>
     </ion-item>
   </ion-card>
 
   <ion-card>
-    <img src="../../../assets/img/tulipas.PNG">
+    <img src="../../../assets/img/tulipas.PNG" />
     <ion-card-header>
       <ion-card-subtitle>Foto do dia</ion-card-subtitle>
       <ion-card-title>
@@ -75,32 +71,24 @@
       </ion-card-title>
     </ion-card-header>
 
-    <ion-item
-      href
-      class="activated"
-      style="color: rgb(101, 221, 215)"
-    >
+    <ion-item href class="activated" style="color: rgb(101, 221, 215)">
       <ion-label class="ion-text-center">Ver mais informações</ion-label>
     </ion-item>
-
   </ion-card>
 
   <ion-card>
-    <img src="../../../assets/img/abrirmente.PNG">
+    <img src="../../../assets/img/abrirmente.PNG" />
     <ion-card-header>
       <ion-card-subtitle>Video do Youtube</ion-card-subtitle>
       <ion-card-title>Compreenda a sí mesmo</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Compreenda  A Si Mesmo E Ao Universo Com Esse Vídeo! Um vídeo para pararmos e refletirmos sobre tudo aquilo que está a nossa volta e as crenças que temos sobre FOCO e PRESENÇA
-                    Depois desse vídeo você vai saber a como aproveitar a vida muito mais!
+      Compreenda A Si Mesmo E Ao Universo Com Esse Vídeo! Um vídeo para pararmos e refletirmos sobre
+      tudo aquilo que está a nossa volta e as crenças que temos sobre FOCO e PRESENÇA Depois desse
+      vídeo você vai saber a como aproveitar a vida muito mais!
     </ion-card-content>
 
-    <ion-item
-      href
-      class="activated"
-      style="color: lightseagreen"
-    >
+    <ion-item href class="activated" style="color: lightseagreen">
       <ion-label class="ion-text-center">Assistir ao video completo</ion-label>
     </ion-item>
   </ion-card>
@@ -111,14 +99,11 @@
       <ion-card-title>Familia</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Amo minha família do jeito que é; pode não ser perfeita, mas o que importa é que nela sobram amor e compreensão.
+      Amo minha família do jeito que é; pode não ser perfeita, mas o que importa é que nela sobram
+      amor e compreensão.
     </ion-card-content>
 
-    <ion-item
-      href
-      class="activated"
-      style="color: lightseagreen"
-    >
+    <ion-item href class="activated" style="color: lightseagreen">
       <ion-label class="ion-text-center">Ver mais informações</ion-label>
     </ion-item>
   </ion-card>
@@ -131,11 +116,7 @@
     <ion-card-content>
       Enquanto alguns escolhem pessoas perfeitas, eu escolho as que me fazem bem.
     </ion-card-content>
-    <ion-item
-      href
-      class="activated"
-      style="color: lightseagreen"
-    >
+    <ion-item href class="activated" style="color: lightseagreen">
       <ion-label class="ion-text-center">Ver mais informações</ion-label>
     </ion-item>
   </ion-card>
