@@ -1,5 +1,4 @@
 export class ProfissionalConteudoVideo {
-  id?: string;
   idUsuario?: string;
   idade?: string;
   nivelEmergencia?: string;

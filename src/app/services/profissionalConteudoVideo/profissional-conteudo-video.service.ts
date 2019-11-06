@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 export class ProfissionalConteudoVideoService {
   private todosCollection: AngularFirestoreCollection<ProfissionalConteudoVideo>;
 
-  constructor(db: AngularFirestore) {
+  constructor(private db: AngularFirestore) {
     this.todosCollection = db.collection<ProfissionalConteudoVideo>('ProfissionalConteudoVideo'); // Criando a coleção
   }
 
@@ -23,6 +23,23 @@ export class ProfissionalConteudoVideoService {
         });
       })
     );
+  }
+
+  getTodosPoAvaliacao(avaliacao: number) {
+    return this.db
+      .collection<ProfissionalConteudoVideo>('ProfissionalConteudoVideo', ref =>
+        ref.where('avaliacao', '==', avaliacao)
+      )
+      .snapshotChanges()
+      .pipe(
+        map(actions => {
+          return actions.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          });
+        })
+      );
   }
 
   getTodo(id) {

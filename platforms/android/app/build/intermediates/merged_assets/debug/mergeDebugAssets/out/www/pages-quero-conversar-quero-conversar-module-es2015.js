@@ -57,7 +57,7 @@ QueroConversarPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ion-rating-container {\n  font-size: 30;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvcXVlcm8tY29udmVyc2FyL0Q6XFxtYXJjb3NcXFRDQ1xcdGNjL3NyY1xcYXBwXFxwYWdlc1xccXVlcm8tY29udmVyc2FyXFxxdWVyby1jb252ZXJzYXIucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9xdWVyby1jb252ZXJzYXIvcXVlcm8tY29udmVyc2FyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3F1ZXJvLWNvbnZlcnNhci9xdWVyby1jb252ZXJzYXIucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXJhdGluZy1jb250YWluZXIge1xyXG4gIGZvbnQtc2l6ZTogMzA7XHJcbn1cclxuIiwiaW9uLXJhdGluZy1jb250YWluZXIge1xuICBmb250LXNpemU6IDMwO1xufSJdfQ== */"
+module.exports = "ion-rating-container {\n  font-size: 30;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvcXVlcm8tY29udmVyc2FyL0Q6XFx0Y2Mvc3JjXFxhcHBcXHBhZ2VzXFxxdWVyby1jb252ZXJzYXJcXHF1ZXJvLWNvbnZlcnNhci5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3F1ZXJvLWNvbnZlcnNhci9xdWVyby1jb252ZXJzYXIucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvcXVlcm8tY29udmVyc2FyL3F1ZXJvLWNvbnZlcnNhci5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tcmF0aW5nLWNvbnRhaW5lciB7XHJcbiAgZm9udC1zaXplOiAzMDtcclxufVxyXG4iLCJpb24tcmF0aW5nLWNvbnRhaW5lciB7XG4gIGZvbnQtc2l6ZTogMzA7XG59Il19 */"
 
 /***/ }),
 
@@ -106,6 +106,7 @@ let QueroConversarPage = class QueroConversarPage {
         this.stars = [];
         this.todas = {
             id: '',
+            idUsuario: '',
             textoLivre: '',
             avaliacao: 0
         };
@@ -134,13 +135,16 @@ let QueroConversarPage = class QueroConversarPage {
         // do your stuff
     }
     ngOnInit() {
+        this.idUsuario = this.auth.auth.currentUser.uid;
         this.calc();
         this.idQueroConversar = this.route.snapshot.params['id'];
         if (this.idQueroConversar) {
             this.loadTodo();
         }
         //Pegando dados do Usuário para exibir na tela
-        this.list = this.usuarioCadastroService.getUsuario(this.auth.auth.currentUser.uid).subscribe(res => {
+        this.list = this.usuarioCadastroService
+            .getUsuario(this.auth.auth.currentUser.uid)
+            .subscribe(res => {
             this.nomeUsuarioLogado = res.nome;
         });
     }
@@ -171,9 +175,10 @@ let QueroConversarPage = class QueroConversarPage {
             }
             else {
                 this.todas.avaliacao = this.geral;
-                this.queroConversarService.addTodo(this.todas).then(() => {
+                this.todas.idUsuario = this.idUsuario;
+                this.queroConversarService.addTodo(this.todas, this.idUsuario).then(() => {
                     loading.dismiss();
-                    this.navCtrl.navigateBack('/menu/home');
+                    this.navCtrl.navigateBack('/menu/conteudo-especifico');
                 });
             }
         });
@@ -218,65 +223,6 @@ QueroConversarPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"],
         src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_8__["UsuarioCadastroService"]])
 ], QueroConversarPage);
-
-
-
-/***/ }),
-
-/***/ "./src/app/services/queroConversar/quero-conversar.service.ts":
-/*!********************************************************************!*\
-  !*** ./src/app/services/queroConversar/quero-conversar.service.ts ***!
-  \********************************************************************/
-/*! exports provided: QueroConversarService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QueroConversarService", function() { return QueroConversarService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
-/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-
-
-
-
-let QueroConversarService = class QueroConversarService {
-    constructor(db) {
-        this.todosCollection = db.collection('QueroConversar'); // Criando a coleção
-    }
-    getTodos() {
-        return this.todosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
-            return actions.map(a => {
-                const data = a.payload.doc.data();
-                const id = a.payload.doc.id;
-                return Object.assign({ id }, data);
-            });
-        }));
-    }
-    getTodo(id) {
-        return this.todosCollection.doc(id).valueChanges();
-    }
-    updateTodo(toda, id) {
-        return this.todosCollection.doc(id).update(toda);
-    }
-    addTodo(toda) {
-        return this.todosCollection.add(toda);
-    }
-    removeTodo(id) {
-        return this.todosCollection.doc(id).delete();
-    }
-};
-QueroConversarService.ctorParameters = () => [
-    { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] }
-];
-QueroConversarService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
-], QueroConversarService);
 
 
 

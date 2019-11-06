@@ -33,6 +33,12 @@ const routes: Routes = [
       },
 
       {
+        path: 'video-detalhes/:id',
+        loadChildren: '../video-detalhes/video-detalhes.module#VideoDetalhesPageModule',
+        canActivate: [AuthGuard]
+      },
+
+      {
         path: 'profissional-conteudo',
         loadChildren:
           '../profissional-conteudo/profissional-conteudo.module#ProfissionalConteudoPageModule',

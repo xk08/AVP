@@ -60,7 +60,7 @@ var LoginPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div {\n  margin-left: auto;\n  margin-right: auto;\n  align-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n\n#corRoxa {\n  color: #8e68a1;\n}\n\n#corCyan {\n  color: #0fb3a3;\n}\n\nion-button {\n  color: #0fb3a3;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvbG9naW4vRDpcXG1hcmNvc1xcVENDXFx0Y2Mvc3JjXFxhcHBcXHBhZ2VzXFxsb2dpblxcbG9naW4ucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9sb2dpbi9sb2dpbi5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EscUJBQUE7RUFDQSx5QkFBQTtVQUFBLG1CQUFBO0FDQ0o7O0FERUU7RUFDRSxjQUFBO0FDQ0o7O0FERUU7RUFDRSxjQUFBO0FDQ0o7O0FERUU7RUFDRSxjQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9sb2dpbi9sb2dpbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJkaXYge1xyXG4gICAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgICBtYXJnaW4tcmlnaHQ6IGF1dG87XHJcbiAgICBhbGlnbi1jb250ZW50OiBjZW50ZXI7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIH1cclxuXHJcbiAgI2NvclJveGEge1xyXG4gICAgY29sb3I6ICM4ZTY4YTE7XHJcbiAgfVxyXG5cclxuICAjY29yQ3lhbiB7XHJcbiAgICBjb2xvcjogIzBmYjNhMztcclxuICB9XHJcblxyXG4gIGlvbi1idXR0b257XHJcbiAgICBjb2xvcjogIzBmYjNhMztcclxuICB9XHJcblxyXG4gXHJcbiAgIiwiZGl2IHtcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gIG1hcmdpbi1yaWdodDogYXV0bztcbiAgYWxpZ24tY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuXG4jY29yUm94YSB7XG4gIGNvbG9yOiAjOGU2OGExO1xufVxuXG4jY29yQ3lhbiB7XG4gIGNvbG9yOiAjMGZiM2EzO1xufVxuXG5pb24tYnV0dG9uIHtcbiAgY29sb3I6ICMwZmIzYTM7XG59Il19 */"
+module.exports = "div {\n  margin-left: auto;\n  margin-right: auto;\n  align-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n\n#corRoxa {\n  color: #8e68a1;\n}\n\n#corCyan {\n  color: #0fb3a3;\n}\n\nion-button {\n  color: #0fb3a3;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvbG9naW4vRDpcXHRjYy9zcmNcXGFwcFxccGFnZXNcXGxvZ2luXFxsb2dpbi5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxxQkFBQTtFQUNBLHlCQUFBO1VBQUEsbUJBQUE7QUNDSjs7QURFRTtFQUNFLGNBQUE7QUNDSjs7QURFRTtFQUNFLGNBQUE7QUNDSjs7QURFRTtFQUNFLGNBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImRpdiB7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxuICAgIG1hcmdpbi1yaWdodDogYXV0bztcclxuICAgIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgfVxyXG5cclxuICAjY29yUm94YSB7XHJcbiAgICBjb2xvcjogIzhlNjhhMTtcclxuICB9XHJcblxyXG4gICNjb3JDeWFuIHtcclxuICAgIGNvbG9yOiAjMGZiM2EzO1xyXG4gIH1cclxuXHJcbiAgaW9uLWJ1dHRvbntcclxuICAgIGNvbG9yOiAjMGZiM2EzO1xyXG4gIH1cclxuXHJcbiBcclxuICAiLCJkaXYge1xuICBtYXJnaW4tbGVmdDogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xuICBhbGlnbi1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59XG5cbiNjb3JSb3hhIHtcbiAgY29sb3I6ICM4ZTY4YTE7XG59XG5cbiNjb3JDeWFuIHtcbiAgY29sb3I6ICMwZmIzYTM7XG59XG5cbmlvbi1idXR0b24ge1xuICBjb2xvcjogIzBmYjNhMztcbn0iXX0= */"
 
 /***/ }),
 
@@ -109,7 +109,7 @@ var LoginPage = /** @class */ (function () {
         this.auth = auth;
         this.user = new src_app_services_user__WEBPACK_IMPORTED_MODULE_2__["User"]();
         var disconnectSubscription = this.network.onDisconnect().subscribe(function () {
-            _this.presentToast('NetWork Desconectada! :-(');
+            _this.presentToast('Sem Internet no Momento');
         });
     }
     LoginPage.prototype.presentToast = function (msg) {
@@ -141,13 +141,14 @@ var LoginPage = /** @class */ (function () {
                 .then(function () {
                 _this.usuarioCadastro.getUsuario(_this.auth.auth.currentUser.uid).subscribe(function (res) {
                     if (res.isProfissional) {
-                        _this.router.navigate(['menu/home']); //Direciona após logado
+                        _this.router.navigate(['menu/profissional-conteudo']); //Direciona após logado
                     }
                     else {
                         _this.router.navigate(['menu/home']); //Direciona após logad
                     }
                 });
             })
+                //Verificar esta parte
                 .catch(function (error) {
                 if (error.code == 'auth/invalid-email') {
                     _this.presentToast('E-mail invalido');

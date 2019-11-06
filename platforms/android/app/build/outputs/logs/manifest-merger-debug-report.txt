@@ -1,253 +1,253 @@
 -- Merging decision tree log ---
 provider#org.apache.cordova.camera.FileProvider
-INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:12:9-14:20
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:12:9-14:20
 	android:grantUriPermissions
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:12:92-126
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:12:92-126
 	android:authorities
-		INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:12:19-66
+		INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:12:19-66
 	android:exported
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:12:67-91
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:12:67-91
 	android:name
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:12:127-180
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:12:127-180
 provider#de.appplant.cordova.plugin.notification.util.AssetProvider
-INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:15:9-17:20
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:15:9-17:20
 	android:grantUriPermissions
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:15:92-126
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:15:92-126
 	android:authorities
-		INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:15:19-66
+		INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:15:19-66
 	android:exported
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:15:67-91
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:15:67-91
 	android:name
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:15:127-200
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:15:127-200
 manifest
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-MERGED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:2:1-52:12
-MERGED from [:CordovaLib] D:\marcos\TCC\tcc\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:1-27:12
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\31108729ca76ed32dc1cdf83cfb48028\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\bfc397018c8d6b75910ad34749510be3\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\e6689f5ede25d0fd69cc428bad444493\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\b28cfe57fc850f11ef115242bc9c24ff\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\f3f09b7ab6bbc04e150c28e3699460c4\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\d8985f87d66510d8e97582688db760af\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\4f55bb0a7b835413fcf6b7d639346cdb\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\b815a6170904dd64d536654e591815ff\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\373722a9cf6ad16501e13014f0a07d6f\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ca5a6dde5da474f1b9f71b1ece9a05b2\AndroidManifest.xml:17:1-22:12
-INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+MERGED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:2:1-52:12
+MERGED from [:CordovaLib] D:\tcc\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:1-27:12
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\7afb4270d6aa901d8412d7d766ab7b74\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\f192493afa85fae82497c9961b990a71\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\25edfd294da95a6da811cb78dbf5647c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\ea0ea1d56a5818ac264ec46218eb3545\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\7af41d2e7a82d208d68893ef5f6afbb9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\35afd821d6b4a5bbefbaa2698b00bc80\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\0e08ebc43b46c1cf8b43e22b39c497e1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\d1f735ef30c70bdd344ecf51d89b1910\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\238530ae3a71cea6590da86a76849684\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\b42939c660b94eef2d774e7d68197433\AndroidManifest.xml:17:1-22:12
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
 	package
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:98-124
-		INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:98-124
+		INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:70-97
-		INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:70-97
+		INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml
 	android:hardwareAccelerated
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:11-45
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:125-183
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:125-183
 	android:versionCode
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:46-69
-		INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:46-69
+		INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml
 supports-screens
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:5-191
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:5-191
 	android:largeScreens
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:49-76
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:49-76
 	android:smallScreens
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:132-159
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:132-159
 	android:normalScreens
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:77-105
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:77-105
 	android:xlargeScreens
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:160-188
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:160-188
 	android:resizeable
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:106-131
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:106-131
 	android:anyDensity
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:23-48
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:3:23-48
 uses-permission#android.permission.INTERNET
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:4:5-67
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:4:5-67
 	android:name
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:5:5-21:19
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:5:5-21:19
 	android:supportsRtl
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:5:182-208
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:5:182-208
 	android:label
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:5:88-120
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:5:88-120
 	android:hardwareAccelerated
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
 	android:icon
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:5:53-87
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:5:53-87
 	android:networkSecurityConfig
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:5:121-181
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:5:121-181
 activity#io.ionic.starter.MainActivity
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
 	android:label
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:97-134
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:97-134
 	android:launchMode
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:135-165
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:135-165
 	android:windowSoftInputMode
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:257-299
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:257-299
 	android:configChanges
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:19-96
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:19-96
 	android:theme
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:194-256
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:194-256
 	android:name
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:166-193
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:6:166-193
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:7:13-10:29
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:7:13-10:29
 	android:label
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:7:28-65
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:7:28-65
 action#android.intent.action.MAIN
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:8:17-69
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:8:17-69
 	android:name
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:8:25-66
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:8:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:9:17-77
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:9:17-77
 	android:name
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:9:27-74
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:9:27-74
 receiver#de.appplant.cordova.plugin.localnotification.TriggerReceiver
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:18:9-122
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:18:9-122
 	android:exported
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:18:19-43
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:18:19-43
 	android:name
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:18:44-119
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:18:44-119
 receiver#de.appplant.cordova.plugin.localnotification.ClearReceiver
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:19:9-120
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:19:9-120
 	android:exported
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:19:19-43
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:19:19-43
 	android:name
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:19:44-117
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:19:44-117
 activity#de.appplant.cordova.plugin.localnotification.ClickReceiver
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:20:9-205
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:20:9-205
 	android:launchMode
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:20:44-79
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:20:44-79
 	android:exported
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:20:19-43
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:20:19-43
 	android:theme
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:20:154-202
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:20:154-202
 	android:name
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:20:80-153
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:20:80-153
 uses-sdk
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:22:5-74
-INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:22:5-74
-MERGED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:7:5-9:41
-MERGED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:7:5-9:41
-MERGED from [:CordovaLib] D:\marcos\TCC\tcc\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:5-44
-MERGED from [:CordovaLib] D:\marcos\TCC\tcc\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\31108729ca76ed32dc1cdf83cfb48028\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\31108729ca76ed32dc1cdf83cfb48028\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\bfc397018c8d6b75910ad34749510be3\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\bfc397018c8d6b75910ad34749510be3\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\e6689f5ede25d0fd69cc428bad444493\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\e6689f5ede25d0fd69cc428bad444493\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\b28cfe57fc850f11ef115242bc9c24ff\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\b28cfe57fc850f11ef115242bc9c24ff\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\f3f09b7ab6bbc04e150c28e3699460c4\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\f3f09b7ab6bbc04e150c28e3699460c4\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\d8985f87d66510d8e97582688db760af\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\d8985f87d66510d8e97582688db760af\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\4f55bb0a7b835413fcf6b7d639346cdb\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\4f55bb0a7b835413fcf6b7d639346cdb\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\b815a6170904dd64d536654e591815ff\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\b815a6170904dd64d536654e591815ff\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\373722a9cf6ad16501e13014f0a07d6f\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\373722a9cf6ad16501e13014f0a07d6f\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ca5a6dde5da474f1b9f71b1ece9a05b2\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ca5a6dde5da474f1b9f71b1ece9a05b2\AndroidManifest.xml:20:5-44
-INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:22:5-74
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:22:5-74
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:22:5-74
+MERGED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:7:5-9:41
+MERGED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:7:5-9:41
+MERGED from [:CordovaLib] D:\tcc\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] D:\tcc\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\7afb4270d6aa901d8412d7d766ab7b74\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\7afb4270d6aa901d8412d7d766ab7b74\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\f192493afa85fae82497c9961b990a71\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\f192493afa85fae82497c9961b990a71\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\25edfd294da95a6da811cb78dbf5647c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\25edfd294da95a6da811cb78dbf5647c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\ea0ea1d56a5818ac264ec46218eb3545\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\ea0ea1d56a5818ac264ec46218eb3545\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\7af41d2e7a82d208d68893ef5f6afbb9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\7af41d2e7a82d208d68893ef5f6afbb9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\35afd821d6b4a5bbefbaa2698b00bc80\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\35afd821d6b4a5bbefbaa2698b00bc80\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\0e08ebc43b46c1cf8b43e22b39c497e1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\0e08ebc43b46c1cf8b43e22b39c497e1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\d1f735ef30c70bdd344ecf51d89b1910\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\d1f735ef30c70bdd344ecf51d89b1910\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\238530ae3a71cea6590da86a76849684\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\238530ae3a71cea6590da86a76849684\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\b42939c660b94eef2d774e7d68197433\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\b42939c660b94eef2d774e7d68197433\AndroidManifest.xml:20:5-44
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:22:5-74
 	android:targetSdkVersion
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:22:42-71
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:22:42-71
 	android:minSdkVersion
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:22:15-41
-		INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:22:15-41
+		INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:23:5-81
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:23:5-81
 	android:name
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:23:22-78
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:23:22-78
 uses-permission#android.permission.WAKE_LOCK
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:24:5-68
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:24:5-68
 	android:name
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:24:22-65
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:24:22-65
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:25:5-79
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:25:5-79
 	android:name
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:25:22-76
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:25:22-76
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:13:13-123
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:13:13-123
 	android:resource
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:13:75-120
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:13:75-120
 	android:name
-		ADDED from D:\marcos\TCC\tcc\platforms\android\app\src\main\AndroidManifest.xml:13:24-74
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:13:24-74
 uses-permission#com.sec.android.provider.badge.permission.READ
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:19:5-86
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:19:5-86
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:19:22-83
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:19:22-83
 uses-permission#com.sec.android.provider.badge.permission.WRITE
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:20:5-87
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:20:5-87
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:20:22-84
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:20:22-84
 uses-permission#com.htc.launcher.permission.READ_SETTINGS
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:23:5-81
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:23:5-81
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:23:22-78
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:23:22-78
 uses-permission#com.htc.launcher.permission.UPDATE_SHORTCUT
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:24:5-83
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:24:5-83
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:24:22-80
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:24:22-80
 uses-permission#com.sonyericsson.home.permission.BROADCAST_BADGE
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:27:5-88
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:27:5-88
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:27:22-85
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:27:22-85
 uses-permission#com.sonymobile.home.permission.PROVIDER_INSERT_BADGE
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:28:5-92
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:28:5-92
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:28:22-89
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:28:22-89
 uses-permission#com.anddoes.launcher.permission.UPDATE_COUNT
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:31:5-84
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:31:5-84
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:31:22-81
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:31:22-81
 uses-permission#com.majeur.launcher.permission.UPDATE_BADGE
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:34:5-83
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:34:5-83
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:34:22-80
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:34:22-80
 uses-permission#com.huawei.android.launcher.permission.CHANGE_BADGE
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:37:5-91
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:37:5-91
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:37:22-88
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:37:22-88
 uses-permission#com.huawei.android.launcher.permission.READ_SETTINGS
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:38:5-92
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:38:5-92
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:38:22-89
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:38:22-89
 uses-permission#com.huawei.android.launcher.permission.WRITE_SETTINGS
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:39:5-93
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:39:5-93
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:39:22-90
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:39:22-90
 uses-permission#android.permission.READ_APP_BADGE
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:42:5-73
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:42:5-73
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:42:22-70
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:42:22-70
 uses-permission#com.oppo.launcher.permission.READ_SETTINGS
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:45:5-82
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:45:5-82
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:45:22-79
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:45:22-79
 uses-permission#com.oppo.launcher.permission.WRITE_SETTINGS
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:46:5-83
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:46:5-83
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:46:22-80
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:46:22-80
 uses-permission#me.everything.badger.permission.BADGE_COUNT_READ
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:49:5-88
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:49:5-88
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:49:22-85
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:49:22-85
 uses-permission#me.everything.badger.permission.BADGE_COUNT_WRITE
-ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:50:5-89
+ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:50:5-89
 	android:name
-		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\Kennedy\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\64d92d12c40efab801b2b45266a57721\AndroidManifest.xml:50:22-86
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:50:22-86

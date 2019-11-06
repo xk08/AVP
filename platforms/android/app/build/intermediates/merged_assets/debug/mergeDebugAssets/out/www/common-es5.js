@@ -582,6 +582,159 @@ var AssistenteCadastroService = /** @class */ (function () {
 
 
 
+/***/ }),
+
+/***/ "./src/app/services/profissionalConteudoTexto/profissional-conteudo-texto.service.ts":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/services/profissionalConteudoTexto/profissional-conteudo-texto.service.ts ***!
+  \*******************************************************************************************/
+/*! exports provided: ProfissionalConteudoTextoService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfissionalConteudoTextoService", function() { return ProfissionalConteudoTextoService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
+
+var ProfissionalConteudoTextoService = /** @class */ (function () {
+    function ProfissionalConteudoTextoService(db) {
+        this.db = db;
+        this.todosCollection = db.collection('ProfissionalConteudoTexto'); // Criando a coleção
+    }
+    ProfissionalConteudoTextoService.prototype.getTodos = function () {
+        return this.todosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+            return actions.map(function (a) {
+                var data = a.payload.doc.data();
+                var id = a.payload.doc.id;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ id: id }, data);
+            });
+        }));
+    };
+    ProfissionalConteudoTextoService.prototype.getTodosPoAvaliacao = function (avaliacao) {
+        return this.db
+            .collection('ProfissionalConteudoTexto', function (ref) {
+            return ref.where('avaliacao', '==', avaliacao);
+        })
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+            return actions.map(function (a) {
+                var data = a.payload.doc.data();
+                var id = a.payload.doc.id;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ id: id }, data);
+            });
+        }));
+    };
+    ProfissionalConteudoTextoService.prototype.getTodo = function (id) {
+        return this.todosCollection.doc(id).valueChanges();
+    };
+    ProfissionalConteudoTextoService.prototype.updateTodo = function (toda, id) {
+        return this.todosCollection.doc(id).update(toda);
+    };
+    ProfissionalConteudoTextoService.prototype.addTodo = function (toda) {
+        return this.todosCollection.add(toda);
+    };
+    ProfissionalConteudoTextoService.prototype.removeTodo = function (id) {
+        return this.todosCollection.doc(id).delete();
+    };
+    ProfissionalConteudoTextoService.ctorParameters = function () { return [
+        { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] }
+    ]; };
+    ProfissionalConteudoTextoService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
+    ], ProfissionalConteudoTextoService);
+    return ProfissionalConteudoTextoService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/queroConversar/quero-conversar.service.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/services/queroConversar/quero-conversar.service.ts ***!
+  \********************************************************************/
+/*! exports provided: QueroConversarService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QueroConversarService", function() { return QueroConversarService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
+
+var QueroConversarService = /** @class */ (function () {
+    function QueroConversarService(db) {
+        this.db = db;
+        this.todosCollection = db.collection('QueroConversar'); // Criando a coleção
+    }
+    /*
+    getTodosPorId(idUsuario: string) {
+      return this.db
+        .collection<QueroConversar>('QueroConversar', ref => ref.where('idUsuario', '==', idUsuario))
+        .snapshotChanges()
+        .pipe(
+          map(actions => {
+            return actions.map(a => {
+              const data = a.payload.doc.data();
+              const id = a.payload.doc.id;
+              console.log(id);
+              return { id, ...data };
+            });
+          })
+        );
+    }
+    */
+    QueroConversarService.prototype.getTodos = function () {
+        return this.todosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+            return actions.map(function (a) {
+                var data = a.payload.doc.data();
+                var id = a.payload.doc.id;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ id: id }, data);
+            });
+        }));
+    };
+    QueroConversarService.prototype.getTodo = function (id) {
+        return this.todosCollection.doc(id).valueChanges();
+    };
+    QueroConversarService.prototype.updateTodo = function (toda, id) {
+        return this.todosCollection.doc(id).update(toda);
+    };
+    QueroConversarService.prototype.addTodo = function (toda, idUsuario) {
+        return this.todosCollection.doc(idUsuario).set(toda);
+    };
+    QueroConversarService.prototype.removeTodo = function (id) {
+        return this.todosCollection.doc(id).delete();
+    };
+    QueroConversarService.ctorParameters = function () { return [
+        { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] }
+    ]; };
+    QueroConversarService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
+    ], QueroConversarService);
+    return QueroConversarService;
+}());
+
+
+
 /***/ })
 
 }]);

@@ -23,6 +23,16 @@ var map = {
 		"common",
 		"home-home-module"
 	],
+	"../imagem-detalhes/imagem-detalhes.module": [
+		"./src/app/pages/imagem-detalhes/imagem-detalhes.module.ts",
+		"common",
+		"imagem-detalhes-imagem-detalhes-module"
+	],
+	"../profissional-conteudo-especifico/profissional-conteudo-especifico.module": [
+		"./src/app/pages/profissional-conteudo-especifico/profissional-conteudo-especifico.module.ts",
+		"common",
+		"profissional-conteudo-especifico-profissional-conteudo-especifico-module"
+	],
 	"../profissional-conteudo-imagem/profissional-conteudo-imagem.module": [
 		"./src/app/pages/profissional-conteudo-imagem/profissional-conteudo-imagem.module.ts",
 		"common",
@@ -37,6 +47,16 @@ var map = {
 		"./src/app/pages/profissional-conteudo-video/profissional-conteudo-video.module.ts",
 		"common",
 		"profissional-conteudo-video-profissional-conteudo-video-module"
+	],
+	"../profissional-conteudo/profissional-conteudo.module": [
+		"./src/app/pages/profissional-conteudo/profissional-conteudo.module.ts",
+		"common",
+		"profissional-conteudo-profissional-conteudo-module"
+	],
+	"../texto-detalhes/texto-detalhes.module": [
+		"./src/app/pages/texto-detalhes/texto-detalhes.module.ts",
+		"common",
+		"texto-detalhes-texto-detalhes-module"
 	],
 	"./pages/cadastro-assistente/cadastro-assistente.module": [
 		"./src/app/pages/cadastro-assistente/cadastro-assistente.module.ts",
@@ -62,11 +82,6 @@ var map = {
 		"./src/app/pages/profissional-cadastro/profissional-cadastro.module.ts",
 		"common",
 		"pages-profissional-cadastro-profissional-cadastro-module"
-	],
-	"./pages/profissional-conteudo/profissional-conteudo.module": [
-		"./src/app/pages/profissional-conteudo/profissional-conteudo.module.ts",
-		"common",
-		"pages-profissional-conteudo-profissional-conteudo-module"
 	],
 	"./pages/quero-conversar/quero-conversar.module": [
 		"./src/app/pages/quero-conversar/quero-conversar.module.ts",
@@ -523,7 +538,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\r\n  <ion-router-outlet></ion-router-outlet>\r\n</ion-app>\r\n"
+module.exports = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n"
 
 /***/ }),
 
@@ -540,9 +555,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _guards_login_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./guards/login.guard */ "./src/app/guards/login.guard.ts");
-/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
-
+/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
 
 
 
@@ -555,8 +568,7 @@ const routes = [
     },
     {
         path: 'login',
-        loadChildren: './pages/login/login.module#LoginPageModule',
-        canActivate: [_guards_login_guard__WEBPACK_IMPORTED_MODULE_3__["LoginGuard"]]
+        loadChildren: './pages/login/login.module#LoginPageModule'
     },
     {
         path: 'usuario/cadastro',
@@ -572,23 +584,33 @@ const routes = [
     },
     {
         path: 'assistente/cadastro',
-        loadChildren: './pages/cadastro-assistente/cadastro-assistente.module#CadastroAssistentePageModule'
+        loadChildren: './pages/cadastro-assistente/cadastro-assistente.module#CadastroAssistentePageModule',
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: 'emergencia',
         loadChildren: './pages/emergencia/emergencia.module#EmergenciaPageModule',
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     },
     {
         path: 'quero-conversar',
         loadChildren: './pages/quero-conversar/quero-conversar.module#QueroConversarPageModule',
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
-    },
-    {
-        path: 'profissional-conteudo',
-        loadChildren: './pages/profissional-conteudo/profissional-conteudo.module#ProfissionalConteudoPageModule',
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     }
+    /*
+    {
+      path: 'profissional-conteudo-especifico',
+      loadChildren:
+        './pages/profissional-conteudo-especifico/profissional-conteudo-especifico.module#ProfissionalConteudoEspecificoPageModule'
+    }
+    */
+    /* {
+      path: 'profissional-conteudo',
+      loadChildren:
+        './pages/profissional-conteudo/profissional-conteudo.module#ProfissionalConteudoPageModule',
+      canActivate: [AuthGuard]
+    }
+    */
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -830,60 +852,6 @@ AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/guards/login.guard.ts":
-/*!***************************************!*\
-  !*** ./src/app/guards/login.guard.ts ***!
-  \***************************************/
-/*! exports provided: LoginGuard */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginGuard", function() { return LoginGuard; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-
-
-
-
-let LoginGuard = 
-//GUARD, SERVE PARA CUIDAR SE O USUARIO ESTA LOGADO, DEFENE AS PAGINAS QUE PODE DIRETO NAS ROTAS.
-//SE USUARIO ESTIVER LOGADO ELE DIRECIONA DIRETO PARA A PAGINA INICIAL DO APLICATIVO 'MENU'
-class LoginGuard {
-    constructor(authService, navCTRL) {
-        this.authService = authService;
-        this.navCTRL = navCTRL;
-    }
-    canActivate() {
-        return new Promise(resolve => {
-            this.authService.getAuth().onAuthStateChanged(user => {
-                if (user)
-                    this.navCTRL.navigateRoot('menu/home');
-                resolve(!user ? true : false);
-            });
-        });
-    }
-};
-LoginGuard.ctorParameters = () => [
-    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] }
-];
-LoginGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    })
-    //GUARD, SERVE PARA CUIDAR SE O USUARIO ESTA LOGADO, DEFENE AS PAGINAS QUE PODE DIRETO NAS ROTAS.
-    //SE USUARIO ESTIVER LOGADO ELE DIRECIONA DIRETO PARA A PAGINA INICIAL DO APLICATIVO 'MENU'
-    ,
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"]])
-], LoginGuard);
-
-
-
-/***/ }),
-
 /***/ "./src/app/services/auth.service.ts":
 /*!******************************************!*\
   !*** ./src/app/services/auth.service.ts ***!
@@ -997,7 +965,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\marcos\TCC\tcc\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\tcc\src\main.ts */"./src/main.ts");
 
 
 /***/ })
