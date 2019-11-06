@@ -1,5 +1,4 @@
 export class ProfissionalConteudoImagem {
-  id?: string;
   idUsuario?: string;
   idade?: string;
   nivelEmergencia?: string;
@@ -9,4 +8,3 @@ export class ProfissionalConteudoImagem {
   imagem?: string;
   maisInfoImagem?: string;
 }
-

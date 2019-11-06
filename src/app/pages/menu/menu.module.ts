@@ -27,6 +27,12 @@ const routes: Routes = [
       },
 
       {
+        path: 'imagem-detalhes/:id',
+        loadChildren: '../imagem-detalhes/imagem-detalhes.module#ImagemDetalhesPageModule',
+        canActivate: [AuthGuard]
+      },
+
+      {
         path: 'profissional-conteudo',
         loadChildren:
           '../profissional-conteudo/profissional-conteudo.module#ProfissionalConteudoPageModule',

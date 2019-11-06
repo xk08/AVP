@@ -9,7 +9,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+
+
+
+<ion-fab
+  vertical="bottom"
+  horizontal="end"
+  slot="fixed"
+>
   <ion-fab-button
     routerLink="/emergencia/emergencia-utilizacao"
     routerDirection="forward"
@@ -19,10 +26,11 @@
   </ion-fab-button>
 </ion-fab>
 
+
+
+
 <ion-content>
-  <ion-card>
-    <img src="../../../assets/img/fraseamigos.PNG" />
-  </ion-card>
+
 
   <ion-card
     *ngFor="let texto of profissionalConteudoTexto"
@@ -33,55 +41,96 @@
       <ion-card-title hidden></ion-card-title>
     </ion-card-header>
 
+
     <ion-card-header *ngIf="tituloTextoTela">
       <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>
     </ion-card-header>
 
-    <ion-card-content *ngIf="descricaoTextoTela" style="text-align: center;">
+
+
+    <ion-card-content
+      *ngIf="descricaoTextoTela"
+      style="text-align: center; font-size: 15pt;"
+    >
       “{{ texto.texto }}”
     </ion-card-content>
-    <ion-card-content *ngIf="!descricaoTextoTela" style="text-align: center;">
+    <ion-card-content
+      *ngIf="!descricaoTextoTela"
+      style="text-align: center;"
+    >
       Nenhum texto foi cadastrado até o momento
     </ion-card-content>
 
+
     <ion-card-header>
-      <ion-card-subtitle *ngIf="!autorTextoTela" style="text-align: right;"
-        >Autor desconhecido</ion-card-subtitle
+      <ion-card-subtitle
+        *ngIf="!autorTextoTela"
+        style="text-align: right;"
       >
-      <ion-card-subtitle *ngIf="autorTextoTela" style="text-align: right;"
-        >Autor: {{ texto.autorTexto }}</ion-card-subtitle
+        Autor desconhecido
+      </ion-card-subtitle>
+      <ion-card-subtitle
+        *ngIf="autorTextoTela"
+        style="text-align: right;"
       >
+        Autor: {{ texto.autorTexto }}
+      </ion-card-subtitle>
     </ion-card-header>
-  </ion-card>
-
-  <ion-card>
-    <ion-item href class="activated" style="color: lightseagreen">
-      <ion-label class="ion-text-center">Assistir ao video completo</ion-label>
+    <ion-item
+      href
+      class="activated"
+      style="background-color: silver;"
+      [routerLink]="['/menu/texto-detalhes', texto.id]"
+    >
+      <ion-label class="ion-text-center">Ver mais informações</ion-label>
     </ion-item>
+
+
   </ion-card>
 
-  <ion-card>
-    <ion-item href class="activated" style="color: lightseagreen">
+
+  <ion-card *ngFor="let imagem of profissionalConteudoImagem">
+
+
+    <ion-card-content *ngIf="imagem.imagem">
+      <img
+        src="{{imagem.imagem}}"
+        width="320px"
+        height="280px"
+      >
+    </ion-card-content>
+    <ion-card-content *ngIf="!imagem.imagem">
+      <ion-card-header style="font-size: 15pt; text-align: center;">Imagem não encontrada</ion-card-header>
+    </ion-card-content>
+
+
+
+    <ion-card-header *ngIf="!imagem.tituloImagem">
+      <ion-card-title style="text-align: center;">Titulo não cadastrado</ion-card-title>
+    </ion-card-header>
+
+
+
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">{{imagem.tituloImagem}}</ion-card-title>
+    </ion-card-header>
+
+
+
+    <ion-item
+      href
+      class="activated"
+      style="background-color: silver;"
+      [routerLink]="['/menu/imagem-detalhes', imagem.id]"
+    >
       <ion-label class="ion-text-center">Ver mais informações</ion-label>
     </ion-item>
   </ion-card>
 
-  <ion-card>
-    <img src="../../../assets/img/tulipas.PNG" />
-    <ion-card-header>
-      <ion-card-subtitle>Foto do dia</ion-card-subtitle>
-      <ion-card-title>
-        A vida é colorida, aproveite todos os momentos.
-      </ion-card-title>
-    </ion-card-header>
 
-    <ion-item href class="activated" style="color: rgb(101, 221, 215)">
-      <ion-label class="ion-text-center">Ver mais informações</ion-label>
-    </ion-item>
-  </ion-card>
 
   <ion-card>
-    <img src="../../../assets/img/abrirmente.PNG" />
+    <img src="../../../assets/img/abrirmente.PNG">
     <ion-card-header>
       <ion-card-subtitle>Video do Youtube</ion-card-subtitle>
       <ion-card-title>Compreenda a sí mesmo</ion-card-title>
@@ -92,10 +141,19 @@
       vídeo você vai saber a como aproveitar a vida muito mais!
     </ion-card-content>
 
-    <ion-item href class="activated" style="color: lightseagreen">
+
+
+
+    <ion-item
+      href
+      class="activated"
+      style="color: lightseagreen"
+    >
       <ion-label class="ion-text-center">Assistir ao video completo</ion-label>
     </ion-item>
   </ion-card>
+
+
 
   <ion-card>
     <ion-card-header>
@@ -107,10 +165,19 @@
       amor e compreensão.
     </ion-card-content>
 
-    <ion-item href class="activated" style="color: lightseagreen">
+
+
+    <ion-item
+      href
+      class="activated"
+      style="color: lightseagreen"
+    >
       <ion-label class="ion-text-center">Ver mais informações</ion-label>
     </ion-item>
   </ion-card>
+
+
+
 
   <ion-card>
     <ion-card-header>
@@ -120,7 +187,11 @@
     <ion-card-content>
       Enquanto alguns escolhem pessoas perfeitas, eu escolho as que me fazem bem.
     </ion-card-content>
-    <ion-item href class="activated" style="color: lightseagreen">
+    <ion-item
+      href
+      class="activated"
+      style="color: lightseagreen"
+    >
       <ion-label class="ion-text-center">Ver mais informações</ion-label>
     </ion-item>
   </ion-card>

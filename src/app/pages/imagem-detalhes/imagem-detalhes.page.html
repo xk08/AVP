@@ -1,0 +1,55 @@
+<ion-header translucent>
+  <ion-toolbar color="#FFFF">
+    <ion-title style="text-align: center; font-size: 15pt">Mais informações da imagem</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-card style="background-color: lightcyan;">
+
+    <ion-card-header *ngIf="tituloImagemTela">
+      <ion-card-subtitle style="font-size: 12pt;">Titulo desta imagem</ion-card-subtitle>
+      <ion-card-title>{{tituloImagemTela}}</ion-card-title>
+    </ion-card-header>
+
+      <ion-card-header *ngIf="!tituloImagemTela">
+      <ion-card-subtitle style="font-size: 12pt;">Titulo desta imagem</ion-card-subtitle>
+      <ion-card-title>Titulo não cadastrado</ion-card-title>
+    </ion-card-header>
+
+  </ion-card>
+
+  <ion-card style="background-color: lightcyan;">
+
+    <ion-card-header *ngIf="autorImagemTela">
+      <ion-card-subtitle style="font-size: 12pt;">Autoria da imagem</ion-card-subtitle>
+      <ion-card-title>{{autorImagemTela}}</ion-card-title>
+    </ion-card-header>
+
+      <ion-card-header *ngIf="!autorImagemTela">
+      <ion-card-subtitle style="font-size: 12pt;">Autoria da imagem</ion-card-subtitle>
+      <ion-card-title>Autor não encontrado</ion-card-title>
+    </ion-card-header>
+
+  </ion-card>
+
+    <ion-card style="background-color: lightcyan;">
+
+    <ion-card-header *ngIf="maisInfoImagemTela">
+      <ion-card-subtitle style="font-size: 12pt;">Informações complementares</ion-card-subtitle>
+      <ion-card-title>{{maisInfoImagemTela}}</ion-card-title>
+    </ion-card-header>
+
+       <ion-card-header *ngIf="!maisInfoImagemTela">
+      <ion-card-subtitle style="font-size: 12pt;">Informações complementares</ion-card-subtitle>
+      <ion-card-title>Nenhuma informação foi cadastrada até o momento.</ion-card-title>
+    </ion-card-header>
+
+
+
+  </ion-card>
+
+</ion-content>

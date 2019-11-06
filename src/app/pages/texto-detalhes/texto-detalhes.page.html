@@ -9,9 +9,6 @@
 <ion-content>
 
 
-
-
-
   <ion-card style="background-color: lightcyan;">
     <ion-card-header>
       <ion-card-subtitle style="font-size: 12pt;">Titulo do texto</ion-card-subtitle>
@@ -19,22 +16,13 @@
     </ion-card-header>
   </ion-card>
 
-
-
-
-
-
   <ion-card style="background-color:lightgray;">
     <ion-card-header>
       <ion-card-subtitle style="font-size: 12pt;">Autor do Texto</ion-card-subtitle>
-      <ion-card-title *ngIf="!autorTextoTela">Nenhum titulo foi informado</ion-card-title>
+      <ion-card-title *ngIf="!autorTextoTela">Autor não encontrado</ion-card-title>
       <ion-card-title>{{autorTextoTela}}</ion-card-title>
     </ion-card-header>
   </ion-card>
-
-
-
-
 
 
   <ion-card style="background-color: lightsteelblue;">
@@ -46,9 +34,5 @@
       <ion-card-title>{{maisInfoTela}}</ion-card-title>
     </ion-card-header>
   </ion-card>
-
-
-
-
 
 </ion-content>
