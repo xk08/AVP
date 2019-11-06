@@ -1,39 +1,54 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Mais sobre o texto</ion-title>
+<ion-header translucent>
+  <ion-toolbar color="#FFFF">
+    <ion-title style="text-align: center; font-size: 15pt">Mais informações</ion-title>
     <ion-buttons slot="start">
-      <ion-menu-button autoHide="true"></ion-menu-button>
+      <ion-back-button defaultHref="menu/home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-grid>
-    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
-    <ion-row justify-content-center>
-      <!-- Deixa responsivo -->
-      <ion-col size-sm="8" size-md="12" size-lg="3" size-xl="3">
-        <form #form="ngForm">
-          <ion-card>
-            <ion-title>
-              Titulo: {{tituloTela}}
-            </ion-title>
 
-            <ion-title>
-                Texto: {{textoTela}}
-              </ion-title>
 
-              <ion-title>
-                  Autor: {{autorTextoTela}}
-                </ion-title>
 
-          </ion-card>
-  
-          <ion-button expand="block" type="submit" class="login-button" color="dark">
-            Voltar
-          </ion-button>
-        </form>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+
+
+  <ion-card style="background-color: lightcyan;">
+    <ion-card-header>
+      <ion-card-subtitle style="font-size: 12pt;">Titulo do texto</ion-card-subtitle>
+      <ion-card-title>{{tituloTela}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+
+
+
+
+
+  <ion-card style="background-color:lightgray;">
+    <ion-card-header>
+      <ion-card-subtitle style="font-size: 12pt;">Autor do Texto</ion-card-subtitle>
+      <ion-card-title *ngIf="!autorTextoTela">Nenhum titulo foi informado</ion-card-title>
+      <ion-card-title>{{autorTextoTela}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+
+
+
+
+
+  <ion-card style="background-color: lightsteelblue;">
+    <ion-card-header>
+      <ion-card-subtitle style="font-size: 12pt;">Mais informações para você</ion-card-subtitle>
+      <ion-card-title *ngIf="!maisInfoTela">
+        Nenhuma informação extra foi cadastrada.
+      </ion-card-title>
+      <ion-card-title>{{maisInfoTela}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+
+
+
+
 </ion-content>
