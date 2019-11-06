@@ -24,14 +24,22 @@ const routes: Routes = [
         loadChildren:
           '../profissional-conteudo-imagem/profissional-conteudo-imagem.module#ProfissionalConteudoImagemPageModule'
       },
+      {
+        path: 'profissional-conteudo-imagem/:id',
+        loadChildren:
+          '../profissional-conteudo-imagem/profissional-conteudo-imagem.module#ProfissionalConteudoImagemPageModule'
+      },
 
       {
         path: 'profissional-conteudo-video',
         loadChildren:
           '../profissional-conteudo-video/profissional-conteudo-video.module#ProfissionalConteudoVideoPageModule'
       },
-
-
+      {
+        path: 'profissional-conteudo-video/:id',
+        loadChildren:
+          '../profissional-conteudo-video/profissional-conteudo-video.module#ProfissionalConteudoVideoPageModule'
+      },
       {
         path: '',
         redirectTo: '/menu/profissional-conteudo/profissional-conteudo-texto',

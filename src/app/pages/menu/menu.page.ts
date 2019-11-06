@@ -27,12 +27,12 @@ export class MenuPage implements OnInit, OnDestroy {
   paginasProfissional = [
     {
       title: 'Home',
-      url: '/menu/profissional-conteudo',
+      url: '/menu/profissional-todos-conteudos',
       icon: 'home'
     },
     {
       title: 'Meu Perfil',
-      url: '/menu/profissional-conteudo',
+      url: '/menu/profissional-todos-conteudos',
       icon: 'home'
     }
   ];

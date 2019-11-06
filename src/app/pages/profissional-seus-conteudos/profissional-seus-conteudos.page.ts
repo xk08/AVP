@@ -63,8 +63,8 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
     this.idUsuario = this.auth.auth.currentUser.uid;
 
     this.buscaDadosTexto();
-    //this.buscaDadosImagem(this.idUsuario);
-    // this.buscaDadosVideo(this.idUsuario);
+    this.buscaDadosImagem();
+    this.buscaDadosVideo();
   }
 
   buscaDadosTexto() {
@@ -80,43 +80,28 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
     });
   }
 
-  /*
-  buscaDadosImagem(idUsuario) {
+  buscaDadosImagem() {
     //Pegando os dados informados pelo usuário, sobre a sua situação
-    this.listQueroConversar = this.queroConversarService.getTodo(this.idUsuario).subscribe(res => {
-      this.avalicaoQueroConversar = res.avaliacao;
-      this.avaliacaoGlobal = this.avalicaoQueroConversar;
 
-      // Atribuindo na pesquisa
-      this.profissionalConteudoImagemService
-        .getTodosPoAvaliacao(this.avaliacaoGlobal)
-        .subscribe(res => {
-          this.profissionalConteudoImagemL = res;
-
-          // Percorrendo os dados da coleção
-          res.forEach(x => {
-            this.tituloImagemTela = x.tituloImagem;
-            this.maisInfoImagemTela = x.maisInfoImagem;
-            this.autorImagemTela = x.autorImagem;
-            this.imagem64Tela = x.imagem;
-          });
-        });
+    this.profissionalConteudoImagemService.getTodos().subscribe(res => {
+      this.profissionalConteudoImagem = res;
+      res.forEach(x => {
+        this.tituloImagemTela = x.tituloImagem;
+        this.maisInfoImagemTela = x.maisInfoImagem;
+        this.autorImagemTela = x.autorImagem;
+        this.imagem64Tela = x.imagem;
+      });
     });
   }
 
-  buscaDadosVideo(idUsuario) {
-    //Pegando os dados informados pelo usuário, sobre a sua situação
-    this.listQueroConversar = this.queroConversarService.getTodo(this.idUsuario).subscribe(res => {
-      this.avalicaoQueroConversar = res.avaliacao;
-      this.avaliacaoGlobal = this.avalicaoQueroConversar;
 
-      // Atribuindo na pesquisa
+  buscaDadosVideo() {
+
       this.profissionalConteudoVideoService
-        .getTodosPoAvaliacao(this.avaliacaoGlobal)
+        .getTodos()
         .subscribe(res => {
-          this.profissionalConteudoVideoL = res;
+          this.profissionalConteudoVideo = res;
 
-          // Percorrendo os dados da coleção
           res.forEach(x => {
             this.tituloVideoTela = x.tituloVideo;
             this.descricaoVideoTela = x.descricaoVideo;
@@ -124,10 +109,8 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
             this.autorVideoTela = x.autorVideo;
           });
         });
-    });
   }
 
-  */
 
   ngOnDestroy() {
     this.listProfissionalConteudoTexto.unsubscribe();

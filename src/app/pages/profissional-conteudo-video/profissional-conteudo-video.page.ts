@@ -45,7 +45,7 @@ export class ProfissionalConteudoVideoPage implements OnInit {
     descricaoVideo: '',
     idade: '',
     nivelEmergencia: '',
-    avaliacao: 0
+    avaliacao: null
   };
 
   constructor(
@@ -73,11 +73,6 @@ export class ProfissionalConteudoVideoPage implements OnInit {
     this.ionClick.emit(this.valor);
     this.calc();
     this.geral = this.valor;
-  }
-
-  logRatingChange(rating) {
-    console.log('changed rating: ', rating);
-    // do your stuff
   }
 
   ngOnInit() {
@@ -113,7 +108,7 @@ export class ProfissionalConteudoVideoPage implements OnInit {
       this.todas.avaliacao = this.geral;
       this.conteudoVideoService.updateTodo(this.todas, this.idConteudoVideo).then(() => {
         loading.dismiss();
-        this.navCtrl.navigateBack('menu/home');
+        this.navCtrl.navigateBack('/menu/profissional-todos-conteudos');
       });
     } else {
       /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */

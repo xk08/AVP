@@ -109,7 +109,6 @@ export class ProfissionalConteudoTextoPage implements OnInit {
       this.conteudoTextoService.updateTodo(this.todas, this.idConteudoTexto).then(() => {
         loading.dismiss();
         this.navCtrl.navigateBack('/menu/profissional-todos-conteudos');
-        console.log('esse é o ip :' + this.idConteudoTexto);
       });
     } else {
 
