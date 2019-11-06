@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="success">
+
+    <ion-buttons>
+      <ion-menu-button autoHide="true"></ion-menu-button>
+      <div>
+        <ion-button
+          shape="round"
+          fill="outline"
+          (click)="direcionaPraTelaCadastro()"
+        >
+          Novo conteúdo
+        </ion-button>
+      </div>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-header translucent>
+  <ion-toolbar translucent>
+    <ion-title style="text-align: center; font-size: 13pt">Gerencie seus conteúdos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card
+    *ngFor="let texto of profissionalConteudoTexto"
+    style="background-color:lightgreen;"
+    [routerLink]="['/menu/profissional-conteudo/profissional-conteudo-texto', texto.id]"
+  >
+    <ion-card-header>
+      <ion-card-subtitle>Frase cadastrada</ion-card-subtitle>
+      <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content style="text-align: center; font-size: 15pt;">“{{ texto.texto }}”</ion-card-content>
+  </ion-card>
+
+</ion-content>

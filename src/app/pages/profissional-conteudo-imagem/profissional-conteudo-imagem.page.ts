@@ -156,7 +156,7 @@ async saveTodo() {
     this.todas.avaliacao = this.geral;
     this.conteudoImagemService.addTodo(this.todas).then(() => {
       loading.dismiss();
-      this.navCtrl.navigateForward('menu/home');
+      this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');
     });
   }
 }

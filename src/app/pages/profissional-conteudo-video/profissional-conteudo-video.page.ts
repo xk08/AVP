@@ -120,7 +120,7 @@ export class ProfissionalConteudoVideoPage implements OnInit {
       this.todas.avaliacao = this.geral;
       this.conteudoVideoService.addTodo(this.todas).then(() => {
         loading.dismiss();
-        this.navCtrl.navigateForward('menu/home');
+        this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');
       });
     }
   }
