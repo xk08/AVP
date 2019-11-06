@@ -39,7 +39,6 @@ export class ProfissionalConteudoTextoPage implements OnInit {
   public idUsuario: string;
 
   public todas: ProfissionalConteudoTexto = {
-    id: '',
     idUsuario: '',
     tituloTexto: '',
     autorTexto: '',
