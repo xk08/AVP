@@ -1106,6 +1106,78 @@ ProfissionalConteudoTextoService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
 
 /***/ }),
 
+/***/ "./src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service.ts":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service.ts ***!
+  \*******************************************************************************************/
+/*! exports provided: ProfissionalConteudoVideoService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfissionalConteudoVideoService", function() { return ProfissionalConteudoVideoService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+let ProfissionalConteudoVideoService = class ProfissionalConteudoVideoService {
+    constructor(db) {
+        this.db = db;
+        this.todosCollection = db.collection('ProfissionalConteudoVideo'); // Criando a coleção
+    }
+    getTodos() {
+        return this.todosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+            return actions.map(a => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return Object.assign({ id }, data);
+            });
+        }));
+    }
+    getTodosPoAvaliacao(avaliacao) {
+        return this.db
+            .collection('ProfissionalConteudoVideo', ref => ref.where('avaliacao', '==', avaliacao))
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+            return actions.map(a => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return Object.assign({ id }, data);
+            });
+        }));
+    }
+    getTodo(id) {
+        return this.todosCollection.doc(id).valueChanges();
+    }
+    updateTodo(toda, id) {
+        return this.todosCollection.doc(id).update(toda);
+    }
+    addTodo(toda) {
+        return this.todosCollection.add(toda);
+    }
+    removeTodo(id) {
+        return this.todosCollection.doc(id).delete();
+    }
+};
+ProfissionalConteudoVideoService.ctorParameters = () => [
+    { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] }
+];
+ProfissionalConteudoVideoService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
+], ProfissionalConteudoVideoService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/queroConversar/quero-conversar.service.ts":
 /*!********************************************************************!*\
   !*** ./src/app/services/queroConversar/quero-conversar.service.ts ***!

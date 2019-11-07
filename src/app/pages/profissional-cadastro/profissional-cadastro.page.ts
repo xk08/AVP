@@ -43,7 +43,7 @@ export class ProfissionalCadastroPage implements OnInit {
   //REFERÊNCIA A CLASS USUARIO
   todoUser: UsuarioCadastro = {
     nome: '',
-    dataNasc: '',
+    dataNasc: 0,
     foto: '',
     profissao: '',
     codigoProfissao: '',

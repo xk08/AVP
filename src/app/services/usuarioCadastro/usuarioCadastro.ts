@@ -1,7 +1,7 @@
 export class UsuarioCadastro {
   uid?: string;
   nome: string;
-  dataNasc?: string;
+  dataNasc?: number;
   foto?: string;
   profissao?: string;
   codigoProfissao?: string;

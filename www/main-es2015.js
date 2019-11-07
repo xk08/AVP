@@ -53,10 +53,20 @@ var map = {
 		"common",
 		"profissional-conteudo-profissional-conteudo-module"
 	],
+	"../profissional-seus-conteudos/profissional-seus-conteudos.module": [
+		"./src/app/pages/profissional-seus-conteudos/profissional-seus-conteudos.module.ts",
+		"common",
+		"profissional-seus-conteudos-profissional-seus-conteudos-module"
+	],
 	"../texto-detalhes/texto-detalhes.module": [
 		"./src/app/pages/texto-detalhes/texto-detalhes.module.ts",
 		"common",
 		"texto-detalhes-texto-detalhes-module"
+	],
+	"../video-detalhes/video-detalhes.module": [
+		"./src/app/pages/video-detalhes/video-detalhes.module.ts",
+		"common",
+		"video-detalhes-video-detalhes-module"
 	],
 	"./pages/cadastro-assistente/cadastro-assistente.module": [
 		"./src/app/pages/cadastro-assistente/cadastro-assistente.module.ts",

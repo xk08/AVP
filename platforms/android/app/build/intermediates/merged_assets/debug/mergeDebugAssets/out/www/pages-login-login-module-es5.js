@@ -141,7 +141,7 @@ var LoginPage = /** @class */ (function () {
                 .then(function () {
                 _this.usuarioCadastro.getUsuario(_this.auth.auth.currentUser.uid).subscribe(function (res) {
                     if (res.isProfissional) {
-                        _this.router.navigate(['menu/profissional-conteudo']); //Direciona após logado
+                        _this.router.navigate(['/menu/profissional-todos-conteudos']); //Direciona após logado
                     }
                     else {
                         _this.router.navigate(['menu/home']); //Direciona após logad

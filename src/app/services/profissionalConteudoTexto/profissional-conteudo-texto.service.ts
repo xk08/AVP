@@ -41,6 +41,24 @@ export class ProfissionalConteudoTextoService {
       );
   }
 
+
+  getTodosPorIdade(idade: string) {
+    return this.db
+      .collection<ProfissionalConteudoTexto>('ProfissionalConteudoTexto', ref =>
+        ref.where('idade', '==', idade)
+      )
+      .snapshotChanges()
+      .pipe(
+        map(actions => {
+          return actions.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          });
+        })
+      );
+  }
+
   getTodo(id) {
     return this.todosCollection.doc<ProfissionalConteudoTexto>(id).valueChanges();
   }

@@ -106,14 +106,14 @@ let ProfissionalConteudoImagemPage = class ProfissionalConteudoImagemPage {
         this.stars = [];
         this.photo = '';
         this.todas = {
-            idUsuario: "",
-            idade: "",
-            nivelEmergencia: "",
-            avaliacao: 0,
-            tituloImagem: "",
-            autorImagem: "",
-            imagem: "",
-            maisInfoImagem: ""
+            idUsuario: '',
+            idade: '',
+            nivelEmergencia: '',
+            avaliacao: null,
+            tituloImagem: '',
+            autorImagem: '',
+            imagem: '',
+            maisInfoImagem: ''
         };
     }
     changeFiltro() {
@@ -202,7 +202,7 @@ let ProfissionalConteudoImagemPage = class ProfissionalConteudoImagemPage {
                 this.todas.avaliacao = this.geral;
                 this.conteudoImagemService.updateTodo(this.todas, this.idConteudoImagem).then(() => {
                     loading.dismiss();
-                    this.navCtrl.navigateBack('menu/home');
+                    this.navCtrl.navigateBack('/menu/profissional-todos-conteudos');
                 });
             }
             else {
@@ -213,7 +213,7 @@ let ProfissionalConteudoImagemPage = class ProfissionalConteudoImagemPage {
                 this.todas.avaliacao = this.geral;
                 this.conteudoImagemService.addTodo(this.todas).then(() => {
                     loading.dismiss();
-                    this.navCtrl.navigateForward('menu/home');
+                    this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');
                 });
             }
         });

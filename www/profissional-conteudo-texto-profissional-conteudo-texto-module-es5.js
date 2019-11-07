@@ -203,7 +203,7 @@ var ProfissionalConteudoTextoPage = /** @class */ (function () {
             maisInfoTexto: '',
             idade: '',
             nivelEmergencia: '',
-            avaliacao: 0
+            avaliacao: null
         };
     }
     ProfissionalConteudoTextoPage.prototype.changeFiltro = function () {
@@ -235,14 +235,32 @@ var ProfissionalConteudoTextoPage = /** @class */ (function () {
         this.calc();
         this.idUsuario = this.auth.auth.currentUser.uid;
         this.idConteudoTexto = this.route.snapshot.params['id']; //Pegando o id para uma futura edição
-        //if (this.idConteudoTexto) {
-        this.loadTodo();
-        // }
+        if (this.idConteudoTexto) {
+            this.loadTodo();
+        }
     };
     ProfissionalConteudoTextoPage.prototype.loadTodo = function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () { return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-            return [2 /*return*/];
-        }); });
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var loading;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.loadingController.create({
+                            message: 'Carregando seus dados'
+                        })];
+                    case 1:
+                        loading = _a.sent();
+                        return [4 /*yield*/, loading.present()];
+                    case 2:
+                        _a.sent();
+                        this.conteudoTextoService.getTodo(this.idConteudoTexto).subscribe(function (res) {
+                            loading.dismiss();
+                            _this.todas = res;
+                        });
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
     ProfissionalConteudoTextoPage.prototype.saveTodo = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -258,21 +276,20 @@ var ProfissionalConteudoTextoPage = /** @class */ (function () {
                         return [4 /*yield*/, loading.present()];
                     case 2:
                         _a.sent();
+                        //Testando se ja existe, se sim, faz update
                         if (this.idConteudoTexto) {
-                            /* TESTA SE JA EXISTE, ENTÃO FAZ UPDATE */
-                            this.todas.avaliacao = this.geral;
                             this.conteudoTextoService.updateTodo(this.todas, this.idConteudoTexto).then(function () {
                                 loading.dismiss();
-                                _this.navCtrl.navigateBack('menu/home');
+                                _this.navCtrl.navigateBack('/menu/profissional-todos-conteudos');
                             });
                         }
                         else {
-                            /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
+                            // Se não existir, falva no banco
                             this.todas.avaliacao = this.geral;
                             this.todas.idUsuario = this.idUsuario;
                             this.conteudoTextoService.addTodo(this.todas).then(function () {
                                 loading.dismiss();
-                                _this.navCtrl.navigateForward('menu/home');
+                                _this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');
                             });
                         }
                         return [2 /*return*/];

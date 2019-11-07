@@ -109,14 +109,14 @@ var ProfissionalConteudoImagemPage = /** @class */ (function () {
         this.stars = [];
         this.photo = '';
         this.todas = {
-            idUsuario: "",
-            idade: "",
-            nivelEmergencia: "",
-            avaliacao: 0,
-            tituloImagem: "",
-            autorImagem: "",
-            imagem: "",
-            maisInfoImagem: ""
+            idUsuario: '',
+            idade: '',
+            nivelEmergencia: '',
+            avaliacao: null,
+            tituloImagem: '',
+            autorImagem: '',
+            imagem: '',
+            maisInfoImagem: ''
         };
     }
     ProfissionalConteudoImagemPage.prototype.changeFiltro = function () {
@@ -229,7 +229,7 @@ var ProfissionalConteudoImagemPage = /** @class */ (function () {
                             this.todas.avaliacao = this.geral;
                             this.conteudoImagemService.updateTodo(this.todas, this.idConteudoImagem).then(function () {
                                 loading.dismiss();
-                                _this.navCtrl.navigateBack('menu/home');
+                                _this.navCtrl.navigateBack('/menu/profissional-todos-conteudos');
                             });
                         }
                         else {
@@ -240,7 +240,7 @@ var ProfissionalConteudoImagemPage = /** @class */ (function () {
                             this.todas.avaliacao = this.geral;
                             this.conteudoImagemService.addTodo(this.todas).then(function () {
                                 loading.dismiss();
-                                _this.navCtrl.navigateForward('menu/home');
+                                _this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');
                             });
                         }
                         return [2 /*return*/];

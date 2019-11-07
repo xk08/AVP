@@ -5,7 +5,11 @@ import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario
 import { Subscription } from 'rxjs';
 import { ProfissionalConteudoTextoService } from 'src/app/services/profissionalConteudoTexto/profissional-conteudo-texto.service';
 import { ProfissionalConteudoTexto } from 'src/app/services/profissionalConteudoTexto/profissionalConteudoTexto';
-import { QueroConversarService } from 'src/app/services/queroConversar/quero-conversar.service';
+import { ProfissionalConteudoImagem } from 'src/app/services/profissionalConteudoImagem/profissionalConteudoImagem';
+import { ProfissionalConteudoVideo } from 'src/app/services/profissionalConteudoVideo/profissionalConteudoVideo';
+import { ProfissionalConteudoImagemService } from 'src/app/services/profissionalConteudoImagem/profissional-conteudo-imagem.service';
+import { ProfissionalConteudoVideoService } from 'src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,73 +18,192 @@ import { QueroConversarService } from 'src/app/services/queroConversar/quero-con
 })
 export class HomePage implements OnInit, OnDestroy {
   idUsuario: string;
-  public tituloTela: string;
-  public textoTela: string;
-
+  public idadeGlobal: number;
+  public idadeDoIFF: string;
   public admin: boolean;
+  public idadeUsuario: number;
 
-  public avalicao: number;
+  // Referente ao texto
+  public tituloTextoTela: string;
+  public descricaoTextoTela: string;
+  public autorTextoTela: string;
 
-  public texto: ProfissionalConteudoTexto[];
+  //Referente a imagem
+  public tituloImagemTela: string;
+  public maisInfoImagemTela: string;
+  public imagem64Tela: string;
+  public autorImagemTela: string;
 
-  public list: Subscription;
+  //Referente ao video
+  public tituloVideoTela: string;
+  public descricaoVideoTela: string;
+  public linkVideoTela: string;
+  public autorVideoTela: string;
 
-  public tituloGlobal: number;
+  //Arrays de conteúdo / para a tela
+  public profissionalConteudoTextoTela: ProfissionalConteudoTexto[];
+  public profissionalConteudoImagemTela: ProfissionalConteudoImagem[];
+  public profissionalConteudoVideoTela: ProfissionalConteudoVideo[];
+
+  //Listas de conteúdos
+  public listProfissionalConteudoTexto: Subscription;
+  public listProfissionalConteudoImagem: Subscription;
+  public listProfissionalConteudoVideo: Subscription;
+  public listUsuario: Subscription;
 
   constructor(
     private navctrl: NavController,
     private auth: AngularFireAuth,
     private usuarioCadastro: UsuarioCadastroService,
-    private conteudoTexto: ProfissionalConteudoTextoService,
-    private queroConversarService: QueroConversarService
+    private profissionalConteudoTextoService: ProfissionalConteudoTextoService,
+    private profissionalConteudoImagemService: ProfissionalConteudoImagemService,
+    private profissionalConteudoVideoService: ProfissionalConteudoVideoService,
+    private route: ActivatedRoute
   ) {}
 
-  public listQueroConversar: Subscription;
-  public subscription: Subscription;
 
   ngOnInit() {
     this.idUsuario = this.auth.auth.currentUser.uid;
-    this.busca(this.idUsuario);
-
-    this.subscription = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(res => {
-      this.admin = res.isProfissional;
-    });
+    this.buscaDadosTexto(this.idUsuario);
+    this.buscaDadosImagem(this.idUsuario);
+    this.buscaDadosVideo(this.idUsuario);
   }
 
-  busca(idUsuario) {
-    this.listQueroConversar = this.queroConversarService.getTodo(this.idUsuario).subscribe(res => {
-      this.avalicao = res.avaliacao;
-      this.tituloGlobal = this.avalicao;
-      console.log('Essa pohha -> ' + this.tituloGlobal);
+  /* TEXTO */
+  buscaDadosTexto(idUsuario) {
+    //Pegando algunas dados do usuário (como idade e se é profissional)
+    this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(res => {
+      this.admin = res.isProfissional;
+      this.idadeUsuario = res.dataNasc;
+      this.idadeGlobal = this.idadeUsuario;
 
-      //Parte que pega o texto, teste
+      //Testando a idade do usuário e atribuindo a uma variavel global
+      if (this.idadeGlobal >= 8 && this.idadeGlobal <= 12) {
+        this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
+      } else {
+      }
 
-      this.conteudoTexto.getTodosPoAvaliacao(this.tituloGlobal).subscribe(res => {
-        this.texto = res;
+      if (this.idadeGlobal >= 13 && this.idadeGlobal <= 17) {
+        this.idadeDoIFF = '13 a 17';
+      } else {
+      }
 
-        // Arrumar essa p0ohha
+      if (this.idadeGlobal >= 18 && this.idadeGlobal <= 35) {
+        this.idadeDoIFF = '18 a 35';
+      }
+
+      //Buscando os dados do service em especifico
+      this.listProfissionalConteudoTexto = this.profissionalConteudoTextoService.getTodosPorIdade(this.idadeDoIFF).subscribe(res => {
+
+        //Pegando a coleção inteira
+        this.profissionalConteudoTextoTela = res;
+
+        //Percorrendo a coleçção e pegando os campos
         res.forEach(x => {
-          this.tituloTela = x.tituloTexto;
-          this.textoTela = x.texto;
-          console.log('Exibindo titulo- >' + x.tituloTexto);
-          console.log('Exibindo texto- >' + x.texto);
+          this.tituloTextoTela = x.tituloTexto;
+          this.descricaoTextoTela = x.texto;
+          this.autorTextoTela = x.autorTexto;
         });
       });
     });
   }
 
-  // REfrente ao profissional
+  /* IMAGEM */
+  buscaDadosImagem(idUsuario) {
+    //Pegando algunas dados do usuário (como idade e se é profissional)
+    this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(res => {
+      this.admin = res.isProfissional;
+      this.idadeUsuario = res.dataNasc;
+      this.idadeGlobal = this.idadeUsuario;
+
+      //Testando a idade do usuário e atribuindo a uma variavel global
+      if (this.idadeGlobal >= 8 && this.idadeGlobal <= 12) {
+        this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
+      } else {
+      }
+
+      if (this.idadeGlobal >= 13 && this.idadeGlobal <= 17) {
+        this.idadeDoIFF = '13 a 17';
+      } else {
+      }
+
+      if (this.idadeGlobal >= 18 && this.idadeGlobal <= 35) {
+        this.idadeDoIFF = '18 a 35';
+      }
+
+      //Buscando os dados do service em especifico
+      this.listProfissionalConteudoImagem = this.profissionalConteudoImagemService.getTodosPorIdade(this.idadeDoIFF).subscribe(res => {
+
+        //Pegando a coleção inteira
+        this.profissionalConteudoImagemTela = res;
+
+        //Percorrendo a coleçção e pegando os campos
+        res.forEach(x => {
+          this.tituloImagemTela = x.tituloImagem;
+          this.maisInfoImagemTela = x.maisInfoImagem;
+          this.autorImagemTela = x.autorImagem;
+          this.imagem64Tela = x.imagem;
+        });
+      });
+    });
+  }
+
+  /* VIDEO */
+  buscaDadosVideo(idUsuario) {
+    //Pegando algunas dados do usuário (como idade e se é profissional)
+    this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(res => {
+      this.admin = res.isProfissional;
+      this.idadeUsuario = res.dataNasc;
+      this.idadeGlobal = this.idadeUsuario;
+
+      //Testando a idade do usuário e atribuindo a uma variavel global
+      if (this.idadeGlobal >= 8 && this.idadeGlobal <= 12) {
+        this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
+      } else {
+      }
+
+      if (this.idadeGlobal >= 13 && this.idadeGlobal <= 17) {
+        this.idadeDoIFF = '13 a 17';
+      } else {
+      }
+
+      if (this.idadeGlobal >= 18 && this.idadeGlobal <= 35) {
+        this.idadeDoIFF = '18 a 35';
+      }
+
+      //Buscando os dados do service em especifico
+      this.listProfissionalConteudoVideo = this.profissionalConteudoVideoService.getTodosPorIdade(this.idadeDoIFF).subscribe(res => {
+
+        //Pegando a coleção inteira
+        this.profissionalConteudoVideoTela = res;
+
+        //Percorrendo a coleçção e pegando os campos
+        res.forEach(x => {
+          this.tituloVideoTela = x.tituloVideo;
+          this.descricaoVideoTela = x.descricaoVideo;
+          this.linkVideoTela = x.linkVideo;
+          this.autorVideoTela = x.autorVideo;
+        });
+      });
+    });
+  }
+
+  /*
   profissionalConteudoTexto() {}
 
   profissionalConteudoImagem() {}
 
   profissionalConteudoVideo() {}
+  */
 
   direcionaPraTela() {
     this.navctrl.navigateForward('quero-conversar');
   }
 
   ngOnDestroy() {
-    // this.subscription.unsubscribe();
+    this.listUsuario.unsubscribe();
+    this.listProfissionalConteudoTexto.unsubscribe();
+    this.listProfissionalConteudoImagem.unsubscribe();
+    this.listProfissionalConteudoVideo.unsubscribe();
   }
 }

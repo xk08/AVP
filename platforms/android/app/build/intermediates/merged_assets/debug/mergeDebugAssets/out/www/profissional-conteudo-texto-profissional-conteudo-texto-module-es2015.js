@@ -109,7 +109,7 @@ let ProfissionalConteudoTextoPage = class ProfissionalConteudoTextoPage {
             maisInfoTexto: '',
             idade: '',
             nivelEmergencia: '',
-            avaliacao: 0
+            avaliacao: null
         };
     }
     changeFiltro() {
@@ -141,12 +141,21 @@ let ProfissionalConteudoTextoPage = class ProfissionalConteudoTextoPage {
         this.calc();
         this.idUsuario = this.auth.auth.currentUser.uid;
         this.idConteudoTexto = this.route.snapshot.params['id']; //Pegando o id para uma futura edição
-        //if (this.idConteudoTexto) {
-        this.loadTodo();
-        // }
+        if (this.idConteudoTexto) {
+            this.loadTodo();
+        }
     }
     loadTodo() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () { });
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const loading = yield this.loadingController.create({
+                message: 'Carregando seus dados'
+            });
+            yield loading.present();
+            this.conteudoTextoService.getTodo(this.idConteudoTexto).subscribe(res => {
+                loading.dismiss();
+                this.todas = res;
+            });
+        });
     }
     saveTodo() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -154,21 +163,20 @@ let ProfissionalConteudoTextoPage = class ProfissionalConteudoTextoPage {
                 message: 'Salvando o texto cadastrado'
             });
             yield loading.present();
+            //Testando se ja existe, se sim, faz update
             if (this.idConteudoTexto) {
-                /* TESTA SE JA EXISTE, ENTÃO FAZ UPDATE */
-                this.todas.avaliacao = this.geral;
                 this.conteudoTextoService.updateTodo(this.todas, this.idConteudoTexto).then(() => {
                     loading.dismiss();
-                    this.navCtrl.navigateBack('menu/home');
+                    this.navCtrl.navigateBack('/menu/profissional-todos-conteudos');
                 });
             }
             else {
-                /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
+                // Se não existir, falva no banco
                 this.todas.avaliacao = this.geral;
                 this.todas.idUsuario = this.idUsuario;
                 this.conteudoTextoService.addTodo(this.todas).then(() => {
                     loading.dismiss();
-                    this.navCtrl.navigateForward('menu/home');
+                    this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');
                 });
             }
         });

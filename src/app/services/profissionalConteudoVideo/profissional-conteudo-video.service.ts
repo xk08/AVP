@@ -42,6 +42,23 @@ export class ProfissionalConteudoVideoService {
       );
   }
 
+  getTodosPorIdade(idade: string) {
+    return this.db
+      .collection<ProfissionalConteudoVideo>('ProfissionalConteudoVideo', ref =>
+        ref.where('idade', '==', idade)
+      )
+      .snapshotChanges()
+      .pipe(
+        map(actions => {
+          return actions.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          });
+        })
+      );
+  }
+
   getTodo(id) {
     return this.todosCollection.doc<ProfissionalConteudoVideo>(id).valueChanges();
   }

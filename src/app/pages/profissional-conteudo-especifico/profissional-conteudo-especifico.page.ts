@@ -17,6 +17,11 @@ import { ProfissionalConteudoVideoService } from 'src/app/services/profissionalC
   styleUrls: ['./profissional-conteudo-especifico.page.scss']
 })
 export class ProfissionalConteudoEspecificoPage implements OnInit, OnDestroy {
+  public idadeGlobal: number;
+  public idadeDoIFF: string;
+  public admin: boolean;
+  public idadeUsuario: number;
+
   idUsuario: string;
 
   // Referente ao texto

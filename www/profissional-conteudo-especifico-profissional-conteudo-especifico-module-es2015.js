@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar color=\"medium\">\r\n    <ion-buttons>\r\n      <ion-menu-button autoHide=\"true\"></ion-menu-button>\r\n      <div>\r\n        <ion-title>Para te ajudar neste momento</ion-title>\r\n      </div>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n\r\n\r\n<ion-fab\r\n  vertical=\"bottom\"\r\n  horizontal=\"end\"\r\n  slot=\"fixed\"\r\n>\r\n  <ion-fab-button\r\n    routerLink=\"/emergencia/emergencia-utilizacao\"\r\n    routerDirection=\"forward\"\r\n    color=\"primary\"\r\n  >\r\n    S.O.S\r\n  </ion-fab-button>\r\n</ion-fab>\r\n\r\n\r\n\r\n\r\n<ion-content>\r\n\r\n\r\n  <ion-card\r\n    *ngFor=\"let texto of profissionalConteudoTexto\"\r\n    style=\"background-color:lightgray;\"\r\n    [routerLink]=\"['/menu/texto-detalhes', texto.id]\"\r\n  >\r\n    <ion-card-header *ngIf=\"!tituloTextoTela\">\r\n      <ion-card-title hidden></ion-card-title>\r\n    </ion-card-header>\r\n\r\n\r\n    <ion-card-header *ngIf=\"tituloTextoTela\">\r\n      <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>\r\n    </ion-card-header>\r\n\r\n\r\n\r\n    <ion-card-content\r\n      *ngIf=\"descricaoTextoTela\"\r\n      style=\"text-align: center; font-size: 15pt;\"\r\n    >\r\n      “{{ texto.texto }}”\r\n    </ion-card-content>\r\n    <ion-card-content\r\n      *ngIf=\"!descricaoTextoTela\"\r\n      style=\"text-align: center;\"\r\n    >\r\n      Nenhum texto foi cadastrado até o momento\r\n    </ion-card-content>\r\n\r\n\r\n    <ion-card-header>\r\n      <ion-card-subtitle\r\n        *ngIf=\"!autorTextoTela\"\r\n        style=\"text-align: right;\"\r\n      >\r\n        Autor desconhecido\r\n      </ion-card-subtitle>\r\n      <ion-card-subtitle\r\n        *ngIf=\"autorTextoTela\"\r\n        style=\"text-align: right;\"\r\n      >\r\n        Autor: {{ texto.autorTexto }}\r\n      </ion-card-subtitle>\r\n    </ion-card-header>\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: silver;\"\r\n      [routerLink]=\"['/menu/texto-detalhes', texto.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n\r\n\r\n  </ion-card>\r\n\r\n\r\n  <ion-card *ngFor=\"let imagem of profissionalConteudoImagem\">\r\n\r\n\r\n    <ion-card-content *ngIf=\"imagem.imagem\">\r\n      <img\r\n        src=\"{{imagem.imagem}}\"\r\n        width=\"320px\"\r\n        height=\"280px\"\r\n      >\r\n    </ion-card-content>\r\n    <ion-card-content *ngIf=\"!imagem.imagem\">\r\n      <ion-card-header style=\"font-size: 15pt; text-align: center;\">Imagem não encontrada</ion-card-header>\r\n    </ion-card-content>\r\n\r\n\r\n\r\n    <ion-card-header *ngIf=\"!imagem.tituloImagem\">\r\n      <ion-card-title style=\"text-align: center;\">Titulo não cadastrado</ion-card-title>\r\n    </ion-card-header>\r\n\r\n\r\n\r\n    <ion-card-header>\r\n      <ion-card-title style=\"text-align: center;\">{{imagem.tituloImagem}}</ion-card-title>\r\n    </ion-card-header>\r\n\r\n\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: silver;\"\r\n      [routerLink]=\"['/menu/imagem-detalhes', imagem.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n\r\n\r\n  <ion-card>\r\n    <img src=\"../../../assets/img/abrirmente.PNG\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Video do Youtube</ion-card-subtitle>\r\n      <ion-card-title>Compreenda a sí mesmo</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      Compreenda A Si Mesmo E Ao Universo Com Esse Vídeo! Um vídeo para pararmos e refletirmos sobre\r\n      tudo aquilo que está a nossa volta e as crenças que temos sobre FOCO e PRESENÇA Depois desse\r\n      vídeo você vai saber a como aproveitar a vida muito mais!\r\n    </ion-card-content>\r\n\r\n\r\n\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"color: lightseagreen\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Assistir ao video completo</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n\r\n\r\n  <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Frase</ion-card-subtitle>\r\n      <ion-card-title>Familia</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      Amo minha família do jeito que é; pode não ser perfeita, mas o que importa é que nela sobram\r\n      amor e compreensão.\r\n    </ion-card-content>\r\n\r\n\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"color: lightseagreen\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n\r\n\r\n\r\n  <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Frase</ion-card-subtitle>\r\n      <ion-card-title>Amigos</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      Enquanto alguns escolhem pessoas perfeitas, eu escolho as que me fazem bem.\r\n    </ion-card-content>\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"color: lightseagreen\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"medium\">\r\n    <ion-buttons>\r\n      <ion-menu-button autoHide=\"true\"></ion-menu-button>\r\n      <div>\r\n        <ion-title>Para te ajudar neste momento</ion-title>\r\n      </div>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-fab\r\n  vertical=\"bottom\"\r\n  horizontal=\"end\"\r\n  slot=\"fixed\"\r\n>\r\n  <ion-fab-button\r\n    routerLink=\"/emergencia/emergencia-utilizacao\"\r\n    routerDirection=\"forward\"\r\n    color=\"primary\"\r\n  >\r\n    S.O.S\r\n  </ion-fab-button>\r\n</ion-fab>\r\n\r\n<ion-content>\r\n\r\n\r\n  <ion-card\r\n    *ngFor=\"let texto of profissionalConteudoTexto\"\r\n    style=\"background-color:lightgray;\"\r\n    [routerLink]=\"['/menu/texto-detalhes', texto.id]\"\r\n  >\r\n    <ion-card-header *ngIf=\"!tituloTextoTela\">\r\n      <ion-card-title hidden></ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-header *ngIf=\"tituloTextoTela\">\r\n      <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-content\r\n      *ngIf=\"descricaoTextoTela\"\r\n      style=\"text-align: center; font-size: 15pt;\"\r\n    >\r\n      “{{ texto.texto }}”\r\n    </ion-card-content>\r\n    <ion-card-content\r\n      *ngIf=\"!descricaoTextoTela\"\r\n      style=\"text-align: center;\"\r\n    >\r\n      Nenhum texto foi cadastrado até o momento\r\n    </ion-card-content>\r\n\r\n\r\n\r\n\r\n    <ion-card-header>\r\n      <ion-card-subtitle\r\n        *ngIf=\"!autorTextoTela\"\r\n        style=\"text-align: right;\"\r\n      >\r\n        Autor desconhecido\r\n      </ion-card-subtitle>\r\n      <ion-card-subtitle\r\n        *ngIf=\"autorTextoTela\"\r\n        style=\"text-align: right;\"\r\n      >\r\n        Autor: {{ texto.autorTexto }}\r\n      </ion-card-subtitle>\r\n    </ion-card-header>\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: silver;\"\r\n      [routerLink]=\"['/menu/texto-detalhes', texto.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n\r\n  </ion-card>\r\n\r\n  <ion-card *ngFor=\"let imagem of profissionalConteudoImagem\">\r\n\r\n    <ion-card-content *ngIf=\"imagem.imagem\">\r\n      <img\r\n        src=\"{{imagem.imagem}}\"\r\n        width=\"540px\"\r\n        height=\"480px\"\r\n      >\r\n    </ion-card-content>\r\n    <ion-card-content *ngIf=\"!imagem.imagem\">\r\n      <ion-card-header style=\"font-size: 15pt; text-align: center;\">Imagem não encontrada</ion-card-header>\r\n    </ion-card-content>\r\n\r\n    <ion-card-header *ngIf=\"!imagem.tituloImagem\">\r\n      <ion-card-title style=\"text-align: center;\">Titulo não cadastrado</ion-card-title>\r\n    </ion-card-header>\r\n\r\n\r\n    <ion-card-header>\r\n      <ion-card-title style=\"text-align: center;\">{{imagem.tituloImagem}}</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: silver;\"\r\n      [routerLink]=\"['/menu/imagem-detalhes', imagem.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n\r\n  <ion-card *ngFor=\"let video of profissionalConteudoVideo\">\r\n    <!-- achar alguma forma de pegar a thumbs -->\r\n    <img src=\"../../../assets/img/abrirmente.PNG\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Video do Youtube</ion-card-subtitle>\r\n      <ion-card-title>{{video.tituloVideo}}</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>{{video.descricaoVideo}}</ion-card-content>\r\n\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: silver;\"\r\n      [routerLink]=\"['/menu/video-detalhes', video.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Assistir ao video</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -80,6 +80,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_queroConversar_quero_conversar_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/queroConversar/quero-conversar.service */ "./src/app/services/queroConversar/quero-conversar.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var src_app_services_profissionalConteudoImagem_profissional_conteudo_imagem_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/profissionalConteudoImagem/profissional-conteudo-imagem.service */ "./src/app/services/profissionalConteudoImagem/profissional-conteudo-imagem.service.ts");
+/* harmony import */ var src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service */ "./src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service.ts");
+
 
 
 
@@ -89,11 +91,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfissionalConteudoEspecificoPage = class ProfissionalConteudoEspecificoPage {
-    constructor(navctrl, auth, profissionalConteudoTextoService, profissionalConteudoImagemService, queroConversarService, route) {
+    constructor(navctrl, auth, profissionalConteudoTextoService, profissionalConteudoImagemService, profissionalConteudoVideoService, queroConversarService, route) {
         this.navctrl = navctrl;
         this.auth = auth;
         this.profissionalConteudoTextoService = profissionalConteudoTextoService;
         this.profissionalConteudoImagemService = profissionalConteudoImagemService;
+        this.profissionalConteudoVideoService = profissionalConteudoVideoService;
         this.queroConversarService = queroConversarService;
         this.route = route;
     }
@@ -101,6 +104,7 @@ let ProfissionalConteudoEspecificoPage = class ProfissionalConteudoEspecificoPag
         this.idUsuario = this.auth.auth.currentUser.uid;
         this.buscaDadosTexto(this.idUsuario);
         this.buscaDadosImagem(this.idUsuario);
+        this.buscaDadosVideo(this.idUsuario);
     }
     buscaDadosTexto(idUsuario) {
         //Pegando os dados informados pelo usuário, sobre a sua situação
@@ -141,10 +145,31 @@ let ProfissionalConteudoEspecificoPage = class ProfissionalConteudoEspecificoPag
             });
         });
     }
+    buscaDadosVideo(idUsuario) {
+        //Pegando os dados informados pelo usuário, sobre a sua situação
+        this.listQueroConversar = this.queroConversarService.getTodo(this.idUsuario).subscribe(res => {
+            this.avalicaoQueroConversar = res.avaliacao;
+            this.avaliacaoGlobal = this.avalicaoQueroConversar;
+            // Atribuindo na pesquisa
+            this.profissionalConteudoVideoService
+                .getTodosPoAvaliacao(this.avaliacaoGlobal)
+                .subscribe(res => {
+                this.profissionalConteudoVideo = res;
+                // Percorrendo os dados da coleção
+                res.forEach(x => {
+                    this.tituloVideoTela = x.tituloVideo;
+                    this.descricaoVideoTela = x.descricaoVideo;
+                    this.linkVideoTela = x.linkVideo;
+                    this.autorVideoTela = x.autorVideo;
+                });
+            });
+        });
+    }
     ngOnDestroy() {
         this.listQueroConversar.unsubscribe();
         this.listProfissionalConteudoTexto.unsubscribe();
         this.listProfissionalConteudoImagem.unsubscribe();
+        this.listProfissionalConteudoVideo.unsubscribe();
     }
 };
 ProfissionalConteudoEspecificoPage.ctorParameters = () => [
@@ -152,6 +177,7 @@ ProfissionalConteudoEspecificoPage.ctorParameters = () => [
     { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"] },
     { type: src_app_services_profissionalConteudoTexto_profissional_conteudo_texto_service__WEBPACK_IMPORTED_MODULE_4__["ProfissionalConteudoTextoService"] },
     { type: src_app_services_profissionalConteudoImagem_profissional_conteudo_imagem_service__WEBPACK_IMPORTED_MODULE_7__["ProfissionalConteudoImagemService"] },
+    { type: src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_8__["ProfissionalConteudoVideoService"] },
     { type: src_app_services_queroConversar_quero_conversar_service__WEBPACK_IMPORTED_MODULE_5__["QueroConversarService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] }
 ];
@@ -165,6 +191,7 @@ ProfissionalConteudoEspecificoPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         angularfire2_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"],
         src_app_services_profissionalConteudoTexto_profissional_conteudo_texto_service__WEBPACK_IMPORTED_MODULE_4__["ProfissionalConteudoTextoService"],
         src_app_services_profissionalConteudoImagem_profissional_conteudo_imagem_service__WEBPACK_IMPORTED_MODULE_7__["ProfissionalConteudoImagemService"],
+        src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_8__["ProfissionalConteudoVideoService"],
         src_app_services_queroConversar_quero_conversar_service__WEBPACK_IMPORTED_MODULE_5__["QueroConversarService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]])
 ], ProfissionalConteudoEspecificoPage);

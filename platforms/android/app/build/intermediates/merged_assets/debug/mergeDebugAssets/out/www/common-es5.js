@@ -659,6 +659,81 @@ var ProfissionalConteudoTextoService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service.ts":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service.ts ***!
+  \*******************************************************************************************/
+/*! exports provided: ProfissionalConteudoVideoService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfissionalConteudoVideoService", function() { return ProfissionalConteudoVideoService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
+
+var ProfissionalConteudoVideoService = /** @class */ (function () {
+    function ProfissionalConteudoVideoService(db) {
+        this.db = db;
+        this.todosCollection = db.collection('ProfissionalConteudoVideo'); // Criando a coleção
+    }
+    ProfissionalConteudoVideoService.prototype.getTodos = function () {
+        return this.todosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+            return actions.map(function (a) {
+                var data = a.payload.doc.data();
+                var id = a.payload.doc.id;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ id: id }, data);
+            });
+        }));
+    };
+    ProfissionalConteudoVideoService.prototype.getTodosPoAvaliacao = function (avaliacao) {
+        return this.db
+            .collection('ProfissionalConteudoVideo', function (ref) {
+            return ref.where('avaliacao', '==', avaliacao);
+        })
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+            return actions.map(function (a) {
+                var data = a.payload.doc.data();
+                var id = a.payload.doc.id;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ id: id }, data);
+            });
+        }));
+    };
+    ProfissionalConteudoVideoService.prototype.getTodo = function (id) {
+        return this.todosCollection.doc(id).valueChanges();
+    };
+    ProfissionalConteudoVideoService.prototype.updateTodo = function (toda, id) {
+        return this.todosCollection.doc(id).update(toda);
+    };
+    ProfissionalConteudoVideoService.prototype.addTodo = function (toda) {
+        return this.todosCollection.add(toda);
+    };
+    ProfissionalConteudoVideoService.prototype.removeTodo = function (id) {
+        return this.todosCollection.doc(id).delete();
+    };
+    ProfissionalConteudoVideoService.ctorParameters = function () { return [
+        { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] }
+    ]; };
+    ProfissionalConteudoVideoService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
+    ], ProfissionalConteudoVideoService);
+    return ProfissionalConteudoVideoService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/queroConversar/quero-conversar.service.ts":
 /*!********************************************************************!*\
   !*** ./src/app/services/queroConversar/quero-conversar.service.ts ***!

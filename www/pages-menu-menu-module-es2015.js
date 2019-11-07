@@ -59,8 +59,18 @@ const routes = [
                 canActivate: [src_app_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]]
             },
             {
+                path: 'video-detalhes/:id',
+                loadChildren: '../video-detalhes/video-detalhes.module#VideoDetalhesPageModule',
+                canActivate: [src_app_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]]
+            },
+            {
                 path: 'profissional-conteudo',
                 loadChildren: '../profissional-conteudo/profissional-conteudo.module#ProfissionalConteudoPageModule',
+                canActivate: [src_app_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]]
+            },
+            {
+                path: 'profissional-todos-conteudos',
+                loadChildren: '../profissional-seus-conteudos/profissional-seus-conteudos.module#ProfissionalSeusConteudosPageModule',
                 canActivate: [src_app_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]]
             },
             {
@@ -135,12 +145,12 @@ let MenuPage = class MenuPage {
         this.paginasProfissional = [
             {
                 title: 'Home',
-                url: '/menu/profissional-conteudo',
+                url: '/menu/profissional-todos-conteudos',
                 icon: 'home'
             },
             {
                 title: 'Meu Perfil',
-                url: '/menu/profissional-conteudo',
+                url: '/menu/profissional-todos-conteudos',
                 icon: 'home'
             }
         ];
