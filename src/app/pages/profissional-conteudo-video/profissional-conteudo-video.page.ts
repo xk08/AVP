@@ -53,7 +53,6 @@ export class ProfissionalConteudoVideoPage implements OnInit {
     private loadingController: LoadingController,
     private conteudoVideoService: ProfissionalConteudoVideoService,
     private navCtrl: NavController,
-    private overlay: OverlayService,
     private auth: AngularFireAuth
   ) {}
 
@@ -113,6 +112,7 @@ export class ProfissionalConteudoVideoPage implements OnInit {
     } else {
       /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
       this.todas.avaliacao = this.geral;
+      this.todas.idUsuario = this.idUsuario;
       this.conteudoVideoService.addTodo(this.todas).then(() => {
         loading.dismiss();
         this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');

@@ -111,8 +111,7 @@ export class ProfissionalConteudoTextoPage implements OnInit {
         this.navCtrl.navigateBack('/menu/profissional-todos-conteudos');
       });
     } else {
-
-    // Se não existir, falva no banco
+      // Se não existir, falva no banco
       this.todas.avaliacao = this.geral;
       this.todas.idUsuario = this.idUsuario;
       this.conteudoTextoService.addTodo(this.todas).then(() => {

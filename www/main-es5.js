@@ -26,18 +26,17 @@ var map = {
 	],
 	"../imagem-detalhes/imagem-detalhes.module": [
 		"./src/app/pages/imagem-detalhes/imagem-detalhes.module.ts",
-		"default~imagem-detalhes-imagem-detalhes-module~profissional-conteudo-especifico-profissional-conteud~a182c825",
+		"common",
 		"imagem-detalhes-imagem-detalhes-module"
 	],
 	"../profissional-conteudo-especifico/profissional-conteudo-especifico.module": [
 		"./src/app/pages/profissional-conteudo-especifico/profissional-conteudo-especifico.module.ts",
-		"default~imagem-detalhes-imagem-detalhes-module~profissional-conteudo-especifico-profissional-conteud~a182c825",
 		"common",
 		"profissional-conteudo-especifico-profissional-conteudo-especifico-module"
 	],
 	"../profissional-conteudo-imagem/profissional-conteudo-imagem.module": [
 		"./src/app/pages/profissional-conteudo-imagem/profissional-conteudo-imagem.module.ts",
-		"default~imagem-detalhes-imagem-detalhes-module~profissional-conteudo-especifico-profissional-conteud~a182c825",
+		"common",
 		"profissional-conteudo-imagem-profissional-conteudo-imagem-module"
 	],
 	"../profissional-conteudo-texto/profissional-conteudo-texto.module": [
@@ -56,7 +55,6 @@ var map = {
 	],
 	"../profissional-seus-conteudos/profissional-seus-conteudos.module": [
 		"./src/app/pages/profissional-seus-conteudos/profissional-seus-conteudos.module.ts",
-		"default~imagem-detalhes-imagem-detalhes-module~profissional-conteudo-especifico-profissional-conteud~a182c825",
 		"common",
 		"profissional-seus-conteudos-profissional-seus-conteudos-module"
 	],

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar color=\"secondary\">\r\n\r\n\r\n    <ion-buttons>\r\n      <ion-menu-button autoHide=\"true\"></ion-menu-button>\r\n      <div>\r\n        <ion-button\r\n          shape=\"round\"\r\n          fill=\"outline\"\r\n          (click)=\"direcionaPraTela()\"\r\n        >\r\n          Quero Conversar\r\n        </ion-button>\r\n      </div>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n\r\n<ion-fab\r\n  vertical=\"bottom\"\r\n  horizontal=\"end\"\r\n  slot=\"fixed\"\r\n>\r\n  <ion-fab-button\r\n    routerLink=\"/emergencia/emergencia-utilizacao\"\r\n    routerDirection=\"forward\"\r\n    color=\"secondary\"\r\n  >\r\n    S.O.S\r\n  </ion-fab-button>\r\n</ion-fab>\r\n\r\n\r\n<ion-header translucent>\r\n  <ion-toolbar>\r\n    <ion-title style=\"text-align: center; font-size: 15pt\">Recomendados para você</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n\r\n\r\n  <ion-card>\r\n    <img src=\"../../../assets/img/fraseamigos.PNG\">\r\n  </ion-card>\r\n\r\n\r\n  <ion-card>\r\n    <img src=\"../../../assets/img/serfeliz.PNG\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Video do Youtube</ion-card-subtitle>\r\n      <ion-card-title>{{tituloTela}}?</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>{{textoTela}}</ion-card-content>\r\n\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"color: lightseagreen\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Assistir ao video completo</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n  <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Frase do dia</ion-card-subtitle>\r\n      <ion-card-title>Sobre o amor</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      “Você é quem decide o que vai ser eterno em você, no seu coração.\r\n                Deus nos dá o dom de eternizar em nós o que vale a pena, e esquecer definitivamente aquilo que não vale.”\r\n    </ion-card-content>\r\n\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"color: lightseagreen\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n\r\n  <ion-card>\r\n    <img src=\"../../../assets/img/tulipas.PNG\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Foto do dia</ion-card-subtitle>\r\n      <ion-card-title>\r\n        A vida é colorida, aproveite todos os momentos.\r\n      </ion-card-title>\r\n    </ion-card-header>\r\n\r\n\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"color: rgb(101, 221, 215)\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n\r\n\r\n\r\n  </ion-card>\r\n\r\n\r\n  <ion-card>\r\n    <img src=\"../../../assets/img/abrirmente.PNG\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Video do Youtube</ion-card-subtitle>\r\n      <ion-card-title>Compreenda a sí mesmo</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      Compreenda  A Si Mesmo E Ao Universo Com Esse Vídeo! Um vídeo para pararmos e refletirmos sobre tudo aquilo que está a nossa volta e as crenças que temos sobre FOCO e PRESENÇA\r\n                    Depois desse vídeo você vai saber a como aproveitar a vida muito mais!\r\n    </ion-card-content>\r\n\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"color: lightseagreen\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Assistir ao video completo</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n\r\n  <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Frase</ion-card-subtitle>\r\n      <ion-card-title>Familia</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      Amo minha família do jeito que é; pode não ser perfeita, mas o que importa é que nela sobram amor e compreensão.\r\n    </ion-card-content>\r\n\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"color: lightseagreen\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n\r\n  <ion-card>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Frase</ion-card-subtitle>\r\n      <ion-card-title>Amigos</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      Enquanto alguns escolhem pessoas perfeitas, eu escolho as que me fazem bem.\r\n    </ion-card-content>\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"color: lightseagreen\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"secondary\">\r\n    <ion-buttons>\r\n      <ion-menu-button autoHide=\"true\"></ion-menu-button>\r\n      <div>\r\n        <ion-button\r\n          shape=\"round\"\r\n          fill=\"outline\"\r\n          (click)=\"direcionaPraTela()\"\r\n        >\r\n          Quero Conversar\r\n        </ion-button>\r\n      </div>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-fab\r\n  vertical=\"bottom\"\r\n  horizontal=\"end\"\r\n  slot=\"fixed\"\r\n>\r\n  <ion-fab-button\r\n    routerLink=\"/emergencia/emergencia-utilizacao\"\r\n    routerDirection=\"forward\"\r\n    color=\"secondary\"\r\n  >\r\n    S.O.S\r\n  </ion-fab-button>\r\n</ion-fab>\r\n<ion-header translucent>\r\n  <ion-toolbar>\r\n    <ion-title style=\"text-align: center; font-size: 15pt\">Recomendados para você</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <ion-card\r\n    *ngFor=\"let texto of profissionalConteudoTextoTela\"\r\n    style=\"background-color:lightgoldenrodyellow;\"\r\n  >\r\n    <ion-card-header *ngIf=\"tituloTextoTela == '' \">\r\n      <ion-card-title hidden></ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-header *ngIf=\"tituloTextoTela\">\r\n      <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-content\r\n      *ngIf=\"descricaoTextoTela\"\r\n      style=\"text-align: center; font-size: 15pt;\"\r\n    >\r\n      “{{ texto.texto }}”\r\n    </ion-card-content>\r\n    <ion-card-content\r\n      *ngIf=\"descricaoTextoTela == '' \"\r\n      style=\"text-align: center;\"\r\n    >\r\n      Nenhum texto foi cadastrado até o momento.\r\n    </ion-card-content>\r\n\r\n\r\n\r\n\r\n    <ion-card-header>\r\n      <ion-card-subtitle\r\n        *ngIf=\"autorTextoTela == '' \"\r\n        style=\"text-align: right;\"\r\n      >\r\n        Autor desconhecido\r\n      </ion-card-subtitle>\r\n      <ion-card-subtitle\r\n        *ngIf=\"autorTextoTela\"\r\n        style=\"text-align: right;\"\r\n      >\r\n        Autor:{{ texto.autorTexto }}\r\n      </ion-card-subtitle>\r\n    </ion-card-header>\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: lightgray;\"\r\n      [routerLink]=\"['/menu/texto-detalhes', texto.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Mais informações</ion-label>\r\n    </ion-item>\r\n\r\n  </ion-card>\r\n\r\n  <ion-card *ngFor=\"let imagem of profissionalConteudoImagemTela\">\r\n\r\n    <ion-card-content *ngIf=\"imagem.imagem\">\r\n      <!-- achar uma maneira de melhorar aqui-->\r\n      <img\r\n        src=\"{{imagem.imagem}}\"\r\n        width=\"350px\"\r\n        height=\"320px\"\r\n      >\r\n    </ion-card-content>\r\n    <ion-card-content *ngIf=\"imagem.imagem == ''\">\r\n      <ion-card-header style=\"font-size: 15pt; text-align: center;\">Imagem não encontrada</ion-card-header>\r\n    </ion-card-content>\r\n\r\n    <ion-card-header *ngIf=\"imagem.tituloImagem == ''\">\r\n      <ion-card-title style=\"text-align: center;\">Titulo não cadastrado</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-header *ngIf=\"imagem.tituloImagem\">\r\n      <ion-card-title style=\"text-align: center;\">{{imagem.tituloImagem}}</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: silver;\"\r\n      [routerLink]=\"['/menu/imagem-detalhes', imagem.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n\r\n  <ion-card *ngFor=\"let video of profissionalConteudoVideoTela\">\r\n    <!-- achar alguma forma de pegar a thumbs -->\r\n    <img src=\"../../../assets/img/abrirmente.PNG\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Video do Youtube</ion-card-subtitle>\r\n      <ion-card-title>{{video.tituloVideo}}</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>{{video.descricaoVideo}}</ion-card-content>\r\n\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: silver;\"\r\n      [routerLink]=\"['/menu/video-detalhes', video.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Assistir ao video</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -88,7 +88,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angularfire2_auth__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/usuarioCadastro/usuario-cadastro.service */ "./src/app/services/usuarioCadastro/usuario-cadastro.service.ts");
 /* harmony import */ var src_app_services_profissionalConteudoTexto_profissional_conteudo_texto_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/profissionalConteudoTexto/profissional-conteudo-texto.service */ "./src/app/services/profissionalConteudoTexto/profissional-conteudo-texto.service.ts");
-/* harmony import */ var src_app_services_queroConversar_quero_conversar_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/queroConversar/quero-conversar.service */ "./src/app/services/queroConversar/quero-conversar.service.ts");
+/* harmony import */ var src_app_services_profissionalConteudoImagem_profissional_conteudo_imagem_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/profissionalConteudoImagem/profissional-conteudo-imagem.service */ "./src/app/services/profissionalConteudoImagem/profissional-conteudo-imagem.service.ts");
+/* harmony import */ var src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service */ "./src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
 
 
 
@@ -97,56 +101,152 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var HomePage = /** @class */ (function () {
-    function HomePage(navctrl, auth, usuarioCadastro, conteudoTexto, queroConversarService) {
+    function HomePage(navctrl, auth, usuarioCadastro, profissionalConteudoTextoService, profissionalConteudoImagemService, profissionalConteudoVideoService, route) {
         this.navctrl = navctrl;
         this.auth = auth;
         this.usuarioCadastro = usuarioCadastro;
-        this.conteudoTexto = conteudoTexto;
-        this.queroConversarService = queroConversarService;
+        this.profissionalConteudoTextoService = profissionalConteudoTextoService;
+        this.profissionalConteudoImagemService = profissionalConteudoImagemService;
+        this.profissionalConteudoVideoService = profissionalConteudoVideoService;
+        this.route = route;
     }
     HomePage.prototype.ngOnInit = function () {
-        var _this = this;
         this.idUsuario = this.auth.auth.currentUser.uid;
-        this.busca(this.idUsuario);
-        this.subscription = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(function (res) {
-            _this.admin = res.isProfissional;
-        });
+        this.buscaDadosTexto(this.idUsuario);
+        this.buscaDadosImagem(this.idUsuario);
+        this.buscaDadosVideo(this.idUsuario);
     };
-    HomePage.prototype.busca = function (idUsuario) {
+    /* TEXTO */
+    HomePage.prototype.buscaDadosTexto = function (idUsuario) {
         var _this = this;
-        this.listQueroConversar = this.queroConversarService.getTodo(this.idUsuario).subscribe(function (res) {
-            _this.avalicao = res.avaliacao;
-            _this.tituloGlobal = _this.avalicao;
-            console.log('Essa pohha -> ' + _this.tituloGlobal);
-            //Parte que pega o texto, teste
-            _this.conteudoTexto.getTodosPoAvaliacao(_this.tituloGlobal).subscribe(function (res) {
-                _this.texto = res;
-                // Arrumar essa p0ohha
+        //Pegando algunas dados do usuário (como idade e se é profissional)
+        this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(function (res) {
+            _this.admin = res.isProfissional;
+            _this.idadeUsuario = res.dataNasc;
+            _this.idadeGlobal = _this.idadeUsuario;
+            //Testando a idade do usuário e atribuindo a uma variavel global
+            if (_this.idadeGlobal >= 8 && _this.idadeGlobal <= 12) {
+                _this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
+            }
+            else {
+            }
+            if (_this.idadeGlobal >= 13 && _this.idadeGlobal <= 17) {
+                _this.idadeDoIFF = '13 a 17';
+            }
+            else {
+            }
+            if (_this.idadeGlobal >= 18 && _this.idadeGlobal <= 35) {
+                _this.idadeDoIFF = '18 a 35';
+            }
+            //Buscando os dados do service em especifico
+            _this.listProfissionalConteudoTexto = _this.profissionalConteudoTextoService.getTodosPorIdade(_this.idadeDoIFF).subscribe(function (res) {
+                //Pegando a coleção inteira
+                _this.profissionalConteudoTextoTela = res;
+                //Percorrendo a coleçção e pegando os campos
                 res.forEach(function (x) {
-                    _this.tituloTela = x.tituloTexto;
-                    _this.textoTela = x.texto;
-                    console.log('Exibindo titulo- >' + x.tituloTexto);
-                    console.log('Exibindo texto- >' + x.texto);
+                    _this.tituloTextoTela = x.tituloTexto;
+                    _this.descricaoTextoTela = x.texto;
+                    _this.autorTextoTela = x.autorTexto;
                 });
             });
         });
     };
-    // REfrente ao profissional
-    HomePage.prototype.profissionalConteudoTexto = function () { };
-    HomePage.prototype.profissionalConteudoImagem = function () { };
-    HomePage.prototype.profissionalConteudoVideo = function () { };
+    /* IMAGEM */
+    HomePage.prototype.buscaDadosImagem = function (idUsuario) {
+        var _this = this;
+        //Pegando algunas dados do usuário (como idade e se é profissional)
+        this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(function (res) {
+            _this.admin = res.isProfissional;
+            _this.idadeUsuario = res.dataNasc;
+            _this.idadeGlobal = _this.idadeUsuario;
+            //Testando a idade do usuário e atribuindo a uma variavel global
+            if (_this.idadeGlobal >= 8 && _this.idadeGlobal <= 12) {
+                _this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
+            }
+            else {
+            }
+            if (_this.idadeGlobal >= 13 && _this.idadeGlobal <= 17) {
+                _this.idadeDoIFF = '13 a 17';
+            }
+            else {
+            }
+            if (_this.idadeGlobal >= 18 && _this.idadeGlobal <= 35) {
+                _this.idadeDoIFF = '18 a 35';
+            }
+            //Buscando os dados do service em especifico
+            _this.listProfissionalConteudoImagem = _this.profissionalConteudoImagemService.getTodosPorIdade(_this.idadeDoIFF).subscribe(function (res) {
+                //Pegando a coleção inteira
+                _this.profissionalConteudoImagemTela = res;
+                //Percorrendo a coleçção e pegando os campos
+                res.forEach(function (x) {
+                    _this.tituloImagemTela = x.tituloImagem;
+                    _this.maisInfoImagemTela = x.maisInfoImagem;
+                    _this.autorImagemTela = x.autorImagem;
+                    _this.imagem64Tela = x.imagem;
+                });
+            });
+        });
+    };
+    /* VIDEO */
+    HomePage.prototype.buscaDadosVideo = function (idUsuario) {
+        var _this = this;
+        //Pegando algunas dados do usuário (como idade e se é profissional)
+        this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(function (res) {
+            _this.admin = res.isProfissional;
+            _this.idadeUsuario = res.dataNasc;
+            _this.idadeGlobal = _this.idadeUsuario;
+            //Testando a idade do usuário e atribuindo a uma variavel global
+            if (_this.idadeGlobal >= 8 && _this.idadeGlobal <= 12) {
+                _this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
+            }
+            else {
+            }
+            if (_this.idadeGlobal >= 13 && _this.idadeGlobal <= 17) {
+                _this.idadeDoIFF = '13 a 17';
+            }
+            else {
+            }
+            if (_this.idadeGlobal >= 18 && _this.idadeGlobal <= 35) {
+                _this.idadeDoIFF = '18 a 35';
+            }
+            //Buscando os dados do service em especifico
+            _this.listProfissionalConteudoVideo = _this.profissionalConteudoVideoService.getTodosPorIdade(_this.idadeDoIFF).subscribe(function (res) {
+                //Pegando a coleção inteira
+                _this.profissionalConteudoVideoTela = res;
+                //Percorrendo a coleçção e pegando os campos
+                res.forEach(function (x) {
+                    _this.tituloVideoTela = x.tituloVideo;
+                    _this.descricaoVideoTela = x.descricaoVideo;
+                    _this.linkVideoTela = x.linkVideo;
+                    _this.autorVideoTela = x.autorVideo;
+                });
+            });
+        });
+    };
+    /*
+    profissionalConteudoTexto() {}
+  
+    profissionalConteudoImagem() {}
+  
+    profissionalConteudoVideo() {}
+    */
     HomePage.prototype.direcionaPraTela = function () {
         this.navctrl.navigateForward('quero-conversar');
     };
     HomePage.prototype.ngOnDestroy = function () {
-        // this.subscription.unsubscribe();
+        this.listUsuario.unsubscribe();
+        this.listProfissionalConteudoTexto.unsubscribe();
+        this.listProfissionalConteudoImagem.unsubscribe();
+        this.listProfissionalConteudoVideo.unsubscribe();
     };
     HomePage.ctorParameters = function () { return [
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
         { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"] },
         { type: src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_4__["UsuarioCadastroService"] },
         { type: src_app_services_profissionalConteudoTexto_profissional_conteudo_texto_service__WEBPACK_IMPORTED_MODULE_5__["ProfissionalConteudoTextoService"] },
-        { type: src_app_services_queroConversar_quero_conversar_service__WEBPACK_IMPORTED_MODULE_6__["QueroConversarService"] }
+        { type: src_app_services_profissionalConteudoImagem_profissional_conteudo_imagem_service__WEBPACK_IMPORTED_MODULE_6__["ProfissionalConteudoImagemService"] },
+        { type: src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_7__["ProfissionalConteudoVideoService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] }
     ]; };
     HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -158,7 +258,9 @@ var HomePage = /** @class */ (function () {
             angularfire2_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"],
             src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_4__["UsuarioCadastroService"],
             src_app_services_profissionalConteudoTexto_profissional_conteudo_texto_service__WEBPACK_IMPORTED_MODULE_5__["ProfissionalConteudoTextoService"],
-            src_app_services_queroConversar_quero_conversar_service__WEBPACK_IMPORTED_MODULE_6__["QueroConversarService"]])
+            src_app_services_profissionalConteudoImagem_profissional_conteudo_imagem_service__WEBPACK_IMPORTED_MODULE_6__["ProfissionalConteudoImagemService"],
+            src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_7__["ProfissionalConteudoVideoService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]])
     ], HomePage);
     return HomePage;
 }());

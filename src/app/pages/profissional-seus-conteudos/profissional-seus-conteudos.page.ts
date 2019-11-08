@@ -62,55 +62,55 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
   ngOnInit() {
     this.idUsuario = this.auth.auth.currentUser.uid;
 
-    this.buscaDadosTexto();
-    this.buscaDadosImagem();
-    this.buscaDadosVideo();
+    this.buscaDadosTexto(this.idUsuario);
+    this.buscaDadosImagem(this.idUsuario);
+    this.buscaDadosVideo(this.idUsuario);
   }
 
-  buscaDadosTexto() {
-    this.profissionalConteudoTextoService.getTodos().subscribe(res => {
-      this.profissionalConteudoTexto = res;
+  buscaDadosTexto(idUsuario) {
+    this.listProfissionalConteudoTexto = this.profissionalConteudoTextoService
+      .getTodosPorID(this.idUsuario)
+      .subscribe(res => {
+        this.profissionalConteudoTexto = res;
 
-      // Percorrendo os dados da coleção
-      res.forEach(x => {
-        this.tituloTextoTela = x.tituloTexto;
-        this.descricaoTextoTela = x.texto;
-        this.autorTextoTela = x.autorTexto;
-      });
-    });
-  }
-
-  buscaDadosImagem() {
-    //Pegando os dados informados pelo usuário, sobre a sua situação
-
-    this.profissionalConteudoImagemService.getTodos().subscribe(res => {
-      this.profissionalConteudoImagem = res;
-      res.forEach(x => {
-        this.tituloImagemTela = x.tituloImagem;
-        this.maisInfoImagemTela = x.maisInfoImagem;
-        this.autorImagemTela = x.autorImagem;
-        this.imagem64Tela = x.imagem;
-      });
-    });
-  }
-
-
-  buscaDadosVideo() {
-
-      this.profissionalConteudoVideoService
-        .getTodos()
-        .subscribe(res => {
-          this.profissionalConteudoVideo = res;
-
-          res.forEach(x => {
-            this.tituloVideoTela = x.tituloVideo;
-            this.descricaoVideoTela = x.descricaoVideo;
-            this.linkVideoTela = x.linkVideo;
-            this.autorVideoTela = x.autorVideo;
-          });
+        // Percorrendo os dados da coleção
+        res.forEach(x => {
+          this.tituloTextoTela = x.tituloTexto;
+          this.descricaoTextoTela = x.texto;
+          this.autorTextoTela = x.autorTexto;
         });
+      });
   }
 
+  buscaDadosImagem(idUsuario) {
+    //Pegando os dados informados pelo usuário, sobre a sua situação
+    this.listProfissionalConteudoImagem = this.profissionalConteudoImagemService
+      .getTodosPorID(this.idUsuario)
+      .subscribe(res => {
+        this.profissionalConteudoImagem = res;
+        res.forEach(x => {
+          this.tituloImagemTela = x.tituloImagem;
+          this.maisInfoImagemTela = x.maisInfoImagem;
+          this.autorImagemTela = x.autorImagem;
+          this.imagem64Tela = x.imagem;
+        });
+      });
+  }
+
+  buscaDadosVideo(idUsuario) {
+    this.listProfissionalConteudoVideo = this.profissionalConteudoVideoService
+      .getTodosPorID(this.idUsuario)
+      .subscribe(res => {
+        this.profissionalConteudoVideo = res;
+
+        res.forEach(x => {
+          this.tituloVideoTela = x.tituloVideo;
+          this.descricaoVideoTela = x.descricaoVideo;
+          this.linkVideoTela = x.linkVideo;
+          this.autorVideoTela = x.autorVideo;
+        });
+      });
+  }
 
   ngOnDestroy() {
     this.listProfissionalConteudoTexto.unsubscribe();

@@ -1007,6 +1007,18 @@ let ProfissionalConteudoImagemService = class ProfissionalConteudoImagemService 
             });
         }));
     }
+    getTodosPorIdade(idade) {
+        return this.db
+            .collection('ProfissionalConteudoImagem', ref => ref.where('idade', '==', idade))
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+            return actions.map(a => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return Object.assign({ id }, data);
+            });
+        }));
+    }
     getTodo(id) {
         return this.todosCollection.doc(id).valueChanges();
     }
@@ -1079,6 +1091,18 @@ let ProfissionalConteudoTextoService = class ProfissionalConteudoTextoService {
             });
         }));
     }
+    getTodosPorIdade(idade) {
+        return this.db
+            .collection('ProfissionalConteudoTexto', ref => ref.where('idade', '==', idade))
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+            return actions.map(a => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return Object.assign({ id }, data);
+            });
+        }));
+    }
     getTodo(id) {
         return this.todosCollection.doc(id).valueChanges();
     }
@@ -1142,6 +1166,18 @@ let ProfissionalConteudoVideoService = class ProfissionalConteudoVideoService {
     getTodosPoAvaliacao(avaliacao) {
         return this.db
             .collection('ProfissionalConteudoVideo', ref => ref.where('avaliacao', '==', avaliacao))
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+            return actions.map(a => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return Object.assign({ id }, data);
+            });
+        }));
+    }
+    getTodosPorIdade(idade) {
+        return this.db
+            .collection('ProfissionalConteudoVideo', ref => ref.where('idade', '==', idade))
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {

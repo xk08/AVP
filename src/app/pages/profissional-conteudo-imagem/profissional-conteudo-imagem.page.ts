@@ -154,6 +154,7 @@ export class ProfissionalConteudoImagemPage implements OnInit {
       }
       /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
       this.todas.avaliacao = this.geral;
+      this.todas.idUsuario = this.idUsuario;
       this.conteudoImagemService.addTodo(this.todas).then(() => {
         loading.dismiss();
         this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');

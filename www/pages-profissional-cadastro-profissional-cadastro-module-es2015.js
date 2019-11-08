@@ -94,7 +94,7 @@ let ProfissionalCadastroPage = class ProfissionalCadastroPage {
         //REFERÊNCIA A CLASS USUARIO
         this.todoUser = {
             nome: '',
-            dataNasc: '',
+            dataNasc: 0,
             foto: '',
             profissao: '',
             codigoProfissao: '',

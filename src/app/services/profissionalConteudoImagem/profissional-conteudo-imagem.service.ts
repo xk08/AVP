@@ -25,6 +25,23 @@ export class ProfissionalConteudoImagemService {
     );
   }
 
+  getTodosPorID(idUsuario: string) {
+    return this.db
+      .collection<ProfissionalConteudoImagem>('ProfissionalConteudoImagem', ref =>
+        ref.where('idUsuario', '==', idUsuario)
+      )
+      .snapshotChanges()
+      .pipe(
+        map(actions => {
+          return actions.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          });
+        })
+      );
+  }
+
   //Pegando de acordo com a avaliação do "quero-conversar"
   getTodosPoAvaliacao(avaliacao: number) {
     return this.db
