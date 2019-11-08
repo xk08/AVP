@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController, AlertController } from '@ionic/angular';
 import { ProfissionalConteudoTexto } from 'src/app/services/profissionalConteudoTexto/profissionalConteudoTexto';
 import { ProfissionalConteudoImagem } from 'src/app/services/profissionalConteudoImagem/profissionalConteudoImagem';
 import { ProfissionalConteudoVideo } from 'src/app/services/profissionalConteudoVideo/profissionalConteudoVideo';
@@ -54,7 +54,9 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
     private profissionalConteudoTextoService: ProfissionalConteudoTextoService,
     private profissionalConteudoImagemService: ProfissionalConteudoImagemService,
     private profissionalConteudoVideoService: ProfissionalConteudoVideoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastController: ToastController,
+    public alertController: AlertController
   ) {}
 
   public listQueroConversar: Subscription;
@@ -82,9 +84,39 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
       });
   }
 
-  apagaTextos(idUsuario: string) {
-    console.log('esse é o id ' + idUsuario);
-    this.profissionalConteudoTextoService.removeTodo(this.idUsuario);
+  remove(id) {
+    console.log(id);
+    this.profissionalConteudoTextoService
+      .removeTodo(id)
+      .then(() => {
+        this.presentAlertConfirm('Removida com Sucesso');
+      })
+      .catch(err => {});
+  }
+
+  async presentAlertConfirm(msg: string) {
+    const alert = await this.alertController.create({
+      header: 'Confirm!',
+      message: msg,
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: blah => {
+            console.log('Confirm Cancel: blah');
+          }
+        },
+        {
+          text: 'Okay',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   buscaDadosImagem(idUsuario) {
@@ -125,5 +157,13 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
 
   direcionaPraTelaCadastro() {
     this.navctrl.navigateForward('/menu/profissional-conteudo/profissional-conteudo-texto');
+  }
+
+  async presentToast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
   }
 }

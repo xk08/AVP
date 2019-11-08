@@ -31,19 +31,19 @@
       style="background-color:lightyellow;"
     >
 
-      <ion-item>
+      <ion-item style="color:darkgreen;">
         <ion-col>
           <ion-row>
             <ion-label>Frase Cadastrada</ion-label>
 
           </ion-row>
           <ion-col>
-            <ion-text style="text-align: center; font-size: 15pt;">{{ texto.tituloTexto }}</ion-text>
+            <ion-text style="text-align: center; font-size: 15pt;">{{ texto.texto }}</ion-text>
           </ion-col>
         </ion-col>
       </ion-item>
 
-      <ion-item-options side="end">
+      <ion-item-options side="start">
         <ion-item-option
           (click)="unread(item)"
           [routerLink]="['/menu/profissional-conteudo/profissional-conteudo-texto', texto.id]"
@@ -54,15 +54,19 @@
           ></ion-icon>
           Editar
         </ion-item-option>
+      </ion-item-options>
+
+      <ion-item-options side="end">
 
         <ion-item-option
           color="danger"
-          (click)="apagaTextos(texto.id)"
+          (click)="remove(texto.id)"
         >
           <ion-icon
             slot="icon-only"
             name="md-trash"
           ></ion-icon>
+          Remover
         </ion-item-option>
       </ion-item-options>
 
