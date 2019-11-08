@@ -41,11 +41,6 @@ export class UsuarioCadastroService {
   updateUsuarioAdmin(id: string, valor: boolean) {
     return this.todosCollection.doc<UsuarioCadastro>(id).update({ isAdmin: valor });
   }
-
-  updateUsuarioAtivo(id: string, valor: boolean) {
-    return this.todosCollection.doc<UsuarioCadastro>(id).update({ isAtivo: valor });
-  }
-
   updateUsuarioProfissional(id: string, valor: boolean) {
     return this.todosCollection.doc<UsuarioCadastro>(id).update({ isProfissional: valor });
   }

@@ -7,7 +7,6 @@ import { ToastController } from '@ionic/angular';
 import { Network } from '@ionic-native/network/ngx';
 import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario-cadastro.service';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AssistenteCadastroService } from 'src/app/services/assistenteCadastro/assistente-cadastro.service';
 
 @Component({
   selector: 'app-login',
@@ -18,13 +17,14 @@ export class LoginPage {
   user: User = new User();
   @ViewChild('form', null) form: NgForm;
 
+  public buttonColor: string = '#000';
+
   constructor(
     public router: Router,
     private authService: AuthService,
     private toastController: ToastController,
     private network: Network,
     private usuarioCadastro: UsuarioCadastroService,
-    private assistenteCadastro: AssistenteCadastroService,
     private auth: AngularFireAuth
   ) {
     let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
@@ -34,7 +34,7 @@ export class LoginPage {
   async presentToast(msg: string) {
     const toast = await this.toastController.create({
       message: msg,
-      duration: 2000
+      duration: 3000
     });
     toast.present();
   }

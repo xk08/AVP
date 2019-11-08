@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="login"></ion-back-button>
     </ion-buttons>
-    <ion-title>Mais sobre você</ion-title>
+    <ion-title>Conhecendo você</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
@@ -32,6 +32,7 @@
 
         <form #form="ngForm">
 
+
           <!-- NOME -->
           <ion-item>
             <ion-icon
@@ -50,7 +51,6 @@
           </ion-item>
 
 
-          <!-- DATA DE NASCIMENTO -->
           <ion-item>
             <ion-icon
               name="calendar"
@@ -59,32 +59,13 @@
             ></ion-icon>
             <ion-label>Data de Nascimento</ion-label>
             <ion-datetime
-              displayFormat="MM/DD/YYYY"
+              displayFormat="DD/MM/YYYY"
               [(ngModel)]='todoUser.dataNasc'
               name="dataNascimento"
               required
             >
             </ion-datetime>
           </ion-item>
-
-
-          <!-- DATA DE NASCIMENTO {Temporario} -->
-          <ion-item>
-            <ion-icon
-              name="add"
-              color="secondary"
-              slot="start"
-            ></ion-icon>
-            <ion-input
-              type="number"
-              [(ngModel)]='todoUser.dataNasc'
-              name="dataNascimentoTemporario"
-              placeholder="Sua idade atual (ex: 32)"
-              required
-            >
-            </ion-input>
-          </ion-item>
-
 
           <!-- EMAIL -->
           <ion-item>
@@ -105,8 +86,6 @@
           </ion-item>
 
           <!-- SENHA -->
-
-
           <ion-item>
             <ion-icon
               name="lock"
@@ -124,26 +103,33 @@
 
           <!-- BOTÃO DE CADASTRO -->
 
-
-
           <ion-button
             expand="block"
             type="submit"
             class="login-button"
             (click)="concluiCadastro()"
           >
-            Participar
+            Cadastrar
           </ion-button>
 
+          <ion-card-content>
+            <div>
+              <ion-row>
+                <ion-card-title style="font-size: 11pt; text-align: center;">É profissional da saúde ?</ion-card-title>
+                <ion-card-title
+                  style="font-size: 11pt;
+              text-align: left;
+              padding-left: 5px;
+              font-weight: bold ;
+              color: royalblue"
+                  (click)="cadastroProfissional()"
+                >
+                  Clique Aqui
+                </ion-card-title>
+              </ion-row>
+            </div>
+          </ion-card-content>
 
-          <ion-button
-            class="login-button"
-            expand="full"
-            color="medium"
-            (click)="cadastroProfissional()"
-          >
-            Sou Profissional da Saúde
-          </ion-button>
         </form>
       </ion-col>
     </ion-row>

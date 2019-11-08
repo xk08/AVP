@@ -11,8 +11,8 @@ import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario
   styleUrls: ['./usuario-cadastro.page.scss']
 })
 export class UsuarioCadastroPage implements OnInit {
-  public uidUser: any;
 
+  public uidUser: any;
   @ViewChild('form', null) form: NgForm;
 
   constructor(
@@ -47,14 +47,13 @@ export class UsuarioCadastroPage implements OnInit {
   //REFERÊNCIA A CLASS USUARIO
   todoUser: UsuarioCadastro = {
     nome: '',
-    dataNasc: 0 ,
+    dataNasc: null,
     foto: '',
     profissao: '',
-    codigoProfissao: '',
-    isAtivo: true,
     email: '',
     senha: '',
     isAdmin: false,
     isProfissional: false
   };
+
 }

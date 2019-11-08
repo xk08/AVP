@@ -46,8 +46,6 @@ export class ProfissionalCadastroPage implements OnInit {
     dataNasc: 0,
     foto: '',
     profissao: '',
-    codigoProfissao: '',
-    isAtivo: true,
     email: '',
     senha: '',
     isAdmin: false,

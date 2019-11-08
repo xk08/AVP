@@ -22,6 +22,7 @@ export class HomePage implements OnInit, OnDestroy {
   public idadeDoIFF: string;
   public admin: boolean;
   public idadeUsuario: number;
+  public idadeConvertida: number;
 
   // Referente ao texto
   public tituloTextoTela: string;
@@ -61,7 +62,6 @@ export class HomePage implements OnInit, OnDestroy {
     private route: ActivatedRoute
   ) {}
 
-
   ngOnInit() {
     this.idUsuario = this.auth.auth.currentUser.uid;
     this.buscaDadosTexto(this.idUsuario);
@@ -74,37 +74,47 @@ export class HomePage implements OnInit, OnDestroy {
     //Pegando algunas dados do usuário (como idade e se é profissional)
     this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(res => {
       this.admin = res.isProfissional;
+
+      //Pegando a data de nascimento da coleção
       this.idadeUsuario = res.dataNasc;
-      this.idadeGlobal = this.idadeUsuario;
+
+      //Convertendo a data em idade
+      var dob = new Date(this.idadeUsuario);
+      var currentDate = new Date();
+      var currentYear = currentDate.getFullYear();
+      var birthdayThisYear = new Date(currentYear, dob.getMonth(), dob.getDate());
+      var age = currentYear - dob.getFullYear();
+      this.idadeConvertida = age ;
 
       //Testando a idade do usuário e atribuindo a uma variavel global
-      if (this.idadeGlobal >= 8 && this.idadeGlobal <= 12) {
+      if (this.idadeConvertida >= 8 && this.idadeConvertida <= 12) {
         this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
       } else {
       }
 
-      if (this.idadeGlobal >= 13 && this.idadeGlobal <= 17) {
+      if (this.idadeConvertida >= 13 && this.idadeConvertida <= 17) {
         this.idadeDoIFF = '13 a 17';
       } else {
       }
 
-      if (this.idadeGlobal >= 18 && this.idadeGlobal <= 35) {
+      if (this.idadeConvertida >= 18 && this.idadeConvertida <= 35) {
         this.idadeDoIFF = '18 a 35';
       }
 
       //Buscando os dados do service em especifico
-      this.listProfissionalConteudoTexto = this.profissionalConteudoTextoService.getTodosPorIdade(this.idadeDoIFF).subscribe(res => {
+      this.listProfissionalConteudoTexto = this.profissionalConteudoTextoService
+        .getTodosPorIdade(this.idadeDoIFF)
+        .subscribe(res => {
+          //Pegando a coleção inteira
+          this.profissionalConteudoTextoTela = res;
 
-        //Pegando a coleção inteira
-        this.profissionalConteudoTextoTela = res;
-
-        //Percorrendo a coleçção e pegando os campos
-        res.forEach(x => {
-          this.tituloTextoTela = x.tituloTexto;
-          this.descricaoTextoTela = x.texto;
-          this.autorTextoTela = x.autorTexto;
+          //Percorrendo a coleçção e pegando os campos
+          res.forEach(x => {
+            this.tituloTextoTela = x.tituloTexto;
+            this.descricaoTextoTela = x.texto;
+            this.autorTextoTela = x.autorTexto;
+          });
         });
-      });
     });
   }
 
@@ -113,38 +123,47 @@ export class HomePage implements OnInit, OnDestroy {
     //Pegando algunas dados do usuário (como idade e se é profissional)
     this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(res => {
       this.admin = res.isProfissional;
+      //Pegando a data de nascimento da coleção
       this.idadeUsuario = res.dataNasc;
-      this.idadeGlobal = this.idadeUsuario;
+
+      //Convertendo a data em idade
+      var dob = new Date(this.idadeUsuario);
+      var currentDate = new Date();
+      var currentYear = currentDate.getFullYear();
+      var birthdayThisYear = new Date(currentYear, dob.getMonth(), dob.getDate());
+      var age = currentYear - dob.getFullYear();
+      this.idadeConvertida = age;
 
       //Testando a idade do usuário e atribuindo a uma variavel global
-      if (this.idadeGlobal >= 8 && this.idadeGlobal <= 12) {
+      if (this.idadeConvertida >= 8 && this.idadeConvertida <= 12) {
         this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
       } else {
       }
 
-      if (this.idadeGlobal >= 13 && this.idadeGlobal <= 17) {
+      if (this.idadeConvertida >= 13 && this.idadeConvertida <= 17) {
         this.idadeDoIFF = '13 a 17';
       } else {
       }
 
-      if (this.idadeGlobal >= 18 && this.idadeGlobal <= 35) {
+      if (this.idadeConvertida >= 18 && this.idadeConvertida <= 35) {
         this.idadeDoIFF = '18 a 35';
       }
 
       //Buscando os dados do service em especifico
-      this.listProfissionalConteudoImagem = this.profissionalConteudoImagemService.getTodosPorIdade(this.idadeDoIFF).subscribe(res => {
+      this.listProfissionalConteudoImagem = this.profissionalConteudoImagemService
+        .getTodosPorIdade(this.idadeDoIFF)
+        .subscribe(res => {
+          //Pegando a coleção inteira
+          this.profissionalConteudoImagemTela = res;
 
-        //Pegando a coleção inteira
-        this.profissionalConteudoImagemTela = res;
-
-        //Percorrendo a coleçção e pegando os campos
-        res.forEach(x => {
-          this.tituloImagemTela = x.tituloImagem;
-          this.maisInfoImagemTela = x.maisInfoImagem;
-          this.autorImagemTela = x.autorImagem;
-          this.imagem64Tela = x.imagem;
+          //Percorrendo a coleçção e pegando os campos
+          res.forEach(x => {
+            this.tituloImagemTela = x.tituloImagem;
+            this.maisInfoImagemTela = x.maisInfoImagem;
+            this.autorImagemTela = x.autorImagem;
+            this.imagem64Tela = x.imagem;
+          });
         });
-      });
     });
   }
 
@@ -153,48 +172,49 @@ export class HomePage implements OnInit, OnDestroy {
     //Pegando algunas dados do usuário (como idade e se é profissional)
     this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(res => {
       this.admin = res.isProfissional;
+      //Pegando a data de nascimento da coleção
       this.idadeUsuario = res.dataNasc;
-      this.idadeGlobal = this.idadeUsuario;
+
+      //Convertendo a data em idade
+      var dob = new Date(this.idadeUsuario);
+      var currentDate = new Date();
+      var currentYear = currentDate.getFullYear();
+      var birthdayThisYear = new Date(currentYear, dob.getMonth(), dob.getDate());
+      var age = currentYear - dob.getFullYear();
+      this.idadeConvertida = age;
 
       //Testando a idade do usuário e atribuindo a uma variavel global
-      if (this.idadeGlobal >= 8 && this.idadeGlobal <= 12) {
+      if (this.idadeConvertida >= 8 && this.idadeConvertida <= 12) {
         this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
       } else {
       }
 
-      if (this.idadeGlobal >= 13 && this.idadeGlobal <= 17) {
+      if (this.idadeConvertida >= 13 && this.idadeConvertida <= 17) {
         this.idadeDoIFF = '13 a 17';
       } else {
       }
 
-      if (this.idadeGlobal >= 18 && this.idadeGlobal <= 35) {
+      if (this.idadeConvertida >= 18 && this.idadeConvertida <= 35) {
         this.idadeDoIFF = '18 a 35';
       }
 
       //Buscando os dados do service em especifico
-      this.listProfissionalConteudoVideo = this.profissionalConteudoVideoService.getTodosPorIdade(this.idadeDoIFF).subscribe(res => {
+      this.listProfissionalConteudoVideo = this.profissionalConteudoVideoService
+        .getTodosPorIdade(this.idadeDoIFF)
+        .subscribe(res => {
+          //Pegando a coleção inteira
+          this.profissionalConteudoVideoTela = res;
 
-        //Pegando a coleção inteira
-        this.profissionalConteudoVideoTela = res;
-
-        //Percorrendo a coleçção e pegando os campos
-        res.forEach(x => {
-          this.tituloVideoTela = x.tituloVideo;
-          this.descricaoVideoTela = x.descricaoVideo;
-          this.linkVideoTela = x.linkVideo;
-          this.autorVideoTela = x.autorVideo;
+          //Percorrendo a coleçção e pegando os campos
+          res.forEach(x => {
+            this.tituloVideoTela = x.tituloVideo;
+            this.descricaoVideoTela = x.descricaoVideo;
+            this.linkVideoTela = x.linkVideo;
+            this.autorVideoTela = x.autorVideo;
+          });
         });
-      });
     });
   }
-
-  /*
-  profissionalConteudoTexto() {}
-
-  profissionalConteudoImagem() {}
-
-  profissionalConteudoVideo() {}
-  */
 
   direcionaPraTela() {
     this.navctrl.navigateForward('quero-conversar');
