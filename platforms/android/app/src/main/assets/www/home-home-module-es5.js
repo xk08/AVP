@@ -122,24 +122,33 @@ var HomePage = /** @class */ (function () {
         //Pegando algunas dados do usuário (como idade e se é profissional)
         this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(function (res) {
             _this.admin = res.isProfissional;
+            //Pegando a data de nascimento da coleção
             _this.idadeUsuario = res.dataNasc;
-            _this.idadeGlobal = _this.idadeUsuario;
+            //Convertendo a data em idade
+            var dob = new Date(_this.idadeUsuario);
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            var birthdayThisYear = new Date(currentYear, dob.getMonth(), dob.getDate());
+            var age = currentYear - dob.getFullYear();
+            _this.idadeConvertida = age;
             //Testando a idade do usuário e atribuindo a uma variavel global
-            if (_this.idadeGlobal >= 8 && _this.idadeGlobal <= 12) {
+            if (_this.idadeConvertida >= 8 && _this.idadeConvertida <= 12) {
                 _this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
             }
             else {
             }
-            if (_this.idadeGlobal >= 13 && _this.idadeGlobal <= 17) {
+            if (_this.idadeConvertida >= 13 && _this.idadeConvertida <= 17) {
                 _this.idadeDoIFF = '13 a 17';
             }
             else {
             }
-            if (_this.idadeGlobal >= 18 && _this.idadeGlobal <= 35) {
+            if (_this.idadeConvertida >= 18 && _this.idadeConvertida <= 35) {
                 _this.idadeDoIFF = '18 a 35';
             }
             //Buscando os dados do service em especifico
-            _this.listProfissionalConteudoTexto = _this.profissionalConteudoTextoService.getTodosPorIdade(_this.idadeDoIFF).subscribe(function (res) {
+            _this.listProfissionalConteudoTexto = _this.profissionalConteudoTextoService
+                .getTodosPorIdade(_this.idadeDoIFF)
+                .subscribe(function (res) {
                 //Pegando a coleção inteira
                 _this.profissionalConteudoTextoTela = res;
                 //Percorrendo a coleçção e pegando os campos
@@ -157,24 +166,33 @@ var HomePage = /** @class */ (function () {
         //Pegando algunas dados do usuário (como idade e se é profissional)
         this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(function (res) {
             _this.admin = res.isProfissional;
+            //Pegando a data de nascimento da coleção
             _this.idadeUsuario = res.dataNasc;
-            _this.idadeGlobal = _this.idadeUsuario;
+            //Convertendo a data em idade
+            var dob = new Date(_this.idadeUsuario);
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            var birthdayThisYear = new Date(currentYear, dob.getMonth(), dob.getDate());
+            var age = currentYear - dob.getFullYear();
+            _this.idadeConvertida = age;
             //Testando a idade do usuário e atribuindo a uma variavel global
-            if (_this.idadeGlobal >= 8 && _this.idadeGlobal <= 12) {
+            if (_this.idadeConvertida >= 8 && _this.idadeConvertida <= 12) {
                 _this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
             }
             else {
             }
-            if (_this.idadeGlobal >= 13 && _this.idadeGlobal <= 17) {
+            if (_this.idadeConvertida >= 13 && _this.idadeConvertida <= 17) {
                 _this.idadeDoIFF = '13 a 17';
             }
             else {
             }
-            if (_this.idadeGlobal >= 18 && _this.idadeGlobal <= 35) {
+            if (_this.idadeConvertida >= 18 && _this.idadeConvertida <= 35) {
                 _this.idadeDoIFF = '18 a 35';
             }
             //Buscando os dados do service em especifico
-            _this.listProfissionalConteudoImagem = _this.profissionalConteudoImagemService.getTodosPorIdade(_this.idadeDoIFF).subscribe(function (res) {
+            _this.listProfissionalConteudoImagem = _this.profissionalConteudoImagemService
+                .getTodosPorIdade(_this.idadeDoIFF)
+                .subscribe(function (res) {
                 //Pegando a coleção inteira
                 _this.profissionalConteudoImagemTela = res;
                 //Percorrendo a coleçção e pegando os campos
@@ -193,24 +211,33 @@ var HomePage = /** @class */ (function () {
         //Pegando algunas dados do usuário (como idade e se é profissional)
         this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(function (res) {
             _this.admin = res.isProfissional;
+            //Pegando a data de nascimento da coleção
             _this.idadeUsuario = res.dataNasc;
-            _this.idadeGlobal = _this.idadeUsuario;
+            //Convertendo a data em idade
+            var dob = new Date(_this.idadeUsuario);
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            var birthdayThisYear = new Date(currentYear, dob.getMonth(), dob.getDate());
+            var age = currentYear - dob.getFullYear();
+            _this.idadeConvertida = age;
             //Testando a idade do usuário e atribuindo a uma variavel global
-            if (_this.idadeGlobal >= 8 && _this.idadeGlobal <= 12) {
+            if (_this.idadeConvertida >= 8 && _this.idadeConvertida <= 12) {
                 _this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
             }
             else {
             }
-            if (_this.idadeGlobal >= 13 && _this.idadeGlobal <= 17) {
+            if (_this.idadeConvertida >= 13 && _this.idadeConvertida <= 17) {
                 _this.idadeDoIFF = '13 a 17';
             }
             else {
             }
-            if (_this.idadeGlobal >= 18 && _this.idadeGlobal <= 35) {
+            if (_this.idadeConvertida >= 18 && _this.idadeConvertida <= 35) {
                 _this.idadeDoIFF = '18 a 35';
             }
             //Buscando os dados do service em especifico
-            _this.listProfissionalConteudoVideo = _this.profissionalConteudoVideoService.getTodosPorIdade(_this.idadeDoIFF).subscribe(function (res) {
+            _this.listProfissionalConteudoVideo = _this.profissionalConteudoVideoService
+                .getTodosPorIdade(_this.idadeDoIFF)
+                .subscribe(function (res) {
                 //Pegando a coleção inteira
                 _this.profissionalConteudoVideoTela = res;
                 //Percorrendo a coleçção e pegando os campos
@@ -223,13 +250,6 @@ var HomePage = /** @class */ (function () {
             });
         });
     };
-    /*
-    profissionalConteudoTexto() {}
-  
-    profissionalConteudoImagem() {}
-  
-    profissionalConteudoVideo() {}
-    */
     HomePage.prototype.direcionaPraTela = function () {
         this.navctrl.navigateForward('quero-conversar');
     };

@@ -329,6 +329,7 @@ var ProfissionalConteudoImagemPage = /** @class */ (function () {
                             }
                             /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
                             this.todas.avaliacao = this.geral;
+                            this.todas.idUsuario = this.idUsuario;
                             this.conteudoImagemService.addTodo(this.todas).then(function () {
                                 loading.dismiss();
                                 _this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');

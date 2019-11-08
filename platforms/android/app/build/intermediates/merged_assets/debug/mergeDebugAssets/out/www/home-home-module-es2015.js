@@ -118,24 +118,33 @@ let HomePage = class HomePage {
         //Pegando algunas dados do usuário (como idade e se é profissional)
         this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(res => {
             this.admin = res.isProfissional;
+            //Pegando a data de nascimento da coleção
             this.idadeUsuario = res.dataNasc;
-            this.idadeGlobal = this.idadeUsuario;
+            //Convertendo a data em idade
+            var dob = new Date(this.idadeUsuario);
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            var birthdayThisYear = new Date(currentYear, dob.getMonth(), dob.getDate());
+            var age = currentYear - dob.getFullYear();
+            this.idadeConvertida = age;
             //Testando a idade do usuário e atribuindo a uma variavel global
-            if (this.idadeGlobal >= 8 && this.idadeGlobal <= 12) {
+            if (this.idadeConvertida >= 8 && this.idadeConvertida <= 12) {
                 this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
             }
             else {
             }
-            if (this.idadeGlobal >= 13 && this.idadeGlobal <= 17) {
+            if (this.idadeConvertida >= 13 && this.idadeConvertida <= 17) {
                 this.idadeDoIFF = '13 a 17';
             }
             else {
             }
-            if (this.idadeGlobal >= 18 && this.idadeGlobal <= 35) {
+            if (this.idadeConvertida >= 18 && this.idadeConvertida <= 35) {
                 this.idadeDoIFF = '18 a 35';
             }
             //Buscando os dados do service em especifico
-            this.listProfissionalConteudoTexto = this.profissionalConteudoTextoService.getTodosPorIdade(this.idadeDoIFF).subscribe(res => {
+            this.listProfissionalConteudoTexto = this.profissionalConteudoTextoService
+                .getTodosPorIdade(this.idadeDoIFF)
+                .subscribe(res => {
                 //Pegando a coleção inteira
                 this.profissionalConteudoTextoTela = res;
                 //Percorrendo a coleçção e pegando os campos
@@ -152,24 +161,33 @@ let HomePage = class HomePage {
         //Pegando algunas dados do usuário (como idade e se é profissional)
         this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(res => {
             this.admin = res.isProfissional;
+            //Pegando a data de nascimento da coleção
             this.idadeUsuario = res.dataNasc;
-            this.idadeGlobal = this.idadeUsuario;
+            //Convertendo a data em idade
+            var dob = new Date(this.idadeUsuario);
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            var birthdayThisYear = new Date(currentYear, dob.getMonth(), dob.getDate());
+            var age = currentYear - dob.getFullYear();
+            this.idadeConvertida = age;
             //Testando a idade do usuário e atribuindo a uma variavel global
-            if (this.idadeGlobal >= 8 && this.idadeGlobal <= 12) {
+            if (this.idadeConvertida >= 8 && this.idadeConvertida <= 12) {
                 this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
             }
             else {
             }
-            if (this.idadeGlobal >= 13 && this.idadeGlobal <= 17) {
+            if (this.idadeConvertida >= 13 && this.idadeConvertida <= 17) {
                 this.idadeDoIFF = '13 a 17';
             }
             else {
             }
-            if (this.idadeGlobal >= 18 && this.idadeGlobal <= 35) {
+            if (this.idadeConvertida >= 18 && this.idadeConvertida <= 35) {
                 this.idadeDoIFF = '18 a 35';
             }
             //Buscando os dados do service em especifico
-            this.listProfissionalConteudoImagem = this.profissionalConteudoImagemService.getTodosPorIdade(this.idadeDoIFF).subscribe(res => {
+            this.listProfissionalConteudoImagem = this.profissionalConteudoImagemService
+                .getTodosPorIdade(this.idadeDoIFF)
+                .subscribe(res => {
                 //Pegando a coleção inteira
                 this.profissionalConteudoImagemTela = res;
                 //Percorrendo a coleçção e pegando os campos
@@ -187,24 +205,33 @@ let HomePage = class HomePage {
         //Pegando algunas dados do usuário (como idade e se é profissional)
         this.listUsuario = this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(res => {
             this.admin = res.isProfissional;
+            //Pegando a data de nascimento da coleção
             this.idadeUsuario = res.dataNasc;
-            this.idadeGlobal = this.idadeUsuario;
+            //Convertendo a data em idade
+            var dob = new Date(this.idadeUsuario);
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            var birthdayThisYear = new Date(currentYear, dob.getMonth(), dob.getDate());
+            var age = currentYear - dob.getFullYear();
+            this.idadeConvertida = age;
             //Testando a idade do usuário e atribuindo a uma variavel global
-            if (this.idadeGlobal >= 8 && this.idadeGlobal <= 12) {
+            if (this.idadeConvertida >= 8 && this.idadeConvertida <= 12) {
                 this.idadeDoIFF = '8 a 12'; // variavel que será enviada ao Service
             }
             else {
             }
-            if (this.idadeGlobal >= 13 && this.idadeGlobal <= 17) {
+            if (this.idadeConvertida >= 13 && this.idadeConvertida <= 17) {
                 this.idadeDoIFF = '13 a 17';
             }
             else {
             }
-            if (this.idadeGlobal >= 18 && this.idadeGlobal <= 35) {
+            if (this.idadeConvertida >= 18 && this.idadeConvertida <= 35) {
                 this.idadeDoIFF = '18 a 35';
             }
             //Buscando os dados do service em especifico
-            this.listProfissionalConteudoVideo = this.profissionalConteudoVideoService.getTodosPorIdade(this.idadeDoIFF).subscribe(res => {
+            this.listProfissionalConteudoVideo = this.profissionalConteudoVideoService
+                .getTodosPorIdade(this.idadeDoIFF)
+                .subscribe(res => {
                 //Pegando a coleção inteira
                 this.profissionalConteudoVideoTela = res;
                 //Percorrendo a coleçção e pegando os campos
@@ -217,13 +244,6 @@ let HomePage = class HomePage {
             });
         });
     }
-    /*
-    profissionalConteudoTexto() {}
-  
-    profissionalConteudoImagem() {}
-  
-    profissionalConteudoVideo() {}
-    */
     direcionaPraTela() {
         this.navctrl.navigateForward('quero-conversar');
     }

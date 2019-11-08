@@ -994,6 +994,18 @@ let ProfissionalConteudoImagemService = class ProfissionalConteudoImagemService 
             });
         }));
     }
+    getTodosPorID(idUsuario) {
+        return this.db
+            .collection('ProfissionalConteudoImagem', ref => ref.where('idUsuario', '==', idUsuario))
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+            return actions.map(a => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return Object.assign({ id }, data);
+            });
+        }));
+    }
     //Pegando de acordo com a avaliação do "quero-conversar"
     getTodosPoAvaliacao(avaliacao) {
         return this.db
@@ -1079,6 +1091,18 @@ let ProfissionalConteudoTextoService = class ProfissionalConteudoTextoService {
             });
         }));
     }
+    getTodosPorID(idUsuario) {
+        return this.db
+            .collection('ProfissionalConteudoTexto', ref => ref.where('idUsuario', '==', idUsuario))
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+            return actions.map(a => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return Object.assign({ id }, data);
+            });
+        }));
+    }
     getTodosPoAvaliacao(avaliacao) {
         return this.db
             .collection('ProfissionalConteudoTexto', ref => ref.where('avaliacao', '==', avaliacao))
@@ -1156,6 +1180,18 @@ let ProfissionalConteudoVideoService = class ProfissionalConteudoVideoService {
     }
     getTodos() {
         return this.todosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+            return actions.map(a => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return Object.assign({ id }, data);
+            });
+        }));
+    }
+    getTodosPorID(idUsuario) {
+        return this.db
+            .collection('ProfissionalConteudoVideo', ref => ref.where('idUsuario', '==', idUsuario))
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
                 const data = a.payload.doc.data();
                 const id = a.payload.doc.id;
@@ -1336,9 +1372,6 @@ let UsuarioCadastroService = class UsuarioCadastroService {
     }
     updateUsuarioAdmin(id, valor) {
         return this.todosCollection.doc(id).update({ isAdmin: valor });
-    }
-    updateUsuarioAtivo(id, valor) {
-        return this.todosCollection.doc(id).update({ isAtivo: valor });
     }
     updateUsuarioProfissional(id, valor) {
         return this.todosCollection.doc(id).update({ isProfissional: valor });

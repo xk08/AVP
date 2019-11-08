@@ -82,6 +82,11 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
       });
   }
 
+  apagaTextos(idUsuario: string) {
+    console.log('esse é o id ' + idUsuario);
+    this.profissionalConteudoTextoService.removeTodo(this.idUsuario);
+  }
+
   buscaDadosImagem(idUsuario) {
     //Pegando os dados informados pelo usuário, sobre a sua situação
     this.listProfissionalConteudoImagem = this.profissionalConteudoImagemService

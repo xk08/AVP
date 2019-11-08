@@ -89,7 +89,7 @@ export class ProfissionalConteudoImagemService {
     return this.todosCollection.add(toda);
   }
 
-  removeTodo(id) {
+  removeTodo(id: string) {
     return this.todosCollection.doc(id).delete();
   }
 }

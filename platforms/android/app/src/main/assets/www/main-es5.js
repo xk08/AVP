@@ -80,7 +80,6 @@ var map = {
 	"./pages/login/login.module": [
 		"./src/app/pages/login/login.module.ts",
 		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~35539472",
-		"common",
 		"pages-login-login-module"
 	],
 	"./pages/menu/menu.module": [

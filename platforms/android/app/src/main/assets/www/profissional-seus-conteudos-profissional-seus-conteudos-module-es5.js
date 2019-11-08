@@ -193,13 +193,15 @@ var ProfissionalSeusConteudosPage = /** @class */ (function () {
     }
     ProfissionalSeusConteudosPage.prototype.ngOnInit = function () {
         this.idUsuario = this.auth.auth.currentUser.uid;
-        this.buscaDadosTexto();
-        this.buscaDadosImagem();
-        this.buscaDadosVideo();
+        this.buscaDadosTexto(this.idUsuario);
+        this.buscaDadosImagem(this.idUsuario);
+        this.buscaDadosVideo(this.idUsuario);
     };
-    ProfissionalSeusConteudosPage.prototype.buscaDadosTexto = function () {
+    ProfissionalSeusConteudosPage.prototype.buscaDadosTexto = function (idUsuario) {
         var _this = this;
-        this.profissionalConteudoTextoService.getTodos().subscribe(function (res) {
+        this.listProfissionalConteudoTexto = this.profissionalConteudoTextoService
+            .getTodosPorID(this.idUsuario)
+            .subscribe(function (res) {
             _this.profissionalConteudoTexto = res;
             // Percorrendo os dados da coleção
             res.forEach(function (x) {
@@ -209,10 +211,12 @@ var ProfissionalSeusConteudosPage = /** @class */ (function () {
             });
         });
     };
-    ProfissionalSeusConteudosPage.prototype.buscaDadosImagem = function () {
-        //Pegando os dados informados pelo usuário, sobre a sua situação
+    ProfissionalSeusConteudosPage.prototype.buscaDadosImagem = function (idUsuario) {
         var _this = this;
-        this.profissionalConteudoImagemService.getTodos().subscribe(function (res) {
+        //Pegando os dados informados pelo usuário, sobre a sua situação
+        this.listProfissionalConteudoImagem = this.profissionalConteudoImagemService
+            .getTodosPorID(this.idUsuario)
+            .subscribe(function (res) {
             _this.profissionalConteudoImagem = res;
             res.forEach(function (x) {
                 _this.tituloImagemTela = x.tituloImagem;
@@ -222,10 +226,10 @@ var ProfissionalSeusConteudosPage = /** @class */ (function () {
             });
         });
     };
-    ProfissionalSeusConteudosPage.prototype.buscaDadosVideo = function () {
+    ProfissionalSeusConteudosPage.prototype.buscaDadosVideo = function (idUsuario) {
         var _this = this;
-        this.profissionalConteudoVideoService
-            .getTodos()
+        this.listProfissionalConteudoVideo = this.profissionalConteudoVideoService
+            .getTodosPorID(this.idUsuario)
             .subscribe(function (res) {
             _this.profissionalConteudoVideo = res;
             res.forEach(function (x) {

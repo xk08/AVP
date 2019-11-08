@@ -617,6 +617,20 @@ var ProfissionalConteudoImagemService = /** @class */ (function () {
             });
         }));
     };
+    ProfissionalConteudoImagemService.prototype.getTodosPorID = function (idUsuario) {
+        return this.db
+            .collection('ProfissionalConteudoImagem', function (ref) {
+            return ref.where('idUsuario', '==', idUsuario);
+        })
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+            return actions.map(function (a) {
+                var data = a.payload.doc.data();
+                var id = a.payload.doc.id;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ id: id }, data);
+            });
+        }));
+    };
     //Pegando de acordo com a avaliação do "quero-conversar"
     ProfissionalConteudoImagemService.prototype.getTodosPoAvaliacao = function (avaliacao) {
         return this.db
@@ -707,6 +721,20 @@ var ProfissionalConteudoTextoService = /** @class */ (function () {
             });
         }));
     };
+    ProfissionalConteudoTextoService.prototype.getTodosPorID = function (idUsuario) {
+        return this.db
+            .collection('ProfissionalConteudoTexto', function (ref) {
+            return ref.where('idUsuario', '==', idUsuario);
+        })
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+            return actions.map(function (a) {
+                var data = a.payload.doc.data();
+                var id = a.payload.doc.id;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ id: id }, data);
+            });
+        }));
+    };
     ProfissionalConteudoTextoService.prototype.getTodosPoAvaliacao = function (avaliacao) {
         return this.db
             .collection('ProfissionalConteudoTexto', function (ref) {
@@ -789,6 +817,20 @@ var ProfissionalConteudoVideoService = /** @class */ (function () {
     }
     ProfissionalConteudoVideoService.prototype.getTodos = function () {
         return this.todosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+            return actions.map(function (a) {
+                var data = a.payload.doc.data();
+                var id = a.payload.doc.id;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ id: id }, data);
+            });
+        }));
+    };
+    ProfissionalConteudoVideoService.prototype.getTodosPorID = function (idUsuario) {
+        return this.db
+            .collection('ProfissionalConteudoVideo', function (ref) {
+            return ref.where('idUsuario', '==', idUsuario);
+        })
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
             return actions.map(function (a) {
                 var data = a.payload.doc.data();
                 var id = a.payload.doc.id;

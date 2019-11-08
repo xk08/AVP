@@ -77,10 +77,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service */ "./src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service.ts");
-/* harmony import */ var src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/overlay.service */ "./src/app/core/overlay.service.ts");
-/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
-/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__);
-
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(angularfire2_auth__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
@@ -89,12 +87,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfissionalConteudoVideoPage = class ProfissionalConteudoVideoPage {
-    constructor(route, loadingController, conteudoVideoService, navCtrl, overlay, auth) {
+    constructor(route, loadingController, conteudoVideoService, navCtrl, auth) {
         this.route = route;
         this.loadingController = loadingController;
         this.conteudoVideoService = conteudoVideoService;
         this.navCtrl = navCtrl;
-        this.overlay = overlay;
         this.auth = auth;
         //Refernete ao ratebar
         this.numStars = 5;
@@ -174,6 +171,7 @@ let ProfissionalConteudoVideoPage = class ProfissionalConteudoVideoPage {
             else {
                 /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
                 this.todas.avaliacao = this.geral;
+                this.todas.idUsuario = this.idUsuario;
                 this.conteudoVideoService.addTodo(this.todas).then(() => {
                     loading.dismiss();
                     this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');
@@ -187,8 +185,7 @@ ProfissionalConteudoVideoPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"] },
     { type: src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_5__["ProfissionalConteudoVideoService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] },
-    { type: src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_6__["OverlayService"] },
-    { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"] }
+    { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_6__["AngularFireAuth"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -216,8 +213,7 @@ ProfissionalConteudoVideoPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"],
         src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_5__["ProfissionalConteudoVideoService"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"],
-        src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_6__["OverlayService"],
-        angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"]])
+        angularfire2_auth__WEBPACK_IMPORTED_MODULE_6__["AngularFireAuth"]])
 ], ProfissionalConteudoVideoPage);
 
 

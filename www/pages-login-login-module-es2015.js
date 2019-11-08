@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n    <ion-toolbar color=\"secondary\">\r\n      <ion-title>Acessando o assistente</ion-title>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n\r\n  <ion-content padding>\r\n  <ion-grid>\r\n    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->\r\n    <ion-row justify-content-center>\r\n      <ion-col\r\n        size-sm=\"8\"\r\n        size-md=\"12\"\r\n        size-lg=\"3\"\r\n        size-xl=\"3\"\r\n      >\r\n     <!-- arrumar essas pohha de padding -->\r\n\r\n      \r\n    <h1 style=text-align:center>\r\n      <img src=\"../../../assets/img/avp.png\" width=\"180px\" height=\"160px\">\r\n    </h1>\r\n        \r\n\r\n      \r\n      <form #form=\"ngForm\">\r\n        <ion-item>\r\n            <ion-icon \r\n              color=\"medium\"\r\n              name=\"mail\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-input\r\n              type=\"email\"\r\n              name=\"email\"\r\n              placeholder=\"Informe seu e-mail\"\r\n              inputmode=\"email\"\r\n              autofocus=\"true\"\r\n              [(ngModel)]=\"user.email\"\r\n              required\r\n            ></ion-input>\r\n          </ion-item>\r\n\r\n          <ion-item>\r\n            <ion-icon\r\n             color=\"medium\"\r\n              name=\"lock\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-input\r\n              type=\"password\"\r\n              name=\"password\"\r\n              placeholder=\"Informe sua senha\"\r\n              [(ngModel)]=\"user.password\"\r\n              required\r\n            ></ion-input>\r\n          </ion-item>\r\n        </form>\r\n\r\n        <ion-content>\r\n    <ion-button\r\n    expand=\"block\"\r\n    type=\"submit\"\r\n    color=\"secondary\"\r\n    (click)=\"signIn()\"\r\n    \r\n\r\n  >\r\n    Acessar\r\n  </ion-button>\r\n\r\n<ion-button\r\n  expand=\"block\"\r\n  fill=\"clear\"\r\n  (click)=\"createAccount()\"\r\n>\r\n  Participar\r\n</ion-button>\r\n\r\n</ion-content>\r\n          \r\n\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n    <ion-toolbar color=\"secondary\">\r\n      <ion-title style=\"text-align: center;\">Acessando o assistente</ion-title>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n\r\n  <ion-content padding>\r\n  <ion-grid>\r\n    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->\r\n    <ion-row justify-content-center>\r\n      <ion-col\r\n        size-sm=\"8\"\r\n        size-md=\"12\"\r\n        size-lg=\"3\"\r\n        size-xl=\"3\"\r\n      >\r\n     <!-- arrumar essas pohha de padding -->\r\n\r\n\r\n    <h1 style=text-align:center>\r\n      <img src=\"../../../assets/img/avp.png\" width=\"180px\" height=\"160px\">\r\n    </h1>\r\n\r\n\r\n\r\n      <form #form=\"ngForm\">\r\n        <ion-item>\r\n            <ion-icon\r\n              color=\"medium\"\r\n              name=\"mail\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-input\r\n              type=\"email\"\r\n              name=\"email\"\r\n              placeholder=\"Informe seu e-mail\"\r\n              inputmode=\"email\"\r\n              autofocus=\"true\"\r\n              [(ngModel)]=\"user.email\"\r\n              style=\"text-align: inherit;\"\r\n              required\r\n            ></ion-input>\r\n          </ion-item>\r\n\r\n          <ion-item>\r\n            <ion-icon\r\n             color=\"medium\"\r\n              name=\"lock\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-input\r\n              type=\"password\"\r\n              name=\"password\"\r\n              placeholder=\"Informe sua senha\"\r\n              [(ngModel)]=\"user.password\"\r\n              style=\"text-align: inherit;\"\r\n              required\r\n            ></ion-input>\r\n          </ion-item>\r\n        </form>\r\n\r\n      <!-- achar uma forma de validar os campos, pegar do outro curso da udemy-->\r\n        <ion-content>\r\n    <ion-button\r\n    expand=\"block\"\r\n    type=\"submit\"\r\n    color=\"secondary\"\r\n    (click)=\"signIn()\"\r\n  >\r\n    Acessar\r\n  </ion-button>\r\n\r\n<ion-button\r\n  expand=\"block\"\r\n  fill=\"clear\"\r\n  (click)=\"createAccount()\"\r\n>\r\n  Participar\r\n</ion-button>\r\n\r\n</ion-content>\r\n\r\n\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -57,7 +57,7 @@ LoginPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div {\n  margin-left: auto;\n  margin-right: auto;\n  align-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n\n#corRoxa {\n  color: #8e68a1;\n}\n\n#corCyan {\n  color: #0fb3a3;\n}\n\nion-button {\n  color: #0fb3a3;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvbG9naW4vRDpcXHRjYy9zcmNcXGFwcFxccGFnZXNcXGxvZ2luXFxsb2dpbi5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxxQkFBQTtFQUNBLHlCQUFBO1VBQUEsbUJBQUE7QUNDSjs7QURFRTtFQUNFLGNBQUE7QUNDSjs7QURFRTtFQUNFLGNBQUE7QUNDSjs7QURFRTtFQUNFLGNBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImRpdiB7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxuICAgIG1hcmdpbi1yaWdodDogYXV0bztcclxuICAgIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgfVxyXG5cclxuICAjY29yUm94YSB7XHJcbiAgICBjb2xvcjogIzhlNjhhMTtcclxuICB9XHJcblxyXG4gICNjb3JDeWFuIHtcclxuICAgIGNvbG9yOiAjMGZiM2EzO1xyXG4gIH1cclxuXHJcbiAgaW9uLWJ1dHRvbntcclxuICAgIGNvbG9yOiAjMGZiM2EzO1xyXG4gIH1cclxuXHJcbiBcclxuICAiLCJkaXYge1xuICBtYXJnaW4tbGVmdDogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xuICBhbGlnbi1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59XG5cbiNjb3JSb3hhIHtcbiAgY29sb3I6ICM4ZTY4YTE7XG59XG5cbiNjb3JDeWFuIHtcbiAgY29sb3I6ICMwZmIzYTM7XG59XG5cbmlvbi1idXR0b24ge1xuICBjb2xvcjogIzBmYjNhMztcbn0iXX0= */"
+module.exports = "div {\n  margin-left: auto;\n  margin-right: auto;\n  align-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n\n#corRoxa {\n  color: #8e68a1;\n}\n\n#corCyan {\n  color: #0fb3a3;\n}\n\nion-button {\n  color: dodgerblue;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvbG9naW4vRDpcXHRjYy9zcmNcXGFwcFxccGFnZXNcXGxvZ2luXFxsb2dpbi5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxxQkFBQTtFQUNBLHlCQUFBO1VBQUEsbUJBQUE7QUNDSjs7QURFRTtFQUNFLGNBQUE7QUNDSjs7QURFRTtFQUNFLGNBQUE7QUNDSjs7QURFRTtFQUNFLGlCQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9sb2dpbi9sb2dpbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJkaXYge1xyXG4gICAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgICBtYXJnaW4tcmlnaHQ6IGF1dG87XHJcbiAgICBhbGlnbi1jb250ZW50OiBjZW50ZXI7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIH1cclxuXHJcbiAgI2NvclJveGEge1xyXG4gICAgY29sb3I6ICM4ZTY4YTE7XHJcbiAgfVxyXG5cclxuICAjY29yQ3lhbiB7XHJcbiAgICBjb2xvcjogIzBmYjNhMztcclxuICB9XHJcblxyXG4gIGlvbi1idXR0b257XHJcbiAgICBjb2xvcjogZG9kZ2VyYmx1ZTtcclxuICB9XHJcblxyXG5cclxuIiwiZGl2IHtcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gIG1hcmdpbi1yaWdodDogYXV0bztcbiAgYWxpZ24tY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuXG4jY29yUm94YSB7XG4gIGNvbG9yOiAjOGU2OGExO1xufVxuXG4jY29yQ3lhbiB7XG4gIGNvbG9yOiAjMGZiM2EzO1xufVxuXG5pb24tYnV0dG9uIHtcbiAgY29sb3I6IGRvZGdlcmJsdWU7XG59Il19 */"
 
 /***/ }),
 
@@ -82,8 +82,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/usuarioCadastro/usuario-cadastro.service */ "./src/app/services/usuarioCadastro/usuario-cadastro.service.ts");
 /* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
 /* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(angularfire2_auth__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/services/assistenteCadastro/assistente-cadastro.service */ "./src/app/services/assistenteCadastro/assistente-cadastro.service.ts");
-
 
 
 
@@ -95,15 +93,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let LoginPage = class LoginPage {
-    constructor(router, authService, toastController, network, usuarioCadastro, assistenteCadastro, auth) {
+    constructor(router, authService, toastController, network, usuarioCadastro, auth) {
         this.router = router;
         this.authService = authService;
         this.toastController = toastController;
         this.network = network;
         this.usuarioCadastro = usuarioCadastro;
-        this.assistenteCadastro = assistenteCadastro;
         this.auth = auth;
         this.user = new src_app_services_user__WEBPACK_IMPORTED_MODULE_2__["User"]();
+        this.buttonColor = '#000';
         let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
             this.presentToast('Sem Internet no Momento');
         });
@@ -112,7 +110,7 @@ let LoginPage = class LoginPage {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             const toast = yield this.toastController.create({
                 message: msg,
-                duration: 2000
+                duration: 3000
             });
             toast.present();
         });
@@ -159,7 +157,6 @@ LoginPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["ToastController"] },
     { type: _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_7__["Network"] },
     { type: src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_8__["UsuarioCadastroService"] },
-    { type: src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_10__["AssistenteCadastroService"] },
     { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_9__["AngularFireAuth"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -177,7 +174,6 @@ LoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["ToastController"],
         _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_7__["Network"],
         src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_8__["UsuarioCadastroService"],
-        src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_10__["AssistenteCadastroService"],
         angularfire2_auth__WEBPACK_IMPORTED_MODULE_9__["AngularFireAuth"]])
 ], LoginPage);
 

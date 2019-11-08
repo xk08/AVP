@@ -137,9 +137,6 @@ var UsuarioCadastroService = /** @class */ (function () {
     UsuarioCadastroService.prototype.updateUsuarioAdmin = function (id, valor) {
         return this.todosCollection.doc(id).update({ isAdmin: valor });
     };
-    UsuarioCadastroService.prototype.updateUsuarioAtivo = function (id, valor) {
-        return this.todosCollection.doc(id).update({ isAtivo: valor });
-    };
     UsuarioCadastroService.prototype.updateUsuarioProfissional = function (id, valor) {
         return this.todosCollection.doc(id).update({ isProfissional: valor });
     };
