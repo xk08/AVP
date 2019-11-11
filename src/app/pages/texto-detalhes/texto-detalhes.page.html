@@ -1,5 +1,5 @@
 <ion-header translucent>
-  <ion-toolbar color="#FFFF">
+  <ion-toolbar color="amareloprofissional">
     <ion-title style="text-align: center; font-size: 15pt">Mais informações</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="menu/home"></ion-back-button>
@@ -9,14 +9,16 @@
 <ion-content>
 
 
-  <ion-card style="background-color: lightcyan;">
+
+  <ion-card style="background-color: #FFFFA6;">
     <ion-card-header>
       <ion-card-subtitle style="font-size: 12pt;">Titulo do texto</ion-card-subtitle>
       <ion-card-title>{{tituloTela}}</ion-card-title>
     </ion-card-header>
   </ion-card>
 
-  <ion-card style="background-color:lightgray;">
+
+  <ion-card style="background-color:#FFFFC7;">
     <ion-card-header>
       <ion-card-subtitle style="font-size: 12pt;">Autor do Texto</ion-card-subtitle>
       <ion-card-title *ngIf="!autorTextoTela">Autor não encontrado</ion-card-title>
@@ -25,7 +27,8 @@
   </ion-card>
 
 
-  <ion-card style="background-color: lightsteelblue;">
+
+  <ion-card style="background-color: #FFFFD2;">
     <ion-card-header>
       <ion-card-subtitle style="font-size: 12pt;">Mais informações para você</ion-card-subtitle>
       <ion-card-title *ngIf="!maisInfoTela">
@@ -34,5 +37,6 @@
       <ion-card-title>{{maisInfoTela}}</ion-card-title>
     </ion-card-header>
   </ion-card>
+
 
 </ion-content>

@@ -14,16 +14,21 @@ export class AssistenteCadastroService {
   }
 
   getTodos(idUsuario: string) {
-    return this.db.collection<AssistenteCadastro>('AssistenteCadastro', ref => ref.where('idUsuario', '==', idUsuario)).snapshotChanges().pipe(
-      map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          console.log(id);
-          return { id, ...data };
-        });
-      })
-    );
+    return this.db
+      .collection<AssistenteCadastro>('AssistenteCadastro', ref =>
+        ref.where('idUsuario', '==', idUsuario)
+      )
+      .snapshotChanges()
+      .pipe(
+        map(actions => {
+          return actions.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            console.log(id);
+            return { id, ...data };
+          });
+        })
+      );
   }
 
   getTodo(id) {

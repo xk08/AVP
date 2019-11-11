@@ -10,6 +10,7 @@ import { ProfissionalConteudoImagem } from 'src/app/services/profissionalConteud
 import { ProfissionalConteudoImagemService } from 'src/app/services/profissionalConteudoImagem/profissional-conteudo-imagem.service';
 import { ProfissionalConteudoVideo } from 'src/app/services/profissionalConteudoVideo/profissionalConteudoVideo';
 import { ProfissionalConteudoVideoService } from 'src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service';
+import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario-cadastro.service';
 
 @Component({
   selector: 'app-profissional-conteudo-especifico',
@@ -21,6 +22,9 @@ export class ProfissionalConteudoEspecificoPage implements OnInit, OnDestroy {
   public idadeDoIFF: string;
   public admin: boolean;
   public idadeUsuario: number;
+  public idadeConvertida: number;
+
+
 
   idUsuario: string;
 
@@ -51,6 +55,7 @@ export class ProfissionalConteudoEspecificoPage implements OnInit, OnDestroy {
   public listProfissionalConteudoTexto: Subscription;
   public listProfissionalConteudoImagem: Subscription;
   public listProfissionalConteudoVideo: Subscription;
+  public listUsuario: Subscription;
 
   public avaliacaoGlobal: number;
 
@@ -61,7 +66,8 @@ export class ProfissionalConteudoEspecificoPage implements OnInit, OnDestroy {
     private profissionalConteudoImagemService: ProfissionalConteudoImagemService,
     private profissionalConteudoVideoService: ProfissionalConteudoVideoService,
     private queroConversarService: QueroConversarService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private usuarioCadastro: UsuarioCadastroService,
   ) {}
 
   public listQueroConversar: Subscription;
@@ -76,7 +82,7 @@ export class ProfissionalConteudoEspecificoPage implements OnInit, OnDestroy {
 
   buscaDadosTexto(idUsuario) {
     //Pegando os dados informados pelo usuário, sobre a sua situação
-    this.listQueroConversar = this.queroConversarService.getTodo(this.idUsuario).subscribe(res => {
+      this.queroConversarService.getTodo(this.idUsuario).subscribe(res => {
       this.avalicaoQueroConversar = res.avaliacao;
       this.avaliacaoGlobal = this.avalicaoQueroConversar;
 
@@ -98,7 +104,7 @@ export class ProfissionalConteudoEspecificoPage implements OnInit, OnDestroy {
 
   buscaDadosImagem(idUsuario) {
     //Pegando os dados informados pelo usuário, sobre a sua situação
-    this.listQueroConversar = this.queroConversarService.getTodo(this.idUsuario).subscribe(res => {
+    this.queroConversarService.getTodo(this.idUsuario).subscribe(res => {
       this.avalicaoQueroConversar = res.avaliacao;
       this.avaliacaoGlobal = this.avalicaoQueroConversar;
 
@@ -121,7 +127,7 @@ export class ProfissionalConteudoEspecificoPage implements OnInit, OnDestroy {
 
   buscaDadosVideo(idUsuario) {
     //Pegando os dados informados pelo usuário, sobre a sua situação
-    this.listQueroConversar = this.queroConversarService.getTodo(this.idUsuario).subscribe(res => {
+    this.queroConversarService.getTodo(this.idUsuario).subscribe(res => {
       this.avalicaoQueroConversar = res.avaliacao;
       this.avaliacaoGlobal = this.avalicaoQueroConversar;
 
@@ -141,10 +147,5 @@ export class ProfissionalConteudoEspecificoPage implements OnInit, OnDestroy {
         });
     });
   }
-  ngOnDestroy() {
-    this.listQueroConversar.unsubscribe();
-    this.listProfissionalConteudoTexto.unsubscribe();
-    this.listProfissionalConteudoImagem.unsubscribe();
-    this.listProfissionalConteudoVideo.unsubscribe();
-  }
+  ngOnDestroy() {}
 }

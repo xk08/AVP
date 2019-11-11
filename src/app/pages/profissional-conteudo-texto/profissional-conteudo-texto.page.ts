@@ -45,7 +45,6 @@ export class ProfissionalConteudoTextoPage implements OnInit {
     texto: '',
     maisInfoTexto: '',
     idade: '',
-    nivelEmergencia: '',
     avaliacao: null
   };
 

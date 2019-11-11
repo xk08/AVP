@@ -1,9 +1,11 @@
 <ion-header translucent>
-    <ion-toolbar color="#FFFF">
+  <ion-toolbar color="#FFFF">
 
-      <ion-title style="text-align: center; font-size: 12pt"> Informações emergênciais</ion-title>
-    </ion-toolbar>
+
+    <ion-title style="text-align: center; font-size: 12pt">Informações emergênciais</ion-title>
+  </ion-toolbar>
 </ion-header>
+
 
 <ion-content>
   <ion-grid>
@@ -16,120 +18,133 @@
         size-lg="3"
         size-xl="3"
       >
-      <form #form="ngForm">
+        <form #form="ngForm">
 
 
-        <!-- PRIMEIRO NÚMERO -->
+
+          <!-- PRIMEIRO NÚMERO -->
           <ion-card>
-              <ion-card-header>
-                <ion-card-title style="font-size: 17px; text-align: center;" >Informações da primeira pessoa</ion-card-title>
-              </ion-card-header>
+            <ion-card-header>
+              <ion-card-title style="font-size: 17px; text-align: center;">Informações da primeira pessoa</ion-card-title>
+            </ion-card-header>
 
-              <ion-item>
-                  <ion-icon
-                    name="md-call"
-                    color="dark"
-                    slot="start"
-                  ></ion-icon>
-                  <ion-input
-                    type="number"
-                    name="primeiroNumero"
-                    placeholder="Numero de celular"
-                    autofocus="true"
-                    [(ngModel)]='todas.primeiroNumero'
-                    required
-                  ></ion-input>
-                </ion-item>
 
-                <ion-item>
-                    <ion-icon
-                      name="ios-person"
-                      color="dark"
-                      slot="start"
-                    ></ion-icon>
-                    <ion-input
-                      type="text"
-                      name="nomePrimeiroNumero"
-                      placeholder="Nome ou apelido"
-                      autofocus="true"
-                      [(ngModel)]='todas.nomePrimeiroNumero'
-                      required
-                    ></ion-input>
-                </ion-item>
+            <ion-item>
+              <ion-icon
+                name="md-call"
+                color="primary"
+                slot="start"
+              ></ion-icon>
+              <ion-input
+                type="number"
+                name="primeiroNumero"
+                placeholder="Numero de celular"
+                autofocus="true"
+                [(ngModel)]='todas.primeiroNumero'
+                required
+              ></ion-input>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-icon
+                name="ios-person"
+                color="primary"
+                slot="start"
+              ></ion-icon>
+              <ion-input
+                type="text"
+                name="nomePrimeiroNumero"
+                placeholder="Nome ou apelido"
+                autofocus="true"
+                [(ngModel)]='todas.nomePrimeiroNumero'
+                required
+              ></ion-input>
+            </ion-item>
           </ion-card>
+
 
           <!-- SEGUNDO NÚMERO -->
 
+
           <ion-card>
-              <ion-card-header>
-                <ion-card-title style="font-size: 17px; text-align: center;">Informações da segunda pessoa</ion-card-title>
-              </ion-card-header>
+            <ion-card-header>
+              <ion-card-title style="font-size: 17px; text-align: center;">Informações da segunda pessoa</ion-card-title>
+            </ion-card-header>
 
-              <ion-item>
-                  <ion-icon
-                    name="md-call"
-                    color="dark"
-                    slot="start"
-                  ></ion-icon>
-                  <ion-input
-                        type="number"
-                        name="segundoNumero"
-                        placeholder="Segundo número"
-                        autofocus="true"
-                        [(ngModel)]='todas.segundoNumero'
-                        required
-                      ></ion-input>
-                </ion-item>
 
-                <ion-item>
-                    <ion-icon
-                      name="ios-person"
-                      color="dark"
-                      slot="start"
-                    ></ion-icon>
-                    <ion-input
-                        type="text"
-                        name="nomeSegundoNumero"
-                        placeholder="Nome ou apelido"
-                        autofocus="true"
-                        [(ngModel)]='todas.nomeSegundoNumero'
-                        required
-                      ></ion-input>
-                </ion-item>
+            <ion-item>
+              <ion-icon
+                name="md-call"
+                color="primary"
+                slot="start"
+              ></ion-icon>
+              <ion-input
+                type="number"
+                name="segundoNumero"
+                placeholder="Segundo número"
+                autofocus="true"
+                [(ngModel)]='todas.segundoNumero'
+                required
+              ></ion-input>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-icon
+                name="ios-person"
+                color="primary"
+                slot="start"
+              ></ion-icon>
+              <ion-input
+                type="text"
+                name="nomeSegundoNumero"
+                placeholder="Nome ou apelido"
+                autofocus="true"
+                [(ngModel)]='todas.nomeSegundoNumero'
+                required
+              ></ion-input>
+            </ion-item>
           </ion-card>
+
 
           <!-- FRASE QUE GOSTA -->
 
+
           <ion-card>
-              <ion-card-header>
-                <ion-card-title style="font-size: 17px; text-align: center;">Frase que você gosta</ion-card-title>
-              </ion-card-header>
-          <ion-item>
-            <ion-icon
-              name="ios-bulb"
-              color="dark"
-              slot="start"
-            ></ion-icon>
-            <ion-textarea
-              name="frase"
-              autofocus="true"
-              [(ngModel)]='todas.frase'
-              required
-              rows="5"
-              cols="10"
-              placeholder="Escreva aqui sua frase..."
-            ></ion-textarea>
-          </ion-item>
+            <ion-card-header>
+              <ion-card-title style="font-size: 17px; text-align: center;">Frase que você gosta</ion-card-title>
+            </ion-card-header>
+            <ion-item>
+              <ion-icon
+                name="ios-bulb"
+                color="primary"
+                slot="start"
+              ></ion-icon>
+              <ion-textarea
+                name="frase"
+                autofocus="true"
+                [(ngModel)]='todas.frase'
+                required
+                rows="5"
+                cols="10"
+                placeholder="Escreva aqui sua frase..."
+              ></ion-textarea>
+            </ion-item>
           </ion-card>
+
 
           <!-- FOTO QUE GOSTA -->
 
-          <ion-card>
-              <ion-card-header>
-                <ion-card-title style="font-size: 17px; text-align: center;">Foto que você gosta e admira</ion-card-title>
-              </ion-card-header>
 
-              <ion-item (click)="abrirGaleria()">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title style="font-size: 17px; text-align: center;">Foto que você gosta e admira</ion-card-title>
+            </ion-card-header>
+
+
+            <ion-item (click)="abrirGaleria()">
+
 
               <ion-icon
                 name="add"
@@ -139,27 +154,44 @@
               Clique para escolher
             </ion-item>
 
-              <ion-label style="font-size: 12pt;">Prè-Visualização</ion-label>
-              <img [src]="todas.foto">
+
+            <ion-card *ngIf="todas.foto">
+              <ion-label
+                color="primary"
+                style="font-size: 12pt; text-align: center;"
+              >
+                Prè-Visualização
+              </ion-label>
+              <img
+                [src]="todas.foto"
+                width="180"
+                height="240"
+              >
+            </ion-card>
 
 
-        </ion-card>
+
+          </ion-card>
+
 
 
           <!-- BOTÃO DE CADASTRO -->
 
+
           <ion-button
+            fill="outline"
             expand="block"
             type="submit"
             class="login-button"
             (click)="saveTodo()"
             color="primary"
           >
-            Criar Conteúdo
+            Salvar
           </ion-button>
         </form>
       </ion-col>
     </ion-row>
   </ion-grid>
+
 
 </ion-content>

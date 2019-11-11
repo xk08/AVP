@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n    <ion-toolbar color=\"dark\">\r\n      <ion-buttons slot=\"start\">\r\n        <ion-back-button defaultHref=\"menu/home\"></ion-back-button>\r\n      </ion-buttons>\r\n      <ion-title>Personalize seu assistente</ion-title>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n\r\n<ion-content>\r\n  <ion-card>\r\n    <ion-grid>\r\n      <form #form=\"ngForm\">\r\n        <ion-row>\r\n          <ion-col size=\"12\">\r\n            <ion-item>\r\n              <ion-input\r\n                required\r\n                name=\"apelido\"\r\n                type=\"text\"\r\n                placeholder=\"Escolha um 'apelido' \"\r\n                [(ngModel)]='todas.apelido'\r\n              ></ion-input>\r\n            </ion-item>\r\n          </ion-col>\r\n          <ion-col size=\"12\">\r\n            <ion-list>\r\n              <ion-grid fixed>\r\n\r\n                <ion-col size=\"12\">\r\n\r\n                  <ion-item (click)=\"abrirGaleria()\">\r\n                    <ion-icon\r\n                      name=\"add\"\r\n                      color=\"primary\"\r\n                      slot=\"start\"\r\n                    ></ion-icon>\r\n                    Clique para escolher\r\n                  </ion-item>\r\n\r\n                </ion-col>\r\n              </ion-grid>\r\n            </ion-list>\r\n          </ion-col>\r\n          <ion-col size=\"12\">\r\n            <ion-button\r\n              expand=\"full\"\r\n              (click)=\"saveTodo()\"\r\n              color=\"dark\"\r\n            >\r\n              Salvar informações\r\n            </ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </form>\r\n    </ion-grid>\r\n  </ion-card>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"success\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"menu/home\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Personalize seu assistente</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n  <ion-card>\r\n    <ion-grid>\r\n      <form #form=\"ngForm\">\r\n        <ion-row>\r\n          <ion-col size=\"12\">\r\n            <ion-item>\r\n              <ion-input\r\n                required\r\n                name=\"apelido\"\r\n                type=\"text\"\r\n                placeholder=\"Escolha um 'apelido' para ele \"\r\n                [(ngModel)]='todas.apelido'\r\n              ></ion-input>\r\n            </ion-item>\r\n          </ion-col>\r\n          <ion-col size=\"12\">\r\n            <ion-list>\r\n              <ion-grid\r\n                fixed\r\n                *ngFor=\"let assistente of listAssistente\"\r\n              >\r\n                <ion-col size=\"12\">\r\n                  <ion-item (click)=\"abrirGaleria()\">\r\n                    <ion-icon\r\n                      name=\"add\"\r\n                      color=\"success\"\r\n                      slot=\"start\"\r\n                    ></ion-icon>\r\n                    Clique aqui e escolha\r\n                  </ion-item>\r\n                </ion-col>\r\n                <ion-card *ngIf=\"assistente.icone\">\r\n                  <ion-card-header>\r\n                    <ion-card-subtitle>Pré Visualização</ion-card-subtitle>\r\n                  </ion-card-header>\r\n                  <img\r\n                    [src]=\"assistente.icone\"\r\n                    height=\"240px\"\r\n                    width=\"180px\"\r\n                  >\r\n                </ion-card>\r\n              </ion-grid>\r\n            </ion-list>\r\n          </ion-col>\r\n          <ion-col size=\"12\">\r\n            <ion-button\r\n              expand=\"full\"\r\n              (click)=\"saveTodo()\"\r\n              color=\"success\"\r\n            >\r\n              Pronto\r\n            </ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </form>\r\n    </ion-grid>\r\n  </ion-card>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -108,7 +108,7 @@ let CadastroAssistentePage = class CadastroAssistentePage {
     ngOnInit() {
         this.idUsuario = this.auth.auth.currentUser.uid;
         this.idCadastroAssistente = this.route.snapshot.params['id'];
-        if (this.idCadastroAssistente) {
+        if (this.idUsuario) {
             this.loadTodo();
         }
     }
@@ -118,9 +118,9 @@ let CadastroAssistentePage = class CadastroAssistentePage {
                 message: 'Carregando ""algoo""...'
             });
             yield loading.present();
-            this.assistenteCadastroService.getTodo(this.idCadastroAssistente).subscribe(res => {
+            this.assistenteCadastroService.getTodos(this.idUsuario).subscribe(res => {
                 loading.dismiss();
-                this.todas = res;
+                this.listAssistente = res;
             });
         });
     }
@@ -131,6 +131,9 @@ let CadastroAssistentePage = class CadastroAssistentePage {
             });
             yield loading.present();
             if (this.idCadastroAssistente) {
+                if (this.photo != '') {
+                    this.todas.icone = this.photo;
+                }
                 this.assistenteCadastroService.updateTodo(this.todas, this.idCadastroAssistente).then(() => {
                     loading.dismiss();
                     this.navCtrl.navigateBack('/menu/home');
@@ -140,6 +143,7 @@ let CadastroAssistentePage = class CadastroAssistentePage {
                 if (this.photo != '') {
                     this.todas.icone = this.photo;
                 }
+                this.todas.idUsuario = this.idUsuario;
                 this.assistenteCadastroService.addTodo(this.todas, this.idUsuario).then(() => {
                     loading.dismiss();
                     this.navCtrl.navigateBack('/menu/home');
@@ -154,7 +158,6 @@ let CadastroAssistentePage = class CadastroAssistentePage {
                 destinationType: this.camera.DestinationType.DATA_URL,
                 encodingType: this.camera.EncodingType.JPEG,
                 sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-                //mediaType: this.camera.MediaType.PICTURE,
                 allowEdit: true,
                 targetWidth: 300,
                 targetHeight: 300,
@@ -162,13 +165,9 @@ let CadastroAssistentePage = class CadastroAssistentePage {
             };
             try {
                 this.camera.getPicture(opcao).then(imageData => {
-                    // imageData is either a base64 encoded string or a file URI
-                    // If it's base64 (DATA_URL):
                     let base64Image = 'data:image/jpeg;base64,' + imageData;
                     this.photo = base64Image;
-                }, err => {
-                    // Handle error
-                });
+                }, err => { });
             }
             catch (error) {
                 this.overlay.alert(error);

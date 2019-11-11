@@ -547,7 +547,12 @@ var AssistenteCadastroService = /** @class */ (function () {
         this.todosCollection = db.collection('AssistenteCadastro');
     }
     AssistenteCadastroService.prototype.getTodos = function (idUsuario) {
-        return this.db.collection('AssistenteCadastro', function (ref) { return ref.where('idUsuario', '==', idUsuario); }).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+        return this.db
+            .collection('AssistenteCadastro', function (ref) {
+            return ref.where('idUsuario', '==', idUsuario);
+        })
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
             return actions.map(function (a) {
                 var data = a.payload.doc.data();
                 var id = a.payload.doc.id;

@@ -864,7 +864,10 @@ let AssistenteCadastroService = class AssistenteCadastroService {
         this.todosCollection = db.collection('AssistenteCadastro');
     }
     getTodos(idUsuario) {
-        return this.db.collection('AssistenteCadastro', ref => ref.where('idUsuario', '==', idUsuario)).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+        return this.db
+            .collection('AssistenteCadastro', ref => ref.where('idUsuario', '==', idUsuario))
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
                 const data = a.payload.doc.data();
                 const id = a.payload.doc.id;

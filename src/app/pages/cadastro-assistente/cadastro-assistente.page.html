@@ -1,12 +1,11 @@
 <ion-header>
-    <ion-toolbar color="dark">
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="menu/home"></ion-back-button>
-      </ion-buttons>
-      <ion-title>Personalize seu assistente</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Personalize seu assistente</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
   <ion-card>
     <ion-grid>
@@ -18,27 +17,37 @@
                 required
                 name="apelido"
                 type="text"
-                placeholder="Escolha um 'apelido' "
+                placeholder="Escolha um 'apelido' para ele "
                 [(ngModel)]='todas.apelido'
               ></ion-input>
             </ion-item>
           </ion-col>
           <ion-col size="12">
             <ion-list>
-              <ion-grid fixed>
-
+              <ion-grid
+                fixed
+                *ngFor="let assistente of listAssistente"
+              >
                 <ion-col size="12">
-
                   <ion-item (click)="abrirGaleria()">
                     <ion-icon
                       name="add"
-                      color="primary"
+                      color="success"
                       slot="start"
                     ></ion-icon>
-                    Clique para escolher
+                    Clique aqui e escolha
                   </ion-item>
-
                 </ion-col>
+                <ion-card *ngIf="assistente.icone">
+                  <ion-card-header>
+                    <ion-card-subtitle>Pré Visualização</ion-card-subtitle>
+                  </ion-card-header>
+                  <img
+                    [src]="assistente.icone"
+                    height="240px"
+                    width="180px"
+                  >
+                </ion-card>
               </ion-grid>
             </ion-list>
           </ion-col>
@@ -46,9 +55,9 @@
             <ion-button
               expand="full"
               (click)="saveTodo()"
-              color="dark"
+              color="success"
             >
-              Salvar informações
+              Pronto
             </ion-button>
           </ion-col>
         </ion-row>

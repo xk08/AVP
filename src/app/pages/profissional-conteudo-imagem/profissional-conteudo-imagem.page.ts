@@ -43,7 +43,6 @@ export class ProfissionalConteudoImagemPage implements OnInit {
   public todas: ProfissionalConteudoImagem = {
     idUsuario: '',
     idade: '',
-    nivelEmergencia: '',
     avaliacao: null,
     tituloImagem: '',
     autorImagem: '',

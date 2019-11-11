@@ -13,24 +13,6 @@ export class QueroConversarService {
     this.todosCollection = db.collection<QueroConversar>('QueroConversar'); // Criando a coleção
   }
 
-  /*
-  getTodosPorId(idUsuario: string) {
-    return this.db
-      .collection<QueroConversar>('QueroConversar', ref => ref.where('idUsuario', '==', idUsuario))
-      .snapshotChanges()
-      .pipe(
-        map(actions => {
-          return actions.map(a => {
-            const data = a.payload.doc.data();
-            const id = a.payload.doc.id;
-            console.log(id);
-            return { id, ...data };
-          });
-        })
-      );
-  }
-  */
-
   getTodos() {
     return this.todosCollection.snapshotChanges().pipe(
       map(actions => {

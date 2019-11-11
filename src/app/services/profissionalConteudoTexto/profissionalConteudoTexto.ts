@@ -1,7 +1,6 @@
 export class ProfissionalConteudoTexto {
   idUsuario?: string;
   idade?: string;
-  nivelEmergencia?: string;
   avaliacao?: number;
   tituloTexto?: string;
   autorTexto?: string;

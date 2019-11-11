@@ -84,7 +84,7 @@ export class HomePage implements OnInit, OnDestroy {
       var currentYear = currentDate.getFullYear();
       var birthdayThisYear = new Date(currentYear, dob.getMonth(), dob.getDate());
       var age = currentYear - dob.getFullYear();
-      this.idadeConvertida = age ;
+      this.idadeConvertida = age;
 
       //Testando a idade do usuário e atribuindo a uma variavel global
       if (this.idadeConvertida >= 8 && this.idadeConvertida <= 12) {
@@ -97,8 +97,8 @@ export class HomePage implements OnInit, OnDestroy {
       } else {
       }
 
-      if (this.idadeConvertida >= 18 && this.idadeConvertida <= 35) {
-        this.idadeDoIFF = '18 a 35';
+      if (this.idadeConvertida >= 18 && this.idadeConvertida <= 99) {
+        this.idadeDoIFF = '18 anos ou mais';
       }
 
       //Buscando os dados do service em especifico
@@ -145,8 +145,8 @@ export class HomePage implements OnInit, OnDestroy {
       } else {
       }
 
-      if (this.idadeConvertida >= 18 && this.idadeConvertida <= 35) {
-        this.idadeDoIFF = '18 a 35';
+      if (this.idadeConvertida >= 18 && this.idadeConvertida <= 99) {
+        this.idadeDoIFF = '18 anos ou mais';
       }
 
       //Buscando os dados do service em especifico
@@ -194,8 +194,8 @@ export class HomePage implements OnInit, OnDestroy {
       } else {
       }
 
-      if (this.idadeConvertida >= 18 && this.idadeConvertida <= 35) {
-        this.idadeDoIFF = '18 a 35';
+      if (this.idadeConvertida >= 18 && this.idadeConvertida <= 99) {
+        this.idadeDoIFF = '18 anos ou mais';
       }
 
       //Buscando os dados do service em especifico

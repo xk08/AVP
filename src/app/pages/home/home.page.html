@@ -8,7 +8,7 @@
           fill="outline"
           (click)="direcionaPraTela()"
         >
-          Quero Conversar
+          Como estou Hoje
         </ion-button>
       </div>
     </ion-buttons>
@@ -34,19 +34,27 @@
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content>
+
+
 
   <ion-card
     *ngFor="let texto of profissionalConteudoTextoTela"
-    style="background-color:lightgoldenrodyellow;"
+    style="background-color: #FFFFC4;;"
   >
     <ion-card-header *ngIf="tituloTextoTela == '' ">
       <ion-card-title hidden></ion-card-title>
     </ion-card-header>
 
+
+
     <ion-card-header *ngIf="tituloTextoTela">
       <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>
     </ion-card-header>
+
+
 
     <ion-card-content
       *ngIf="descricaoTextoTela"
@@ -60,6 +68,8 @@
     >
       Nenhum texto foi cadastrado até o momento.
     </ion-card-content>
+
+
 
 
 
@@ -81,18 +91,27 @@
     <ion-item
       href
       class="activated"
-      style="background-color: lightgray;"
+      style="background-color: #FFFFC4;"
       [routerLink]="['/menu/texto-detalhes', texto.id]"
     >
       <ion-label class="ion-text-center">Mais informações</ion-label>
     </ion-item>
 
+
+
   </ion-card>
 
-  <ion-card *ngFor="let imagem of profissionalConteudoImagemTela">
+
+
+  <ion-card
+    *ngFor="let imagem of profissionalConteudoImagemTela"
+    style="color: #9AFFF1;"
+  >
+
+
 
     <ion-card-content *ngIf="imagem.imagem">
-      <!-- achar uma maneira de melhorar aqui-->
+      <!-- achar uma maneira de melhorar aqui -->
       <img
         src="{{imagem.imagem}}"
         width="350px"
@@ -103,18 +122,24 @@
       <ion-card-header style="font-size: 15pt; text-align: center;">Imagem não encontrada</ion-card-header>
     </ion-card-content>
 
+
+
     <ion-card-header *ngIf="imagem.tituloImagem == ''">
       <ion-card-title style="text-align: center;">Titulo não cadastrado</ion-card-title>
     </ion-card-header>
+
+
 
     <ion-card-header *ngIf="imagem.tituloImagem">
       <ion-card-title style="text-align: center;">{{imagem.tituloImagem}}</ion-card-title>
     </ion-card-header>
 
+
+
     <ion-item
       href
       class="activated"
-      style="background-color: silver;"
+      style="background-color: lightsteelblue;"
       [routerLink]="['/menu/imagem-detalhes', imagem.id]"
     >
       <ion-label class="ion-text-center">Ver mais informações</ion-label>
@@ -122,7 +147,14 @@
   </ion-card>
 
 
-  <ion-card *ngFor="let video of profissionalConteudoVideoTela">
+
+
+  <ion-card
+    *ngFor="let video of profissionalConteudoVideoTela"
+    style="background-color: #D0BBFF;"
+  >
+
+
     <!-- achar alguma forma de pegar a thumbs -->
     <img src="../../../assets/img/abrirmente.PNG">
     <ion-card-header>
@@ -130,6 +162,8 @@
       <ion-card-title>{{video.tituloVideo}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>{{video.descricaoVideo}}</ion-card-content>
+
+
 
 
     <ion-item
@@ -141,6 +175,8 @@
       <ion-label class="ion-text-center">Assistir ao video</ion-label>
     </ion-item>
   </ion-card>
+
+
 
 
 </ion-content>

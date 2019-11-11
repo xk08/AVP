@@ -1,4 +1,12 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  Input,
+  Output,
+  EventEmitter,
+  OnDestroy
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { QueroConversar } from 'src/app/services/queroConversar/queroConversar';
 import { ActivatedRoute } from '@angular/router';
@@ -14,7 +22,10 @@ import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario
   templateUrl: './quero-conversar.page.html',
   styleUrls: ['./quero-conversar.page.scss']
 })
-export class QueroConversarPage implements OnInit {
+export class QueroConversarPage implements OnInit, OnDestroy {
+  ngOnDestroy() {
+    this.list.unsubscribe();
+  }
   //Dados do usuario
   public nomeUsuarioLogado: String;
   public list: Subscription;
@@ -34,7 +45,6 @@ export class QueroConversarPage implements OnInit {
   public todas: QueroConversar = {
     id: '',
     idUsuario: '',
-    textoLivre: '',
     avaliacao: 0
   };
 
@@ -112,14 +122,14 @@ export class QueroConversarPage implements OnInit {
       this.todas.avaliacao = this.geral;
       this.queroConversarService.updateTodo(this.todas, this.idQueroConversar).then(() => {
         loading.dismiss();
-        this.navCtrl.navigateBack('/menu/home');
+        // this.navCtrl.navigateBack('/menu/home');
       });
     } else {
       this.todas.avaliacao = this.geral;
       this.todas.idUsuario = this.idUsuario;
       this.queroConversarService.addTodo(this.todas, this.idUsuario).then(() => {
         loading.dismiss();
-        this.navCtrl.navigateBack('/menu/conteudo-especifico');
+        this.navCtrl.navigateBack('profissional-conteudo-especifico');
       });
     }
   }

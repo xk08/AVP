@@ -15,10 +15,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class CadastroAssistentePage implements OnInit {
   @ViewChild('form', null) form: NgForm;
- 
-  public idCadastroAssistente: string ; 
-  public idUsuario: string ; 
+
+  public idCadastroAssistente: string;
+  public idUsuario: string;
   public photo: string = '';
+
+  public listAssistente: AssistenteCadastro[] ;
 
   public todas: AssistenteCadastro = {
     idUsuario: '',
@@ -37,10 +39,10 @@ export class CadastroAssistentePage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.idUsuario = this.auth.auth.currentUser.uid ; 
+    this.idUsuario = this.auth.auth.currentUser.uid;
     this.idCadastroAssistente = this.route.snapshot.params['id'];
-  
-    if (this.idCadastroAssistente) {
+
+    if (this.idUsuario) {
       this.loadTodo();
     }
   }
@@ -51,9 +53,9 @@ export class CadastroAssistentePage implements OnInit {
     });
     await loading.present();
 
-    this.assistenteCadastroService.getTodo(this.idCadastroAssistente).subscribe(res => {
+    this.assistenteCadastroService.getTodos(this.idUsuario).subscribe(res => {
       loading.dismiss();
-      this.todas = res;
+      this.listAssistente = res;
     });
   }
   async saveTodo() {
@@ -63,7 +65,9 @@ export class CadastroAssistentePage implements OnInit {
     await loading.present();
 
     if (this.idCadastroAssistente) {
-
+      if (this.photo != '') {
+        this.todas.icone = this.photo;
+      }
       this.assistenteCadastroService.updateTodo(this.todas, this.idCadastroAssistente).then(() => {
         loading.dismiss();
         this.navCtrl.navigateBack('/menu/home');
@@ -72,6 +76,7 @@ export class CadastroAssistentePage implements OnInit {
       if (this.photo != '') {
         this.todas.icone = this.photo;
       }
+      this.todas.idUsuario = this.idUsuario;
       this.assistenteCadastroService.addTodo(this.todas, this.idUsuario).then(() => {
         loading.dismiss();
         this.navCtrl.navigateBack('/menu/home');
@@ -85,7 +90,6 @@ export class CadastroAssistentePage implements OnInit {
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      //mediaType: this.camera.MediaType.PICTURE,
       allowEdit: true,
       targetWidth: 300,
       targetHeight: 300,
@@ -95,14 +99,10 @@ export class CadastroAssistentePage implements OnInit {
     try {
       this.camera.getPicture(opcao).then(
         imageData => {
-          // imageData is either a base64 encoded string or a file URI
-          // If it's base64 (DATA_URL):
           let base64Image = 'data:image/jpeg;base64,' + imageData;
           this.photo = base64Image;
         },
-        err => {
-          // Handle error
-        }
+        err => {}
       );
     } catch (error) {
       this.overlay.alert(error);

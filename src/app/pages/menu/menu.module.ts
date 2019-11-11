@@ -15,12 +15,6 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
-        path: 'conteudo-especifico',
-        loadChildren:
-          '../profissional-conteudo-especifico/profissional-conteudo-especifico.module#ProfissionalConteudoEspecificoPageModule',
-        canActivate: [AuthGuard]
-      },
-      {
         path: 'texto-detalhes/:id',
         loadChildren: '../texto-detalhes/texto-detalhes.module#TextoDetalhesPageModule',
         canActivate: [AuthGuard]

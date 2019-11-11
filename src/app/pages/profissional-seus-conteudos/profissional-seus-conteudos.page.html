@@ -26,7 +26,7 @@
 
   <!-- RESPONSÁVEL PELOS TEXTOS-->
   <ion-list>
-    
+
       <ion-header translucent>
           <ion-toolbar translucent color="amareloprofissional">
             <ion-title style="font-size: 13pt">Seus textos cadastrados</ion-title>
@@ -87,7 +87,7 @@
             <ion-title style="font-size: 13pt">Suas imagens cadastradas</ion-title>
           </ion-toolbar>
         </ion-header>
-   
+
     <ion-item-sliding
     *ngFor="let imagem of profissionalConteudoImagem"
 
@@ -157,17 +157,17 @@
               <ion-title style="font-size: 13pt">Seus videos cadastrados</ion-title>
             </ion-toolbar>
           </ion-header>
-      
+
         <ion-item-sliding
         *ngFor="let video of profissionalConteudoVideo"
         >
-    
-    
+
+
           <ion-item lines="full">
             <ion-col>
-            
+
             <ion-row>
-              
+
               <ion-col>
                 <ion-row class="ion-padding">
                   <ion-label  style=" font-size:16pt; color: black;">Titulo do video</ion-label>
@@ -178,7 +178,7 @@
                     <ion-text style="font-size: 12pt;">{{ video.autorVideo }}</ion-text>
                   </ion-row>
               </ion-col>
-              
+
               <ion-col>
                   <!-- ver se consigo pegar dinamico a THUMB -->
                     <img
@@ -187,12 +187,12 @@
                     height="150px"
                   >
                   </ion-col>
-    
-    
+
+
             </ion-row>
           </ion-col>
           </ion-item>
-    
+
           <ion-item-options side="start">
             <ion-item-option
               [routerLink]="['/menu/profissional-conteudo/profissional-conteudo-video', video.id]"
@@ -204,9 +204,9 @@
               Editar
             </ion-item-option>
           </ion-item-options>
-    
+
           <ion-item-options side="end">
-    
+
             <ion-item-option
               color="danger"
               (click)="removeVideo(video.id)"
@@ -218,13 +218,13 @@
               Remover
             </ion-item-option>
           </ion-item-options>
-    
+
         </ion-item-sliding>
       </ion-list>
-    
 
- 
-  <!-- Looping dos Videos 
+
+
+  <!-- Looping dos Videos
 
   <ion-card
     *ngFor="let video of profissionalConteudoVideo"
@@ -235,7 +235,7 @@
       <ion-card-subtitle>Video cadastrado</ion-card-subtitle>
     </ion-card-header>
 
-    <!-- achar alguma forma de pegar a thumbs 
+    <!-- achar alguma forma de pegar a thumbs
     <img src="../../../assets/img/abrirmente.PNG">
     <ion-card-header>
       <ion-card-subtitle>Video do Youtube</ion-card-subtitle>

@@ -44,7 +44,6 @@ export class ProfissionalConteudoVideoPage implements OnInit {
     linkVideo: '',
     descricaoVideo: '',
     idade: '',
-    nivelEmergencia: '',
     avaliacao: null
   };
 

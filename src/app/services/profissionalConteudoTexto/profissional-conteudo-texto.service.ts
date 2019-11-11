@@ -59,8 +59,6 @@ export class ProfissionalConteudoTextoService {
         })
       );
   }
-
-
   getTodosPorIdade(idade: string) {
     return this.db
       .collection<ProfissionalConteudoTexto>('ProfissionalConteudoTexto', ref =>

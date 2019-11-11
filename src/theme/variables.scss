@@ -3,7 +3,6 @@
 
 /** Ionic CSS Variables **/
 :root {
-
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -76,13 +75,21 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
-    /** AmareloProfissional **/
-    --ion-color-amareloprofissional: #ffce00;
-    --ion-color-amareloprofissional-rgb: 255,206,0;
-    --ion-color-amareloprofissional-contrast: #ffffff;
-    --ion-color-amareloprofissional-contrast-rgb: 0,0,0;
-    --ion-color-amareloprofissional-shade: #e0b500;
-    --ion-color-amareloprofissional-tint: #ffd31a;
+  /** AmareloProfissional **/
+  --ion-color-amareloprofissional: #e6cc00;
+  --ion-color-amareloprofissional-rgb: 230, 204, 0;
+  --ion-color-amareloprofissional-contrast: #ffffff;
+  --ion-color-amareloprofissional-contrast-rgb: 0, 0, 0;
+  --ion-color-amareloprofissional-shade: #cab400;
+  --ion-color-amareloprofissional-tint: #e9d11a;
+
+  //verdeprofissional
+--ion-color-verdeprofissional: #5a9aa5;
+  --ion-color-verdeprofissional-rgb: 90,154,165;
+  --ion-color-verdeprofissional-contrast: #000000;
+  --ion-color-verdeprofissional-contrast-rgb: 0,0,0;
+  --ion-color-verdeprofissional-shade: #4f8891;
+  --ion-color-verdeprofissional-tint: #6ba4ae;
 }
 
 .ion-color-amareloprofissional {
@@ -94,3 +101,11 @@
   --ion-color-tint: var(--ion-color-amareloprofissional-tint);
 }
 
+.ion-color-verdeprofissional {
+  --ion-color-base: var(--ion-color-verdeprofissional);
+  --ion-color-base-rgb: var(--ion-color-verdeprofissional-rgb);
+  --ion-color-contrast: var(--ion-color-verdeprofissional-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-verdeprofissional-contrast-rgb);
+  --ion-color-shade: var(--ion-color-verdeprofissional-shade);
+  --ion-color-tint: var(--ion-color-verdeprofissional-tint);
+}

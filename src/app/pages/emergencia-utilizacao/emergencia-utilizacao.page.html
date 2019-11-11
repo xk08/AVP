@@ -1,13 +1,14 @@
 <ion-app *ngIf="!n1">
   <ion-content>
     <ion-toolbar>
-      <ion-title style="text-align: center; font-size: 15pt"> Opss...</ion-title>
+      <ion-title style="text-align: center; font-size: 15pt">Opss...</ion-title>
     </ion-toolbar>
     <ion-card>
       <ion-card-content>
         Até o momento, nenhum conteúdo de emergência foi cadastrado.
       </ion-card-content>
     </ion-card>
+
 
     <ion-button
       expand="block"
@@ -20,56 +21,98 @@
   </ion-content>
 </ion-app>
 
+
 <ion-app *ngIf="n1">
   <ion-header translucent>
     <ion-toolbar color="#FFFF">
-      <ion-title style="text-align: center; font-size: 15pt"> Importantes para você</ion-title>
+      <ion-title style="font-size: 17px; text-align: center;">Importantes para você</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-card-header>
-      <ion-card-subtitle style="font-size: 12pt; text-align: center"
-        >Foto que você gosta</ion-card-subtitle
+      <ion-card-subtitle
+        color="primary"
+        style="font-size: 12pt; text-align: center;"
       >
-      <ion-card [routerLink]="['/emergencia/emergencia-cadastro', idEmergencia]">
-        <img [src]="foto" width="380px" height="320px" />
-      </ion-card>
-    </ion-card-header>
-
-    <ion-card-header>
-      <ion-card-subtitle style="font-size: 12pt; text-align: center"
-        >Frase que te inspira</ion-card-subtitle
-      >
-      <ion-card [routerLink]="['/emergencia/emergencia-cadastro', idEmergencia]">
-        <ion-card-title>" {{ frase }} "</ion-card-title>
-      </ion-card>
-    </ion-card-header>
-
-    <ion-card-header>
-      <ion-card-subtitle style="font-size: 12pt; text-align: center"
-        >Precisa de ajuda ? Ligue para</ion-card-subtitle
-      >
+        Foto que você gosta
+      </ion-card-subtitle>
       <ion-card>
+        <img
+          [src]="foto"
+          width="380px"
+          height="320px"
+        >
+      </ion-card>
+    </ion-card-header>
+
+
+    <ion-card-header>
+      <ion-card-subtitle
+        color="primary"
+        style="font-size: 12pt; text-align: center"
+      >
+        Frase que te inspira
+      </ion-card-subtitle>
+      <ion-card>
+        <ion-card-title style="text-align: center;">"{{ frase }}"</ion-card-title>
+      </ion-card>
+    </ion-card-header>
+
+
+    <ion-card-header>
+      <ion-card-subtitle
+        color="primary"
+        style="font-size: 12pt; text-align: center"
+      >
+        Precisa de ajuda ? Ligue para
+      </ion-card-subtitle>
+      <ion-card style="background-color: floralwhite;">
         <ion-row>
           <ion-col>
-            <ion-item href="" class="activated" style="color: lightseagreen">
+            <ion-item
+              href
+              class="activated"
+              style="color: dodgerblue"
+            >
               <ion-label class="ion-text-center">{{ nomeN1 }}</ion-label>
             </ion-item>
           </ion-col>
 
+
           <ion-col>
-            <ion-item href="" class="activated" style="color: lightseagreen">
+            <ion-item
+              href
+              class="activated"
+              style="color: dodgerblue"
+            >
               <ion-label class="ion-text-center">{{ nomeN2 }}</ion-label>
             </ion-item>
           </ion-col>
 
+
           <ion-col>
-            <ion-item href="" class="activated" style="color: lightseagreen">
+            <ion-item
+              href
+              class="activated"
+              style="color: dodgerblue"
+            >
               <ion-label class="ion-text-center">CVV</ion-label>
             </ion-item>
           </ion-col>
         </ion-row>
       </ion-card>
+      <br>
+      <ion-button
+        shape="round"
+        fill="outline"
+        expand="block"
+        type="submit"
+        class="login-button"
+        color="primary"
+        [routerLink]="['/emergencia/emergencia-cadastro', idEmergencia]"
+      >
+        Editar estas informações
+      </ion-button>
     </ion-card-header>
   </ion-content>
 </ion-app>

@@ -41,15 +41,13 @@ const routes: Routes = [
     path: 'quero-conversar',
     loadChildren: './pages/quero-conversar/quero-conversar.module#QueroConversarPageModule',
     canActivate: [AuthGuard]
-  }
-  /*
+  },
   {
     path: 'profissional-conteudo-especifico',
     loadChildren:
-      './pages/profissional-conteudo-especifico/profissional-conteudo-especifico.module#ProfissionalConteudoEspecificoPageModule'
+      './pages/profissional-conteudo-especifico/profissional-conteudo-especifico.module#ProfissionalConteudoEspecificoPageModule',
+    canActivate: [AuthGuard]
   }
-  */
-
   /* {
     path: 'profissional-conteudo',
     loadChildren:
