@@ -67,6 +67,7 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
     this.buscaDadosTexto(this.idUsuario);
     this.buscaDadosImagem(this.idUsuario);
     this.buscaDadosVideo(this.idUsuario);
+    
   }
 
   buscaDadosTexto(idUsuario) {
@@ -82,41 +83,7 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
           this.autorTextoTela = x.autorTexto;
         });
       });
-  }
 
-  remove(id) {
-    console.log(id);
-    this.profissionalConteudoTextoService
-      .removeTodo(id)
-      .then(() => {
-        this.presentAlertConfirm('Removida com Sucesso');
-      })
-      .catch(err => {});
-  }
-
-  async presentAlertConfirm(msg: string) {
-    const alert = await this.alertController.create({
-      header: 'Confirm!',
-      message: msg,
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: blah => {
-            console.log('Confirm Cancel: blah');
-          }
-        },
-        {
-          text: 'Okay',
-          handler: () => {
-            console.log('Confirm Okay');
-          }
-        }
-      ]
-    });
-
-    await alert.present();
   }
 
   buscaDadosImagem(idUsuario) {
@@ -147,6 +114,93 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
           this.autorVideoTela = x.autorVideo;
         });
       });
+  }
+
+  
+  async removeTexto(id) {
+    const alert = await this.alertController.create({
+      header: 'Apagar texto',
+      message: "Você tem certeza que deseja apagar ?",
+      buttons: [
+        {
+          text: 'Não',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: blah => {
+            // Não faz nada no momento
+          }
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            this.profissionalConteudoTextoService
+            .removeTodo(id)
+      
+            this.presentToast('O texto foi apagado') ;
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  
+  async removeImagem(id) {
+    const alert = await this.alertController.create({
+      header: 'Apagar imagem',
+      message: "Você tem certeza que deseja apagar ?",
+      buttons: [
+        {
+          text: 'Não',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: blah => {
+            // Não faz nada
+          }
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            this.profissionalConteudoImagemService
+            .removeTodo(id)
+      
+            this.presentToast('A imagem foi apagada') ;
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  
+  async removeVideo(id) {
+    const alert = await this.alertController.create({
+      header: 'Apagar video',
+      message: "Você tem certeza que deseja apagar ?",
+      buttons: [
+        {
+          text: 'Não',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: blah => {
+           // Não faz nada
+          }
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            this.profissionalConteudoVideoService
+            .removeTodo(id)
+      
+            this.presentToast('O video foi apagado') ;
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   ngOnDestroy() {

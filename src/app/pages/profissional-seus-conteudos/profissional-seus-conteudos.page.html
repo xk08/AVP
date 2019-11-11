@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="success">
+  <ion-toolbar color="medium">
 
     <ion-buttons>
       <ion-menu-button autoHide="true"></ion-menu-button>
@@ -24,20 +24,26 @@
 
 <ion-content>
 
+  <!-- RESPONSÁVEL PELOS TEXTOS-->
   <ion-list>
-    <!-- Sliding item with text options on both sides -->
+    
+      <ion-header translucent>
+          <ion-toolbar translucent color="amareloprofissional">
+            <ion-title style="font-size: 13pt">Seus textos cadastrados</ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+
     <ion-item-sliding
       *ngFor="let texto of profissionalConteudoTexto"
-      style="background-color:lightyellow;"
     >
-
-      <ion-item style="color:darkgreen;">
-        <ion-col>
-          <ion-row>
-            <ion-label>Frase Cadastrada</ion-label>
+      <ion-item lines="full" class="testeAmarelo">
+        <ion-col style="text-align: center;">
+          <ion-row class="ion-padding">
+            <ion-label  style="color: black;">Frase Cadastrada</ion-label>
 
           </ion-row>
-          <ion-col>
+          <ion-col  style="color: black;">
             <ion-text style="text-align: center; font-size: 15pt;">{{ texto.texto }}</ion-text>
           </ion-col>
         </ion-col>
@@ -45,7 +51,6 @@
 
       <ion-item-options side="start">
         <ion-item-option
-          (click)="unread(item)"
           [routerLink]="['/menu/profissional-conteudo/profissional-conteudo-texto', texto.id]"
         >
           <ion-icon
@@ -60,7 +65,7 @@
 
         <ion-item-option
           color="danger"
-          (click)="remove(texto.id)"
+          (click)="removeTexto(texto.id)"
         >
           <ion-icon
             slot="icon-only"
@@ -73,43 +78,153 @@
     </ion-item-sliding>
   </ion-list>
 
-  <!-- Looping dos textos -->
-  <ion-card
-    *ngFor="let texto of profissionalConteudoTexto"
-    style="background-color:lightyellow;"
-    [routerLink]="['/menu/profissional-conteudo/profissional-conteudo-texto', texto.id]"
-  >
-    <ion-card-header>
-      <ion-card-subtitle>Frase cadastrada</ion-card-subtitle>
-      <ion-card-title></ion-card-title>
-    </ion-card-header>
-    <ion-card-content style="text-align: center; font-size: 15pt;">“{{ texto.texto }}”</ion-card-content>
-  </ion-card>
 
-  <!-- Looping das imagens -->
-  <ion-card
+  <!-- RESPONSÁVEL PELAS IMAGENS-->
+
+  <ion-list>
+      <ion-header translucent>
+          <ion-toolbar translucent color="primary">
+            <ion-title style="font-size: 13pt">Suas imagens cadastradas</ion-title>
+          </ion-toolbar>
+        </ion-header>
+   
+    <ion-item-sliding
     *ngFor="let imagem of profissionalConteudoImagem"
-    style="background-color:lightcyan;"
-    [routerLink]="['/menu/profissional-conteudo/profissional-conteudo-imagem', imagem.id]"
-  >
-    <ion-card-header>
-      <ion-card-subtitle>Imagem cadastrada</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <img
-        src="{{imagem.imagem}}"
-        width="540px"
-        height="480px"
-      >
-    </ion-card-content>
 
-    <ion-card-header>
-      <ion-card-title style="text-align: center;">{{imagem.tituloImagem}}</ion-card-title>
-    </ion-card-header>
+    >
 
-  </ion-card>
 
-  <!-- Looping dos Videos -->
+      <ion-item lines="full">
+        <ion-col>
+        <ion-row>
+            <ion-col  style="color: black;">
+                <img
+                src="{{imagem.imagem}}"
+                width="180px"
+                height="150px"
+              >
+              </ion-col>
+          <ion-col>
+            <ion-row class="ion-padding">
+              <ion-label  style=" font-size:16pt; color: black;">Titulo da imagem</ion-label>
+              <ion-text style="font-size: 12pt;">{{ imagem.tituloImagem }}</ion-text>
+            </ion-row>
+            <ion-row class="ion-padding">
+                <ion-label  style=" font-size:16pt; color: black;">Autor da Imagem</ion-label>
+                <ion-text style="font-size: 12pt;">{{ imagem.autorImagem }}</ion-text>
+              </ion-row>
+          </ion-col>
+
+
+        </ion-row>
+      </ion-col>
+      </ion-item>
+
+      <ion-item-options side="start">
+        <ion-item-option
+          [routerLink]="['/menu/profissional-conteudo/profissional-conteudo-imagem', imagem.id]"
+        >
+          <ion-icon
+            slot="icon-only"
+            name="ios-construct"
+          ></ion-icon>
+          Editar
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item-options side="end">
+
+        <ion-item-option
+          color="danger"
+          (click)="removeImagem(imagem.id)"
+        >
+          <ion-icon
+            slot="icon-only"
+            name="md-trash"
+          ></ion-icon>
+          Remover
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+    <!-- RESPONSÁVEL PELOS VIDEOS-->
+
+    <ion-list>
+        <ion-header translucent>
+            <ion-toolbar translucent color="tertiary">
+              <ion-title style="font-size: 13pt">Seus videos cadastrados</ion-title>
+            </ion-toolbar>
+          </ion-header>
+      
+        <ion-item-sliding
+        *ngFor="let video of profissionalConteudoVideo"
+        >
+    
+    
+          <ion-item lines="full">
+            <ion-col>
+            
+            <ion-row>
+              
+              <ion-col>
+                <ion-row class="ion-padding">
+                  <ion-label  style=" font-size:16pt; color: black;">Titulo do video</ion-label>
+                  <ion-text style="font-size: 12pt;">{{ video.tituloVideo }}</ion-text>
+                </ion-row>
+                <ion-row class="ion-padding">
+                    <ion-label  style=" font-size:16pt; color: black;">Autor do video</ion-label>
+                    <ion-text style="font-size: 12pt;">{{ video.autorVideo }}</ion-text>
+                  </ion-row>
+              </ion-col>
+              
+              <ion-col>
+                  <!-- ver se consigo pegar dinamico a THUMB -->
+                    <img
+                    src="../../../assets/img/abrirmente.PNG"
+                    width="180px"
+                    height="150px"
+                  >
+                  </ion-col>
+    
+    
+            </ion-row>
+          </ion-col>
+          </ion-item>
+    
+          <ion-item-options side="start">
+            <ion-item-option
+              [routerLink]="['/menu/profissional-conteudo/profissional-conteudo-video', video.id]"
+            >
+              <ion-icon
+                slot="icon-only"
+                name="ios-construct"
+              ></ion-icon>
+              Editar
+            </ion-item-option>
+          </ion-item-options>
+    
+          <ion-item-options side="end">
+    
+            <ion-item-option
+              color="danger"
+              (click)="removeVideo(video.id)"
+            >
+              <ion-icon
+                slot="icon-only"
+                name="md-trash"
+              ></ion-icon>
+              Remover
+            </ion-item-option>
+          </ion-item-options>
+    
+        </ion-item-sliding>
+      </ion-list>
+    
+
+ 
+  <!-- Looping dos Videos 
 
   <ion-card
     *ngFor="let video of profissionalConteudoVideo"
@@ -120,7 +235,7 @@
       <ion-card-subtitle>Video cadastrado</ion-card-subtitle>
     </ion-card-header>
 
-    <!-- achar alguma forma de pegar a thumbs -->
+    <!-- achar alguma forma de pegar a thumbs 
     <img src="../../../assets/img/abrirmente.PNG">
     <ion-card-header>
       <ion-card-subtitle>Video do Youtube</ion-card-subtitle>
@@ -128,5 +243,6 @@
     </ion-card-header>
     <ion-card-content>{{video.descricaoVideo}}</ion-card-content>
   </ion-card>
+-->
 
 </ion-content>

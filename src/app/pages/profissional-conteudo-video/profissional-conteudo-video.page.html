@@ -4,8 +4,6 @@
   </ion-toolbar>
 </ion-header> -->
 
-
-
 <ion-content>
   <ion-grid>
     <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
@@ -19,7 +17,7 @@
       >
         <form #form="ngForm">
           <ion-card>
-            <ion-card-header style="background-color: lightsteelblue;">
+            <ion-card-header style="background-color: rosybrown;">
               <ion-card-title style="font-size: 17px; text-align: center;">
                 Direcione um video a alguém que precisa de ajuda
               </ion-card-title>
@@ -27,7 +25,7 @@
             <ion-item>
               <ion-icon
                 name="ios-bulb"
-                color="dark"
+                color="tertiary"
                 slot="start"
               ></ion-icon>
               <ion-textarea
@@ -45,7 +43,7 @@
 
             <!-- Pré visualização -->
             <ion-card>
-              <ion-card-header style="background-color: lightsteelblue;">
+              <ion-card-header style="background-color:rosybrown;">
                 <ion-card-title style="font-size: 17px; text-align: center;">Pré visualização do video escolhido</ion-card-title>
               </ion-card-header>
 
@@ -58,11 +56,12 @@
           <ion-item
             href
             class="activated"
-            color="primary"
+            color="tertiary"
           >
             <ion-toggle
               [(ngModel)]="mostraMaisInfo"
               (ionChange)="changeMaisInfo()"
+              color="medium"
               slot="end"
               name="maisInfo"
             ></ion-toggle>
@@ -72,14 +71,14 @@
 
 
           <ion-card
-            style="background-color: lightsteelblue;"
+            style="background-color:  rosybrown;"
             *ngIf="mostraMaisInfo"
           >
             <ion-item>
               <ion-icon
                 name="add"
                 slot="start"
-                color="primary"
+                color="tertiary"
               >
               </ion-icon>
               <ion-input
@@ -98,7 +97,7 @@
               <ion-icon
                 name="add"
                 slot="start"
-                color="primary"
+                color="tertiary"
               >
               </ion-icon>
               <ion-input
@@ -116,7 +115,7 @@
             <ion-item>
               <ion-icon
                 name="add"
-                color="primary"
+                color="tertiary"
                 slot="start"
               ></ion-icon>
               <ion-textarea
@@ -140,13 +139,14 @@
           <ion-item
             href
             class="activated"
-            color="primary"
+            color="tertiary"
           >
             <ion-toggle
               [(ngModel)]="mostraFiltro"
               (ionChange)="changeFiltro()"
               slot="end"
               name="filtro"
+              color="medium"
             ></ion-toggle>
             <ion-label class="ion-text-center">Filtro de Conteúdos</ion-label>
           </ion-item>
@@ -158,7 +158,7 @@
 
 
           <ion-card *ngIf="mostraFiltro">
-            <ion-card-header style="background-color: lightsteelblue;">
+            <ion-card-header style="background-color: rosybrown;">
               <ion-card-title style="font-size: 17px; text-align: center;">Faixa etária destinada</ion-card-title>
             </ion-card-header>
 
@@ -178,6 +178,7 @@
                   name="8a12"
                   value="8 a 12"
                   slot="start"
+                  color="medium"
                 ></ion-radio>
               </ion-item>
 
@@ -193,6 +194,7 @@
                   name="13a17"
                   value="13 a 17"
                   slot="start"
+                  color="tertiary"
                 ></ion-radio>
               </ion-item>
 
@@ -208,6 +210,7 @@
                   name="18a35"
                   value="18 a 35"
                   slot="start"
+                  color="tertiary"
                 ></ion-radio>
               </ion-item>
             </ion-radio-group>
@@ -218,7 +221,7 @@
 
 
 
-            <ion-card-header style="background-color: lightsteelblue;">
+            <ion-card-header style="background-color: rosybrown;">
               <ion-card-title style="font-size: 17px; text-align: center;">Nível de emergência</ion-card-title>
             </ion-card-header>
 
@@ -238,6 +241,7 @@
                   name="normal"
                   value="normal"
                   slot="start"
+                  color="tertiary"
                 ></ion-radio>
               </ion-item>
 
@@ -253,6 +257,7 @@
                   name="Preocupante"
                   value="preocupante"
                   slot="start"
+                  color="tertiary"
                 ></ion-radio>
               </ion-item>
 
@@ -268,6 +273,7 @@
                   name="urgente"
                   value="urgente"
                   slot="start"
+                  color="tertiary"
                 ></ion-radio>
               </ion-item>
             </ion-radio-group>
@@ -278,7 +284,7 @@
 
 
 
-            <ion-card-header style="background-color: lightsteelblue;">
+            <ion-card-header style="background-color:  rosybrown;">
               <ion-card-title style="font-size: 17px; text-align: center;">Avaliação do usuário</ion-card-title>
             </ion-card-header>
 
@@ -299,6 +305,7 @@
                 <ion-icon
                   [name]="star"
                   color="primary"
+                  color="tertiary"
                 ></ion-icon>
               </ion-item>
             </ion-row>

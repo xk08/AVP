@@ -16,13 +16,13 @@
       >
         <form #form="ngForm">
           <ion-card>
-            <ion-card-header style="background-color: lightsteelblue;">
+            <ion-card-header style="background-color: lightgoldenrodyellow;">
               <ion-card-title style="font-size: 17px; text-align: center;">Divulgue uma frase de apoio</ion-card-title>
             </ion-card-header>
             <ion-item>
               <ion-icon
                 name="ios-bulb"
-                color="dark"
+                color="warning"
                 slot="start"
               ></ion-icon>
               <ion-textarea
@@ -42,11 +42,12 @@
           <ion-item
             href
             class="activated"
-            color="primary"
+            color="warning"
           >
             <ion-toggle
               [(ngModel)]="mostraMaisInfo"
               (ionChange)="changeMaisInfo()"
+              color="medium"
               slot="end"
               name="maisInfo"
             ></ion-toggle>
@@ -55,14 +56,14 @@
 
 
           <ion-card
-            style="background-color: lightsteelblue;"
+            style="background-color: lightgoldenrodyellow;"
             *ngIf="mostraMaisInfo"
           >
             <ion-item>
               <ion-icon
                 name="add"
                 slot="start"
-                color="primary"
+                color="warning"
               >
               </ion-icon>
               <ion-input
@@ -80,7 +81,7 @@
               <ion-icon
                 name="add"
                 slot="start"
-                color="primary"
+                color="warning"
               >
               </ion-icon>
               <ion-input
@@ -97,7 +98,7 @@
             <ion-item>
               <ion-icon
                 name="add"
-                color="primary"
+                color="warning"
                 slot="start"
               ></ion-icon>
               <ion-textarea
@@ -116,11 +117,12 @@
           <ion-item
             href
             class="activated"
-            color="primary"
+            color="warning"
           >
             <ion-toggle
               [(ngModel)]="mostraFiltro"
               (ionChange)="changeFiltro()"
+              color="medium"
               slot="end"
               name="filtro"
             ></ion-toggle>
@@ -129,7 +131,7 @@
 
 
           <ion-card *ngIf="mostraFiltro">
-            <ion-card-header style="background-color: lightsteelblue;">
+            <ion-card-header style="background-color: lightgoldenrodyellow;">
               <ion-card-title style="font-size: 17px; text-align: center;">Faixa etária destinada</ion-card-title>
             </ion-card-header>
 
@@ -137,6 +139,7 @@
             <ion-radio-group
               [(ngModel)]="todas.idade"
               name="selecionaIdade"
+              color="warning"
             >
               <ion-item>
                 <ion-label>8 a 12 anos</ion-label>
@@ -144,6 +147,7 @@
                   name="8a12"
                   value="8 a 12"
                   slot="start"
+                  color="warning"
                 ></ion-radio>
               </ion-item>
 
@@ -154,6 +158,7 @@
                   name="13a17"
                   value="13 a 17"
                   slot="start"
+                  color="warning"
                 ></ion-radio>
               </ion-item>
 
@@ -164,12 +169,13 @@
                   name="18a35"
                   value="18 a 35"
                   slot="start"
+                  color="warning"
                 ></ion-radio>
               </ion-item>
             </ion-radio-group>
 
 
-            <ion-card-header style="background-color: lightsteelblue;">
+            <ion-card-header style="background-color: lightgoldenrodyellow;">
               <ion-card-title style="font-size: 17px; text-align: center;">Nível de emergência</ion-card-title>
             </ion-card-header>
 
@@ -177,6 +183,7 @@
             <ion-radio-group
               [(ngModel)]="todas.nivelEmergencia"
               name="selecionaEmergencia"
+              color="warning"
             >
               <ion-item>
                 <ion-label>Normal</ion-label>
@@ -184,6 +191,7 @@
                   name="normal"
                   value="normal"
                   slot="start"
+                  color="warning"
                 ></ion-radio>
               </ion-item>
 
@@ -194,6 +202,7 @@
                   name="Preocupante"
                   value="preocupante"
                   slot="start"
+                  color="warning"
                 ></ion-radio>
               </ion-item>
 
@@ -204,12 +213,13 @@
                   name="urgente"
                   value="urgente"
                   slot="start"
+                  color="warning"
                 ></ion-radio>
               </ion-item>
             </ion-radio-group>
 
 
-            <ion-card-header style="background-color: lightsteelblue;">
+            <ion-card-header style="background-color: lightgoldenrodyellow;">
               <ion-card-title style="font-size: 17px; text-align: center;">Avaliação do usuário</ion-card-title>
             </ion-card-header>
 
@@ -224,7 +234,7 @@
               >
                 <ion-icon
                   [name]="star"
-                  color="primary"
+                  color="warning"
                 ></ion-icon>
               </ion-item>
             </ion-row>

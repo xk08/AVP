@@ -142,6 +142,9 @@ export class ProfissionalConteudoImagemPage implements OnInit {
     await loading.present();
 
     if (this.idConteudoImagem) {
+      if (this.photo != '') {
+        this.todas.imagem = this.photo;
+      }
       /* TESTA SE JA EXISTE, ENTÃO FAZ UPDATE */
       this.todas.avaliacao = this.geral;
       this.conteudoImagemService.updateTodo(this.todas, this.idConteudoImagem).then(() => {
