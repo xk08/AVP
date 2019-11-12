@@ -1,15 +1,17 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ProfissionalConteudoVideo } from 'src/app/services/profissionalConteudoVideo/profissionalConteudoVideo';
-import { ActivatedRoute } from '@angular/router';
-import { ProfissionalConteudoVideoService } from 'src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service';
-import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { ProfissionalConteudoVideo } from "src/app/services/profissionalConteudoVideo/profissionalConteudoVideo";
+import { ActivatedRoute } from "@angular/router";
+import { ProfissionalConteudoVideoService } from "src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service";
+import { Subscription } from "rxjs";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
-  selector: 'app-video-detalhes',
-  templateUrl: './video-detalhes.page.html',
-  styleUrls: ['./video-detalhes.page.scss'],
+  selector: "app-video-detalhes",
+  templateUrl: "./video-detalhes.page.html",
+  styleUrls: ["./video-detalhes.page.scss"]
 })
 export class VideoDetalhesPage implements OnInit, OnDestroy {
+  vid = "https://www.youtube.com/watch?v=hHYDVmWE9FI";
   public idVideo: string;
 
   public todas: ProfissionalConteudoVideo[];
@@ -21,20 +23,29 @@ export class VideoDetalhesPage implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private profissionalVideoService: ProfissionalConteudoVideoService
-  ) { }
+    private profissionalVideoService: ProfissionalConteudoVideoService,
+    private dom: DomSanitizer
+  ) {}
 
   public list: Subscription;
 
-  ngOnInit() {
-    this.idVideo = this.route.snapshot.params['id'];
+  public vid: string;
 
-    this.list = this.profissionalVideoService.getTodo(this.idVideo).subscribe(res => {
-      this.descricaoVideoTela = res.descricaoVideo;
-      this.tituloVideoTela = res.tituloVideo;
-      this.autorVideoTela = res.autorVideo;
-      this.urlVideoTela = res.linkVideo;
-    });
+  ngOnInit() {
+    this.idVideo = this.route.snapshot.params["id"];
+
+    this.list = this.profissionalVideoService
+      .getTodo(this.idVideo)
+      .subscribe(res => {
+        this.descricaoVideoTela = res.descricaoVideo;
+        this.tituloVideoTela = res.tituloVideo;
+        this.autorVideoTela = res.autorVideo;
+        this.urlVideoTela = res.linkVideo;
+      });
+  }
+
+  videoDoYoutube(vid) {
+    return this.dom.bypassSecurityTrustResourceUrl(vid);
   }
 
   ngOnDestroy() {

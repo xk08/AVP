@@ -20,7 +20,7 @@ var map = {
 	],
 	"../home/home.module": [
 		"./src/app/pages/home/home.module.ts",
-		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~35539472",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~bb63723b",
 		"common",
 		"home-home-module"
 	],
@@ -28,11 +28,6 @@ var map = {
 		"./src/app/pages/imagem-detalhes/imagem-detalhes.module.ts",
 		"common",
 		"imagem-detalhes-imagem-detalhes-module"
-	],
-	"../profissional-conteudo-especifico/profissional-conteudo-especifico.module": [
-		"./src/app/pages/profissional-conteudo-especifico/profissional-conteudo-especifico.module.ts",
-		"common",
-		"profissional-conteudo-especifico-profissional-conteudo-especifico-module"
 	],
 	"../profissional-conteudo-imagem/profissional-conteudo-imagem.module": [
 		"./src/app/pages/profissional-conteudo-imagem/profissional-conteudo-imagem.module.ts",
@@ -79,29 +74,35 @@ var map = {
 	],
 	"./pages/login/login.module": [
 		"./src/app/pages/login/login.module.ts",
-		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~35539472",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~bb63723b",
 		"pages-login-login-module"
 	],
 	"./pages/menu/menu.module": [
 		"./src/app/pages/menu/menu.module.ts",
-		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~35539472",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~bb63723b",
 		"common",
 		"pages-menu-menu-module"
 	],
 	"./pages/profissional-cadastro/profissional-cadastro.module": [
 		"./src/app/pages/profissional-cadastro/profissional-cadastro.module.ts",
-		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~35539472",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~bb63723b",
 		"pages-profissional-cadastro-profissional-cadastro-module"
+	],
+	"./pages/profissional-conteudo-especifico/profissional-conteudo-especifico.module": [
+		"./src/app/pages/profissional-conteudo-especifico/profissional-conteudo-especifico.module.ts",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~bb63723b",
+		"common",
+		"pages-profissional-conteudo-especifico-profissional-conteudo-especifico-module"
 	],
 	"./pages/quero-conversar/quero-conversar.module": [
 		"./src/app/pages/quero-conversar/quero-conversar.module.ts",
-		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~35539472",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~bb63723b",
 		"common",
 		"pages-quero-conversar-quero-conversar-module"
 	],
 	"./pages/usuario-cadastro/usuario-cadastro.module": [
 		"./src/app/pages/usuario-cadastro/usuario-cadastro.module.ts",
-		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~35539472",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~bb63723b",
 		"pages-usuario-cadastro-usuario-cadastro-module"
 	]
 };
@@ -613,14 +614,12 @@ var routes = [
         path: 'quero-conversar',
         loadChildren: './pages/quero-conversar/quero-conversar.module#QueroConversarPageModule',
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
-    }
-    /*
+    },
     {
-      path: 'profissional-conteudo-especifico',
-      loadChildren:
-        './pages/profissional-conteudo-especifico/profissional-conteudo-especifico.module#ProfissionalConteudoEspecificoPageModule'
+        path: 'profissional-conteudo-especifico',
+        loadChildren: './pages/profissional-conteudo-especifico/profissional-conteudo-especifico.module#ProfissionalConteudoEspecificoPageModule',
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     }
-    */
     /* {
       path: 'profissional-conteudo',
       loadChildren:
@@ -776,6 +775,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/local-notifications/ngx */ "./node_modules/@ionic-native/local-notifications/ngx/index.js");
 /* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
 /* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/call-number/ngx */ "./node_modules/@ionic-native/call-number/ngx/index.js");
+/* harmony import */ var _ionic_native_sms_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/sms/ngx */ "./node_modules/@ionic-native/sms/ngx/index.js");
+/* harmony import */ var _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @ionic-native/android-permissions/ngx */ "./node_modules/@ionic-native/android-permissions/ngx/index.js");
+
+
+
 
 
 
@@ -805,7 +810,7 @@ var CoreModule = /** @class */ (function () {
                 //Essa parte é referente a salvar os dados offline
                 angularfire2_firestore__WEBPACK_IMPORTED_MODULE_15__["AngularFirestoreModule"].enablePersistence({
                     synchronizeTabs: true
-                }),
+                })
             ],
             exports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"]],
             providers: [
@@ -815,7 +820,10 @@ var CoreModule = /** @class */ (function () {
                 _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_11__["Camera"],
                 _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_12__["File"],
                 _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_13__["Network"],
-                _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_14__["LocalNotifications"]
+                _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_14__["LocalNotifications"],
+                _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_16__["CallNumber"],
+                _ionic_native_sms_ngx__WEBPACK_IMPORTED_MODULE_17__["SMS"],
+                _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_18__["AndroidPermissions"]
             ]
         })
     ], CoreModule);

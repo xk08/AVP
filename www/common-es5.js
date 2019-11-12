@@ -923,23 +923,6 @@ var QueroConversarService = /** @class */ (function () {
         this.db = db;
         this.todosCollection = db.collection('QueroConversar'); // Criando a coleção
     }
-    /*
-    getTodosPorId(idUsuario: string) {
-      return this.db
-        .collection<QueroConversar>('QueroConversar', ref => ref.where('idUsuario', '==', idUsuario))
-        .snapshotChanges()
-        .pipe(
-          map(actions => {
-            return actions.map(a => {
-              const data = a.payload.doc.data();
-              const id = a.payload.doc.id;
-              console.log(id);
-              return { id, ...data };
-            });
-          })
-        );
-    }
-    */
     QueroConversarService.prototype.getTodos = function () {
         return this.todosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
             return actions.map(function (a) {

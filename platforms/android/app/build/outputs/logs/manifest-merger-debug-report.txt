@@ -22,10 +22,10 @@ INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:15:9-17:
 	android:name
 		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:15:127-200
 manifest
-ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
 MERGED from [me.leolin:ShortcutBadger:1.1.22] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\ShortcutBadger-1.1.22.aar\cf0cc5e5ffc6459b0c055d02eefa9c87\AndroidManifest.xml:2:1-52:12
 MERGED from [:CordovaLib] D:\tcc\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:1-27:12
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\7afb4270d6aa901d8412d7d766ab7b74\AndroidManifest.xml:17:1-22:12
@@ -38,9 +38,9 @@ MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\DTI\.gradle\caches\t
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\d1f735ef30c70bdd344ecf51d89b1910\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\238530ae3a71cea6590da86a76849684\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\DTI\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\b42939c660b94eef2d774e7d68197433\AndroidManifest.xml:17:1-22:12
-INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
 	package
 		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:2:98-124
 		INJECTED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml
@@ -181,6 +181,16 @@ uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:25:5-79
 	android:name
 		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:25:22-76
+uses-permission#android.permission.CALL_PHONE
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:26:5-69
+	android:name
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:26:22-66
+uses-feature#android.hardware.telephony
+ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:27:5-88
+	android:required
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:27:61-85
+	android:name
+		ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:27:19-60
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from D:\tcc\platforms\android\app\src\main\AndroidManifest.xml:13:13-123
 	android:resource

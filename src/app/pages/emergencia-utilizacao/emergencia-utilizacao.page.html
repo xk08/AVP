@@ -9,7 +9,6 @@
       </ion-card-content>
     </ion-card>
 
-
     <ion-button
       expand="block"
       type="submit"
@@ -21,11 +20,12 @@
   </ion-content>
 </ion-app>
 
-
 <ion-app *ngIf="n1">
   <ion-header translucent>
     <ion-toolbar color="#FFFF">
-      <ion-title style="font-size: 17px; text-align: center;">Importantes para você</ion-title>
+      <ion-title style="font-size: 17px; text-align: center;"
+        >Importantes para você</ion-title
+      >
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -37,14 +37,9 @@
         Foto que você gosta
       </ion-card-subtitle>
       <ion-card>
-        <img
-          [src]="foto"
-          width="380px"
-          height="320px"
-        >
+        <img [src]="foto" width="380px" height="320px" />
       </ion-card>
     </ion-card-header>
-
 
     <ion-card-header>
       <ion-card-subtitle
@@ -54,10 +49,11 @@
         Frase que te inspira
       </ion-card-subtitle>
       <ion-card>
-        <ion-card-title style="text-align: center;">"{{ frase }}"</ion-card-title>
+        <ion-card-title style="text-align: center;"
+          >"{{ frase }}"</ion-card-title
+        >
       </ion-card>
     </ion-card-header>
-
 
     <ion-card-header>
       <ion-card-subtitle
@@ -73,35 +69,36 @@
               href
               class="activated"
               style="color: dodgerblue"
+              (click)="callN1()"
             >
               <ion-label class="ion-text-center">{{ nomeN1 }}</ion-label>
             </ion-item>
           </ion-col>
 
-
           <ion-col>
             <ion-item
               href
               class="activated"
               style="color: dodgerblue"
+              (click)="callN2()"
             >
               <ion-label class="ion-text-center">{{ nomeN2 }}</ion-label>
             </ion-item>
           </ion-col>
 
-
           <ion-col>
             <ion-item
               href
               class="activated"
               style="color: dodgerblue"
+              (click)="callN3()"
             >
               <ion-label class="ion-text-center">CVV</ion-label>
             </ion-item>
           </ion-col>
         </ion-row>
       </ion-card>
-      <br>
+      <br />
       <ion-button
         shape="round"
         fill="outline"

@@ -84,12 +84,12 @@
         "source": "C:\\Users\\DTI\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\35afd821d6b4a5bbefbaa2698b00bc80\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
     },
     {
-        "merged": "D:\\tcc\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "D:\\tcc\\platforms\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
-    },
-    {
         "merged": "D:\\tcc\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_cancel_action.xml.flat",
         "source": "C:\\Users\\DTI\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\f192493afa85fae82497c9961b990a71\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "D:\\tcc\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "D:\\tcc\\platforms\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
         "merged": "D:\\tcc\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-xxhdpi_screen.png.flat",

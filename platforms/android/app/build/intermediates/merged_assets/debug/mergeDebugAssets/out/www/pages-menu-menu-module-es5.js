@@ -44,11 +44,6 @@ var routes = [
                 canActivate: [src_app_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]]
             },
             {
-                path: 'conteudo-especifico',
-                loadChildren: '../profissional-conteudo-especifico/profissional-conteudo-especifico.module#ProfissionalConteudoEspecificoPageModule',
-                canActivate: [src_app_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]]
-            },
-            {
                 path: 'texto-detalhes/:id',
                 loadChildren: '../texto-detalhes/texto-detalhes.module#TextoDetalhesPageModule',
                 canActivate: [src_app_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]]

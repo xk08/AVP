@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"menu/home\"></ion-back-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-grid>\r\n    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->\r\n    <ion-row justify-content-center>\r\n      <!-- Deixa responsivo -->\r\n      <ion-col size-sm=\"8\" size-md=\"12\" size-lg=\"3\" size-xl=\"3\">\r\n        <form #form=\"ngForm\">\r\n          <ion-card>\r\n            <ion-card-header>\r\n              <ion-card-subtitle>{{ nomeUsuarioLogado }}</ion-card-subtitle>\r\n              <ion-card-title style=\"font-size: 17px; text-align: center;\"\r\n                >Como você está nesse momento ?</ion-card-title >\r\n            </ion-card-header>\r\n            <ion-row>\r\n              <ion-item\r\n                *ngFor=\"let star of stars; let i = index\"\r\n                tappable\r\n                (click)=\"starClicked(i)\"\r\n                [(ngModel)]=\"todas.avaliacao\"\r\n                name=\"avaliacaoUsuario\"\r\n              >\r\n                <ion-icon [name]=\"star\">\r\n\r\n                </ion-icon>\r\n              </ion-item>\r\n            </ion-row>\r\n          </ion-card>\r\n\r\n          <ion-button\r\n            expand=\"block\"\r\n            type=\"submit\"\r\n            class=\"login-button\"\r\n            (click)=\"saveTodo()\"\r\n            color=\"dark\"\r\n          >\r\n            Enviar\r\n          </ion-button>\r\n        </form>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"menu/home\"></ion-back-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n\r\n<ion-content>\r\n  <ion-grid style=\"height: 100%;\">\r\n    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->\r\n    <ion-row justify-content-center>\r\n      <!-- Deixa responsivo -->\r\n      <ion-col\r\n        size-sm=\"8\"\r\n        size-md=\"12\"\r\n        size-lg=\"3\"\r\n        size-xl=\"3\"\r\n      >\r\n        <form #form=\"ngForm\">\r\n          <ion-card >\r\n            <ion-card-header>\r\n              <ion-card-subtitle  style=\"font-size: 15pt\" color=\"success\">{{ nomeUsuarioLogado }}</ion-card-subtitle>\r\n              <ion-card-title style=\"font-size: 17px; text-align: center;\">Como você está nesse momento ?</ion-card-title>\r\n            </ion-card-header>\r\n            <ion-row>\r\n              <ion-item\r\n                *ngFor=\"let star of stars; let i = index\"\r\n                tappable\r\n                (click)=\"starClicked(i)\"\r\n              >\r\n                <ion-icon [name]=\"star\"\r\n                color=\"success\"></ion-icon>\r\n              </ion-item>\r\n            </ion-row>\r\n          </ion-card>\r\n\r\n\r\n\r\n          <ion-button\r\n            expand=\"block\"\r\n            type=\"submit\"\r\n            class=\"login-button\"\r\n            (click)=\"saveTodo()\"\r\n            color=\"success\"\r\n          >\r\n            pronto\r\n          </ion-button>\r\n        </form>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -107,9 +107,11 @@ let QueroConversarPage = class QueroConversarPage {
         this.todas = {
             id: '',
             idUsuario: '',
-            textoLivre: '',
             avaliacao: 0
         };
+    }
+    ngOnDestroy() {
+        this.list.unsubscribe();
     }
     //RatebarStar
     calc() {
@@ -170,7 +172,7 @@ let QueroConversarPage = class QueroConversarPage {
                 this.todas.avaliacao = this.geral;
                 this.queroConversarService.updateTodo(this.todas, this.idQueroConversar).then(() => {
                     loading.dismiss();
-                    this.navCtrl.navigateBack('/menu/home');
+                    // this.navCtrl.navigateBack('/menu/home');
                 });
             }
             else {
@@ -178,7 +180,7 @@ let QueroConversarPage = class QueroConversarPage {
                 this.todas.idUsuario = this.idUsuario;
                 this.queroConversarService.addTodo(this.todas, this.idUsuario).then(() => {
                     loading.dismiss();
-                    this.navCtrl.navigateBack('/menu/conteudo-especifico');
+                    this.navCtrl.navigateBack('profissional-conteudo-especifico');
                 });
             }
         });

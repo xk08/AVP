@@ -3,11 +3,7 @@
     <ion-buttons>
       <ion-menu-button autoHide="true"></ion-menu-button>
       <div>
-        <ion-button
-          shape="round"
-          fill="outline"
-          (click)="direcionaPraTela()"
-        >
+        <ion-button shape="round" fill="outline" (click)="direcionaPraTela()">
           Como estou Hoje
         </ion-button>
       </div>
@@ -15,11 +11,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-fab
-  vertical="bottom"
-  horizontal="end"
-  slot="fixed"
->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button
     routerLink="/emergencia/emergencia-utilizacao"
     routerDirection="forward"
@@ -30,16 +22,13 @@
 </ion-fab>
 <ion-header translucent>
   <ion-toolbar>
-    <ion-title style="text-align: center; font-size: 15pt">Recomendados para você</ion-title>
+    <ion-title style="text-align: center; font-size: 15pt"
+      >Recomendados para você</ion-title
+    >
   </ion-toolbar>
 </ion-header>
 
-
-
 <ion-content>
-
-
-
   <ion-card
     *ngFor="let texto of profissionalConteudoTextoTela"
     style="background-color: #FFFFC4;;"
@@ -48,13 +37,9 @@
       <ion-card-title hidden></ion-card-title>
     </ion-card-header>
 
-
-
     <ion-card-header *ngIf="tituloTextoTela">
       <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>
     </ion-card-header>
-
-
 
     <ion-card-content
       *ngIf="descricaoTextoTela"
@@ -69,11 +54,6 @@
       Nenhum texto foi cadastrado até o momento.
     </ion-card-content>
 
-
-
-
-
-
     <ion-card-header>
       <ion-card-subtitle
         *ngIf="autorTextoTela == '' "
@@ -81,10 +61,7 @@
       >
         Autor desconhecido
       </ion-card-subtitle>
-      <ion-card-subtitle
-        *ngIf="autorTextoTela"
-        style="text-align: right;"
-      >
+      <ion-card-subtitle *ngIf="autorTextoTela" style="text-align: right;">
         Autor:{{ texto.autorTexto }}
       </ion-card-subtitle>
     </ion-card-header>
@@ -96,45 +73,33 @@
     >
       <ion-label class="ion-text-center">Mais informações</ion-label>
     </ion-item>
-
-
-
   </ion-card>
-
-
 
   <ion-card
     *ngFor="let imagem of profissionalConteudoImagemTela"
     style="color: #9AFFF1;"
   >
-
-
-
     <ion-card-content *ngIf="imagem.imagem">
       <!-- achar uma maneira de melhorar aqui -->
-      <img
-        src="{{imagem.imagem}}"
-        width="350px"
-        height="320px"
-      >
+      <img src="{{imagem.imagem}}" width="350px" height="320px" />
     </ion-card-content>
     <ion-card-content *ngIf="imagem.imagem == ''">
-      <ion-card-header style="font-size: 15pt; text-align: center;">Imagem não encontrada</ion-card-header>
+      <ion-card-header style="font-size: 15pt; text-align: center;"
+        >Imagem não encontrada</ion-card-header
+      >
     </ion-card-content>
 
-
-
     <ion-card-header *ngIf="imagem.tituloImagem == ''">
-      <ion-card-title style="text-align: center;">Titulo não cadastrado</ion-card-title>
+      <ion-card-title style="text-align: center;"
+        >Titulo não cadastrado</ion-card-title
+      >
     </ion-card-header>
-
-
 
     <ion-card-header *ngIf="imagem.tituloImagem">
-      <ion-card-title style="text-align: center;">{{imagem.tituloImagem}}</ion-card-title>
+      <ion-card-title style="text-align: center;"
+        >{{imagem.tituloImagem}}</ion-card-title
+      >
     </ion-card-header>
-
-
 
     <ion-item
       href
@@ -146,25 +111,17 @@
     </ion-item>
   </ion-card>
 
-
-
-
   <ion-card
     *ngFor="let video of profissionalConteudoVideoTela"
     style="background-color: #D0BBFF;"
   >
-
-
     <!-- achar alguma forma de pegar a thumbs -->
-    <img src="../../../assets/img/abrirmente.PNG">
+    <img src="../../../assets/img/abrirmente.PNG" />
     <ion-card-header>
       <ion-card-subtitle>Video do Youtube</ion-card-subtitle>
       <ion-card-title>{{video.tituloVideo}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>{{video.descricaoVideo}}</ion-card-content>
-
-
-
 
     <ion-item
       href
@@ -175,8 +132,4 @@
       <ion-label class="ion-text-center">Assistir ao video</ion-label>
     </ion-item>
   </ion-card>
-
-
-
-
 </ion-content>

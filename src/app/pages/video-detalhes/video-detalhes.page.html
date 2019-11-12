@@ -1,45 +1,70 @@
 <ion-header translucent>
-  <ion-toolbar color="tertiary" >
-    <ion-title style="text-align: center; font-size: 15pt">Mais informações</ion-title>
+  <ion-toolbar color="tertiary">
+    <ion-title style="text-align: center; font-size: 15pt"
+      >Mais informações</ion-title
+    >
     <ion-buttons slot="start">
       <ion-back-button defaultHref="menu/home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-
   <ion-card style="background-color: #a695cc;">
     <ion-card-header>
-      <ion-card-subtitle style="font-size: 12pt;">Titulo do video</ion-card-subtitle>
+      <ion-card-subtitle style="font-size: 12pt;"
+        >Titulo do video</ion-card-subtitle
+      >
       <ion-card-title>{{tituloVideoTela}}</ion-card-title>
     </ion-card-header>
   </ion-card>
 
-  <ion-card style="background-color:#d0bbff
-;">
+  <ion-card
+    style="background-color:#d0bbff
+;"
+  >
     <ion-card-header>
-      <ion-card-subtitle style="font-size: 12pt;">Autoria do video</ion-card-subtitle>
-      <ion-card-title *ngIf="!autorVideoTela">Autor não encontrado</ion-card-title>
+      <ion-card-subtitle style="font-size: 12pt;"
+        >Autoria do video</ion-card-subtitle
+      >
+      <ion-card-title *ngIf="!autorVideoTela"
+        >Autor não encontrado</ion-card-title
+      >
       <ion-card-title *ngIf="autorVideoTela">{{autorVideoTela}}</ion-card-title>
     </ion-card-header>
   </ion-card>
 
   <ion-card style="background-color: #d9c8ff;">
     <ion-card-header>
-      <ion-card-subtitle style="font-size: 12pt;">Descrição complementar do video</ion-card-subtitle>
+      <ion-card-subtitle style="font-size: 12pt;"
+        >Descrição complementar do video</ion-card-subtitle
+      >
       <ion-card-title *ngIf="!descricaoVideoTela">
         Nenhuma informação extra foi encontrada.
       </ion-card-title>
-      <ion-card-title *ngIf="descricaoVideoTela">{{descricaoVideoTela}}</ion-card-title>
+      <ion-card-title *ngIf="descricaoVideoTela"
+        >{{descricaoVideoTela}}</ion-card-title
+      >
     </ion-card-header>
   </ion-card>
 
   <ion-card style="background-color: #e2d6ff;">
     <ion-card-header>
-      <ion-card-subtitle style="font-size: 12pt;">URL do video</ion-card-subtitle>
-      <ion-card-title *ngIf="!urlVideoTela">Nenhuma URL  foi encontrada.</ion-card-title>
+      <ion-card-subtitle style="font-size: 12pt;"
+        >URL do video</ion-card-subtitle
+      >
+      <ion-card-title *ngIf="!urlVideoTela"
+        >Nenhuma URL foi encontrada.</ion-card-title
+      >
       <ion-card-title *ngIf="urlVideoTela">{{urlVideoTela}}</ion-card-title>
     </ion-card-header>
   </ion-card>
 
+  <iframe
+    width="380"
+    height="320"
+    src="https://www.youtube.com/watch?v=rPVvwj8uGnk"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
 </ion-content>

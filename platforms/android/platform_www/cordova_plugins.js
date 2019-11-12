@@ -295,6 +295,30 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.StatusBar"
       ]
+    },
+    {
+      "id": "mx.ferreyra.callnumber.CallNumber",
+      "file": "plugins/mx.ferreyra.callnumber/www/CallNumber.js",
+      "pluginId": "mx.ferreyra.callnumber",
+      "clobbers": [
+        "call"
+      ]
+    },
+    {
+      "id": "cordova-sms-plugin.Sms",
+      "file": "plugins/cordova-sms-plugin/www/sms.js",
+      "pluginId": "cordova-sms-plugin",
+      "clobbers": [
+        "window.sms"
+      ]
+    },
+    {
+      "id": "cordova-plugin-android-permissions.Permissions",
+      "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
+      "pluginId": "cordova-plugin-android-permissions",
+      "clobbers": [
+        "cordova.plugins.permissions"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -308,6 +332,9 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-network-information": "2.0.2",
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "2.4.2",
-    "cordova-plugin-whitelist": "1.3.3"
+    "cordova-plugin-whitelist": "1.3.3",
+    "mx.ferreyra.callnumber": "0.0.2",
+    "cordova-sms-plugin": "1.0.0",
+    "cordova-plugin-android-permissions": "1.0.2"
   };
 });
