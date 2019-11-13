@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar color=\"secondary\">\r\n    <ion-buttons>\r\n      <ion-menu-button autoHide=\"true\"></ion-menu-button>\r\n      <div>\r\n        <ion-button shape=\"round\" fill=\"outline\" (click)=\"direcionaPraTela()\">\r\n          Como estou Hoje\r\n        </ion-button>\r\n      </div>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\r\n  <ion-fab-button\r\n    routerLink=\"/emergencia/emergencia-utilizacao\"\r\n    routerDirection=\"forward\"\r\n    color=\"secondary\"\r\n  >\r\n    S.O.S\r\n  </ion-fab-button>\r\n</ion-fab>\r\n<ion-header translucent>\r\n  <ion-toolbar>\r\n    <ion-title style=\"text-align: center; font-size: 15pt\"\r\n      >Recomendados para você</ion-title\r\n    >\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card\r\n    *ngFor=\"let texto of profissionalConteudoTextoTela\"\r\n    style=\"background-color: #FFFFC4;;\"\r\n  >\r\n    <ion-card-header *ngIf=\"tituloTextoTela == '' \">\r\n      <ion-card-title hidden></ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-header *ngIf=\"tituloTextoTela\">\r\n      <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-content\r\n      *ngIf=\"descricaoTextoTela\"\r\n      style=\"text-align: center; font-size: 15pt;\"\r\n    >\r\n      “{{ texto.texto }}”\r\n    </ion-card-content>\r\n    <ion-card-content\r\n      *ngIf=\"descricaoTextoTela == '' \"\r\n      style=\"text-align: center;\"\r\n    >\r\n      Nenhum texto foi cadastrado até o momento.\r\n    </ion-card-content>\r\n\r\n    <ion-card-header>\r\n      <ion-card-subtitle\r\n        *ngIf=\"autorTextoTela == '' \"\r\n        style=\"text-align: right;\"\r\n      >\r\n        Autor desconhecido\r\n      </ion-card-subtitle>\r\n      <ion-card-subtitle *ngIf=\"autorTextoTela\" style=\"text-align: right;\">\r\n        Autor:{{ texto.autorTexto }}\r\n      </ion-card-subtitle>\r\n    </ion-card-header>\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: #FFFFC4;\"\r\n      [routerLink]=\"['/menu/texto-detalhes', texto.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n  <ion-card\r\n    *ngFor=\"let imagem of profissionalConteudoImagemTela\"\r\n    style=\"color: #9AFFF1;\"\r\n  >\r\n    <ion-card-content *ngIf=\"imagem.imagem\">\r\n      <!-- achar uma maneira de melhorar aqui -->\r\n      <img src=\"{{imagem.imagem}}\" width=\"350px\" height=\"320px\" />\r\n    </ion-card-content>\r\n    <ion-card-content *ngIf=\"imagem.imagem == ''\">\r\n      <ion-card-header style=\"font-size: 15pt; text-align: center;\"\r\n        >Imagem não encontrada</ion-card-header\r\n      >\r\n    </ion-card-content>\r\n\r\n    <ion-card-header *ngIf=\"imagem.tituloImagem == ''\">\r\n      <ion-card-title style=\"text-align: center;\"\r\n        >Titulo não cadastrado</ion-card-title\r\n      >\r\n    </ion-card-header>\r\n\r\n    <ion-card-header *ngIf=\"imagem.tituloImagem\">\r\n      <ion-card-title style=\"text-align: center;\"\r\n        >{{imagem.tituloImagem}}</ion-card-title\r\n      >\r\n    </ion-card-header>\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: lightsteelblue;\"\r\n      [routerLink]=\"['/menu/imagem-detalhes', imagem.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n  <ion-card\r\n    *ngFor=\"let video of profissionalConteudoVideoTela\"\r\n    style=\"background-color: #D0BBFF;\"\r\n  >\r\n    <!-- achar alguma forma de pegar a thumbs -->\r\n    <img src=\"../../../assets/img/abrirmente.PNG\" />\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Video do Youtube</ion-card-subtitle>\r\n      <ion-card-title>{{video.tituloVideo}}</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>{{video.descricaoVideo}}</ion-card-content>\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: silver;\"\r\n      [routerLink]=\"['/menu/video-detalhes', video.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Assistir ao video</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n  <ion-card-content>\r\n    <iframe\r\n      width=\"320\"\r\n      height=\"320\"\r\n      [src]=\"videoDoYoutube(vid)\"\r\n      frameborder=\"0\"\r\n      allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\r\n      allowfullscreen\r\n    ></iframe>\r\n  </ion-card-content>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"secondary\">\r\n    <ion-buttons>\r\n      <ion-menu-button autoHide=\"true\"></ion-menu-button>\r\n      <div>\r\n        <ion-button\r\n          shape=\"round\"\r\n          fill=\"outline\"\r\n          (click)=\"direcionaPraTela()\"\r\n        >\r\n          Como estou Hoje\r\n        </ion-button>\r\n      </div>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n\r\n\r\n<ion-fab\r\n  vertical=\"bottom\"\r\n  horizontal=\"end\"\r\n  slot=\"fixed\"\r\n>\r\n  <ion-fab-button\r\n    routerLink=\"/emergencia/emergencia-utilizacao\"\r\n    routerDirection=\"forward\"\r\n    color=\"secondary\"\r\n  >\r\n    S.O.S\r\n  </ion-fab-button>\r\n</ion-fab>\r\n<ion-header translucent>\r\n  <ion-toolbar>\r\n    <ion-title style=\"text-align: center; font-size: 15pt\">Recomendados para você</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n\r\n\r\n<ion-content>\r\n  <ion-header translucent>\r\n    <ion-toolbar\r\n      translucent\r\n      color=\"amareloprofissional\"\r\n    >\r\n      <ion-title style=\"font-size: 15pt; text-align: center; font-family: monospace;\">Textos e frases</ion-title>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n\r\n  <ion-card\r\n    *ngFor=\"let texto of profissionalConteudoTextoTela\"\r\n    style=\"background-color: #FFFFC4;;\"\r\n  >\r\n    <ion-card-header *ngIf=\"tituloTextoTela == '' \">\r\n      <ion-card-title hidden></ion-card-title>\r\n    </ion-card-header>\r\n\r\n\r\n\r\n\r\n    <ion-card-header *ngIf=\"tituloTextoTela\">\r\n      <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>\r\n    </ion-card-header>\r\n\r\n\r\n\r\n\r\n\r\n    <ion-card-content\r\n      *ngIf=\"descricaoTextoTela\"\r\n      style=\"text-align: center; font-size: 15pt;\"\r\n    >\r\n      “{{ texto.texto }}”\r\n    </ion-card-content>\r\n    <ion-card-content\r\n      *ngIf=\"descricaoTextoTela == '' \"\r\n      style=\"text-align: center;\"\r\n    >\r\n      Nenhum texto foi cadastrado até o momento.\r\n    </ion-card-content>\r\n\r\n\r\n\r\n\r\n    <ion-card-header>\r\n      <ion-card-subtitle\r\n        *ngIf=\"autorTextoTela == '' \"\r\n        style=\"text-align: right;\"\r\n      >\r\n        Autor desconhecido\r\n      </ion-card-subtitle>\r\n      <ion-card-subtitle\r\n        *ngIf=\"autorTextoTela\"\r\n        style=\"text-align: right;\"\r\n      >\r\n        Autor:{{ texto.autorTexto }}\r\n      </ion-card-subtitle>\r\n    </ion-card-header>\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: #FFFFC4;\"\r\n      [routerLink]=\"['/menu/texto-detalhes', texto.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n\r\n<ion-header translucent>\r\n    <ion-toolbar\r\n      translucent\r\n      color=\"primary\"\r\n    >\r\n      <ion-title style=\"font-size: 15pt; text-align: center; font-family: monospace;\">Imagens</ion-title>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n  <ion-card\r\n    *ngFor=\"let imagem of profissionalConteudoImagemTela\"\r\n    style=\"color: #9AFFF1;\"\r\n  >\r\n    <ion-card-content *ngIf=\"imagem.imagem\">\r\n      <!-- achar uma maneira de melhorar aqui -->\r\n      <img\r\n        src=\"{{imagem.imagem}}\"\r\n        width=\"350px\"\r\n        height=\"320px\"\r\n      >\r\n    </ion-card-content>\r\n    <ion-card-content *ngIf=\"imagem.imagem == ''\">\r\n      <ion-card-header style=\"font-size: 15pt; text-align: center;\">Imagem não encontrada</ion-card-header>\r\n    </ion-card-content>\r\n\r\n\r\n\r\n\r\n    <ion-card-header *ngIf=\"imagem.tituloImagem == ''\">\r\n      <ion-card-title style=\"text-align: center;\">Titulo não cadastrado</ion-card-title>\r\n    </ion-card-header>\r\n\r\n\r\n\r\n    <ion-card-header *ngIf=\"imagem.tituloImagem\">\r\n      <ion-card-title style=\"text-align: center;\">{{imagem.tituloImagem}}</ion-card-title>\r\n    </ion-card-header>\r\n\r\n\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: lightsteelblue;\"\r\n      [routerLink]=\"['/menu/imagem-detalhes', imagem.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n\r\n<ion-header translucent>\r\n    <ion-toolbar\r\n      translucent\r\n      color=\"tertiary\"\r\n    >\r\n      <ion-title style=\"font-size: 15pt; text-align: center; font-family: monospace;\">Videos</ion-title>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n  <ion-card\r\n    *ngFor=\"let video of profissionalConteudoVideoTela\"\r\n    style=\"background-color: #D0BBFF;\"\r\n  >\r\n    <!-- achar alguma forma de deixar o link especifico -->\r\n    <iframe\r\n      width=\"350\"\r\n      height=\"300\"\r\n      src=\"https://www.youtube.com/embed/hHYDVmWE9FI\"\r\n      frameborder=\"0\"\r\n      allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\r\n      allowfullscreen\r\n    ></iframe>\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Video do Youtube</ion-card-subtitle>\r\n      <ion-card-title>{{video.tituloVideo}}</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>{{video.descricaoVideo}}</ion-card-content>\r\n\r\n\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: silver;\"\r\n      [routerLink]=\"['/menu/video-detalhes', video.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -152,6 +152,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service */ "./src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+/* harmony import */ var _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/local-notifications/ngx */ "./node_modules/@ionic-native/local-notifications/ngx/index.js");
+
 
 
 
@@ -163,7 +165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HomePage = class HomePage {
-    constructor(navctrl, auth, usuarioCadastro, profissionalConteudoTextoService, profissionalConteudoImagemService, profissionalConteudoVideoService, route, dom) {
+    constructor(navctrl, auth, usuarioCadastro, profissionalConteudoTextoService, profissionalConteudoImagemService, profissionalConteudoVideoService, route, dom, localNotifications) {
         this.navctrl = navctrl;
         this.auth = auth;
         this.usuarioCadastro = usuarioCadastro;
@@ -172,10 +174,7 @@ let HomePage = class HomePage {
         this.profissionalConteudoVideoService = profissionalConteudoVideoService;
         this.route = route;
         this.dom = dom;
-        this.vid = 'https://www.youtube.com/embed/hHYDVmWE9FI';
-    }
-    videoDoYoutube(vid) {
-        return this.dom.bypassSecurityTrustResourceUrl(vid);
+        this.localNotifications = localNotifications;
     }
     ngOnInit() {
         this.idUsuario = this.auth.auth.currentUser.uid;
@@ -316,10 +315,26 @@ let HomePage = class HomePage {
                     this.descricaoVideoTela = x.descricaoVideo;
                     this.linkVideoTela = x.linkVideo;
                     this.autorVideoTela = x.autorVideo;
+                    this.openNotificacao(this.tituloVideoTela);
                 });
             });
         });
     }
+    // FUNÇÃO QUE EMITE A NOTIFICAÇÃO
+    openNotificacao(titulo) {
+        this.localNotifications.schedule({
+            title: 'Novo video cadastrado',
+            text: titulo,
+            trigger: { at: new Date(new Date().getTime() + 3600) },
+            led: 'FF0000',
+            sound: null
+        });
+    }
+    /*
+    videoDoYT(vid){
+      return this.dom.bypassSecurityTrustResourceUrl(vid);
+    }
+    */
     direcionaPraTela() {
         this.navctrl.navigateForward("quero-conversar");
     }
@@ -338,7 +353,8 @@ HomePage.ctorParameters = () => [
     { type: src_app_services_profissionalConteudoImagem_profissional_conteudo_imagem_service__WEBPACK_IMPORTED_MODULE_6__["ProfissionalConteudoImagemService"] },
     { type: src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_7__["ProfissionalConteudoVideoService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__["DomSanitizer"] }
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__["DomSanitizer"] },
+    { type: _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_10__["LocalNotifications"] }
 ];
 HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -353,7 +369,8 @@ HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         src_app_services_profissionalConteudoImagem_profissional_conteudo_imagem_service__WEBPACK_IMPORTED_MODULE_6__["ProfissionalConteudoImagemService"],
         src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_7__["ProfissionalConteudoVideoService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"],
-        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__["DomSanitizer"]])
+        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__["DomSanitizer"],
+        _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_10__["LocalNotifications"]])
 ], HomePage);
 
 

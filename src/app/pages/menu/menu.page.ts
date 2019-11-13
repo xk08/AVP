@@ -13,7 +13,7 @@ import { AssistenteCadastro } from 'src/app/services/assistenteCadastro/assisten
 export class MenuPage implements OnInit, OnDestroy {
   paginas = [
     {
-      title: 'Home',
+      title: 'Inicio',
       url: '/menu/home',
       icon: 'home'
     },
@@ -26,12 +26,7 @@ export class MenuPage implements OnInit, OnDestroy {
 
   paginasProfissional = [
     {
-      title: 'Home',
-      url: '/menu/profissional-todos-conteudos',
-      icon: 'home'
-    },
-    {
-      title: 'Meu Perfil',
+      title: 'Inicio',
       url: '/menu/profissional-todos-conteudos',
       icon: 'home'
     }

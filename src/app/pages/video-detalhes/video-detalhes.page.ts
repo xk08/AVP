@@ -11,7 +11,7 @@ import { DomSanitizer } from "@angular/platform-browser";
   styleUrls: ["./video-detalhes.page.scss"]
 })
 export class VideoDetalhesPage implements OnInit, OnDestroy {
-  vid = "https://www.youtube.com/watch?v=hHYDVmWE9FI";
+
   public idVideo: string;
 
   public todas: ProfissionalConteudoVideo[];
@@ -25,11 +25,10 @@ export class VideoDetalhesPage implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private profissionalVideoService: ProfissionalConteudoVideoService,
     private dom: DomSanitizer
-  ) {}
+  ) { }
 
   public list: Subscription;
 
-  public vid: string;
 
   ngOnInit() {
     this.idVideo = this.route.snapshot.params["id"];
@@ -44,6 +43,7 @@ export class VideoDetalhesPage implements OnInit, OnDestroy {
       });
   }
 
+  //Aqui que valida
   videoDoYoutube(vid) {
     return this.dom.bypassSecurityTrustResourceUrl(vid);
   }

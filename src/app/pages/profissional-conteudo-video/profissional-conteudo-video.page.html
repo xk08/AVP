@@ -1,220 +1,180 @@
-<!-- <ion-header translucent>
-  <ion-toolbar color="#FFFF">
-    <ion-title style="text-align: center; font-size: 12pt">Divulgue uma frase de apoio</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
-
 <ion-content>
   <ion-grid>
-    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
-    <ion-row justify-content-center>
-      <!-- Deixa responsivo -->
-      <ion-col
-        size-sm="8"
-        size-md="12"
-        size-lg="3"
-        size-xl="3"
+    <form #form="ngForm">
+      <ion-card>
+        <ion-card-header style="background-color: #D0BBFF;">
+          <ion-card-title style="font-size: 17px; text-align: center;">
+            Direcione um video a alguém que precisa de ajuda
+          </ion-card-title>
+        </ion-card-header>
+        <ion-item>
+          <ion-icon
+            name="ios-bulb"
+            color="tertiary"
+            slot="start"
+          ></ion-icon>
+          <ion-textarea
+            name="video"
+            autofocus="true"
+            [(ngModel)]="todas.linkVideo"
+            required
+            rows="2"
+            cols="8"
+            placeholder="Cole aqui o endereço (URL) do video..."
+          ></ion-textarea>
+        </ion-item>
+        <!-- Pré visualização -->
+        <ion-card>
+          <ion-card-header style="background-color: #D0BBFF;">
+            <ion-card-title style="font-size: 17px; text-align: center;">Pré visualização do video escolhido</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-card>
+      <ion-item
+        href
+        class="activated"
+        color="tertiary"
       >
-        <form #form="ngForm">
-          <ion-card>
-            <ion-card-header style="background-color: #D0BBFF;">
-              <ion-card-title style="font-size: 17px; text-align: center;">
-                Direcione um video a alguém que precisa de ajuda
-              </ion-card-title>
-            </ion-card-header>
-            <ion-item>
-              <ion-icon
-                name="ios-bulb"
-                color="tertiary"
-                slot="start"
-              ></ion-icon>
-              <ion-textarea
-                name="video"
-                autofocus="true"
-                [(ngModel)]="todas.linkVideo"
-                required
-                rows="2"
-                cols="8"
-                placeholder="Cole aqui o endereço (URL) do video..."
-              ></ion-textarea>
-            </ion-item>
-
-
-            <!-- Pré visualização -->
-            <ion-card>
-              <ion-card-header style="background-color: #D0BBFF;">
-                <ion-card-title style="font-size: 17px; text-align: center;">Pré visualização do video escolhido</ion-card-title>
-              </ion-card-header>
-            </ion-card>
-          </ion-card>
-
-
-          <ion-item
-            href
-            class="activated"
+        <ion-toggle
+          [(ngModel)]="mostraMaisInfo"
+          (ionChange)="changeMaisInfo()"
+          color="medium"
+          slot="end"
+          name="maisInfo"
+        ></ion-toggle>
+        <ion-label class="ion-text-center">Informações complementares</ion-label>
+      </ion-item>
+      <ion-card
+        style="background-color:  #D0BBFF;"
+        *ngIf="mostraMaisInfo"
+      >
+        <ion-item>
+          <ion-icon
+            name="add"
+            slot="start"
             color="tertiary"
           >
-            <ion-toggle
-              [(ngModel)]="mostraMaisInfo"
-              (ionChange)="changeMaisInfo()"
-              color="medium"
-              slot="end"
-              name="maisInfo"
-            ></ion-toggle>
-            <ion-label class="ion-text-center">Informações complementares</ion-label>
+          </ion-icon>
+          <ion-input
+            type="text"
+            name="tituloVideo"
+            placeholder="Titulo do Video"
+            autofocus="true"
+            [(ngModel)]="todas.tituloVideo"
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon
+            name="add"
+            slot="start"
+            color="tertiary"
+          >
+          </ion-icon>
+          <ion-input
+            type="text"
+            name="autorVideo"
+            placeholder="Autor do video"
+            autofocus="true"
+            [(ngModel)]="todas.autorVideo"
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon
+            name="add"
+            color="tertiary"
+            slot="start"
+          ></ion-icon>
+          <ion-textarea
+            name="descricaoVideo"
+            autofocus="true"
+            [(ngModel)]="todas.descricaoVideo"
+            required
+            rows="2"
+            cols="5"
+            placeholder="Informações complementares sobre o video..."
+          ></ion-textarea>
+        </ion-item>
+      </ion-card>
+      <ion-item
+        href
+        class="activated"
+        color="tertiary"
+      >
+        <ion-toggle
+          [(ngModel)]="mostraFiltro"
+          (ionChange)="changeFiltro()"
+          slot="end"
+          name="filtro"
+          color="medium"
+        ></ion-toggle>
+        <ion-label class="ion-text-center">Filtro de Conteúdos</ion-label>
+      </ion-item>
+      <ion-card *ngIf="mostraFiltro">
+        <ion-card-header style="background-color: #D0BBFF;">
+          <ion-card-title style="font-size: 17px; text-align: center;">Faixa etária destinada</ion-card-title>
+        </ion-card-header>
+        <ion-radio-group
+          [(ngModel)]="todas.idade"
+          name="selecionaIdade"
+        >
+          <ion-item>
+            <ion-label>8 a 12 anos</ion-label>
+            <ion-radio
+              name="8a12"
+              value="8 a 12"
+              slot="start"
+              color="tertiary"
+            ></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>13 a 17 anos</ion-label>
+            <ion-radio
+              name="13a17"
+              value="13 a 17"
+              slot="start"
+              color="tertiary"
+            ></ion-radio>
           </ion-item>
 
 
-          <ion-card
-            style="background-color:  #D0BBFF;"
-            *ngIf="mostraMaisInfo"
-          >
-            <ion-item>
-              <ion-icon
-                name="add"
-                slot="start"
-                color="tertiary"
-              >
-              </ion-icon>
-              <ion-input
-                type="text"
-                name="tituloVideo"
-                placeholder="Titulo do Video"
-                autofocus="true"
-                [(ngModel)]="todas.tituloVideo"
-                required
-              ></ion-input>
-            </ion-item>
-
-
-            <ion-item>
-              <ion-icon
-                name="add"
-                slot="start"
-                color="tertiary"
-              >
-              </ion-icon>
-              <ion-input
-                type="text"
-                name="autorVideo"
-                placeholder="Autor do video"
-                autofocus="true"
-                [(ngModel)]="todas.autorVideo"
-                required
-              ></ion-input>
-            </ion-item>
-
-
-            <ion-item>
-              <ion-icon
-                name="add"
-                color="tertiary"
-                slot="start"
-              ></ion-icon>
-              <ion-textarea
-                name="descricaoVideo"
-                autofocus="true"
-                [(ngModel)]="todas.descricaoVideo"
-                required
-                rows="2"
-                cols="5"
-                placeholder="Informações complementares sobre o video..."
-              ></ion-textarea>
-            </ion-item>
-          </ion-card>
-
-
-          <ion-item
-            href
-            class="activated"
-            color="tertiary"
-          >
-            <ion-toggle
-              [(ngModel)]="mostraFiltro"
-              (ionChange)="changeFiltro()"
-              slot="end"
-              name="filtro"
-              color="medium"
-            ></ion-toggle>
-            <ion-label class="ion-text-center">Filtro de Conteúdos</ion-label>
+          <ion-item>
+            <ion-label>18 anos ou mais</ion-label>
+            <ion-radio
+              name="18a35"
+              value="18 anos ou mais"
+              slot="start"
+              color="tertiary"
+            ></ion-radio>
           </ion-item>
-
-
-          <ion-card *ngIf="mostraFiltro">
-            <ion-card-header style="background-color: #D0BBFF;">
-              <ion-card-title style="font-size: 17px; text-align: center;">Faixa etária destinada</ion-card-title>
-            </ion-card-header>
-
-
-            <ion-radio-group
-              [(ngModel)]="todas.idade"
-              name="selecionaIdade"
-            >
-              <ion-item>
-                <ion-label>8 a 12 anos</ion-label>
-                <ion-radio
-                  name="8a12"
-                  value="8 a 12"
-                  slot="start"
-                  color="tertiary"
-                ></ion-radio>
-              </ion-item>
-
-
-              <ion-item>
-                <ion-label>13 a 17 anos</ion-label>
-                <ion-radio
-                  name="13a17"
-                  value="13 a 17"
-                  slot="start"
-                  color="tertiary"
-                ></ion-radio>
-              </ion-item>
-
-
-              <ion-item>
-                <ion-label>18 anos ou mais</ion-label>
-                <ion-radio
-                  name="18a35"
-                  value="18 anos ou mais"
-                  slot="start"
-                  color="tertiary"
-                ></ion-radio>
-              </ion-item>
-            </ion-radio-group>
-
-
-            <ion-card-header style="background-color:  #D0BBFF;">
-              <ion-card-title style="font-size: 17px; text-align: center;">Avaliação do usuário</ion-card-title>
-            </ion-card-header>
-            <ion-row>
-              <ion-item
-                *ngFor="let star of stars; let i = index"
-                tappable
-                (click)="starClicked(i)"
-              >
-                <ion-icon
-                  [name]="star"
-                  color="primary"
-                  color="tertiary"
-                ></ion-icon>
-              </ion-item>
-            </ion-row>
-          </ion-card>
-
-
-          <ion-button
-            expand="block"
-            type="submit"
-            class="login-button"
-            (click)="saveTodo()"
-            color="dark"
+        </ion-radio-group>
+        <ion-card-header style="background-color:  #D0BBFF;">
+          <ion-card-title style="font-size: 17px; text-align: center;">Avaliação do usuário</ion-card-title>
+        </ion-card-header>
+        <ion-row>
+          <ion-item
+            *ngFor="let star of stars; let i = index"
+            tappable
+            (click)="starClicked(i)"
           >
-            Criar conteúdo
-          </ion-button>
-        </form>
-      </ion-col>
-    </ion-row>
+            <ion-icon
+              [name]="star"
+              color="primary"
+              color="tertiary"
+            ></ion-icon>
+          </ion-item>
+        </ion-row>
+      </ion-card>
+      <ion-button
+        expand="block"
+        type="submit"
+        class="login-button"
+        (click)="saveTodo()"
+        color="dark"
+      >
+        Criar conteúdo
+      </ion-button>
+    </form>
   </ion-grid>
 </ion-content>

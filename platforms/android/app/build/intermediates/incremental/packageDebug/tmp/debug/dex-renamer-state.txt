@@ -1,4 +1,4 @@
-#Tue Nov 12 17:46:55 BRST 2019
+#Wed Nov 13 14:07:51 BRST 2019
 base.0=D\:\\tcc\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

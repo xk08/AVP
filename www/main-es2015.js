@@ -758,6 +758,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/call-number/ngx */ "./node_modules/@ionic-native/call-number/ngx/index.js");
 /* harmony import */ var _ionic_native_sms_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/sms/ngx */ "./node_modules/@ionic-native/sms/ngx/index.js");
 /* harmony import */ var _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @ionic-native/android-permissions/ngx */ "./node_modules/@ionic-native/android-permissions/ngx/index.js");
+/* harmony import */ var br_mask__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! br-mask */ "./node_modules/br-mask/dist/index.js");
+
 
 
 
@@ -789,7 +791,8 @@ CoreModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             //Essa parte é referente a salvar os dados offline
             angularfire2_firestore__WEBPACK_IMPORTED_MODULE_15__["AngularFirestoreModule"].enablePersistence({
                 synchronizeTabs: true
-            })
+            }),
+            br_mask__WEBPACK_IMPORTED_MODULE_19__["BrMaskerModule"]
         ],
         exports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"]],
         providers: [
@@ -802,7 +805,8 @@ CoreModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _ionic_native_local_notifications_ngx__WEBPACK_IMPORTED_MODULE_14__["LocalNotifications"],
             _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_16__["CallNumber"],
             _ionic_native_sms_ngx__WEBPACK_IMPORTED_MODULE_17__["SMS"],
-            _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_18__["AndroidPermissions"]
+            _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_18__["AndroidPermissions"],
+            br_mask__WEBPACK_IMPORTED_MODULE_19__["BrMaskerModule"]
         ]
     })
 ], CoreModule);

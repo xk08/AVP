@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Nov 12 17:46:57 BRST 2019
+#Tue Nov 12 18:39:45 BRST 2019
 1034.base=D\:\\tcc\\platforms\\android\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
 881.path=www/tap-click-b300ec79-js-es2015.js
 508.set=ASSET

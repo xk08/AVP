@@ -21,6 +21,11 @@ import { AngularFirestoreModule } from "angularfire2/firestore";
 import { CallNumber } from "@ionic-native/call-number/ngx";
 import { SMS } from "@ionic-native/sms/ngx";
 import { AndroidPermissions } from "@ionic-native/android-permissions/ngx";
+import { BrMaskerModule } from 'br-mask';
+
+
+
+
 
 @NgModule({
   imports: [
@@ -31,7 +36,8 @@ import { AndroidPermissions } from "@ionic-native/android-permissions/ngx";
     //Essa parte é referente a salvar os dados offline
     AngularFirestoreModule.enablePersistence({
       synchronizeTabs: true
-    })
+    }),
+    BrMaskerModule
   ],
   exports: [BrowserModule, IonicModule],
   providers: [
@@ -44,7 +50,8 @@ import { AndroidPermissions } from "@ionic-native/android-permissions/ngx";
     LocalNotifications,
     CallNumber,
     SMS,
-    AndroidPermissions
+    AndroidPermissions,
+    BrMaskerModule
   ]
 })
 export class CoreModule {}

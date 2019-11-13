@@ -7,6 +7,7 @@ import { ProfissionalConteudoTextoService } from 'src/app/services/profissionalC
 import { OverlayService } from 'src/app/core/overlay.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 
+
 @Component({
   selector: 'app-profissional-conteudo-texto',
   templateUrl: './profissional-conteudo-texto.page.html',

@@ -1,30 +1,21 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="menu/home"></ion-back-button>
+      <ion-back-button defaultHref="menu/home" color="success"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-
-
 <ion-content>
-  <ion-grid style="height: 100%;">
-    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
-    <ion-row justify-content-center>
-      <!-- Deixa responsivo -->
-      <ion-col
-        size-sm="8"
-        size-md="12"
-        size-lg="3"
-        size-xl="3"
-      >
-        <form #form="ngForm">
+  <ion-grid style="height: 100%">
+  <ion-row justify-content-center align-items-center style="height: 85%">
+  <form #form="ngForm">
           <ion-card >
             <ion-card-header>
               <ion-card-subtitle  style="font-size: 15pt" color="success">{{ nomeUsuarioLogado }}</ion-card-subtitle>
               <ion-card-title style="font-size: 17px; text-align: center;">Como você está nesse momento ?</ion-card-title>
             </ion-card-header>
+
             <ion-row>
               <ion-item
                 *ngFor="let star of stars; let i = index"
@@ -36,20 +27,22 @@
               </ion-item>
             </ion-row>
           </ion-card>
-
-
-
           <ion-button
-            expand="block"
-            type="submit"
-            class="login-button"
-            (click)="saveTodo()"
-            color="success"
+          expand="block"
+          type="submit"
+          class="login-button"
+          (click)="saveTodo()"
+          color="success"
           >
-            pronto
-          </ion-button>
-        </form>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+          enviar
+        </ion-button>
+      </form>
+  </ion-row>
+
+
+
+
+
+</ion-grid>
 </ion-content>
+

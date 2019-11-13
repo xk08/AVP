@@ -10,7 +10,8 @@ import { ProfissionalConteudoVideo } from 'src/app/services/profissionalConteudo
 import { ProfissionalConteudoImagemService } from 'src/app/services/profissionalConteudoImagem/profissional-conteudo-imagem.service';
 import { ProfissionalConteudoVideoService } from 'src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer} from '@angular/platform-browser'
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser'
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @Component({
   selector: "app-home",
@@ -18,6 +19,11 @@ import { DomSanitizer} from '@angular/platform-browser'
   styleUrls: ["./home.page.scss"]
 })
 export class HomePage implements OnInit, OnDestroy {
+
+  //vid = 'https://www.youtube.com/watch?v=TSDnysvLM-Y';
+
+  trustedVideoUrl: SafeResourceUrl;
+
   idUsuario: string;
   public idadeGlobal: number;
   public idadeDoIFF: string;
@@ -53,6 +59,12 @@ export class HomePage implements OnInit, OnDestroy {
   public listProfissionalConteudoVideo: Subscription;
   public listUsuario: Subscription;
 
+  //Dos toggles
+  public mostraMaisInfoTexto: boolean = false;
+  public mostraMaisInfoImagem: boolean = false;
+  public mostraMaisInfoVideo: boolean = true;
+
+
   constructor(
     private navctrl: NavController,
     private auth: AngularFireAuth,
@@ -61,8 +73,9 @@ export class HomePage implements OnInit, OnDestroy {
     private profissionalConteudoImagemService: ProfissionalConteudoImagemService,
     private profissionalConteudoVideoService: ProfissionalConteudoVideoService,
     private route: ActivatedRoute,
-    private dom: DomSanitizer
-  ) {}
+    private dom: DomSanitizer,
+    private localNotifications: LocalNotifications
+  ) { }
 
 
   ngOnInit() {
@@ -70,6 +83,7 @@ export class HomePage implements OnInit, OnDestroy {
     this.buscaDadosTexto(this.idUsuario);
     this.buscaDadosImagem(this.idUsuario);
     this.buscaDadosVideo(this.idUsuario);
+
   }
 
   /* TEXTO */
@@ -119,12 +133,31 @@ export class HomePage implements OnInit, OnDestroy {
 
             //Percorrendo a coleçção e pegando os campos
             res.forEach(x => {
+
               this.tituloTextoTela = x.tituloTexto;
               this.descricaoTextoTela = x.texto;
               this.autorTextoTela = x.autorTexto;
+
+              if (this.profissionalConteudoTextoTela != null) {
+                this.openNotificacao(this.tituloTextoTela, this.descricaoTextoTela);
+                console.log("Teste se chega algo ->" + this.tituloTextoTela);
+
+              }
+
             });
           });
       });
+  }
+
+  openNotificacao(titulo: string, texto:string) {
+
+    this.localNotifications.schedule({
+      title: titulo,
+      text: texto,
+      trigger: { at: new Date(new Date().getTime() + 2000) },
+      led: 'FF0000',
+      sound: null
+    });
   }
 
   /* IMAGEM */
@@ -236,6 +269,13 @@ export class HomePage implements OnInit, OnDestroy {
           });
       });
   }
+
+
+  /*
+  videoDoYT(vid){
+    return this.dom.bypassSecurityTrustResourceUrl(vid);
+  }
+  */
 
   direcionaPraTela() {
     this.navctrl.navigateForward("quero-conversar");

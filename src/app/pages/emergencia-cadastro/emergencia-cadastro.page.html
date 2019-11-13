@@ -2,9 +2,15 @@
   <ion-toolbar color="#FFFF">
 
 
+
+
+
     <ion-title style="text-align: center; font-size: 12pt">Informações emergênciais</ion-title>
   </ion-toolbar>
 </ion-header>
+
+
+
 
 
 <ion-content>
@@ -21,14 +27,11 @@
         <form #form="ngForm">
 
 
-
           <!-- PRIMEIRO NÚMERO -->
           <ion-card>
             <ion-card-header>
               <ion-card-title style="font-size: 17px; text-align: center;">Informações da primeira pessoa</ion-card-title>
             </ion-card-header>
-
-
             <ion-item>
               <ion-icon
                 name="md-call"
@@ -36,16 +39,15 @@
                 slot="start"
               ></ion-icon>
               <ion-input
-                type="number"
+                type="text"
                 name="primeiroNumero"
                 placeholder="Numero de celular"
                 autofocus="true"
                 [(ngModel)]='todas.primeiroNumero'
+                [brmasker]="{mask:'00000-0000', type:'num', len:10 }"
                 required
               ></ion-input>
             </ion-item>
-
-
             <ion-item>
               <ion-icon
                 name="ios-person"
@@ -58,21 +60,16 @@
                 placeholder="Nome ou apelido"
                 autofocus="true"
                 [(ngModel)]='todas.nomePrimeiroNumero'
+                [brmasker]="{len:8 }"
                 required
               ></ion-input>
             </ion-item>
           </ion-card>
-
-
           <!-- SEGUNDO NÚMERO -->
-
-
           <ion-card>
             <ion-card-header>
               <ion-card-title style="font-size: 17px; text-align: center;">Informações da segunda pessoa</ion-card-title>
             </ion-card-header>
-
-
             <ion-item>
               <ion-icon
                 name="md-call"
@@ -80,16 +77,15 @@
                 slot="start"
               ></ion-icon>
               <ion-input
-                type="number"
+                type="text"
                 name="segundoNumero"
                 placeholder="Segundo número"
                 autofocus="true"
                 [(ngModel)]='todas.segundoNumero'
+                [brmasker]="{mask:'00000-0000', type:'num', len:10 }"
                 required
               ></ion-input>
             </ion-item>
-
-
             <ion-item>
               <ion-icon
                 name="ios-person"
@@ -102,15 +98,12 @@
                 placeholder="Nome ou apelido"
                 autofocus="true"
                 [(ngModel)]='todas.nomeSegundoNumero'
+                [brmasker]="{len:8 }"
                 required
               ></ion-input>
             </ion-item>
           </ion-card>
-
-
           <!-- FRASE QUE GOSTA -->
-
-
           <ion-card>
             <ion-card-header>
               <ion-card-title style="font-size: 17px; text-align: center;">Frase que você gosta</ion-card-title>
@@ -132,17 +125,11 @@
               ></ion-textarea>
             </ion-item>
           </ion-card>
-
-
           <!-- FOTO QUE GOSTA -->
-
-
           <ion-card>
             <ion-card-header>
               <ion-card-title style="font-size: 17px; text-align: center;">Foto que você gosta e admira</ion-card-title>
             </ion-card-header>
-
-
             <ion-item (click)="abrirGaleria()">
 
 
@@ -153,8 +140,6 @@
               ></ion-icon>
               Clique para escolher
             </ion-item>
-
-
             <ion-card *ngIf="todas.foto">
               <ion-label
                 color="primary"
@@ -168,16 +153,8 @@
                 height="240"
               >
             </ion-card>
-
-
-
           </ion-card>
-
-
-
           <!-- BOTÃO DE CADASTRO -->
-
-
           <ion-button
             fill="outline"
             expand="block"
@@ -192,6 +169,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-
 </ion-content>
