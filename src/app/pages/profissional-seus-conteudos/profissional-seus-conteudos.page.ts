@@ -67,7 +67,7 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
     this.buscaDadosTexto(this.idUsuario);
     this.buscaDadosImagem(this.idUsuario);
     this.buscaDadosVideo(this.idUsuario);
-    
+
   }
 
   buscaDadosTexto(idUsuario) {
@@ -116,7 +116,7 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
       });
   }
 
-  
+
   async removeTexto(id) {
     const alert = await this.alertController.create({
       header: 'Apagar texto',
@@ -135,7 +135,7 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
           handler: () => {
             this.profissionalConteudoTextoService
             .removeTodo(id)
-      
+
             this.presentToast('O texto foi apagado') ;
           }
         }
@@ -145,7 +145,7 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
     await alert.present();
   }
 
-  
+
   async removeImagem(id) {
     const alert = await this.alertController.create({
       header: 'Apagar imagem',
@@ -164,7 +164,7 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
           handler: () => {
             this.profissionalConteudoImagemService
             .removeTodo(id)
-      
+
             this.presentToast('A imagem foi apagada') ;
           }
         }
@@ -174,7 +174,7 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
     await alert.present();
   }
 
-  
+
   async removeVideo(id) {
     const alert = await this.alertController.create({
       header: 'Apagar video',
@@ -193,7 +193,7 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
           handler: () => {
             this.profissionalConteudoVideoService
             .removeTodo(id)
-      
+
             this.presentToast('O video foi apagado') ;
           }
         }

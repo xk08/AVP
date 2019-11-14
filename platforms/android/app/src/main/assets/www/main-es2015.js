@@ -780,7 +780,84 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CoreModule = class CoreModule {
+    constructor(alertController, toastController) {
+        this.alertController = alertController;
+        this.toastController = toastController;
+        //Mensagens padrão de validações
+        this.identForm = {
+            'email': [
+                { type: 'requerid', mensagem: 'E-mail não informado' },
+                { type: 'minlength', mensagem: 'Minimo 6 caracteres' },
+                { type: 'maxLength', mensagem: 'Maximo 30 caracteres' },
+                { type: 'pattern', mensagem: 'Endereço inválido!' }
+            ],
+            'senha': [
+                { type: 'requerid', mensagem: 'Senha não informada' },
+                { type: 'minlength', mensagem: 'Minimo 6 caracteres' },
+                { type: 'maxLength', mensagem: 'Maximo 30 caracteres' },
+                { type: 'pattern', mensagem: 'Senha invalido!' }
+            ],
+            'nome': [
+                { type: 'requerid', mensagem: 'Nome não informado' },
+                { type: 'minlength', mensagem: 'Minimo 3 letras' },
+                { type: 'maxLength', mensagem: 'Maximo 50 caracteres' },
+            ],
+            'dataNascimento': [
+                { type: 'requerid', mensagem: 'Data não informada' },
+            ],
+            'profissao': [
+                { type: 'requerid', mensagem: 'Profissão não informada' },
+                { type: 'minlength', mensagem: 'Minimo 6 letras' },
+                { type: 'maxLength', mensagem: 'Maximo 30 caracteres' },
+            ]
+        };
+    }
+    presentAlert(header, msg) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const alert = yield this.alertController.create({
+                subHeader: header,
+                message: msg,
+                buttons: ['OK'],
+            });
+            yield alert.present();
+        });
+    }
+    identificaError(error) {
+        switch (error) {
+            case 'auth/email-already-in-use':
+                this.presentAlert('Atenção', 'O e-mail escolhido, já está sendo utilizado por alguém.');
+                break;
+            case 'auth/invalid-email':
+                this.presentAlert('Atenção', 'Endereço de e-mail inválido!');
+                break;
+            case 'auth/operation-not-allowed':
+                this.presentAlert('Atenção', 'E-mail e senha desativadas!');
+                break;
+            case 'auth/weak-password':
+                this.presentAlert('Atenção', 'Senha muito fraca!');
+                break;
+            case 'auth/invalid-email':
+                this.presentAlert('Atenção', 'E-mail invalido!');
+                break;
+            case 'auth/user-disabled':
+                this.presentAlert('Atenção', 'Usuario desativado!');
+                break;
+            case 'auth/user-not-found':
+                this.presentAlert('Atenção', 'Usuario não encontrado!');
+                break;
+            case 'auth/wrong-password':
+                this.presentAlert('Atenção', 'Senha inválida!');
+                break;
+            default:
+                this.presentAlert('Atenção', 'Erro não encontrado em nosso Banco!');
+                break;
+        }
+    }
 };
+CoreModule.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"] }
+];
 CoreModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [
@@ -808,7 +885,9 @@ CoreModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _ionic_native_android_permissions_ngx__WEBPACK_IMPORTED_MODULE_18__["AndroidPermissions"],
             br_mask__WEBPACK_IMPORTED_MODULE_19__["BrMaskerModule"]
         ]
-    })
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"]])
 ], CoreModule);
 
 

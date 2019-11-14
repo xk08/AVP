@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angu
 import { NgForm } from '@angular/forms';
 import { ProfissionalConteudoTexto } from 'src/app/services/profissionalConteudoTexto/profissionalConteudoTexto';
 import { ActivatedRoute } from '@angular/router';
-import { LoadingController, NavController } from '@ionic/angular';
+import { LoadingController, NavController, ToastController } from '@ionic/angular';
 import { ProfissionalConteudoTextoService } from 'src/app/services/profissionalConteudoTexto/profissional-conteudo-texto.service';
 import { OverlayService } from 'src/app/core/overlay.service';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -55,7 +55,8 @@ export class ProfissionalConteudoTextoPage implements OnInit {
     private conteudoTextoService: ProfissionalConteudoTextoService,
     private navCtrl: NavController,
     private overlay: OverlayService,
-    private auth: AngularFireAuth
+    private auth: AngularFireAuth,
+    private toastController: ToastController
   ) {}
 
   //RatebarStar
@@ -117,7 +118,18 @@ export class ProfissionalConteudoTextoPage implements OnInit {
       this.conteudoTextoService.addTodo(this.todas).then(() => {
         loading.dismiss();
         this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');
+        this.presentToast(" O texto foi cadastrado");
+
       });
     }
+  }
+
+  async presentToast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 2500,
+      position: 'bottom'
+    });
+    toast.present();
   }
 }

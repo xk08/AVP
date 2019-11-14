@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm, Validators, FormGroup, AbstractControl, FormBuilder } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario-cadastro.service';
-import { LoadingController, NavController } from '@ionic/angular';
+import { LoadingController, NavController, ToastController } from '@ionic/angular';
 import { UsuarioCadastro } from 'src/app/services/usuarioCadastro/usuarioCadastro';
 import { Network } from '@ionic-native/network/ngx';
 import { CoreModule } from 'src/app/core/core.module';
@@ -26,7 +26,8 @@ export class ProfissionalCadastroPage implements OnInit {
     private navCtrl: NavController,
     public formBuilder: FormBuilder,
     private network: Network,
-    private core: CoreModule
+    private core: CoreModule,
+    private toastController: ToastController
   ) {}
 
   ngOnInit() {
@@ -81,10 +82,20 @@ export class ProfissionalCadastroPage implements OnInit {
     this.uidUser = this.usuarioService.addUsuarioTodo(this.todoUser).then(() => {
       loading.dismiss();
       this.navCtrl.navigateBack('login');
+      this.presentToast('Parabéns, ' + this.todoUser.nome + ' \n Você foi cadastrado (a) com sucesso.');
     })
     .catch((error:any) => {
       this.core.identificaError(error.code);
     })
+  }
+
+  async presentToast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 4000,
+      position: 'top'
+    });
+    toast.present();
   }
 
 

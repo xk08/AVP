@@ -31,6 +31,7 @@
         </div>
         <form [formGroup]="formgroup">
 
+
           <!-- NOME -->
           <ion-item>
             <ion-icon
@@ -47,14 +48,15 @@
               [(ngModel)]='todoUser.nome'
               formControlName="nome"
             ></ion-input>
-              <div class="erro-mensagens">
+            <div class="erro-mensagens">
               <ng-container *ngFor="let error of errorMensagens.nome">
                 <div *ngIf="formgroup.get('nome').hasError(error.type) && (formgroup.get('nome').dirty || formgroup.get('nome').touched)">{{ error.mensagem }}</div>
               </ng-container>
             </div>
           </ion-item>
 
-           <!-- DATA DE NASCIMENTO -->
+
+          <!-- DATA DE NASCIMENTO -->
           <ion-item>
             <ion-icon
               name="calendar"
@@ -70,12 +72,13 @@
               required
             >
             </ion-datetime>
-              <div class="erro-mensagens">
+            <div class="erro-mensagens">
               <ng-container *ngFor="let error of errorMensagens.dataNascimento">
                 <div *ngIf="formgroup.get('dataNascimento').hasError(error.type) && (formgroup.get('dataNascimento').dirty || formgroup.get('dataNascimento').touched)">{{ error.mensagem }}</div>
               </ng-container>
             </div>
           </ion-item>
+
 
           <!-- EMAIL -->
           <ion-item>
@@ -127,10 +130,13 @@
             type="submit"
             class="login-button"
             (click)="concluiCadastro()"
+            color="primary"
             [disabled]="formgroup.invalid"
+
           >
             Cadastrar
           </ion-button>
+
 
           <ion-card-content>
             <div>
@@ -149,12 +155,8 @@
               </ion-row>
             </div>
           </ion-card-content>
-
-
         </form>
       </ion-col>
     </ion-row>
   </ion-grid>
-
-
 </ion-content>

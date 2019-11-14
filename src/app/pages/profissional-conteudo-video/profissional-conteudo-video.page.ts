@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angu
 import { NgForm } from '@angular/forms';
 import { ProfissionalConteudoVideo } from 'src/app/services/profissionalConteudoVideo/profissionalConteudoVideo';
 import { ActivatedRoute } from '@angular/router';
-import { LoadingController, NavController } from '@ionic/angular';
+import { LoadingController, NavController, ToastController } from '@ionic/angular';
 import { ProfissionalConteudoVideoService } from 'src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service';
 import { OverlayService } from 'src/app/core/overlay.service';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -52,14 +52,15 @@ export class ProfissionalConteudoVideoPage implements OnInit {
     private loadingController: LoadingController,
     private conteudoVideoService: ProfissionalConteudoVideoService,
     private navCtrl: NavController,
-    private auth: AngularFireAuth
-  ) {}
+    private auth: AngularFireAuth,
+    private toastController: ToastController
+  ) { }
 
   //RatebarStar
   calc() {
     this.stars = [];
     let tmp = this.valor;
-    for (let i = 0; i < this.numStars; i++, tmp--) {
+    for (let i = 0; i < this.numStars; i++ , tmp--) {
       if (tmp >= 1) this.stars.push('star');
       else if (tmp > 0 && tmp < 1) this.stars.push('star-half');
       else this.stars.push('star-outline');
@@ -115,7 +116,17 @@ export class ProfissionalConteudoVideoPage implements OnInit {
       this.conteudoVideoService.addTodo(this.todas).then(() => {
         loading.dismiss();
         this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');
+        this.presentToast(" O video foi cadastrado");
       });
     }
+  }
+
+  async presentToast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 2500,
+      position: 'bottom'
+    });
+    toast.present();
   }
 }

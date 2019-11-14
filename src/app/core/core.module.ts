@@ -53,6 +53,7 @@ import { BrMaskerModule } from 'br-mask';
 })
 export class CoreModule {
 
+  //Mensagens padrão de validações
   public identForm = {
     'email': [
       { type: 'requerid', mensagem: 'E-mail não informado' },
@@ -64,39 +65,38 @@ export class CoreModule {
       { type: 'requerid', mensagem: 'Senha não informada' },
       { type: 'minlength', mensagem: 'Minimo 6 caracteres' },
       { type: 'maxLength', mensagem: 'Maximo 30 caracteres' },
-      { type: 'pattern', mensagem: 'Senha invalido!' }
+      { type: 'pattern', mensagem: 'Senha invalida' }
     ],
     'nome': [
       { type: 'requerid', mensagem: 'Nome não informado' },
       { type: 'minlength', mensagem: 'Minimo 3 letras' },
-      { type: 'maxLength', mensagem: 'Maximo 50 caracteres' },
-     // { type: 'pattern', mensagem: 'Nome informado inválido' }
-    ],
-    'dataNascimento': [
-      { type: 'requerid', mensagem: 'Data não informada' },
-    //  { type: 'minlength', mensagem: 'Minimo 3 letras' },
-      //{ type: 'maxLength', mensagem: 'Maximo 50 caracteres' },
-      //{ type: 'pattern', mensagem: 'Nome informado inválido' }
+      { type: 'maxLength', mensagem: 'Maximo 50 caracteres' }
     ],
     'profissao': [
       { type: 'requerid', mensagem: 'Profissão não informada' },
       { type: 'minlength', mensagem: 'Minimo 6 letras' },
-      { type: 'maxLength', mensagem: 'Maximo 30 caracteres' },
-      //{ type: 'pattern', mensagem: 'Nome informado inválido' }
+      { type: 'maxLength', mensagem: 'Maximo 30 caracteres' }
+    ],
+    'assistente': [
+      { type: 'requerid', mensagem: 'Apelido não informado' },
+      { type: 'minlength', mensagem: 'Minimo 2 letras' },
+      { type: 'maxLength', mensagem: 'Maximo 10 caracteres' }
+    ],
+    'dataNascimento': [
+      { type: 'requerid', mensagem: 'A data não foi informada' }
     ]
-  }
-
+  };
 
   constructor(public alertController: AlertController,
     public toastController: ToastController) {
   }
 
-  // ALERTAS
+
   async presentAlert(header: string, msg: string) {
     const alert = await this.alertController.create({
       subHeader: header,
       message: msg,
-      buttons: ['OK']
+      buttons: ['OK'],
     });
 
     await alert.present();

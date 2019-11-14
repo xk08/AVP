@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { ProfissionalConteudoImagem } from 'src/app/services/profissionalConteudoImagem/profissionalConteudoImagem';
 import { ActivatedRoute } from '@angular/router';
-import { LoadingController, NavController } from '@ionic/angular';
+import { LoadingController, NavController, ToastController } from '@ionic/angular';
 import { ProfissionalConteudoImagemService } from 'src/app/services/profissionalConteudoImagem/profissional-conteudo-imagem.service';
 import { OverlayService } from 'src/app/core/overlay.service';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -57,7 +57,8 @@ export class ProfissionalConteudoImagemPage implements OnInit {
     private navCtrl: NavController,
     private overlay: OverlayService,
     private auth: AngularFireAuth,
-    private camera: Camera
+    private camera: Camera,
+    private toastController: ToastController
   ) {}
 
   //Referente a camera e salvar as imagens
@@ -160,7 +161,17 @@ export class ProfissionalConteudoImagemPage implements OnInit {
       this.conteudoImagemService.addTodo(this.todas).then(() => {
         loading.dismiss();
         this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');
+        this.presentToast(" A imagem foi cadastrada");
       });
     }
+  }
+
+  async presentToast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 2500,
+      position: 'bottom'
+    });
+    toast.present();
   }
 }
