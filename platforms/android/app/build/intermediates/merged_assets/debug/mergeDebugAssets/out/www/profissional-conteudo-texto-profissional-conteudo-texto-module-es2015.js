@@ -152,13 +152,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfissionalConteudoTextoPage = class ProfissionalConteudoTextoPage {
-    constructor(route, loadingController, conteudoTextoService, navCtrl, overlay, auth) {
+    constructor(route, loadingController, conteudoTextoService, navCtrl, overlay, auth, toastController) {
         this.route = route;
         this.loadingController = loadingController;
         this.conteudoTextoService = conteudoTextoService;
         this.navCtrl = navCtrl;
         this.overlay = overlay;
         this.auth = auth;
+        this.toastController = toastController;
         //Refernete ao ratebar
         this.numStars = 5;
         this.valor = 0;
@@ -239,8 +240,19 @@ let ProfissionalConteudoTextoPage = class ProfissionalConteudoTextoPage {
                 this.conteudoTextoService.addTodo(this.todas).then(() => {
                     loading.dismiss();
                     this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');
+                    this.presentToast(" O texto foi cadastrado");
                 });
             }
+        });
+    }
+    presentToast(msg) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const toast = yield this.toastController.create({
+                message: msg,
+                duration: 2500,
+                position: 'bottom'
+            });
+            toast.present();
         });
     }
 };
@@ -250,7 +262,8 @@ ProfissionalConteudoTextoPage.ctorParameters = () => [
     { type: src_app_services_profissionalConteudoTexto_profissional_conteudo_texto_service__WEBPACK_IMPORTED_MODULE_5__["ProfissionalConteudoTextoService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] },
     { type: src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_6__["OverlayService"] },
-    { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"] }
+    { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -279,7 +292,8 @@ ProfissionalConteudoTextoPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         src_app_services_profissionalConteudoTexto_profissional_conteudo_texto_service__WEBPACK_IMPORTED_MODULE_5__["ProfissionalConteudoTextoService"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"],
         src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_6__["OverlayService"],
-        angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"]])
+        angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"]])
 ], ProfissionalConteudoTextoPage);
 
 

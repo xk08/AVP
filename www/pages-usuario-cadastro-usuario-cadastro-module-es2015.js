@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar color=\"primary\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"login\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Conhecendo você</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content padding>\r\n  <ion-grid>\r\n    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->\r\n    <ion-row justify-content-center>\r\n      <!-- Deixa responsivo -->\r\n      <ion-col\r\n        size-sm=\"8\"\r\n        size-md=\"12\"\r\n        size-lg=\"3\"\r\n        size-xl=\"3\"\r\n      >\r\n        <div class=\"ion-text-center\">\r\n          <ion-col\r\n            size=\"12\"\r\n            size-sm=\"6\"\r\n          >\r\n            <img\r\n              width=\"130px\"\r\n              height=\"100px\"\r\n              src=\"../../../assets/img/avp.png\"\r\n            >\r\n          </ion-col>\r\n        </div>\r\n        <form [formGroup]=\"formgroup\">\r\n\r\n          <!-- NOME -->\r\n          <ion-item>\r\n            <ion-icon\r\n              name=\"person\"\r\n              color=\"primary\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-input\r\n              type=\"text\"\r\n              name=\"nome\"\r\n              placeholder=\"Nome\"\r\n              autofocus=\"true\"\r\n              required\r\n              [(ngModel)]='todoUser.nome'\r\n              formControlName=\"nome\"\r\n            ></ion-input>\r\n              <div class=\"erro-mensagens\">\r\n              <ng-container *ngFor=\"let error of errorMensagens.nome\">\r\n                <div *ngIf=\"formgroup.get('nome').hasError(error.type) && (formgroup.get('nome').dirty || formgroup.get('nome').touched)\">{{ error.mensagem }}</div>\r\n              </ng-container>\r\n            </div>\r\n          </ion-item>\r\n\r\n           <!-- DATA DE NASCIMENTO -->\r\n          <ion-item>\r\n            <ion-icon\r\n              name=\"calendar\"\r\n              color=\"primary\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-label>Data de Nascimento</ion-label>\r\n            <ion-datetime\r\n              displayFormat=\"DD/MM/YYYY\"\r\n              [(ngModel)]='todoUser.dataNasc'\r\n              name=\"dataNascimento\"\r\n              formControlName=\"dataNascimento\"\r\n              required\r\n            >\r\n            </ion-datetime>\r\n              <div class=\"erro-mensagens\">\r\n              <ng-container *ngFor=\"let error of errorMensagens.dataNascimento\">\r\n                <div *ngIf=\"formgroup.get('dataNascimento').hasError(error.type) && (formgroup.get('dataNascimento').dirty || formgroup.get('dataNascimento').touched)\">{{ error.mensagem }}</div>\r\n              </ng-container>\r\n            </div>\r\n          </ion-item>\r\n\r\n          <!-- EMAIL -->\r\n          <ion-item>\r\n            <ion-icon\r\n              name=\"mail\"\r\n              color=\"primary\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-input\r\n              type=\"text\"\r\n              formControlName=\"email\"\r\n              placeholder=\"E-mail\"\r\n              [(ngModel)]='todoUser.email'\r\n              required\r\n            ></ion-input>\r\n            <div class=\"erro-mensagens\">\r\n              <ng-container *ngFor=\"let error of errorMensagens.email\">\r\n                <div *ngIf=\"formgroup.get('email').hasError(error.type) && (formgroup.get('email').dirty || formgroup.get('email').touched)\">{{ error.mensagem }}</div>\r\n              </ng-container>\r\n            </div>\r\n          </ion-item>\r\n\r\n\r\n          <!-- SENHA -->\r\n          <ion-item>\r\n            <ion-icon\r\n              name=\"lock\"\r\n              color=\"primary\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-input\r\n              type=\"password\"\r\n              formControlName=\"senha\"\r\n              placeholder=\"Senha\"\r\n              [(ngModel)]='todoUser.senha'\r\n              required\r\n            ></ion-input>\r\n            <div class=\"erro-mensagens\">\r\n              <ng-container *ngFor=\"let error of errorMensagens.senha\">\r\n                <div *ngIf=\"formgroup.get('senha').hasError(error.type) && (formgroup.get('senha').dirty || formgroup.get('senha').touched)\">{{ error.mensagem }}</div>\r\n              </ng-container>\r\n            </div>\r\n          </ion-item>\r\n\r\n\r\n          <!-- BOTÃO DE CADASTRO -->\r\n          <ion-button\r\n            expand=\"block\"\r\n            type=\"submit\"\r\n            class=\"login-button\"\r\n            (click)=\"concluiCadastro()\"\r\n            [disabled]=\"formgroup.invalid\"\r\n          >\r\n            Cadastrar\r\n          </ion-button>\r\n\r\n          <ion-card-content>\r\n            <div>\r\n              <ion-row>\r\n                <ion-card-title style=\"font-size: 11pt; text-align: center;\">É profissional da saúde ?</ion-card-title>\r\n                <ion-card-title\r\n                  style=\"font-size: 11pt;\r\n              text-align: left;\r\n              padding-left: 5px;\r\n              font-weight: bold ;\r\n              color: royalblue\"\r\n                  (click)=\"cadastroProfissional()\"\r\n                >\r\n                  Clique Aqui\r\n                </ion-card-title>\r\n              </ion-row>\r\n            </div>\r\n          </ion-card-content>\r\n\r\n\r\n        </form>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n\r\n\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"primary\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"login\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Conhecendo você</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content padding>\r\n  <ion-grid>\r\n    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->\r\n    <ion-row justify-content-center>\r\n      <!-- Deixa responsivo -->\r\n      <ion-col\r\n        size-sm=\"8\"\r\n        size-md=\"12\"\r\n        size-lg=\"3\"\r\n        size-xl=\"3\"\r\n      >\r\n        <div class=\"ion-text-center\">\r\n          <ion-col\r\n            size=\"12\"\r\n            size-sm=\"6\"\r\n          >\r\n            <img\r\n              width=\"130px\"\r\n              height=\"100px\"\r\n              src=\"../../../assets/img/avp.png\"\r\n            >\r\n          </ion-col>\r\n        </div>\r\n        <form [formGroup]=\"formgroup\">\r\n\r\n\r\n          <!-- NOME -->\r\n          <ion-item>\r\n            <ion-icon\r\n              name=\"person\"\r\n              color=\"primary\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-input\r\n              type=\"text\"\r\n              name=\"nome\"\r\n              placeholder=\"Nome\"\r\n              autofocus=\"true\"\r\n              required\r\n              [(ngModel)]='todoUser.nome'\r\n              formControlName=\"nome\"\r\n            ></ion-input>\r\n            <div class=\"erro-mensagens\">\r\n              <ng-container *ngFor=\"let error of errorMensagens.nome\">\r\n                <div *ngIf=\"formgroup.get('nome').hasError(error.type) && (formgroup.get('nome').dirty || formgroup.get('nome').touched)\">{{ error.mensagem }}</div>\r\n              </ng-container>\r\n            </div>\r\n          </ion-item>\r\n\r\n\r\n          <!-- DATA DE NASCIMENTO -->\r\n          <ion-item>\r\n            <ion-icon\r\n              name=\"calendar\"\r\n              color=\"primary\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-label>Data de Nascimento</ion-label>\r\n            <ion-datetime\r\n              displayFormat=\"DD/MM/YYYY\"\r\n              [(ngModel)]='todoUser.dataNasc'\r\n              name=\"dataNascimento\"\r\n              formControlName=\"dataNascimento\"\r\n              required\r\n            >\r\n            </ion-datetime>\r\n            <div class=\"erro-mensagens\">\r\n              <ng-container *ngFor=\"let error of errorMensagens.dataNascimento\">\r\n                <div *ngIf=\"formgroup.get('dataNascimento').hasError(error.type) && (formgroup.get('dataNascimento').dirty || formgroup.get('dataNascimento').touched)\">{{ error.mensagem }}</div>\r\n              </ng-container>\r\n            </div>\r\n          </ion-item>\r\n\r\n\r\n          <!-- EMAIL -->\r\n          <ion-item>\r\n            <ion-icon\r\n              name=\"mail\"\r\n              color=\"primary\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-input\r\n              type=\"text\"\r\n              formControlName=\"email\"\r\n              placeholder=\"E-mail\"\r\n              [(ngModel)]='todoUser.email'\r\n              required\r\n            ></ion-input>\r\n            <div class=\"erro-mensagens\">\r\n              <ng-container *ngFor=\"let error of errorMensagens.email\">\r\n                <div *ngIf=\"formgroup.get('email').hasError(error.type) && (formgroup.get('email').dirty || formgroup.get('email').touched)\">{{ error.mensagem }}</div>\r\n              </ng-container>\r\n            </div>\r\n          </ion-item>\r\n\r\n\r\n          <!-- SENHA -->\r\n          <ion-item>\r\n            <ion-icon\r\n              name=\"lock\"\r\n              color=\"primary\"\r\n              slot=\"start\"\r\n            ></ion-icon>\r\n            <ion-input\r\n              type=\"password\"\r\n              formControlName=\"senha\"\r\n              placeholder=\"Senha\"\r\n              [(ngModel)]='todoUser.senha'\r\n              required\r\n            ></ion-input>\r\n            <div class=\"erro-mensagens\">\r\n              <ng-container *ngFor=\"let error of errorMensagens.senha\">\r\n                <div *ngIf=\"formgroup.get('senha').hasError(error.type) && (formgroup.get('senha').dirty || formgroup.get('senha').touched)\">{{ error.mensagem }}</div>\r\n              </ng-container>\r\n            </div>\r\n          </ion-item>\r\n\r\n\r\n          <!-- BOTÃO DE CADASTRO -->\r\n          <ion-button\r\n            expand=\"block\"\r\n            type=\"submit\"\r\n            class=\"login-button\"\r\n            (click)=\"concluiCadastro()\"\r\n            color=\"primary\"\r\n            [disabled]=\"formgroup.invalid\"\r\n\r\n          >\r\n            Cadastrar\r\n          </ion-button>\r\n\r\n\r\n          <ion-card-content>\r\n            <div>\r\n              <ion-row>\r\n                <ion-card-title style=\"font-size: 11pt; text-align: center;\">É profissional da saúde ?</ion-card-title>\r\n                <ion-card-title\r\n                  style=\"font-size: 11pt;\r\n              text-align: left;\r\n              padding-left: 5px;\r\n              font-weight: bold ;\r\n              color: royalblue\"\r\n                  (click)=\"cadastroProfissional()\"\r\n                >\r\n                  Clique Aqui\r\n                </ion-card-title>\r\n              </ion-row>\r\n            </div>\r\n          </ion-card-content>\r\n        </form>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -153,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let UsuarioCadastroPage = class UsuarioCadastroPage {
     constructor(afAuth, usuarioService, loadingController, // Substituir depois pelo overlayService (que é genérico)
-    navCtrl, core, formBuilder, network) {
+    navCtrl, core, formBuilder, network, toastController) {
         this.afAuth = afAuth;
         this.usuarioService = usuarioService;
         this.loadingController = loadingController;
@@ -161,6 +161,7 @@ let UsuarioCadastroPage = class UsuarioCadastroPage {
         this.core = core;
         this.formBuilder = formBuilder;
         this.network = network;
+        this.toastController = toastController;
         //REFERÊNCIA A CLASS USUARIO
         this.todoUser = {
             nome: '',
@@ -196,9 +197,6 @@ let UsuarioCadastroPage = class UsuarioCadastroPage {
             dataNascimento: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
                     _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
                 ])],
-            profissao: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
-                ])]
         });
         this.networkConnect();
     }
@@ -223,10 +221,21 @@ let UsuarioCadastroPage = class UsuarioCadastroPage {
             this.uidUser = this.usuarioService.addUsuarioTodo(this.todoUser).then(() => {
                 loading.dismiss();
                 this.navCtrl.navigateBack('login');
+                this.presentToast('Parabéns, ' + this.todoUser.nome + ' \n Você foi cadastrado (a) com sucesso.');
             })
                 .catch((error) => {
                 this.core.identificaError(error.code);
             });
+        });
+    }
+    presentToast(msg) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const toast = yield this.toastController.create({
+                message: msg,
+                duration: 4000,
+                position: 'top'
+            });
+            toast.present();
         });
     }
     cadastroProfissional() {
@@ -242,7 +251,8 @@ UsuarioCadastroPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] },
     { type: src_app_core_core_module__WEBPACK_IMPORTED_MODULE_6__["CoreModule"] },
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-    { type: _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_7__["Network"] }
+    { type: _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_7__["Network"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"] }
 ];
 UsuarioCadastroPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -256,7 +266,8 @@ UsuarioCadastroPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"],
         src_app_core_core_module__WEBPACK_IMPORTED_MODULE_6__["CoreModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
-        _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_7__["Network"]])
+        _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_7__["Network"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"]])
 ], UsuarioCadastroPage);
 
 

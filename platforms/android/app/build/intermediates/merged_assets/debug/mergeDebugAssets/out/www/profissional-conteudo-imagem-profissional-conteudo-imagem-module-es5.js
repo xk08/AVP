@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n  <ion-grid>\r\n\r\n\r\n    <form #form=\"ngForm\">\r\n      <ion-card>\r\n        <ion-card-header style=\"background-color: #9BBFFF;\">\r\n          <ion-card-title style=\"font-size: 17px; text-align: center;\">Escolha a imagem que deseja divulgar</ion-card-title>\r\n        </ion-card-header>\r\n        <ion-item (click)=\"abrirGaleria()\">\r\n          <ion-icon\r\n            name=\"add\"\r\n            color=\"primary\"\r\n            slot=\"start\"\r\n          ></ion-icon>\r\n          Clique aqui para enviar\r\n        </ion-item>\r\n        <!-- Achar alguma forma de fazer um preview em tento real -->\r\n      </ion-card>\r\n      <ion-item\r\n        href\r\n        class=\"activated\"\r\n        color=\"primary\"\r\n      >\r\n        <ion-toggle\r\n          [(ngModel)]=\"mostraMaisInfo\"\r\n          (ionChange)=\"changeMaisInfo()\"\r\n          slot=\"end\"\r\n          name=\"maisInfo\"\r\n        ></ion-toggle>\r\n        <ion-label class=\"ion-text-center\">Mais informações</ion-label>\r\n      </ion-item>\r\n      <ion-card\r\n        style=\"background-color: #9BBFFF;\"\r\n        *ngIf=\"mostraMaisInfo\"\r\n      >\r\n        <ion-item>\r\n          <ion-icon\r\n            name=\"add\"\r\n            slot=\"start\"\r\n            color=\"primary\"\r\n          >\r\n          </ion-icon>\r\n          <ion-input\r\n            type=\"text\"\r\n            name=\"tituloImagem\"\r\n            placeholder=\"Titulo para esta imagem\"\r\n            autofocus=\"true\"\r\n            [(ngModel)]=\"todas.tituloImagem\"\r\n            required\r\n          ></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-icon\r\n            name=\"add\"\r\n            slot=\"start\"\r\n            color=\"primary\"\r\n          >\r\n          </ion-icon>\r\n          <ion-input\r\n            type=\"text\"\r\n            name=\"autorImagem\"\r\n            placeholder=\"Autor(a) da imagem\"\r\n            autofocus=\"true\"\r\n            [(ngModel)]=\"todas.autorImagem\"\r\n            required\r\n          ></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-icon\r\n            name=\"add\"\r\n            color=\"primary\"\r\n            slot=\"start\"\r\n          ></ion-icon>\r\n          <ion-textarea\r\n            name=\"maisInfoImagem\"\r\n            autofocus=\"true\"\r\n            [(ngModel)]=\"todas.maisInfoImagem\"\r\n            required\r\n            rows=\"2\"\r\n            cols=\"5\"\r\n            placeholder=\"Informações complementares sobre a imagem...\"\r\n          ></ion-textarea>\r\n        </ion-item>\r\n      </ion-card>\r\n      <ion-item\r\n        href\r\n        class=\"activated\"\r\n        color=\"primary\"\r\n      >\r\n        <ion-toggle\r\n          [(ngModel)]=\"mostraFiltro\"\r\n          (ionChange)=\"changeFiltro()\"\r\n          slot=\"end\"\r\n          name=\"filtro\"\r\n        ></ion-toggle>\r\n        <ion-label class=\"ion-text-center\">Filtro de Conteúdos</ion-label>\r\n      </ion-item>\r\n      <ion-card *ngIf=\"mostraFiltro\">\r\n        <ion-card-header style=\"background-color: #9BBFFF;\">\r\n          <ion-card-title style=\"font-size: 17px; text-align: center;\">Faixa etária destinada</ion-card-title>\r\n        </ion-card-header>\r\n        <ion-radio-group\r\n          [(ngModel)]=\"todas.idade\"\r\n          name=\"selecionaIdade\"\r\n        >\r\n          <ion-item>\r\n            <ion-label>8 a 12 anos</ion-label>\r\n            <ion-radio\r\n              name=\"8a12\"\r\n              value=\"8 a 12\"\r\n              slot=\"start\"\r\n            ></ion-radio>\r\n          </ion-item>\r\n          <ion-item>\r\n            <ion-label>13 a 17 anos</ion-label>\r\n            <ion-radio\r\n              name=\"13a17\"\r\n              value=\"13 a 17\"\r\n              slot=\"start\"\r\n            ></ion-radio>\r\n          </ion-item>\r\n          <ion-item>\r\n            <ion-label>18 anos ou mais</ion-label>\r\n            <ion-radio\r\n              name=\"18a35\"\r\n              value=\"18 anos ou mais\"\r\n              slot=\"start\"\r\n            ></ion-radio>\r\n          </ion-item>\r\n        </ion-radio-group>\r\n\r\n\r\n        <ion-card-header style=\"background-color: #9BBFFF;\">\r\n          <ion-card-title style=\"font-size: 17px; text-align: center;\">Avaliação do usuário</ion-card-title>\r\n        </ion-card-header>\r\n\r\n\r\n        <ion-row>\r\n          <ion-item\r\n            *ngFor=\"let star of stars; let i = index\"\r\n            tappable\r\n            (click)=\"starClicked(i)\"\r\n          >\r\n            <ion-icon\r\n              [name]=\"star\"\r\n              color=\"primary\"\r\n            ></ion-icon>\r\n          </ion-item>\r\n        </ion-row>\r\n      </ion-card>\r\n\r\n\r\n      <ion-button\r\n        expand=\"block\"\r\n        type=\"submit\"\r\n        class=\"login-button\"\r\n        (click)=\"saveTodo()\"\r\n        color=\"dark\"\r\n      >\r\n        Criar conteúdo\r\n      </ion-button>\r\n    </form>\r\n  </ion-grid>\r\n</ion-content>\r\n"
+module.exports = "<ion-content>\r\n  <ion-grid>\r\n\r\n\r\n\r\n    <form #form=\"ngForm\">\r\n      <ion-card>\r\n        <ion-card-header style=\"background-color: #9BBFFF;\">\r\n          <ion-card-title style=\"font-size: 17px; text-align: center;\">Escolha a imagem que deseja divulgar</ion-card-title>\r\n        </ion-card-header>\r\n        <ion-item (click)=\"abrirGaleria()\">\r\n          <ion-icon\r\n            name=\"add\"\r\n            color=\"primary\"\r\n            slot=\"start\"\r\n          ></ion-icon>\r\n          Clique aqui para enviar\r\n        </ion-item>\r\n\r\n        <ion-card *ngIf=\"photo != ''\">\r\n          <ion-card-header>\r\n            <ion-card-subtitle>Visualização da foto escolhida</ion-card-subtitle>\r\n          </ion-card-header>\r\n\r\n            <img\r\n              [src]='photo'\r\n              [(ngModel)]='todas.imagem'\r\n              height=\"240px\"\r\n              width=\"180px\"\r\n            >\r\n        </ion-card>\r\n\r\n      </ion-card>\r\n      <ion-item\r\n        href\r\n        class=\"activated\"\r\n        color=\"primary\"\r\n      >\r\n        <ion-toggle\r\n          [(ngModel)]=\"mostraMaisInfo\"\r\n          (ionChange)=\"changeMaisInfo()\"\r\n          slot=\"end\"\r\n          name=\"maisInfo\"\r\n        ></ion-toggle>\r\n        <ion-label class=\"ion-text-center\">Mais informações</ion-label>\r\n      </ion-item>\r\n      <ion-card\r\n        style=\"background-color: #9BBFFF;\"\r\n        *ngIf=\"mostraMaisInfo\"\r\n      >\r\n        <ion-item>\r\n          <ion-icon\r\n            name=\"add\"\r\n            slot=\"start\"\r\n            color=\"primary\"\r\n          >\r\n          </ion-icon>\r\n          <ion-input\r\n            type=\"text\"\r\n            name=\"tituloImagem\"\r\n            placeholder=\"Titulo para esta imagem\"\r\n            autofocus=\"true\"\r\n            [(ngModel)]=\"todas.tituloImagem\"\r\n            required\r\n          ></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-icon\r\n            name=\"add\"\r\n            slot=\"start\"\r\n            color=\"primary\"\r\n          >\r\n          </ion-icon>\r\n          <ion-input\r\n            type=\"text\"\r\n            name=\"autorImagem\"\r\n            placeholder=\"Autor(a) da imagem\"\r\n            autofocus=\"true\"\r\n            [(ngModel)]=\"todas.autorImagem\"\r\n            required\r\n          ></ion-input>\r\n        </ion-item>\r\n        <ion-item>\r\n          <ion-icon\r\n            name=\"add\"\r\n            color=\"primary\"\r\n            slot=\"start\"\r\n          ></ion-icon>\r\n          <ion-textarea\r\n            name=\"maisInfoImagem\"\r\n            autofocus=\"true\"\r\n            [(ngModel)]=\"todas.maisInfoImagem\"\r\n            required\r\n            rows=\"2\"\r\n            cols=\"5\"\r\n            placeholder=\"Informações complementares sobre a imagem...\"\r\n          ></ion-textarea>\r\n        </ion-item>\r\n      </ion-card>\r\n      <ion-item\r\n        href\r\n        class=\"activated\"\r\n        color=\"primary\"\r\n      >\r\n        <ion-toggle\r\n          [(ngModel)]=\"mostraFiltro\"\r\n          (ionChange)=\"changeFiltro()\"\r\n          slot=\"end\"\r\n          name=\"filtro\"\r\n        ></ion-toggle>\r\n        <ion-label class=\"ion-text-center\">Filtro de Conteúdos</ion-label>\r\n      </ion-item>\r\n      <ion-card *ngIf=\"mostraFiltro\">\r\n        <ion-card-header style=\"background-color: #9BBFFF;\">\r\n          <ion-card-title style=\"font-size: 17px; text-align: center;\">Faixa etária destinada</ion-card-title>\r\n        </ion-card-header>\r\n        <ion-radio-group\r\n          [(ngModel)]=\"todas.idade\"\r\n          name=\"selecionaIdade\"\r\n        >\r\n          <ion-item>\r\n            <ion-label>8 a 12 anos</ion-label>\r\n            <ion-radio\r\n              name=\"8a12\"\r\n              value=\"8 a 12\"\r\n              slot=\"start\"\r\n            ></ion-radio>\r\n          </ion-item>\r\n          <ion-item>\r\n            <ion-label>13 a 17 anos</ion-label>\r\n            <ion-radio\r\n              name=\"13a17\"\r\n              value=\"13 a 17\"\r\n              slot=\"start\"\r\n            ></ion-radio>\r\n          </ion-item>\r\n          <ion-item>\r\n            <ion-label>18 anos ou mais</ion-label>\r\n            <ion-radio\r\n              name=\"18a35\"\r\n              value=\"18 anos ou mais\"\r\n              slot=\"start\"\r\n            ></ion-radio>\r\n          </ion-item>\r\n        </ion-radio-group>\r\n\r\n\r\n\r\n        <ion-card-header style=\"background-color: #9BBFFF;\">\r\n          <ion-card-title style=\"font-size: 17px; text-align: center;\">Avaliação do usuário</ion-card-title>\r\n        </ion-card-header>\r\n\r\n\r\n\r\n        <ion-row>\r\n          <ion-item\r\n            *ngFor=\"let star of stars; let i = index\"\r\n            tappable\r\n            (click)=\"starClicked(i)\"\r\n          >\r\n            <ion-icon\r\n              [name]=\"star\"\r\n              color=\"primary\"\r\n            ></ion-icon>\r\n          </ion-item>\r\n        </ion-row>\r\n      </ion-card>\r\n\r\n\r\n\r\n      <ion-button\r\n        expand=\"block\"\r\n        type=\"submit\"\r\n        class=\"login-button\"\r\n        (click)=\"saveTodo()\"\r\n        color=\"dark\"\r\n      >\r\n        Criar conteúdo\r\n      </ion-button>\r\n    </form>\r\n  </ion-grid>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -185,7 +185,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ProfissionalConteudoImagemPage = /** @class */ (function () {
-    function ProfissionalConteudoImagemPage(route, loadingController, conteudoImagemService, navCtrl, overlay, auth, camera) {
+    function ProfissionalConteudoImagemPage(route, loadingController, conteudoImagemService, navCtrl, overlay, auth, camera, toastController) {
         this.route = route;
         this.loadingController = loadingController;
         this.conteudoImagemService = conteudoImagemService;
@@ -193,6 +193,7 @@ var ProfissionalConteudoImagemPage = /** @class */ (function () {
         this.overlay = overlay;
         this.auth = auth;
         this.camera = camera;
+        this.toastController = toastController;
         //Refernete ao ratebar
         this.numStars = 5;
         this.valor = 0;
@@ -335,8 +336,27 @@ var ProfissionalConteudoImagemPage = /** @class */ (function () {
                             this.conteudoImagemService.addTodo(this.todas).then(function () {
                                 loading.dismiss();
                                 _this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');
+                                _this.presentToast(" A imagem foi cadastrada");
                             });
                         }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ProfissionalConteudoImagemPage.prototype.presentToast = function (msg) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var toast;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.toastController.create({
+                            message: msg,
+                            duration: 2500,
+                            position: 'bottom'
+                        })];
+                    case 1:
+                        toast = _a.sent();
+                        toast.present();
                         return [2 /*return*/];
                 }
             });
@@ -349,7 +369,8 @@ var ProfissionalConteudoImagemPage = /** @class */ (function () {
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
         { type: src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_5__["OverlayService"] },
         { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_6__["AngularFireAuth"] },
-        { type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_7__["Camera"] }
+        { type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_7__["Camera"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"] }
     ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -379,7 +400,8 @@ var ProfissionalConteudoImagemPage = /** @class */ (function () {
             _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
             src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_5__["OverlayService"],
             angularfire2_auth__WEBPACK_IMPORTED_MODULE_6__["AngularFireAuth"],
-            _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_7__["Camera"]])
+            _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_7__["Camera"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"]])
     ], ProfissionalConteudoImagemPage);
     return ProfissionalConteudoImagemPage;
 }());

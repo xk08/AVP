@@ -2,6 +2,7 @@
   <ion-grid>
 
 
+
     <form #form="ngForm">
       <ion-card>
         <ion-card-header style="background-color: #9BBFFF;">
@@ -15,7 +16,20 @@
           ></ion-icon>
           Clique aqui para enviar
         </ion-item>
-        <!-- Achar alguma forma de fazer um preview em tento real -->
+
+        <ion-card *ngIf="photo != ''">
+          <ion-card-header>
+            <ion-card-subtitle style="text-align: center;">Visualização da foto escolhida</ion-card-subtitle>
+          </ion-card-header>
+
+            <img
+              [src]='photo'
+              [(ngModel)]='todas.imagem'
+              height="240px"
+              width="180px"
+            >
+        </ion-card>
+
       </ion-card>
       <ion-item
         href
@@ -131,9 +145,11 @@
         </ion-radio-group>
 
 
+
         <ion-card-header style="background-color: #9BBFFF;">
           <ion-card-title style="font-size: 17px; text-align: center;">Avaliação do usuário</ion-card-title>
         </ion-card-header>
+
 
 
         <ion-row>
@@ -149,6 +165,7 @@
           </ion-item>
         </ion-row>
       </ion-card>
+
 
 
       <ion-button

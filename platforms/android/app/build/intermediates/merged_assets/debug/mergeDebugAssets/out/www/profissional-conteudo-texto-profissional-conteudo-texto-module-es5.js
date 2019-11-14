@@ -183,13 +183,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ProfissionalConteudoTextoPage = /** @class */ (function () {
-    function ProfissionalConteudoTextoPage(route, loadingController, conteudoTextoService, navCtrl, overlay, auth) {
+    function ProfissionalConteudoTextoPage(route, loadingController, conteudoTextoService, navCtrl, overlay, auth, toastController) {
         this.route = route;
         this.loadingController = loadingController;
         this.conteudoTextoService = conteudoTextoService;
         this.navCtrl = navCtrl;
         this.overlay = overlay;
         this.auth = auth;
+        this.toastController = toastController;
         //Refernete ao ratebar
         this.numStars = 5;
         this.valor = 0;
@@ -289,8 +290,27 @@ var ProfissionalConteudoTextoPage = /** @class */ (function () {
                             this.conteudoTextoService.addTodo(this.todas).then(function () {
                                 loading.dismiss();
                                 _this.navCtrl.navigateForward('/menu/profissional-todos-conteudos');
+                                _this.presentToast(" O texto foi cadastrado");
                             });
                         }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ProfissionalConteudoTextoPage.prototype.presentToast = function (msg) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var toast;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.toastController.create({
+                            message: msg,
+                            duration: 2500,
+                            position: 'bottom'
+                        })];
+                    case 1:
+                        toast = _a.sent();
+                        toast.present();
                         return [2 /*return*/];
                 }
             });
@@ -302,7 +322,8 @@ var ProfissionalConteudoTextoPage = /** @class */ (function () {
         { type: src_app_services_profissionalConteudoTexto_profissional_conteudo_texto_service__WEBPACK_IMPORTED_MODULE_5__["ProfissionalConteudoTextoService"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] },
         { type: src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_6__["OverlayService"] },
-        { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"] }
+        { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"] }
     ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -331,7 +352,8 @@ var ProfissionalConteudoTextoPage = /** @class */ (function () {
             src_app_services_profissionalConteudoTexto_profissional_conteudo_texto_service__WEBPACK_IMPORTED_MODULE_5__["ProfissionalConteudoTextoService"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"],
             src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_6__["OverlayService"],
-            angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"]])
+            angularfire2_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"]])
     ], ProfissionalConteudoTextoPage);
     return ProfissionalConteudoTextoPage;
 }());

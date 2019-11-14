@@ -21,7 +21,6 @@ export class CadastroAssistentePage implements OnInit {
   public idCadastroAssistente: string;
   public idUsuario: string;
   public photo: string = '';
-
   public formgroup: FormGroup;
   public errorMensagens: any;
 

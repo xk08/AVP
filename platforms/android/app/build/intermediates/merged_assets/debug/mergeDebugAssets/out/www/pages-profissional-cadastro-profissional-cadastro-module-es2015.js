@@ -120,7 +120,7 @@ ProfissionalCadastroPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ion-card ion-item {\n  --border-radius: 10px;\n}\nion-card img {\n  width: 70%;\n  margin: auto;\n}\n.texto {\n  color: black;\n}\n.erro-mensagens {\n  font-size: 0.6em;\n  color: red;\n  text-align: left;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvcHJvZmlzc2lvbmFsLWNhZGFzdHJvL0Q6XFx0Y2Mvc3JjXFxhcHBcXHBhZ2VzXFxwcm9maXNzaW9uYWwtY2FkYXN0cm9cXHByb2Zpc3Npb25hbC1jYWRhc3Ryby5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3Byb2Zpc3Npb25hbC1jYWRhc3Ryby9wcm9maXNzaW9uYWwtY2FkYXN0cm8ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNFO0VBQ0UscUJBQUE7QUNBSjtBREVFO0VBQ0UsVUFBQTtFQUNBLFlBQUE7QUNBSjtBREtBO0VBQ0UsWUFBQTtBQ0ZGO0FES0E7RUFDRSxnQkFBQTtFQUNBLFVBQUE7RUFDQSxnQkFBQTtBQ0ZGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvcHJvZmlzc2lvbmFsLWNhZGFzdHJvL3Byb2Zpc3Npb25hbC1jYWRhc3Ryby5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tY2FyZCB7XHJcbiAgaW9uLWl0ZW17XHJcbiAgICAtLWJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgfVxyXG4gIGltZ3tcclxuICAgIHdpZHRoOiA3MCU7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbiAgfVxyXG5cclxufVxyXG5cclxuLnRleHRve1xyXG4gIGNvbG9yOiBibGFjaztcclxufVxyXG5cclxuLmVycm8tbWVuc2FnZW5ze1xyXG4gIGZvbnQtc2l6ZTogMC42ZW07XHJcbiAgY29sb3I6IHJlZDtcclxuICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG59XHJcbiIsImlvbi1jYXJkIGlvbi1pdGVtIHtcbiAgLS1ib3JkZXItcmFkaXVzOiAxMHB4O1xufVxuaW9uLWNhcmQgaW1nIHtcbiAgd2lkdGg6IDcwJTtcbiAgbWFyZ2luOiBhdXRvO1xufVxuXG4udGV4dG8ge1xuICBjb2xvcjogYmxhY2s7XG59XG5cbi5lcnJvLW1lbnNhZ2VucyB7XG4gIGZvbnQtc2l6ZTogMC42ZW07XG4gIGNvbG9yOiByZWQ7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG59Il19 */"
+module.exports = "ion-card ion-item {\n  --border-radius: 10px;\n}\nion-card img {\n  width: 70%;\n  margin: auto;\n}\n.texto {\n  color: black;\n}\n.erro-mensagens {\n  font-size: 0.6em;\n  color: red;\n  text-align: left;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvcHJvZmlzc2lvbmFsLWNhZGFzdHJvL0Q6XFx0Y2Mvc3JjXFxhcHBcXHBhZ2VzXFxwcm9maXNzaW9uYWwtY2FkYXN0cm9cXHByb2Zpc3Npb25hbC1jYWRhc3Ryby5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3Byb2Zpc3Npb25hbC1jYWRhc3Ryby9wcm9maXNzaW9uYWwtY2FkYXN0cm8ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNFO0VBQ0UscUJBQUE7QUNBSjtBREVFO0VBQ0UsVUFBQTtFQUNBLFlBQUE7QUNBSjtBREdBO0VBQ0UsWUFBQTtBQ0FGO0FERUE7RUFDRSxnQkFBQTtFQUNBLFVBQUE7RUFDQSxnQkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvcHJvZmlzc2lvbmFsLWNhZGFzdHJvL3Byb2Zpc3Npb25hbC1jYWRhc3Ryby5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tY2FyZCB7XHJcbiAgaW9uLWl0ZW17XHJcbiAgICAtLWJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgfVxyXG4gIGltZ3tcclxuICAgIHdpZHRoOiA3MCU7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbiAgfVxyXG59XHJcbi50ZXh0b3tcclxuICBjb2xvcjogYmxhY2s7XHJcbn1cclxuLmVycm8tbWVuc2FnZW5ze1xyXG4gIGZvbnQtc2l6ZTogMC42ZW07XHJcbiAgY29sb3I6IHJlZDtcclxuICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG59XHJcblxyXG4iLCJpb24tY2FyZCBpb24taXRlbSB7XG4gIC0tYm9yZGVyLXJhZGl1czogMTBweDtcbn1cbmlvbi1jYXJkIGltZyB7XG4gIHdpZHRoOiA3MCU7XG4gIG1hcmdpbjogYXV0bztcbn1cblxuLnRleHRvIHtcbiAgY29sb3I6IGJsYWNrO1xufVxuXG4uZXJyby1tZW5zYWdlbnMge1xuICBmb250LXNpemU6IDAuNmVtO1xuICBjb2xvcjogcmVkO1xuICB0ZXh0LWFsaWduOiBsZWZ0O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -153,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let ProfissionalCadastroPage = class ProfissionalCadastroPage {
     constructor(afAuth, usuarioService, loadingController, // Substituir depois pelo overlayService (que é genérico)
-    navCtrl, formBuilder, network, core) {
+    navCtrl, formBuilder, network, core, toastController) {
         this.afAuth = afAuth;
         this.usuarioService = usuarioService;
         this.loadingController = loadingController;
@@ -161,6 +161,7 @@ let ProfissionalCadastroPage = class ProfissionalCadastroPage {
         this.formBuilder = formBuilder;
         this.network = network;
         this.core = core;
+        this.toastController = toastController;
         //REFERÊNCIA A CLASS USUARIO
         this.todoUser = {
             nome: '',
@@ -222,10 +223,21 @@ let ProfissionalCadastroPage = class ProfissionalCadastroPage {
             this.uidUser = this.usuarioService.addUsuarioTodo(this.todoUser).then(() => {
                 loading.dismiss();
                 this.navCtrl.navigateBack('login');
+                this.presentToast('Parabéns, ' + this.todoUser.nome + ' \n Você foi cadastrado (a) com sucesso.');
             })
                 .catch((error) => {
                 this.core.identificaError(error.code);
             });
+        });
+    }
+    presentToast(msg) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const toast = yield this.toastController.create({
+                message: msg,
+                duration: 4000,
+                position: 'top'
+            });
+            toast.present();
         });
     }
 };
@@ -236,7 +248,8 @@ ProfissionalCadastroPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavController"] },
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
     { type: _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_6__["Network"] },
-    { type: src_app_core_core_module__WEBPACK_IMPORTED_MODULE_7__["CoreModule"] }
+    { type: src_app_core_core_module__WEBPACK_IMPORTED_MODULE_7__["CoreModule"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ToastController"] }
 ];
 ProfissionalCadastroPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -250,7 +263,8 @@ ProfissionalCadastroPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["NavController"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
         _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_6__["Network"],
-        src_app_core_core_module__WEBPACK_IMPORTED_MODULE_7__["CoreModule"]])
+        src_app_core_core_module__WEBPACK_IMPORTED_MODULE_7__["CoreModule"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ToastController"]])
 ], ProfissionalCadastroPage);
 
 

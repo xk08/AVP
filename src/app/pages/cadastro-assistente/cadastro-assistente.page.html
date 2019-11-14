@@ -9,30 +9,27 @@
 <ion-content>
   <ion-card>
     <ion-grid>
-    <form [formGroup]="formgroup">
+      <form [formGroup]="formgroup">
         <ion-row>
           <ion-col size="12">
             <ion-item>
-             <ion-input
-              type="text"
-              formControlName="assistente"
-              placeholder="Escolha um 'apelido' para seu assistente"
-              [(ngModel)]='todas.apelido'
-              required
-            ></ion-input>
-            <div class="erro-mensagens">
-              <ng-container *ngFor="let error of errorMensagens.assistente">
-                <div *ngIf="formgroup.get('assistente').hasError(error.type) && (formgroup.get('assistente').dirty || formgroup.get('assistente').touched)">{{ error.mensagem }}</div>
-              </ng-container>
-            </div>
+              <ion-input
+                type="text"
+                formControlName="assistente"
+                placeholder="Escolha um 'apelido' para seu assistente"
+                [(ngModel)]='todas.apelido'
+                required
+              ></ion-input>
+              <div class="erro-mensagens">
+                <ng-container *ngFor="let error of errorMensagens.assistente">
+                  <div *ngIf="formgroup.get('assistente').hasError(error.type) && (formgroup.get('assistente').dirty || formgroup.get('assistente').touched)">{{ error.mensagem }}</div>
+                </ng-container>
+              </div>
             </ion-item>
           </ion-col>
           <ion-col size="12">
             <ion-list>
-              <ion-grid
-                fixed
-                *ngFor="let assistente of listAssistente"
-              >
+              <ion-grid fixed>
                 <ion-col size="12">
                   <ion-item (click)="abrirGaleria()">
                     <ion-icon
@@ -43,16 +40,33 @@
                     Clique aqui e escolha
                   </ion-item>
                 </ion-col>
-                <ion-card *ngIf="assistente.icone">
+                <div *ngIf="listAssistente">
+                  <ion-avatar class="contact-avatar">
+                    <img
+                      *ngFor="let assistente of listAssistente"
+                      src='{{assistente.icone}}'
+                      height="280"
+                      width="240"
+                    >
+                  </ion-avatar>
                   <ion-card-header>
-                    <ion-card-subtitle>Pré Visualização</ion-card-subtitle>
+                    <ion-card-subtitle style="text-align: center;">Foto atual do assistente</ion-card-subtitle>
                   </ion-card-header>
+                </div>
+
+                <div *ngIf="photo != ''">
+                   <ion-avatar class="contact-avatar">
                   <img
-                    [src]="assistente.icone"
+                    [src]='photo'
+                    [(ngModel)]='todas.icone'
                     height="240px"
                     width="180px"
                   >
-                </ion-card>
+                  </ion-avatar>
+                  <ion-card-header>
+                    <ion-card-subtitle>Foto escolhida para o assistente</ion-card-subtitle>
+                  </ion-card-header>
+                </div>
               </ion-grid>
             </ion-list>
           </ion-col>
@@ -61,7 +75,7 @@
               expand="full"
               (click)="saveTodo()"
               color="success"
-             [disabled]="formgroup.invalid"
+              [disabled]="formgroup.invalid"
             >
               Pronto
             </ion-button>

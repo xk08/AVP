@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar color=\"success\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"menu/home\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Personalize seu assistente</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n  <ion-card>\r\n    <ion-grid>\r\n      <form #form=\"ngForm\">\r\n        <ion-row>\r\n          <ion-col size=\"12\">\r\n            <ion-item>\r\n              <ion-input\r\n                required\r\n                name=\"apelido\"\r\n                type=\"text\"\r\n                placeholder=\"Escolha um 'apelido' para ele \"\r\n                [(ngModel)]='todas.apelido'\r\n              ></ion-input>\r\n            </ion-item>\r\n          </ion-col>\r\n          <ion-col size=\"12\">\r\n            <ion-list>\r\n              <ion-grid\r\n                fixed\r\n                *ngFor=\"let assistente of listAssistente\"\r\n              >\r\n                <ion-col size=\"12\">\r\n                  <ion-item (click)=\"abrirGaleria()\">\r\n                    <ion-icon\r\n                      name=\"add\"\r\n                      color=\"success\"\r\n                      slot=\"start\"\r\n                    ></ion-icon>\r\n                    Clique aqui e escolha\r\n                  </ion-item>\r\n                </ion-col>\r\n                <ion-card *ngIf=\"assistente.icone\">\r\n                  <ion-card-header>\r\n                    <ion-card-subtitle>Pré Visualização</ion-card-subtitle>\r\n                  </ion-card-header>\r\n                  <img\r\n                    [src]=\"assistente.icone\"\r\n                    height=\"240px\"\r\n                    width=\"180px\"\r\n                  >\r\n                </ion-card>\r\n              </ion-grid>\r\n            </ion-list>\r\n          </ion-col>\r\n          <ion-col size=\"12\">\r\n            <ion-button\r\n              expand=\"full\"\r\n              (click)=\"saveTodo()\"\r\n              color=\"success\"\r\n            >\r\n              Pronto\r\n            </ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </form>\r\n    </ion-grid>\r\n  </ion-card>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"success\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"menu/home\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Personalize seu assistente</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n  <ion-card>\r\n    <ion-grid>\r\n      <form [formGroup]=\"formgroup\">\r\n        <ion-row>\r\n          <ion-col size=\"12\">\r\n            <ion-item>\r\n              <ion-input\r\n                type=\"text\"\r\n                formControlName=\"assistente\"\r\n                placeholder=\"Escolha um 'apelido' para seu assistente\"\r\n                [(ngModel)]='todas.apelido'\r\n                required\r\n              ></ion-input>\r\n              <div class=\"erro-mensagens\">\r\n                <ng-container *ngFor=\"let error of errorMensagens.assistente\">\r\n                  <div *ngIf=\"formgroup.get('assistente').hasError(error.type) && (formgroup.get('assistente').dirty || formgroup.get('assistente').touched)\">{{ error.mensagem }}</div>\r\n                </ng-container>\r\n              </div>\r\n            </ion-item>\r\n          </ion-col>\r\n          <ion-col size=\"12\">\r\n            <ion-list>\r\n              <ion-grid fixed>\r\n                <ion-col size=\"12\">\r\n                  <ion-item (click)=\"abrirGaleria()\">\r\n                    <ion-icon\r\n                      name=\"add\"\r\n                      color=\"success\"\r\n                      slot=\"start\"\r\n                    ></ion-icon>\r\n                    Clique aqui e escolha\r\n                  </ion-item>\r\n                </ion-col>\r\n                <div *ngIf=\"listAssistente\">\r\n                  <ion-avatar class=\"contact-avatar\">\r\n                    <img\r\n                      *ngFor=\"let assistente of listAssistente\"\r\n                      src='{{assistente.icone}}'\r\n                      height=\"280\"\r\n                      width=\"240\"\r\n                    >\r\n                  </ion-avatar>\r\n                  <ion-card-header>\r\n                    <ion-card-subtitle style=\"text-align: center;\">Foto atual do assistente</ion-card-subtitle>\r\n                  </ion-card-header>\r\n                </div>\r\n\r\n                <div *ngIf=\"photo != ''\">\r\n                   <ion-avatar class=\"contact-avatar\">\r\n                  <img\r\n                    [src]='photo'\r\n                    [(ngModel)]='todas.icone'\r\n                    height=\"240px\"\r\n                    width=\"180px\"\r\n                  >\r\n                  </ion-avatar>\r\n                  <ion-card-header>\r\n                    <ion-card-subtitle>Foto escolhida para o assistente</ion-card-subtitle>\r\n                  </ion-card-header>\r\n                </div>\r\n              </ion-grid>\r\n            </ion-list>\r\n          </ion-col>\r\n          <ion-col size=\"12\">\r\n            <ion-button\r\n              expand=\"full\"\r\n              (click)=\"saveTodo()\"\r\n              color=\"success\"\r\n              [disabled]=\"formgroup.invalid\"\r\n            >\r\n              Pronto\r\n            </ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </form>\r\n    </ion-grid>\r\n  </ion-card>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -151,7 +151,7 @@ var CadastroAssistentePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2NhZGFzdHJvLWFzc2lzdGVudGUvY2FkYXN0cm8tYXNzaXN0ZW50ZS5wYWdlLnNjc3MifQ== */"
+module.exports = ".texto {\n  color: black;\n}\n\n.erro-mensagens {\n  font-size: 0.6em;\n  color: red;\n  text-align: left;\n}\n\n.contact-avatar {\n  width: 50%;\n  height: 50%;\n  margin-left: 25%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvY2FkYXN0cm8tYXNzaXN0ZW50ZS9EOlxcdGNjL3NyY1xcYXBwXFxwYWdlc1xcY2FkYXN0cm8tYXNzaXN0ZW50ZVxcY2FkYXN0cm8tYXNzaXN0ZW50ZS5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2NhZGFzdHJvLWFzc2lzdGVudGUvY2FkYXN0cm8tYXNzaXN0ZW50ZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFBO0FDQ0Y7O0FERUE7RUFDRSxnQkFBQTtFQUNBLFVBQUE7RUFDQSxnQkFBQTtBQ0NGOztBREVBO0VBQ0UsVUFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvY2FkYXN0cm8tYXNzaXN0ZW50ZS9jYWRhc3Ryby1hc3Npc3RlbnRlLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi50ZXh0b3tcclxuICBjb2xvcjogYmxhY2s7XHJcbn1cclxuXHJcbi5lcnJvLW1lbnNhZ2Vuc3tcclxuICBmb250LXNpemU6IDAuNmVtO1xyXG4gIGNvbG9yOiByZWQ7XHJcbiAgdGV4dC1hbGlnbjogbGVmdDtcclxufVxyXG5cclxuLmNvbnRhY3QtYXZhdGFye1xyXG4gIHdpZHRoOiA1MCU7XHJcbiAgaGVpZ2h0OiA1MCU7XHJcbiAgbWFyZ2luLWxlZnQ6IDI1JTtcclxufSIsIi50ZXh0byB7XG4gIGNvbG9yOiBibGFjaztcbn1cblxuLmVycm8tbWVuc2FnZW5zIHtcbiAgZm9udC1zaXplOiAwLjZlbTtcbiAgY29sb3I6IHJlZDtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbn1cblxuLmNvbnRhY3QtYXZhdGFyIHtcbiAgd2lkdGg6IDUwJTtcbiAgaGVpZ2h0OiA1MCU7XG4gIG1hcmdpbi1sZWZ0OiAyNSU7XG59Il19 */"
 
 /***/ }),
 
@@ -174,6 +174,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/overlay.service */ "./src/app/core/overlay.service.ts");
 /* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/index.js");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/ngx/index.js");
+/* harmony import */ var src_app_core_core_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/core/core.module */ "./src/app/core/core.module.ts");
+
+
 
 
 
@@ -184,14 +188,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var CadastroAssistentePage = /** @class */ (function () {
-    function CadastroAssistentePage(route, loadingController, assistenteCadastroService, navCtrl, camera, overlay, auth) {
+    function CadastroAssistentePage(route, loadingController, assistenteCadastroService, camera, overlay, auth, navCtrl, formBuilder, network, core, toastController) {
         this.route = route;
         this.loadingController = loadingController;
         this.assistenteCadastroService = assistenteCadastroService;
-        this.navCtrl = navCtrl;
         this.camera = camera;
         this.overlay = overlay;
         this.auth = auth;
+        this.navCtrl = navCtrl;
+        this.formBuilder = formBuilder;
+        this.network = network;
+        this.core = core;
+        this.toastController = toastController;
         this.photo = '';
         this.todas = {
             idUsuario: '',
@@ -202,9 +210,18 @@ var CadastroAssistentePage = /** @class */ (function () {
     CadastroAssistentePage.prototype.ngOnInit = function () {
         this.idUsuario = this.auth.auth.currentUser.uid;
         this.idCadastroAssistente = this.route.snapshot.params['id'];
+        this.errorMensagens = this.core.identForm;
+        this.formgroup = this.formBuilder.group({
+            assistente: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].compose([
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required,
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].minLength(2),
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].maxLength(10)
+                ])]
+        });
         if (this.idUsuario) {
             this.loadTodo();
         }
+        this.networkConnect();
     };
     CadastroAssistentePage.prototype.loadTodo = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -223,6 +240,24 @@ var CadastroAssistentePage = /** @class */ (function () {
                         this.assistenteCadastroService.getTodos(this.idUsuario).subscribe(function (res) {
                             loading.dismiss();
                             _this.listAssistente = res;
+                        });
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    CadastroAssistentePage.prototype.networkConnect = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var loading;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.loadingController.create({
+                            message: 'Conectando com a Internet...'
+                        })];
+                    case 1:
+                        loading = _a.sent();
+                        this.network.onDisconnect().subscribe(function () {
+                            loading.dismiss();
                         });
                         return [2 /*return*/];
                 }
@@ -260,8 +295,27 @@ var CadastroAssistentePage = /** @class */ (function () {
                             this.assistenteCadastroService.addTodo(this.todas, this.idUsuario).then(function () {
                                 loading.dismiss();
                                 _this.navCtrl.navigateBack('/menu/home');
+                                _this.presentToast("Assistente '" + _this.todas.apelido + "' cadastrado");
                             });
                         }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    CadastroAssistentePage.prototype.presentToast = function (msg) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var toast;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.toastController.create({
+                            message: msg,
+                            duration: 3000,
+                            position: 'top'
+                        })];
+                    case 1:
+                        toast = _a.sent();
+                        toast.present();
                         return [2 /*return*/];
                 }
             });
@@ -299,10 +353,14 @@ var CadastroAssistentePage = /** @class */ (function () {
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"] },
         { type: src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_4__["AssistenteCadastroService"] },
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
         { type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_5__["Camera"] },
         { type: src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_7__["OverlayService"] },
-        { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_8__["AngularFireAuth"] }
+        { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_8__["AngularFireAuth"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] },
+        { type: _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_9__["Network"] },
+        { type: src_app_core_core_module__WEBPACK_IMPORTED_MODULE_10__["CoreModule"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"] }
     ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('form', null),
@@ -317,10 +375,14 @@ var CadastroAssistentePage = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"],
             src_app_services_assistenteCadastro_assistente_cadastro_service__WEBPACK_IMPORTED_MODULE_4__["AssistenteCadastroService"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
             _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_5__["Camera"],
             src_app_core_overlay_service__WEBPACK_IMPORTED_MODULE_7__["OverlayService"],
-            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_8__["AngularFireAuth"]])
+            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_8__["AngularFireAuth"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"],
+            _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_9__["Network"],
+            src_app_core_core_module__WEBPACK_IMPORTED_MODULE_10__["CoreModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"]])
     ], CadastroAssistentePage);
     return CadastroAssistentePage;
 }());

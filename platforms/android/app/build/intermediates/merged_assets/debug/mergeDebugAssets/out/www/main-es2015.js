@@ -795,20 +795,25 @@ let CoreModule = class CoreModule {
                 { type: 'requerid', mensagem: 'Senha não informada' },
                 { type: 'minlength', mensagem: 'Minimo 6 caracteres' },
                 { type: 'maxLength', mensagem: 'Maximo 30 caracteres' },
-                { type: 'pattern', mensagem: 'Senha invalido!' }
+                { type: 'pattern', mensagem: 'Senha invalida' }
             ],
             'nome': [
                 { type: 'requerid', mensagem: 'Nome não informado' },
                 { type: 'minlength', mensagem: 'Minimo 3 letras' },
-                { type: 'maxLength', mensagem: 'Maximo 50 caracteres' },
-            ],
-            'dataNascimento': [
-                { type: 'requerid', mensagem: 'Data não informada' },
+                { type: 'maxLength', mensagem: 'Maximo 50 caracteres' }
             ],
             'profissao': [
                 { type: 'requerid', mensagem: 'Profissão não informada' },
                 { type: 'minlength', mensagem: 'Minimo 6 letras' },
-                { type: 'maxLength', mensagem: 'Maximo 30 caracteres' },
+                { type: 'maxLength', mensagem: 'Maximo 30 caracteres' }
+            ],
+            'assistente': [
+                { type: 'requerid', mensagem: 'Apelido não informado' },
+                { type: 'minlength', mensagem: 'Minimo 2 letras' },
+                { type: 'maxLength', mensagem: 'Maximo 10 caracteres' }
+            ],
+            'dataNascimento': [
+                { type: 'requerid', mensagem: 'A data não foi informada' }
             ]
         };
     }
