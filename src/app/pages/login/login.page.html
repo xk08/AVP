@@ -1,10 +1,9 @@
 <ion-header>
-    <ion-toolbar color="secondary">
-      <ion-title style="text-align: center;">Acessando o assistente</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content padding>
+  <ion-toolbar color="secondary">
+    <ion-title style="text-align: center;">Acessando o assistente</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
   <ion-grid>
     <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
     <ion-row justify-content-center>
@@ -14,75 +13,75 @@
         size-lg="3"
         size-xl="3"
       >
-     <!-- arrumar essas pohha de padding -->
+        <!-- arrumar essas pohha de padding -->
+        <h1 style=text-align:center>
+          <img
+            src="../../../assets/img/avp.png"
+            width="180px"
+            height="160px"
+          >
+        </h1>
 
-
-    <h1 style=text-align:center>
-      <img src="../../../assets/img/avp.png" width="180px" height="160px">
-    </h1>
-
-
-
-      <form #form="ngForm">
-        <ion-item>
+        <form [formGroup]="formgroup">
+          <ion-item>
             <ion-icon
               color="medium"
               name="mail"
               slot="start"
             ></ion-icon>
             <ion-input
-              type="email"
-              name="email"
+              type="text"
+              formControlName="email"
               placeholder="Informe seu e-mail"
-              inputmode="email"
-              autofocus="true"
               [(ngModel)]="user.email"
-              style="text-align: inherit;"
               required
             ></ion-input>
+            <div class="erro-mensagens">
+              <ng-container *ngFor="let error of errorMensagens.email">
+                <div *ngIf="formgroup.get('email').hasError(error.type) && (formgroup.get('email').dirty || formgroup.get('email').touched)">{{ error.mensagem }}</div>
+              </ng-container>
+            </div>
           </ion-item>
-
           <ion-item>
-            <ion-icon
+              <ion-icon
              color="medium"
               name="lock"
               slot="start"
             ></ion-icon>
             <ion-input
               type="password"
-              name="password"
+              formControlName="senha"
               placeholder="Informe sua senha"
               [(ngModel)]="user.password"
-              style="text-align: inherit;"
               required
             ></ion-input>
+            <div class="erro-mensagens">
+              <ng-container *ngFor="let error of errorMensagens.senha">
+                <div *ngIf="formgroup.get('senha').hasError(error.type) && (formgroup.get('senha').dirty || formgroup.get('senha').touched)">{{ error.mensagem }}</div>
+              </ng-container>
+            </div>
           </ion-item>
+
         </form>
-
-      <!-- achar uma forma de validar os campos, pegar do outro curso da udemy-->
         <ion-content>
-    <ion-button
-    expand="block"
-    type="submit"
-    color="secondary"
-    (click)="signIn()"
-  >
-    Acessar
-  </ion-button>
-
-<ion-button
-  expand="block"
-  fill="clear"
-  (click)="createAccount()"
->
-  Participar
-</ion-button>
-
-</ion-content>
-
-
+          <ion-button
+            expand="block"
+            type="submit"
+            color="secondary"
+            (click)="signIn()"
+            [disabled]="formgroup.invalid"
+          >
+            Acessar
+          </ion-button>
+          <ion-button
+            expand="block"
+            fill="clear"
+            (click)="createAccount()"
+          >
+            Participar
+          </ion-button>
+        </ion-content>
       </ion-col>
     </ion-row>
   </ion-grid>
-
 </ion-content>

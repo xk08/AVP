@@ -1,10 +1,17 @@
 <ion-app>
+
+
+
   <ion-split-pane>
 
 
 
 
+
+
     <ion-menu>
+
+
 
 
 
@@ -19,7 +26,11 @@
 
 
 
+
+
       <ion-content>
+
+
 
 
 
@@ -31,9 +42,13 @@
 
 
 
+
+
             <ion-avatar *ngIf="icone != ''">
               <img src="{{icone}}">
             </ion-avatar>
+
+
 
 
 
@@ -45,14 +60,20 @@
 
 
 
+
+
             <ion-label *ngIf="apelido == ''">Assistente não cadastrado</ion-label>
             <ion-label *ngIf="apelido != ''">Olá, sou {{apelido}} seu assistente</ion-label>
 
 
 
 
+
+
           </ion-chip>
         </ion-item>
+
+
 
 
 
@@ -64,9 +85,13 @@
 
 
 
+
+
             <ion-avatar *ngIf="fotoUsuario != ''">
               <img src="{{fotoUsuario}}">
             </ion-avatar>
+
+
 
 
 
@@ -78,7 +103,11 @@
 
 
 
+
+
             <ion-label>Bem vindo {{nomeUsuario}}</ion-label>
+
+
 
 
 
@@ -89,10 +118,14 @@
 
 
 
+
+
         <ion-list
           ion-list
           *ngIf="!isProfissional"
         >
+
+
 
 
 
@@ -113,11 +146,17 @@
 
 
 
+
+
         <!-- Menus dos profissionais -->
 
 
 
+
+
         <ion-list *ngIf="isProfissional">
+
+
 
 
           <ion-menu-toggle
@@ -133,6 +172,8 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+
+
 
 
 
@@ -153,8 +194,12 @@
 
 
 
+
+
       </ion-content>
     </ion-menu>
+
+
 
 
 
@@ -164,7 +209,11 @@
 
 
 
+
+
   </ion-split-pane>
+
+
 
 
 

@@ -17,4 +17,26 @@ div {
     color: #0cd1e8;
   }
 
+  ion-card {
+  ion-item{
+    --border-radius: 10px;
+  }
+  img{
+    width: 70%;
+    margin: auto;
+  }
+
+}
+
+.texto{
+  color: black;
+}
+
+.erro-mensagens{
+  font-size: 0.6em;
+  color: red;
+  text-align: right;
+}
+
+
 

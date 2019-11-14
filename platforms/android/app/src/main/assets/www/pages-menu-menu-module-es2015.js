@@ -190,7 +190,7 @@ let MenuPage = class MenuPage {
         this.usuarioCadastroService = usuarioCadastroService;
         this.paginas = [
             {
-                title: 'Home',
+                title: 'Inicio',
                 url: '/menu/home',
                 icon: 'home'
             },
@@ -202,12 +202,7 @@ let MenuPage = class MenuPage {
         ];
         this.paginasProfissional = [
             {
-                title: 'Home',
-                url: '/menu/profissional-todos-conteudos',
-                icon: 'home'
-            },
-            {
-                title: 'Meu Perfil',
+                title: 'Inicio',
                 url: '/menu/profissional-todos-conteudos',
                 icon: 'home'
             }

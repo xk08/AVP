@@ -17,8 +17,6 @@
         size-lg="3"
         size-xl="3"
       >
-
-
         <h1 style=text-align:center>
           <img
             src="../../../assets/img/avp.png"
@@ -26,9 +24,7 @@
             height="100px"
           >
         </h1>
-
-        <form #form="ngForm">
-
+        <form [formGroup]="formgroup">
           <!-- NOME -->
           <ion-item>
             <ion-icon
@@ -38,17 +34,18 @@
             ></ion-icon>
             <ion-input
               type="text"
-              name="nome"
+              formControlName="nome"
               placeholder="Nome"
-              autofocus="true"
               [(ngModel)]='todoUser.nome'
               required
             ></ion-input>
+            <div class="erro-mensagens">
+              <ng-container *ngFor="let error of errorMensagens.nome">
+                <div *ngIf="formgroup.get('nome').hasError(error.type) && (formgroup.get('nome').dirty || formgroup.get('nome').touched)">{{ error.mensagem }}</div>
+              </ng-container>
+            </div>
           </ion-item>
-
           <!-- PROFISSÃO -->
-
-
           <ion-item>
             <ion-icon
               name="md-briefcase"
@@ -57,16 +54,18 @@
             ></ion-icon>
             <ion-input
               type="text"
-              name="profissao"
-              placeholder="Profissão exercida"
-              autofocus="true"
-              [(ngModel)]='todoUser.profissao'
+              formControlName="profissao"
+              placeholder="Profissão"
+              [(ngModel)]="todoUser.profissao"
               required
             ></ion-input>
+            <div class="erro-mensagens">
+              <ng-container *ngFor="let error of errorMensagens.profissao">
+                <div *ngIf="formgroup.get('profissao').hasError(error.type) && (formgroup.get('profissao').dirty || formgroup.get('profissao').touched)">{{ error.mensagem }}</div>
+              </ng-container>
+            </div>
           </ion-item>
-
           <!-- EMAIL -->
-
           <ion-item>
             <ion-icon
               name="mail"
@@ -74,18 +73,19 @@
               slot="start"
             ></ion-icon>
             <ion-input
-              type="email"
-              name="email"
+              type="text"
+              formControlName="email"
               placeholder="E-mail"
-              inputmode="email"
-              autofocus="true"
-              [(ngModel)]='todoUser.email'
+              [(ngModel)]="todoUser.email"
               required
             ></ion-input>
+            <div class="erro-mensagens">
+              <ng-container *ngFor="let error of errorMensagens.email">
+                <div *ngIf="formgroup.get('email').hasError(error.type) && (formgroup.get('email').dirty || formgroup.get('email').touched)">{{ error.mensagem }}</div>
+              </ng-container>
+            </div>
           </ion-item>
-
           <!-- SENHA -->
-
           <ion-item>
             <ion-icon
               name="lock"
@@ -94,22 +94,29 @@
             ></ion-icon>
             <ion-input
               type="password"
-              name="password"
+              formControlName="senha"
               placeholder="Senha"
-              [(ngModel)]='todoUser.senha'
+              [(ngModel)]="todoUser.senha"
               required
             ></ion-input>
+            <div class="erro-mensagens">
+              <ng-container *ngFor="let error of errorMensagens.senha">
+                <div *ngIf="formgroup.get('senha').hasError(error.type) && (formgroup.get('senha').dirty || formgroup.get('senha').touched)">{{ error.mensagem }}</div>
+              </ng-container>
+            </div>
           </ion-item>
 
+
+
+
           <!-- BOTÃO DE CADASTRO -->
-
-
           <ion-button
             expand="block"
             type="submit"
             class="login-button"
             (click)="concluiCadastro()"
             color="dark"
+            [disabled]="formgroup.invalid"
           >
             Colaborar
           </ion-button>
@@ -117,5 +124,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
 </ion-content>
