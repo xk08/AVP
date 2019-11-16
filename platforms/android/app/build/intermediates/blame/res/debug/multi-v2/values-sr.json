@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\tcc\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sr\\values-sr.xml",
+            "outputFile": "D:\\marcos\\TCC\\tcc\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sr\\values-sr.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\DTI\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\35afd821d6b4a5bbefbaa2698b00bc80\\res\\values-sr\\values-sr.xml",
+                    "source": "C:\\Users\\Kennedy\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\d8985f87d66510d8e97582688db760af\\res\\values-sr\\values-sr.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

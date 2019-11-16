@@ -114,7 +114,8 @@ export class QueroConversarPage implements OnInit, OnDestroy {
 
   async saveTodo() {
     const loading = await this.loadingController.create({
-      message: 'Salvando dados que foram informados'
+      message: 'Carregando conteúdos para você',
+      duration: 8000
     });
     await loading.present();
 

@@ -23,10 +23,12 @@ export class EmergenciaUtilizacaoPage implements OnInit, OnDestroy {
   public frase: string;
   public foto: string;
   public idEmergencia: string;
+  public temDados: boolean ;
 
   public n1publico: string;
   public n2publico: string;
   public n3cvv: string;
+
 
   constructor(
     private emergenciaCadastroService: EmergenciaCadastroService,
@@ -37,27 +39,29 @@ export class EmergenciaUtilizacaoPage implements OnInit, OnDestroy {
     
     private sms: SMS, //Voltar nessa parte
     private androidPermissions: AndroidPermissions
+  
   ) {}
 
   public list: Subscription;
-
+  
   ngOnInit() {
-    this.idEmergencia = this.auth.auth.currentUser.uid;
 
+    this.idEmergencia = this.auth.auth.currentUser.uid ; 
+  
     this.list = this.emergenciaCadastroService
-      .getTodo(this.idEmergencia)
-      .subscribe(res => {
-        this.n1 = res.primeiroNumero;
-        this.n2 = res.segundoNumero;
-        this.frase = res.frase;
-        this.foto = res.foto;
-        this.nomeN1 = res.nomePrimeiroNumero;
-        this.nomeN2 = res.nomeSegundoNumero;
+    .getTodo(this.idEmergencia)
+    .subscribe(res => {
+      this.n1 = res.primeiroNumero;
+      this.n2 = res.segundoNumero;
+      this.frase = res.frase;
+      this.foto = res.foto;
+      this.nomeN1 = res.nomePrimeiroNumero;
+      this.nomeN2 = res.nomeSegundoNumero;
 
-        this.n1publico = this.n1;
-        this.n2publico = this.n2;
-        this.n3cvv = "188";
-      });
+      this.n1publico = this.n1;
+      this.n2publico = this.n2;
+      this.n3cvv = "188";
+    });
   }
 
   //Mecanismo de ligação

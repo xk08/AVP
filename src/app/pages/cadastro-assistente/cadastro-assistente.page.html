@@ -1,37 +1,43 @@
+
 <ion-header>
-  <ion-toolbar color="success">
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="menu/home"></ion-back-button>
+      <ion-back-button defaultHref="menu/home" color="success"></ion-back-button>
     </ion-buttons>
-    <ion-title>Personalize seu assistente</ion-title>
+      <ion-title color="success">Personalize seu assistente</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
-  <ion-card>
-    <ion-grid>
-      <form [formGroup]="formgroup">
-        <ion-row>
-          <ion-col size="12">
+  <ion-grid style="height: 100%">
+  <ion-row justify-content-center align-items-center style="height: 100%">
+    <form [formGroup]="formgroup">
+     <ion-row>
+
+       <ion-card-content>
+         
+        <ion-card style="background-color: lightgreen;" >
+            <ion-card-header>
+              <ion-card-title style="font-size: 17px; text-align: center;">Apelido ou Nome</ion-card-title>
+            </ion-card-header>
+          
             <ion-item>
               <ion-input
-                type="text"
-                formControlName="assistente"
-                placeholder="Escolha um 'apelido' para seu assistente"
-                [(ngModel)]='todas.apelido'
-                required
+              type="text"
+              formControlName="assistente"
+              placeholder="Escreva aqui..."
+              [(ngModel)]='todas.apelido'
+              required
               ></ion-input>
-              <div class="erro-mensagens">
-                <ng-container *ngFor="let error of errorMensagens.assistente">
-                  <div *ngIf="formgroup.get('assistente').hasError(error.type) && (formgroup.get('assistente').dirty || formgroup.get('assistente').touched)">{{ error.mensagem }}</div>
-                </ng-container>
-              </div>
-            </ion-item>
-          </ion-col>
-          <ion-col size="12">
-            <ion-list>
-              <ion-grid fixed>
-                <ion-col size="12">
-                  <ion-item (click)="abrirGaleria()">
+                
+              </ion-item>
+          </ion-card>
+          
+          <ion-card style="background-color: lightgreen;" >
+              <ion-card-header>
+                <ion-card-title style="font-size: 17px; text-align: center;">Foto ou Icone</ion-card-title>
+                </ion-card-header>
+                <ion-item (click)="abrirGaleria()">
                     <ion-icon
                       name="add"
                       color="success"
@@ -39,49 +45,38 @@
                     ></ion-icon>
                     Clique aqui e escolha
                   </ion-item>
-                </ion-col>
-                <div *ngIf="listAssistente">
-                  <ion-avatar class="contact-avatar">
-                    <img
-                      *ngFor="let assistente of listAssistente"
-                      src='{{assistente.icone}}'
-                      height="280"
-                      width="240"
-                    >
-                  </ion-avatar>
-                  <ion-card-header>
-                    <ion-card-subtitle style="text-align: center;">Foto atual do assistente</ion-card-subtitle>
-                  </ion-card-header>
-                </div>
-
-                <div *ngIf="photo != ''">
-                   <ion-avatar class="contact-avatar">
-                  <img
-                    [src]='photo'
-                    [(ngModel)]='todas.icone'
-                    height="240px"
-                    width="180px"
-                  >
-                  </ion-avatar>
-                  <ion-card-header>
-                    <ion-card-subtitle>Foto escolhida para o assistente</ion-card-subtitle>
-                  </ion-card-header>
-                </div>
-              </ion-grid>
-            </ion-list>
-          </ion-col>
-          <ion-col size="12">
+                </ion-card>
+          
+          <ion-card *ngIf="photo != ''">
+                <ion-avatar class="contact-avatar">
+               <img
+                 [src]='photo'
+                 [(ngModel)]='todas.icone'
+                 height="240px"
+                 width="180px"
+               >
+               </ion-avatar>
+               <ion-card-header>
+                 <ion-card-subtitle>Foto escolhida para seu assistente</ion-card-subtitle>
+               </ion-card-header>
+              </ion-card>
+      </ion-card-content>
+    </ion-row>
             <ion-button
-              expand="full"
-              (click)="saveTodo()"
-              color="success"
-              [disabled]="formgroup.invalid"
+            shape="round"
+            fill="outline"
+            expand="block"
+            
+            (click)="saveTodo()"
+            color="success"
+            [disabled]="formgroup.invalid"
             >
-              Pronto
-            </ion-button>
-          </ion-col>
-        </ion-row>
+            Pronto
+          </ion-button>
       </form>
-    </ion-grid>
-  </ion-card>
+  </ion-row>
+</ion-grid>
 </ion-content>
+
+
+

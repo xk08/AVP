@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
+      "id": "cordova-plugin-android-permissions.Permissions",
+      "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
+      "pluginId": "cordova-plugin-android-permissions",
+      "clobbers": [
+        "cordova.plugins.permissions"
+      ]
+    },
+    {
       "id": "cordova-plugin-badge.Badge",
       "file": "plugins/cordova-plugin-badge/www/badge.js",
       "pluginId": "cordova-plugin-badge",
@@ -297,14 +305,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "mx.ferreyra.callnumber.CallNumber",
-      "file": "plugins/mx.ferreyra.callnumber/www/CallNumber.js",
-      "pluginId": "mx.ferreyra.callnumber",
-      "clobbers": [
-        "call"
-      ]
-    },
-    {
       "id": "cordova-sms-plugin.Sms",
       "file": "plugins/cordova-sms-plugin/www/sms.js",
       "pluginId": "cordova-sms-plugin",
@@ -313,15 +313,16 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-plugin-android-permissions.Permissions",
-      "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
-      "pluginId": "cordova-plugin-android-permissions",
+      "id": "mx.ferreyra.callnumber.CallNumber",
+      "file": "plugins/mx.ferreyra.callnumber/www/CallNumber.js",
+      "pluginId": "mx.ferreyra.callnumber",
       "clobbers": [
-        "cordova.plugins.permissions"
+        "call"
       ]
     }
   ];
   module.exports.metadata = {
+    "cordova-plugin-android-permissions": "1.0.2",
     "cordova-plugin-badge": "0.8.8",
     "cordova-plugin-camera": "4.1.0",
     "cordova-plugin-device": "2.0.2",
@@ -333,8 +334,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-whitelist": "1.3.3",
-    "mx.ferreyra.callnumber": "0.0.2",
     "cordova-sms-plugin": "1.0.0",
-    "cordova-plugin-android-permissions": "1.0.2"
+    "mx.ferreyra.callnumber": "0.0.2"
   };
 });

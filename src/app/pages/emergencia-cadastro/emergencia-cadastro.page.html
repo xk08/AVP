@@ -140,19 +140,21 @@
               ></ion-icon>
               Clique para escolher
             </ion-item>
-            <ion-card *ngIf="todas.foto">
-              <ion-label
-                color="primary"
-                style="font-size: 12pt; text-align: center;"
-              >
-                Prè-Visualização
-              </ion-label>
-              <img
-                [src]="todas.foto"
-                width="180"
-                height="240"
-              >
+
+            <ion-card *ngIf="photo != ''">
+              <ion-card-header>
+                <ion-card-subtitle style="text-align: center;">Visualização da foto escolhida</ion-card-subtitle>
+              </ion-card-header>
+    
+                <img
+                  [src]='photo'
+                  [(ngModel)]='todas.foto'
+                  height="240px"
+                  width="180px"
+                >
             </ion-card>
+           
+            
           </ion-card>
           <!-- BOTÃO DE CADASTRO -->
           <ion-button

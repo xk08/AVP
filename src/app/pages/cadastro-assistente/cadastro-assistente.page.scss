@@ -2,14 +2,15 @@
   color: black;
 }
 
-.erro-mensagens{
-  font-size: 0.6em;
-  color: red;
-  text-align: left;
-}
-
 .contact-avatar{
   width: 50%;
   height: 50%;
   margin-left: 25%;
+}
+
+ion-rating-container {
+  font-size: 30;
+}
+ion-button{
+  align-items: flex-end;
 }
