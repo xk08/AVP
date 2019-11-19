@@ -16,6 +16,14 @@
 </ion-header>
 
 
+
+
+
+
+
+
+
+
 <ion-fab
   vertical="bottom"
   horizontal="end"
@@ -35,174 +43,221 @@
   </ion-toolbar>
 </ion-header>
 
+
+
+
+
+
+
+
+
 <ion-content>
-  <ion-header translucent *ngIf="tituloTextoTela">
+  <ion-header
+    translucent
+    *ngIf="tituloTextoTela"
+  >
     <ion-toolbar
       translucent
       color="amareloprofissional"
     >
-          <ion-toggle
-              [(ngModel)]="mostraMaisInfoTexto"
-              color="medium"
-              slot="end"
-              name="filtro"
-              checked
-            ></ion-toggle>
+      <ion-toggle
+        [(ngModel)]="mostraMaisInfoTexto"
+        color="medium"
+        slot="end"
+        name="filtro"
+        checked
+      ></ion-toggle>
       <ion-title style="font-size: 15pt; text-align: center; font-family: monospace;">Textos e frases</ion-title>
     </ion-toolbar>
   </ion-header>
-<br>
+  <br>
   <div *ngIf="mostraMaisInfoTexto">
-  <ion-card
-    *ngFor="let texto of profissionalConteudoTextoTela"
-    style="background-color: #FFFFC4;;"
-  >
-    <ion-card-header *ngIf="tituloTextoTela == '' ">
-      <ion-card-title hidden></ion-card-title>
-    </ion-card-header>
-
-    <ion-card-header *ngIf="tituloTextoTela">
-      <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>
-    </ion-card-header>
-
-
-    <ion-card-content
-      *ngIf="descricaoTextoTela"
-      style="text-align: center; font-size: 15pt;"
+    <ion-card
+      *ngFor="let texto of profissionalConteudoTextoTela"
+      style="background-color: #FFFFC4;;"
     >
-      “{{ texto.texto }}”
-    </ion-card-content>
-    <ion-card-content
-      *ngIf="descricaoTextoTela == '' "
-      style="text-align: center;"
-    >
-      Nenhum texto foi cadastrado até o momento.
-    </ion-card-content>
+      <ion-card-header *ngIf="tituloTextoTela == '' ">
+        <ion-card-title hidden></ion-card-title>
+      </ion-card-header>
 
-    <ion-card-header>
-      <ion-card-subtitle
-        *ngIf="autorTextoTela == '' "
-        style="text-align: right;"
+
+
+
+      <ion-card-header *ngIf="tituloTextoTela">
+        <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>
+      </ion-card-header>
+
+
+
+
+
+
+      <ion-card-content
+        *ngIf="descricaoTextoTela"
+        style="text-align: center; font-size: 15pt;"
       >
-        Autor desconhecido
-      </ion-card-subtitle>
-      <ion-card-subtitle
-        *ngIf="autorTextoTela"
-        style="text-align: right;"
+        “{{ texto.texto }}”
+      </ion-card-content>
+      <ion-card-content
+        *ngIf="descricaoTextoTela == '' "
+        style="text-align: center;"
       >
-        Autor:{{ texto.autorTexto }}
-      </ion-card-subtitle>
-    </ion-card-header>
-    <ion-item
-      href
-      class="activated"
-      style="background-color: #FFFFC4;"
-      [routerLink]="['/menu/texto-detalhes', texto.id]"
-    >
-      <ion-label class="ion-text-center">Mais informações</ion-label>
-    </ion-item>
-  </ion-card>
+        Nenhum texto foi cadastrado até o momento.
+      </ion-card-content>
+
+
+
+
+      <ion-card-header>
+        <ion-card-subtitle
+          *ngIf="autorTextoTela == '' "
+          style="text-align: right;"
+        >
+          Autor desconhecido
+        </ion-card-subtitle>
+        <ion-card-subtitle
+          *ngIf="autorTextoTela"
+          style="text-align: right;"
+        >
+          Autor:{{ texto.autorTexto }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-item
+        href
+        class="activated"
+        style="background-color: #FFFFC4;"
+        [routerLink]="['/menu/texto-detalhes', texto.id]"
+      >
+        <ion-label class="ion-text-center">Mais informações</ion-label>
+      </ion-item>
+    </ion-card>
   </div>
 
 
-<ion-header translucent *ngIf="tituloImagemTela">
+
+
+
+  <ion-header
+    translucent
+    *ngIf="tituloImagemTela"
+  >
     <ion-toolbar
       translucent
       color="primary"
     >
-     <ion-toggle
-              [(ngModel)]="mostraMaisInfoImagem"
-              color="medium"
-              slot="end"
-              name="filtro"
-              checked
-            ></ion-toggle>
+      <ion-toggle
+        [(ngModel)]="mostraMaisInfoImagem"
+        color="medium"
+        slot="end"
+        name="filtro"
+        checked
+      ></ion-toggle>
       <ion-title style="font-size: 15pt; text-align: center; font-family: monospace;">Imagens</ion-title>
     </ion-toolbar>
   </ion-header>
   <br>
   <div *ngIf="mostraMaisInfoImagem">
-  <ion-card
-    *ngFor="let imagem of profissionalConteudoImagemTela"
-    style="color: #9AFFF1;"
-  >
-    <ion-card-content *ngIf="imagem.imagem">
-      <!-- achar uma maneira de melhorar aqui -->
-      <img
-        src="{{imagem.imagem}}"
-        width="350px"
-        height="320px"
-      >
-    </ion-card-content>
-    <ion-card-content *ngIf="imagem.imagem == ''">
-      <ion-card-header style="font-size: 15pt; text-align: center;">Imagem não encontrada</ion-card-header>
-    </ion-card-content>
-
-    <ion-card-header *ngIf="imagem.tituloImagem == ''">
-      <ion-card-title style="text-align: center;">Titulo não cadastrado</ion-card-title>
-    </ion-card-header>
-
-
-    <ion-card-header *ngIf="imagem.tituloImagem">
-      <ion-card-title style="text-align: center;">{{imagem.tituloImagem}}</ion-card-title>
-    </ion-card-header>
-
-    <ion-item
-      href
-      class="activated"
-      style="background-color: lightsteelblue;"
-      [routerLink]="['/menu/imagem-detalhes', imagem.id]"
+    <ion-card
+      *ngFor="let imagem of profissionalConteudoImagemTela"
+      style="color: #9AFFF1;"
     >
-      <ion-label class="ion-text-center">Mais informações</ion-label>
-    </ion-item>
-  </ion-card>
+      <ion-card-content *ngIf="imagem.imagem">
+        <!-- achar uma maneira de melhorar aqui -->
+        <img
+          src="{{imagem.imagem}}"
+          width="350px"
+          height="320px"
+        >
+      </ion-card-content>
+      <ion-card-content *ngIf="imagem.imagem == ''">
+        <ion-card-header style="font-size: 15pt; text-align: center;">Imagem não encontrada</ion-card-header>
+      </ion-card-content>
+
+
+
+
+
+      <ion-card-header *ngIf="imagem.tituloImagem == ''">
+        <ion-card-title style="text-align: center;">Titulo não cadastrado</ion-card-title>
+      </ion-card-header>
+
+
+
+
+
+      <ion-card-header *ngIf="imagem.tituloImagem">
+        <ion-card-title style="text-align: center;">{{imagem.tituloImagem}}</ion-card-title>
+      </ion-card-header>
+
+
+
+
+
+      <ion-item
+        href
+        class="activated"
+        style="background-color: lightsteelblue;"
+        [routerLink]="['/menu/imagem-detalhes', imagem.id]"
+      >
+        <ion-label class="ion-text-center">Mais informações</ion-label>
+      </ion-item>
+    </ion-card>
   </div>
 
 
-<ion-header translucent *ngIf="tituloVideoTela">
+
+
+
+  <ion-header
+    translucent
+    *ngIf="tituloVideoTela"
+  >
     <ion-toolbar
       translucent
       color="tertiary"
     >
-     <ion-toggle
-              [(ngModel)]="mostraMaisInfoVideo"
-              color="medium"
-              slot="end"
-              name="filtro"
-              checked
-            ></ion-toggle>
+      <ion-toggle
+        [(ngModel)]="mostraMaisInfoVideo"
+        color="medium"
+        slot="end"
+        name="filtro"
+        checked
+      ></ion-toggle>
       <ion-title style="font-size: 15pt; text-align: center; font-family: monospace;">Videos</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div *ngIf="mostraMaisInfoVideo">
-  <ion-card
-    *ngFor="let video of profissionalConteudoVideoTela"
-    style="background-color: #D0BBFF;"
-  >
-    <!-- achar alguma forma de deixar o link especifico -->
-    <iframe
-      width="350"
-      height="300"
-      src="https://www.youtube.com/embed/hHYDVmWE9FI"
-      frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>
-    <ion-card-header>
-      <ion-card-subtitle>Video do Youtube</ion-card-subtitle>
-      <ion-card-title>{{video.tituloVideo}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>{{video.descricaoVideo}}</ion-card-content>
 
-    <ion-item
-      href
-      class="activated"
-      style="background-color: silver;"
-      [routerLink]="['/menu/video-detalhes', video.id]"
+
+
+  <div *ngIf="mostraMaisInfoVideo">
+    <ion-card
+      *ngFor="let video of profissionalConteudoVideoTela"
+      style="background-color: #D0BBFF;"
     >
-      <ion-label class="ion-text-center">Mais informações</ion-label>
-    </ion-item>
-  </ion-card>
+      <!-- achar alguma forma de deixar o link especifico -->
+      <iframe
+        width="350"
+        height="300"
+        [src]="urlEmbd"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <ion-card-header>
+        <ion-card-subtitle>Video do Youtube</ion-card-subtitle>
+        <ion-card-title>{{video.tituloVideo}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>{{video.descricaoVideo}}</ion-card-content>
+
+      <ion-item
+        href
+        class="activated"
+        style="background-color: silver;"
+        [routerLink]="['/menu/video-detalhes', video.id]"
+      >
+        <ion-label class="ion-text-center">Mais informações</ion-label>
+      </ion-item>
+    </ion-card>
   </div>
 </ion-content>

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ɵConsole } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario-cadastro.service';
@@ -19,8 +19,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
   styleUrls: ["./home.page.scss"]
 })
 export class HomePage implements OnInit, OnDestroy {
-
-  //vid = 'https://www.youtube.com/watch?v=TSDnysvLM-Y';
+  urlEmbd: string;
+  finalLink: string;
 
   trustedVideoUrl: SafeResourceUrl;
 
@@ -77,13 +77,21 @@ export class HomePage implements OnInit, OnDestroy {
     private localNotifications: LocalNotifications
   ) { }
 
-
   ngOnInit() {
     this.idUsuario = this.auth.auth.currentUser.uid;
     this.buscaDadosTexto(this.idUsuario);
     this.buscaDadosImagem(this.idUsuario);
     this.buscaDadosVideo(this.idUsuario);
 
+    /*
+    this.urlYT = 'https://www.youtube.com/watch?v=hHYDVmWE9FI';
+
+    this.finalLink = this.urlYT.substring(this.urlYT.indexOf('=') + 1);
+
+    this.urlEmbd = `https://www.youtube.com/embed/${this.finalLink}`;
+
+    console.log("chitaa" + this.urlEmbd);
+*/
   }
 
   /* TEXTO */
@@ -149,7 +157,7 @@ export class HomePage implements OnInit, OnDestroy {
       });
   }
 
-  openNotificacao(titulo: string, texto:string) {
+  openNotificacao(titulo: string, texto: string) {
 
     this.localNotifications.schedule({
       title: titulo,
@@ -264,6 +272,7 @@ export class HomePage implements OnInit, OnDestroy {
               this.tituloVideoTela = x.tituloVideo;
               this.descricaoVideoTela = x.descricaoVideo;
               this.linkVideoTela = x.linkVideo;
+              this.videoDoYT(this.linkVideoTela);
               this.autorVideoTela = x.autorVideo;
             });
           });
@@ -271,11 +280,15 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
 
-  /*
-  videoDoYT(vid){
-    return this.dom.bypassSecurityTrustResourceUrl(vid);
+
+  videoDoYT(vid) {
+    this.finalLink = vid.substring(vid.indexOf('=') + 1);
+    this.urlEmbd = `https://www.youtube.com/embed/${this.finalLink}`;
+    console.log('chitaa ' + this.urlEmbd + ' ROSS');
+    return this.dom.bypassSecurityTrustResourceUrl(this.urlEmbd);
   }
-  */
+
+
 
   direcionaPraTela() {
     this.navctrl.navigateForward("quero-conversar");
