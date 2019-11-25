@@ -29,34 +29,18 @@
     style="background-color: #FFFFC4;"
     [routerLink]="['/menu/texto-detalhes', texto.id]"
   >
-    <ion-card-header *ngIf="!tituloTextoTela">
-      <ion-card-title hidden></ion-card-title>
-    </ion-card-header>
 
     <ion-card-header *ngIf="tituloTextoTela">
       <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content
-      *ngIf="descricaoTextoTela"
       style="text-align: center; font-size: 15pt;"
     >
       “{{ texto.texto }}”
     </ion-card-content>
-    <ion-card-content
-      *ngIf="!descricaoTextoTela"
-      style="text-align: center;"
-    >
-      Nenhum texto foi cadastrado até o momento
-    </ion-card-content>
 
     <ion-card-header>
-      <ion-card-subtitle
-        *ngIf="!autorTextoTela"
-        style="text-align: right;"
-      >
-        Autor desconhecido
-      </ion-card-subtitle>
       <ion-card-subtitle
         *ngIf="autorTextoTela"
         style="text-align: right;"
@@ -112,7 +96,15 @@
     *ngFor="let video of profissionalConteudoVideo"
     style="background-color: #D0BBFF;"
   >
-    <img src="../../../assets/img/abrirmente.PNG">
+  <iframe
+    width="350"
+    height="300"
+    [src]="videoDoYT(video.linkVideo)"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+
     <ion-card-header>
       <ion-card-subtitle>Video do Youtube</ion-card-subtitle>
       <ion-card-title>{{video.tituloVideo}}</ion-card-title>

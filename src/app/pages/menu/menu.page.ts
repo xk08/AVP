@@ -54,7 +54,6 @@ export class MenuPage implements OnInit, OnDestroy {
   ngOnInit() {
     // Pegando dados do assistente para exibir na tela
     this.idAssistente = this.authService.auth.currentUser.uid;
-    console.log(this.idAssistente);
 
     this.list = this.assistenteCadastroService.getTodo(this.idAssistente).subscribe(res => {
       this.apelido = res.apelido;

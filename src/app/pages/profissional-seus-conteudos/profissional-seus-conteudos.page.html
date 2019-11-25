@@ -1,32 +1,33 @@
 <ion-header>
   <ion-toolbar color="light">
 
-
     <ion-buttons>
       <ion-menu-button autoHide="true"></ion-menu-button>
       <div>
-        <ion-button
-          shape="round"
-          fill="outline"
-          (click)="direcionaPraTelaCadastro()"
-        >
-          Novo conteúdo
-        </ion-button>
+          <ion-title style="text-align: center; ">Gerencie seus conteúdos</ion-title>
       </div>
-
 
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-header translucent>
-  <ion-toolbar translucent>
-    <ion-title style="text-align: center; font-size: 13pt">Gerencie seus conteúdos</ion-title>
-  </ion-toolbar>
-</ion-header>
 
+<ion-fab
+  vertical="bottom"
+  horizontal="end"
+  slot="fixed"
+>
+  <ion-fab-button
+    (click)="direcionaPraTelaCadastro()"
+    routerDirection="forward"
+    color="light"
+  >
+    <ion-icon 
+       name="add">
+    </ion-icon>
+  </ion-fab-button>
+</ion-fab>
 
 <ion-content>
-
 
   <!-- RESPONSÁVEL PELOS TEXTOS -->
   <ion-list>
@@ -41,7 +42,16 @@
       </ion-toolbar>
     </ion-header>
 
-
+    <ion-card-content *ngIf="!profissionalConteudoTexto || profissionalConteudoTexto.length == 0">
+        <ion-card-header style="font-size: 14pt; text-align: center;">Até o momento, nenhum texto foi cadastrado</ion-card-header>
+        <ion-button 
+        shape="round"
+        fill="outline"
+        color="amareloprofissional"
+        [routerLink]="['/menu/profissional-conteudo/profissional-conteudo-texto']">
+          Clique para cadastrar
+        </ion-button>
+    </ion-card-content>
 
     <ion-item-sliding *ngFor="let texto of profissionalConteudoTexto">
       <ion-item
@@ -71,7 +81,6 @@
         </ion-item-option>
       </ion-item-options>
 
-
       <ion-item-options side="end">
 
 
@@ -91,10 +100,7 @@
     </ion-item-sliding>
   </ion-list>
 
-
-
   <!-- RESPONSÁVEL PELAS IMAGENS -->
-
 
   <ion-list>
     <ion-header translucent>
@@ -106,10 +112,18 @@
       </ion-toolbar>
     </ion-header>
 
+    <ion-card-content *ngIf="!profissionalConteudoImagem || profissionalConteudoImagem.length == 0">
+        <ion-card-header style="font-size: 14pt; text-align: center;">Até o momento, nenhuma imagem foi cadastrada</ion-card-header>
+        <ion-button 
+        shape="round"
+        fill="outline"
+        color="primary"
+        [routerLink]="['/menu/profissional-conteudo/profissional-conteudo-imagem']">
+          Clique para cadastrar
+        </ion-button>
+    </ion-card-content>
 
     <ion-item-sliding *ngFor="let imagem of profissionalConteudoImagem">
-
-
 
       <ion-item lines="full">
         <ion-col>
@@ -184,9 +198,19 @@
     </ion-header>
 
 
+    <ion-card-content *ngIf="!profissionalConteudoVideo || profissionalConteudoVideo.length == 0">
+        <ion-card-header style="font-size: 14pt; text-align: center;">Até o momento, nenhum video foi cadastrado</ion-card-header>
+        <ion-button 
+        shape="round"
+        fill="outline"
+        color="tertiary"
+        [routerLink]="['/menu/profissional-conteudo/profissional-conteudo-video']">
+          Clique para cadastrar
+        </ion-button>
+    </ion-card-content>
+
+
     <ion-item-sliding *ngFor="let video of profissionalConteudoVideo">
-
-
 
       <ion-item lines="full">
         <ion-col>
@@ -208,12 +232,15 @@
 
 
             <ion-col>
-              <!-- ver se consigo pegar dinamico a THUMB -->
-              <img
-                src="../../../assets/img/abrirmente.PNG"
-                width="180px"
+                <iframe
+                width="125px"
                 height="150px"
-              >
+                [src]="videoDoYT(video.linkVideo)"
+                frameborder="1"
+                allow="picture-in-picture"
+                allowfullscreen
+              ></iframe>
+
             </ion-col>
 
 

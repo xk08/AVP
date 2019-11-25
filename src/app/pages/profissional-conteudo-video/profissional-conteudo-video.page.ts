@@ -13,6 +13,15 @@ import { AngularFireAuth } from 'angularfire2/auth';
   styleUrls: ['./profissional-conteudo-video.page.scss']
 })
 export class ProfissionalConteudoVideoPage implements OnInit {
+
+  constructor(
+    private route: ActivatedRoute,
+    private loadingController: LoadingController,
+    private conteudoVideoService: ProfissionalConteudoVideoService,
+    private navCtrl: NavController,
+    private auth: AngularFireAuth,
+    private toastController: ToastController
+  ) { }
   //Refernete ao ratebar
   @Input() numStars: number = 5;
   @Input() valor: number = 0;
@@ -25,14 +34,6 @@ export class ProfissionalConteudoVideoPage implements OnInit {
   public mostraMaisInfo: boolean;
   public mostraFiltro: boolean;
 
-  changeFiltro() {
-    console.log(this.mostraMaisInfo);
-  }
-
-  changeMaisInfo() {
-    console.log(this.mostraFiltro);
-  }
-
   @ViewChild('form', null) form: NgForm;
   public idConteudoVideo: string;
   public idUsuario: string;
@@ -44,17 +45,17 @@ export class ProfissionalConteudoVideoPage implements OnInit {
     linkVideo: '',
     descricaoVideo: '',
     idade: '',
-    avaliacao: null
+    avaliacao: null,
+    createAt: null
   };
 
-  constructor(
-    private route: ActivatedRoute,
-    private loadingController: LoadingController,
-    private conteudoVideoService: ProfissionalConteudoVideoService,
-    private navCtrl: NavController,
-    private auth: AngularFireAuth,
-    private toastController: ToastController
-  ) { }
+  changeFiltro() {
+    console.log(this.mostraMaisInfo);
+  }
+
+  changeMaisInfo() {
+    console.log(this.mostraFiltro);
+  }
 
   //RatebarStar
   calc() {

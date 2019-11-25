@@ -6,4 +6,5 @@ export class ProfissionalConteudoTexto {
   autorTexto?: string;
   texto?: string;
   maisInfoTexto?: string;
+  createAt: number;
 }

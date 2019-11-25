@@ -6,4 +6,5 @@ export class ProfissionalConteudoVideo {
   autorVideo?: string;
   linkVideo?: string;
   descricaoVideo?: string;
+  createAt: number;
 }

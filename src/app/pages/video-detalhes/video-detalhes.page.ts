@@ -23,8 +23,7 @@ export class VideoDetalhesPage implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private profissionalVideoService: ProfissionalConteudoVideoService,
-    private dom: DomSanitizer
+    private profissionalVideoService: ProfissionalConteudoVideoService
   ) { }
 
   public list: Subscription;
@@ -43,10 +42,6 @@ export class VideoDetalhesPage implements OnInit, OnDestroy {
       });
   }
 
-  //Aqui que valida
-  videoDoYoutube(vid) {
-    return this.dom.bypassSecurityTrustResourceUrl(vid);
-  }
 
   ngOnDestroy() {
     this.list.unsubscribe();

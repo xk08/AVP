@@ -28,7 +28,7 @@ export class ProfissionalConteudoVideoService {
   getTodosPorID(idUsuario: string) {
     return this.db
       .collection<ProfissionalConteudoVideo>('ProfissionalConteudoVideo', ref =>
-        ref.where('idUsuario', '==', idUsuario)
+        ref.where('idUsuario', '==', idUsuario).orderBy('createAt', 'desc')
       )
       .snapshotChanges()
       .pipe(
@@ -44,10 +44,10 @@ export class ProfissionalConteudoVideoService {
 
 
 
-  getTodosPoAvaliacao(avaliacao: number) {
+  getTodosPoAvaliacao(avaliacao: number, idade: string) {
     return this.db
       .collection<ProfissionalConteudoVideo>('ProfissionalConteudoVideo', ref =>
-        ref.where('avaliacao', '==', avaliacao)
+        ref.where('avaliacao', '==', avaliacao).where('idade', '==', idade).orderBy('createAt', 'desc')
       )
       .snapshotChanges()
       .pipe(
@@ -64,7 +64,7 @@ export class ProfissionalConteudoVideoService {
   getTodosPorIdade(idade: string) {
     return this.db
       .collection<ProfissionalConteudoVideo>('ProfissionalConteudoVideo', ref =>
-        ref.where('idade', '==', idade)
+        ref.where('idade', '==', idade).orderBy('createAt', 'desc')
       )
       .snapshotChanges()
       .pipe(
@@ -83,10 +83,12 @@ export class ProfissionalConteudoVideoService {
   }
 
   updateTodo(toda: ProfissionalConteudoVideo, id: string) {
+    toda.createAt = new Date().getTime();
     return this.todosCollection.doc(id).update(toda);
   }
 
   addTodo(toda: ProfissionalConteudoVideo) {
+    toda.createAt = new Date().getTime();
     return this.todosCollection.add(toda);
   }
 

@@ -6,4 +6,5 @@ export class ProfissionalConteudoImagem {
   autorImagem?: string;
   imagem?: string;
   maisInfoImagem?: string;
+  createAt: number;
 }

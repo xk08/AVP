@@ -9,6 +9,7 @@ import { ProfissionalConteudoImagemService } from 'src/app/services/profissional
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ProfissionalConteudoVideoService } from 'src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service';
 import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profissional-seus-conteudos',
@@ -16,6 +17,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./profissional-seus-conteudos.page.scss']
 })
 export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
+
+  urlEmbd: string;
+  finalLink: string;
+
   idUsuario: string;
 
   // Referente ao texto
@@ -56,7 +61,8 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
     private profissionalConteudoVideoService: ProfissionalConteudoVideoService,
     private route: ActivatedRoute,
     private toastController: ToastController,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private dom: DomSanitizer,
   ) {}
 
   public listQueroConversar: Subscription;
@@ -116,11 +122,18 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
       });
   }
 
+  public videoDoYT(vid) {
+    this.finalLink = vid.substring(vid.indexOf('=') + 1);
+    this.urlEmbd = `https://www.youtube.com/embed/${this.finalLink}`;
+
+    return this.dom.bypassSecurityTrustResourceUrl(this.urlEmbd);
+  }
+
 
   async removeTexto(id) {
     const alert = await this.alertController.create({
       header: 'Apagar texto',
-      message: "Você tem certeza que deseja apagar ?",
+      message: 'Você tem certeza que deseja apagar ?',
       buttons: [
         {
           text: 'Não',
@@ -211,6 +224,18 @@ export class ProfissionalSeusConteudosPage implements OnInit, OnDestroy {
 
   direcionaPraTelaCadastro() {
     this.navctrl.navigateForward('/menu/profissional-conteudo/profissional-conteudo-texto');
+  }
+
+  public direcionaTexto() {
+    this.navctrl.navigateForward('/menu/profissional-conteudo/profissional-conteudo-texto');
+  }
+
+  public direcionaImagem() {
+    this.navctrl.navigateForward('/menu/profissional-conteudo/profissional-conteudo-imagem');
+  }
+
+  public direcionaVideo() {
+    this.navctrl.navigateForward('/menu/profissional-conteudo/profissional-conteudo-video');
   }
 
   async presentToast(msg: string) {

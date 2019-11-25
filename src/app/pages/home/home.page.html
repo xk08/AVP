@@ -15,15 +15,6 @@
   </ion-toolbar>
 </ion-header>
 
-
-
-
-
-
-
-
-
-
 <ion-fab
   vertical="bottom"
   horizontal="end"
@@ -37,24 +28,16 @@
     S.O.S
   </ion-fab-button>
 </ion-fab>
+
 <ion-header translucent>
   <ion-toolbar>
     <ion-title style="text-align: center; font-size: 15pt">Recomendados para você</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
-
-
-
-
-
-
-
 <ion-content>
   <ion-header
     translucent
-    *ngIf="tituloTextoTela"
   >
     <ion-toolbar
       translucent
@@ -71,50 +54,35 @@
     </ion-toolbar>
   </ion-header>
   <br>
+  
   <div *ngIf="mostraMaisInfoTexto">
+
+      <ion-card-content
+      *ngIf="!profissionalConteudoTextoTela || profissionalConteudoTextoTela.length == 0"
+      style="font-size: 12pt; text-align: center;"
+    >
+    <ion-card-header>
+       Não há textos ou frases cadastrados
+    </ion-card-header>
+    </ion-card-content>
+
     <ion-card
       *ngFor="let texto of profissionalConteudoTextoTela"
       style="background-color: #FFFFC4;;"
     >
-      <ion-card-header *ngIf="tituloTextoTela == '' ">
-        <ion-card-title hidden></ion-card-title>
-      </ion-card-header>
-
-
-
 
       <ion-card-header *ngIf="tituloTextoTela">
         <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>
       </ion-card-header>
 
-
-
-
-
-
       <ion-card-content
-        *ngIf="descricaoTextoTela"
         style="text-align: center; font-size: 15pt;"
       >
         “{{ texto.texto }}”
       </ion-card-content>
-      <ion-card-content
-        *ngIf="descricaoTextoTela == '' "
-        style="text-align: center;"
-      >
-        Nenhum texto foi cadastrado até o momento.
-      </ion-card-content>
-
-
 
 
       <ion-card-header>
-        <ion-card-subtitle
-          *ngIf="autorTextoTela == '' "
-          style="text-align: right;"
-        >
-          Autor desconhecido
-        </ion-card-subtitle>
         <ion-card-subtitle
           *ngIf="autorTextoTela"
           style="text-align: right;"
@@ -122,6 +90,7 @@
           Autor:{{ texto.autorTexto }}
         </ion-card-subtitle>
       </ion-card-header>
+
       <ion-item
         href
         class="activated"
@@ -133,13 +102,8 @@
     </ion-card>
   </div>
 
-
-
-
-
   <ion-header
     translucent
-    *ngIf="tituloImagemTela"
   >
     <ion-toolbar
       translucent
@@ -157,40 +121,28 @@
   </ion-header>
   <br>
   <div *ngIf="mostraMaisInfoImagem">
+
+      <ion-card-content 
+      *ngIf="!profissionalConteudoImagemTela || profissionalConteudoImagemTela.length == 0">
+          <ion-card-header style="font-size: 12pt; text-align: center;">Não há imagens cadastradas</ion-card-header>
+        </ion-card-content>
+
     <ion-card
       *ngFor="let imagem of profissionalConteudoImagemTela"
       style="color: #9AFFF1;"
     >
-      <ion-card-content *ngIf="imagem.imagem">
-        <!-- achar uma maneira de melhorar aqui -->
+      <ion-card-content>
         <img
           src="{{imagem.imagem}}"
           width="350px"
           height="320px"
         >
       </ion-card-content>
-      <ion-card-content *ngIf="imagem.imagem == ''">
-        <ion-card-header style="font-size: 15pt; text-align: center;">Imagem não encontrada</ion-card-header>
-      </ion-card-content>
 
 
-
-
-
-      <ion-card-header *ngIf="imagem.tituloImagem == ''">
-        <ion-card-title style="text-align: center;">Titulo não cadastrado</ion-card-title>
-      </ion-card-header>
-
-
-
-
-
-      <ion-card-header *ngIf="imagem.tituloImagem">
+      <ion-card-header>
         <ion-card-title style="text-align: center;">{{imagem.tituloImagem}}</ion-card-title>
       </ion-card-header>
-
-
-
 
 
       <ion-item
@@ -206,11 +158,8 @@
 
 
 
-
-
   <ion-header
     translucent
-    *ngIf="tituloVideoTela"
   >
     <ion-toolbar
       translucent
@@ -227,19 +176,21 @@
     </ion-toolbar>
   </ion-header>
 
-
-
-
   <div *ngIf="mostraMaisInfoVideo">
+
+      <ion-card-content *ngIf="!profissionalConteudoVideoTela || profissionalConteudoVideoTela.length == 0">
+          <ion-card-header style="font-size: 12pt; text-align: center;">Não há videos cadastrados</ion-card-header>
+      </ion-card-content>
+
     <ion-card
       *ngFor="let video of profissionalConteudoVideoTela"
       style="background-color: #D0BBFF;"
     >
-      <!-- achar alguma forma de deixar o link especifico -->
+  
       <iframe
         width="350"
         height="300"
-        [src]="urlEmbd"
+        [src]="videoDoYT(video.linkVideo)"
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen

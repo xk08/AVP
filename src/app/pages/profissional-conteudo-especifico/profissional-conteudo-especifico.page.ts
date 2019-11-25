@@ -11,6 +11,7 @@ import { ProfissionalConteudoImagemService } from 'src/app/services/profissional
 import { ProfissionalConteudoVideo } from 'src/app/services/profissionalConteudoVideo/profissionalConteudoVideo';
 import { ProfissionalConteudoVideoService } from 'src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service';
 import { UsuarioCadastroService } from 'src/app/services/usuarioCadastro/usuario-cadastro.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profissional-conteudo-especifico',
@@ -24,7 +25,9 @@ export class ProfissionalConteudoEspecificoPage implements OnInit, OnDestroy {
   public idadeUsuario: number;
   public idadeConvertida: number;
 
-
+  // Referete aos videos do YT
+  urlEmbd: string;
+  finalLink: string;
 
   idUsuario: string;
 
@@ -68,16 +71,48 @@ export class ProfissionalConteudoEspecificoPage implements OnInit, OnDestroy {
     private queroConversarService: QueroConversarService,
     private route: ActivatedRoute,
     private usuarioCadastro: UsuarioCadastroService,
+    private dom: DomSanitizer
   ) {}
 
   public listQueroConversar: Subscription;
 
   ngOnInit() {
     this.idUsuario = this.auth.auth.currentUser.uid;
-
+    this.buscaIdadeUsuario();
     this.buscaDadosTexto(this.idUsuario);
     this.buscaDadosImagem(this.idUsuario);
     this.buscaDadosVideo(this.idUsuario);
+  }
+
+  buscaIdadeUsuario(){
+    this.usuarioCadastro.getUsuario(this.idUsuario).subscribe( x => {
+      this.idadeUsuario = x.dataNasc;
+
+      //Convertendo a data em idade
+      var dob = new Date(this.idadeUsuario);
+      var currentDate = new Date();
+      var currentYear = currentDate.getFullYear();
+      var birthdayThisYear = new Date(
+         currentYear,
+         dob.getMonth(),
+         dob.getDate()
+      );
+      var age = currentYear - dob.getFullYear();
+      this.idadeConvertida = age;
+      
+      if (this.idadeConvertida >= 8 && this.idadeConvertida <= 12) {
+        this.idadeDoIFF = "8 a 12"; // variavel que será enviada ao Service
+      }
+
+      if (this.idadeConvertida >= 13 && this.idadeConvertida <= 17) {
+        this.idadeDoIFF = "13 a 17";
+      }
+
+      if (this.idadeConvertida >= 18 && this.idadeConvertida <= 99) {
+        this.idadeDoIFF = "18 anos ou mais";
+      }
+
+    });
   }
 
   buscaDadosTexto(idUsuario) {
@@ -86,19 +121,11 @@ export class ProfissionalConteudoEspecificoPage implements OnInit, OnDestroy {
       this.avalicaoQueroConversar = res.avaliacao;
       this.avaliacaoGlobal = this.avalicaoQueroConversar;
 
-      // Atribuindo na pesquisa
       this.profissionalConteudoTextoService
-        .getTodosPoAvaliacao(this.avaliacaoGlobal)
-        .subscribe(res => {
-          this.profissionalConteudoTexto = res;
-
-          // Percorrendo os dados da coleção
-          res.forEach(x => {
-            this.tituloTextoTela = x.tituloTexto;
-            this.descricaoTextoTela = x.texto;
-            this.autorTextoTela = x.autorTexto;
-          });
-        });
+      .getTodosPoAvaliacao(this.avaliacaoGlobal,this.idadeDoIFF)
+      .subscribe(res => {
+        this.profissionalConteudoTexto = res;
+      });
     });
   }
 
@@ -110,17 +137,9 @@ export class ProfissionalConteudoEspecificoPage implements OnInit, OnDestroy {
 
       // Atribuindo na pesquisa
       this.profissionalConteudoImagemService
-        .getTodosPoAvaliacao(this.avaliacaoGlobal)
+        .getTodosPoAvaliacao(this.avaliacaoGlobal, this.idadeDoIFF)
         .subscribe(res => {
           this.profissionalConteudoImagem = res;
-
-          // Percorrendo os dados da coleção
-          res.forEach(x => {
-            this.tituloImagemTela = x.tituloImagem;
-            this.maisInfoImagemTela = x.maisInfoImagem;
-            this.autorImagemTela = x.autorImagem;
-            this.imagem64Tela = x.imagem;
-          });
         });
     });
   }
@@ -133,19 +152,20 @@ export class ProfissionalConteudoEspecificoPage implements OnInit, OnDestroy {
 
       // Atribuindo na pesquisa
       this.profissionalConteudoVideoService
-        .getTodosPoAvaliacao(this.avaliacaoGlobal)
+        .getTodosPoAvaliacao(this.avaliacaoGlobal, this.idadeDoIFF)
         .subscribe(res => {
           this.profissionalConteudoVideo = res;
-
-          // Percorrendo os dados da coleção
-          res.forEach(x => {
-            this.tituloVideoTela = x.tituloVideo;
-            this.descricaoVideoTela = x.descricaoVideo;
-            this.linkVideoTela = x.linkVideo;
-            this.autorVideoTela = x.autorVideo;
-          });
         });
     });
   }
+
+  public videoDoYT(vid) {
+    this.finalLink = vid.substring(vid.indexOf('=') + 1);
+    this.urlEmbd = `https://www.youtube.com/embed/${this.finalLink}`;
+
+    return this.dom.bypassSecurityTrustResourceUrl(this.urlEmbd);
+  }
+
+
   ngOnDestroy() {}
 }

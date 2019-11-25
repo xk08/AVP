@@ -14,6 +14,17 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./profissional-conteudo-imagem.page.scss']
 })
 export class ProfissionalConteudoImagemPage implements OnInit {
+
+  constructor(
+    private route: ActivatedRoute,
+    private loadingController: LoadingController,
+    private conteudoImagemService: ProfissionalConteudoImagemService,
+    private navCtrl: NavController,
+    private overlay: OverlayService,
+    private auth: AngularFireAuth,
+    private camera: Camera,
+    private toastController: ToastController
+  ) {}
   //Refernete ao ratebar
   @Input() numStars: number = 5;
   @Input() valor: number = 0;
@@ -28,14 +39,6 @@ export class ProfissionalConteudoImagemPage implements OnInit {
   public mostraMaisInfo: boolean;
   public mostraFiltro: boolean;
 
-  changeFiltro() {
-    console.log(this.mostraMaisInfo);
-  }
-
-  changeMaisInfo() {
-    console.log(this.mostraFiltro);
-  }
-
   @ViewChild('form', null) form: NgForm;
   public idConteudoImagem: string;
   public idUsuario: string;
@@ -47,19 +50,17 @@ export class ProfissionalConteudoImagemPage implements OnInit {
     tituloImagem: '',
     autorImagem: '',
     imagem: '',
-    maisInfoImagem: ''
+    maisInfoImagem: '',
+    createAt: null
   };
 
-  constructor(
-    private route: ActivatedRoute,
-    private loadingController: LoadingController,
-    private conteudoImagemService: ProfissionalConteudoImagemService,
-    private navCtrl: NavController,
-    private overlay: OverlayService,
-    private auth: AngularFireAuth,
-    private camera: Camera,
-    private toastController: ToastController
-  ) {}
+  changeFiltro() {
+    console.log(this.mostraMaisInfo);
+  }
+
+  changeMaisInfo() {
+    console.log(this.mostraFiltro);
+  }
 
   //Referente a camera e salvar as imagens
 

@@ -14,6 +14,16 @@ import { AngularFireAuth } from 'angularfire2/auth';
   styleUrls: ['./profissional-conteudo-texto.page.scss']
 })
 export class ProfissionalConteudoTextoPage implements OnInit {
+
+  constructor(
+    private route: ActivatedRoute,
+    private loadingController: LoadingController,
+    private conteudoTextoService: ProfissionalConteudoTextoService,
+    private navCtrl: NavController,
+    private overlay: OverlayService,
+    private auth: AngularFireAuth,
+    private toastController: ToastController
+  ) {}
   //Refernete ao ratebar
   @Input() numStars: number = 5;
   @Input() valor: number = 0;
@@ -25,14 +35,6 @@ export class ProfissionalConteudoTextoPage implements OnInit {
   //Referente a parte de esconder botões da tela
   public mostraMaisInfo: boolean;
   public mostraFiltro: boolean;
-
-  changeFiltro() {
-    console.log(this.mostraMaisInfo);
-  }
-
-  changeMaisInfo() {
-    console.log(this.mostraFiltro);
-  }
 
   @ViewChild('form', null) form: NgForm;
 
@@ -46,18 +48,17 @@ export class ProfissionalConteudoTextoPage implements OnInit {
     texto: '',
     maisInfoTexto: '',
     idade: '',
-    avaliacao: null
+    avaliacao: null,
+    createAt: null
   };
 
-  constructor(
-    private route: ActivatedRoute,
-    private loadingController: LoadingController,
-    private conteudoTextoService: ProfissionalConteudoTextoService,
-    private navCtrl: NavController,
-    private overlay: OverlayService,
-    private auth: AngularFireAuth,
-    private toastController: ToastController
-  ) {}
+  changeFiltro() {
+    console.log(this.mostraMaisInfo);
+  }
+
+  changeMaisInfo() {
+    console.log(this.mostraFiltro);
+  }
 
   //RatebarStar
   calc() {

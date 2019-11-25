@@ -27,7 +27,7 @@ export class ProfissionalConteudoTextoService {
   getTodosPorID(idUsuario: string) {
     return this.db
       .collection<ProfissionalConteudoTexto>('ProfissionalConteudoTexto', ref =>
-        ref.where('idUsuario', '==', idUsuario)
+        ref.where('idUsuario', '==', idUsuario).orderBy('createAt', 'desc')
       )
       .snapshotChanges()
       .pipe(
@@ -43,10 +43,10 @@ export class ProfissionalConteudoTextoService {
 
 
 
-  getTodosPoAvaliacao(avaliacao: number) {
+  getTodosPoAvaliacao(avaliacao: number, idade: string) {
     return this.db
       .collection<ProfissionalConteudoTexto>('ProfissionalConteudoTexto', ref =>
-        ref.where('avaliacao', '==', avaliacao)
+        ref.where('avaliacao', '==', avaliacao).where('idade', '==', idade).orderBy('createAt', 'desc')
       )
       .snapshotChanges()
       .pipe(
@@ -62,7 +62,7 @@ export class ProfissionalConteudoTextoService {
   getTodosPorIdade(idade: string) {
     return this.db
       .collection<ProfissionalConteudoTexto>('ProfissionalConteudoTexto', ref =>
-        ref.where('idade', '==', idade)
+        ref.where('idade', '==', idade).orderBy('createAt', 'desc')
       )
       .snapshotChanges()
       .pipe(
@@ -81,10 +81,12 @@ export class ProfissionalConteudoTextoService {
   }
 
   updateTodo(toda: ProfissionalConteudoTexto, id: string) {
+    toda.createAt = new Date().getTime();
     return this.todosCollection.doc(id).update(toda);
   }
 
   addTodo(toda: ProfissionalConteudoTexto) {
+    toda.createAt = new Date().getTime();
     return this.todosCollection.add(toda);
   }
 

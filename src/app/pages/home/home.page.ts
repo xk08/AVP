@@ -19,10 +19,10 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
   styleUrls: ["./home.page.scss"]
 })
 export class HomePage implements OnInit, OnDestroy {
+
   urlEmbd: string;
   finalLink: string;
 
-  trustedVideoUrl: SafeResourceUrl;
 
   idUsuario: string;
   public idadeGlobal: number;
@@ -83,15 +83,6 @@ export class HomePage implements OnInit, OnDestroy {
     this.buscaDadosImagem(this.idUsuario);
     this.buscaDadosVideo(this.idUsuario);
 
-    /*
-    this.urlYT = 'https://www.youtube.com/watch?v=hHYDVmWE9FI';
-
-    this.finalLink = this.urlYT.substring(this.urlYT.indexOf('=') + 1);
-
-    this.urlEmbd = `https://www.youtube.com/embed/${this.finalLink}`;
-
-    console.log("chitaa" + this.urlEmbd);
-*/
   }
 
   /* TEXTO */
@@ -146,6 +137,7 @@ export class HomePage implements OnInit, OnDestroy {
               this.descricaoTextoTela = x.texto;
               this.autorTextoTela = x.autorTexto;
 
+              // AQUI É A NOTIFICAÇÃO
               if (this.profissionalConteudoTextoTela != null) {
                 this.openNotificacao(this.tituloTextoTela, this.descricaoTextoTela);
                 console.log("Teste se chega algo ->" + this.tituloTextoTela);
@@ -264,30 +256,28 @@ export class HomePage implements OnInit, OnDestroy {
         this.listProfissionalConteudoVideo = this.profissionalConteudoVideoService
           .getTodosPorIdade(this.idadeDoIFF)
           .subscribe(res => {
+
             //Pegando a coleção inteira
             this.profissionalConteudoVideoTela = res;
 
-            //Percorrendo a coleçção e pegando os campos
+               //Percorrendo a coleçção e pegando os campos
             res.forEach(x => {
-              this.tituloVideoTela = x.tituloVideo;
-              this.descricaoVideoTela = x.descricaoVideo;
-              this.linkVideoTela = x.linkVideo;
-              this.videoDoYT(this.linkVideoTela);
-              this.autorVideoTela = x.autorVideo;
-            });
+                this.tituloVideoTela = x.tituloVideo;
+                this.descricaoVideoTela = x.descricaoVideo;
+                this.autorVideoTela = x.autorVideo;
+                this.linkVideoTela = x.linkVideo;
+              });
           });
       });
   }
 
 
-
-  videoDoYT(vid) {
+  public videoDoYT(vid) {
     this.finalLink = vid.substring(vid.indexOf('=') + 1);
     this.urlEmbd = `https://www.youtube.com/embed/${this.finalLink}`;
-    console.log('chitaa ' + this.urlEmbd + ' ROSS');
+
     return this.dom.bypassSecurityTrustResourceUrl(this.urlEmbd);
   }
-
 
 
   direcionaPraTela() {
