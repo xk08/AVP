@@ -24,7 +24,7 @@ export class MenuPage implements OnInit, OnDestroy {
     },
     {
       title: 'Meu Perfil',
-      url: '/assistente/cadastro',
+      url: '/menu/usuario-perfil',
       icon: 'person'
     }
   ];
@@ -59,7 +59,7 @@ export class MenuPage implements OnInit, OnDestroy {
     private authService: AngularFireAuth,
     private assistenteCadastroService: AssistenteCadastroService,
     private usuarioCadastroService: UsuarioCadastroService
-  ) {}
+  ) { }
 
   ngOnInit() {
     // Pegando dados do assistente para exibir na tela

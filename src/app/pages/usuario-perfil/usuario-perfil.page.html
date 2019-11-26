@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Atualizar meus dados</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <!-- alinha no centro e define pra coluna a resolucao de acordo com o tamanho da tela -->
+    <ion-row justify-content-center>
+      <!-- Deixa responsivo -->
+      <ion-col
+        size-sm="8"
+        size-md="12"
+        size-lg="3"
+        size-xl="3"
+      >
+        <form [formGroup]="formgroup">
+
+          <!-- NOME -->
+          <ion-item>
+            <ion-icon
+              name="person"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-input
+              type="text"
+              name="nome"
+              placeholder="Nome"
+              autofocus="true"
+              required
+              [(ngModel)]='todoUser.nome'
+              formControlName="nome"
+            ></ion-input>
+            <div class="erro-mensagens">
+              <ng-container *ngFor="let error of errorMensagens.nome">
+                <div *ngIf="formgroup.get('nome').hasError(error.type) && (formgroup.get('nome').dirty || formgroup.get('nome').touched)">{{ error.mensagem }}</div>
+              </ng-container>
+            </div>
+          </ion-item>
+
+          <!-- DATA DE NASCIMENTO -->
+          <ion-item>
+            <ion-icon
+              name="calendar"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-label>Data de Nascimento</ion-label>
+            <ion-datetime
+              displayFormat="DD/MM/YYYY"
+              [(ngModel)]='todoUser.dataNasc'
+              name="dataNascimento"
+              formControlName="dataNascimento"
+              required
+            >
+            </ion-datetime>
+            <div class="erro-mensagens">
+              <ng-container *ngFor="let error of errorMensagens.dataNascimento">
+                <div *ngIf="formgroup.get('dataNascimento').hasError(error.type) && (formgroup.get('dataNascimento').dirty || formgroup.get('dataNascimento').touched)">{{ error.mensagem }}</div>
+              </ng-container>
+            </div>
+          </ion-item>
+
+          <!-- EMAIL -->
+          <ion-item>
+            <ion-icon
+              name="mail"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-input
+              type="text"
+              formControlName="email"
+              placeholder="E-mail"
+              [(ngModel)]='todoUser.email'
+              required
+            ></ion-input>
+            <div class="erro-mensagens">
+              <ng-container *ngFor="let error of errorMensagens.email">
+                <div *ngIf="formgroup.get('email').hasError(error.type) && (formgroup.get('email').dirty || formgroup.get('email').touched)">{{ error.mensagem }}</div>
+              </ng-container>
+            </div>
+          </ion-item>
+
+          <!-- SENHA -->
+          <ion-item>
+            <ion-icon
+              name="lock"
+              color="primary"
+              slot="start"
+            ></ion-icon>
+            <ion-input
+              type="password"
+              formControlName="senha"
+              placeholder="Senha"
+              [(ngModel)]='todoUser.senha'
+              required
+            ></ion-input>
+            <div class="erro-mensagens">
+              <ng-container *ngFor="let error of errorMensagens.senha">
+                <div *ngIf="formgroup.get('senha').hasError(error.type) && (formgroup.get('senha').dirty || formgroup.get('senha').touched)">{{ error.mensagem }}</div>
+              </ng-container>
+            </div>
+          </ion-item>
+
+          <!-- BOTÃO DE CADASTRO -->
+          <ion-button
+            expand="block"
+            type="submit"
+            class="login-button"
+            (click)="concluiCadastro()"
+            color="light"
+            [disabled]="formgroup.invalid"
+          >
+            Atualizar
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

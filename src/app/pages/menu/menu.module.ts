@@ -45,6 +45,12 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
+        path: 'usuario-perfil',
+        loadChildren:
+          '../usuario-perfil/usuario-perfil.module#UsuarioPerfilPageModule',
+        canActivate: [AuthGuard]
+      },
+      {
         path: '',
         redirectTo: 'home'
       }
@@ -56,4 +62,4 @@ const routes: Routes = [
   imports: [SharedModule, RouterModule.forChild(routes)],
   declarations: [MenuPage]
 })
-export class MenuPageModule {}
+export class MenuPageModule { }

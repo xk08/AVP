@@ -4,7 +4,7 @@ export class UsuarioCadastro {
   dataNasc?: number;
   foto?: string;
   profissao?: string;
-  email: string;
+  email?: string;
   senha: string;
   isAdmin: boolean;
   isProfissional: boolean;
