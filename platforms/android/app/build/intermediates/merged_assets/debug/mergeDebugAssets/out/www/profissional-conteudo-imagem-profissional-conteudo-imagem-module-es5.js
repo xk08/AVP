@@ -207,7 +207,8 @@ var ProfissionalConteudoImagemPage = /** @class */ (function () {
             tituloImagem: '',
             autorImagem: '',
             imagem: '',
-            maisInfoImagem: ''
+            maisInfoImagem: '',
+            createAt: null
         };
     }
     ProfissionalConteudoImagemPage.prototype.changeFiltro = function () {

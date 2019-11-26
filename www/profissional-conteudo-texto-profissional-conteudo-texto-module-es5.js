@@ -203,7 +203,8 @@ var ProfissionalConteudoTextoPage = /** @class */ (function () {
             texto: '',
             maisInfoTexto: '',
             idade: '',
-            avaliacao: null
+            avaliacao: null,
+            createAt: null
         };
     }
     ProfissionalConteudoTextoPage.prototype.changeFiltro = function () {

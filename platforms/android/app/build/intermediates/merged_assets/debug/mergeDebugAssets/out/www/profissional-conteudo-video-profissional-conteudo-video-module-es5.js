@@ -200,7 +200,8 @@ var ProfissionalConteudoVideoPage = /** @class */ (function () {
             linkVideo: '',
             descricaoVideo: '',
             idade: '',
-            avaliacao: null
+            avaliacao: null,
+            createAt: null
         };
     }
     ProfissionalConteudoVideoPage.prototype.changeFiltro = function () {

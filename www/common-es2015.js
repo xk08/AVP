@@ -936,7 +936,7 @@ let ProfissionalConteudoImagemService = class ProfissionalConteudoImagemService 
     }
     getTodosPorID(idUsuario) {
         return this.db
-            .collection('ProfissionalConteudoImagem', ref => ref.where('idUsuario', '==', idUsuario))
+            .collection('ProfissionalConteudoImagem', ref => ref.where('idUsuario', '==', idUsuario).orderBy('createAt', 'desc'))
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
@@ -947,9 +947,9 @@ let ProfissionalConteudoImagemService = class ProfissionalConteudoImagemService 
         }));
     }
     //Pegando de acordo com a avaliação do "quero-conversar"
-    getTodosPoAvaliacao(avaliacao) {
+    getTodosPoAvaliacao(avaliacao, idade) {
         return this.db
-            .collection('ProfissionalConteudoImagem', ref => ref.where('avaliacao', '==', avaliacao))
+            .collection('ProfissionalConteudoImagem', ref => ref.where('avaliacao', '==', avaliacao).where('idade', '==', idade).orderBy('createAt', 'desc'))
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
@@ -961,7 +961,7 @@ let ProfissionalConteudoImagemService = class ProfissionalConteudoImagemService 
     }
     getTodosPorIdade(idade) {
         return this.db
-            .collection('ProfissionalConteudoImagem', ref => ref.where('idade', '==', idade))
+            .collection('ProfissionalConteudoImagem', ref => ref.where('idade', '==', idade).orderBy('createAt', 'desc'))
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
@@ -975,9 +975,11 @@ let ProfissionalConteudoImagemService = class ProfissionalConteudoImagemService 
         return this.todosCollection.doc(id).valueChanges();
     }
     updateTodo(toda, id) {
+        toda.createAt = new Date().getTime();
         return this.todosCollection.doc(id).update(toda);
     }
     addTodo(toda) {
+        toda.createAt = new Date().getTime();
         return this.todosCollection.add(toda);
     }
     removeTodo(id) {
@@ -1033,7 +1035,7 @@ let ProfissionalConteudoTextoService = class ProfissionalConteudoTextoService {
     }
     getTodosPorID(idUsuario) {
         return this.db
-            .collection('ProfissionalConteudoTexto', ref => ref.where('idUsuario', '==', idUsuario))
+            .collection('ProfissionalConteudoTexto', ref => ref.where('idUsuario', '==', idUsuario).orderBy('createAt', 'desc'))
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
@@ -1043,9 +1045,9 @@ let ProfissionalConteudoTextoService = class ProfissionalConteudoTextoService {
             });
         }));
     }
-    getTodosPoAvaliacao(avaliacao) {
+    getTodosPoAvaliacao(avaliacao, idade) {
         return this.db
-            .collection('ProfissionalConteudoTexto', ref => ref.where('avaliacao', '==', avaliacao))
+            .collection('ProfissionalConteudoTexto', ref => ref.where('avaliacao', '==', avaliacao).where('idade', '==', idade).orderBy('createAt', 'desc'))
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
@@ -1057,7 +1059,7 @@ let ProfissionalConteudoTextoService = class ProfissionalConteudoTextoService {
     }
     getTodosPorIdade(idade) {
         return this.db
-            .collection('ProfissionalConteudoTexto', ref => ref.where('idade', '==', idade))
+            .collection('ProfissionalConteudoTexto', ref => ref.where('idade', '==', idade).orderBy('createAt', 'desc'))
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
@@ -1071,9 +1073,11 @@ let ProfissionalConteudoTextoService = class ProfissionalConteudoTextoService {
         return this.todosCollection.doc(id).valueChanges();
     }
     updateTodo(toda, id) {
+        toda.createAt = new Date().getTime();
         return this.todosCollection.doc(id).update(toda);
     }
     addTodo(toda) {
+        toda.createAt = new Date().getTime();
         return this.todosCollection.add(toda);
     }
     removeTodo(id) {
@@ -1129,7 +1133,7 @@ let ProfissionalConteudoVideoService = class ProfissionalConteudoVideoService {
     }
     getTodosPorID(idUsuario) {
         return this.db
-            .collection('ProfissionalConteudoVideo', ref => ref.where('idUsuario', '==', idUsuario))
+            .collection('ProfissionalConteudoVideo', ref => ref.where('idUsuario', '==', idUsuario).orderBy('createAt', 'desc'))
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
@@ -1139,9 +1143,9 @@ let ProfissionalConteudoVideoService = class ProfissionalConteudoVideoService {
             });
         }));
     }
-    getTodosPoAvaliacao(avaliacao) {
+    getTodosPoAvaliacao(avaliacao, idade) {
         return this.db
-            .collection('ProfissionalConteudoVideo', ref => ref.where('avaliacao', '==', avaliacao))
+            .collection('ProfissionalConteudoVideo', ref => ref.where('avaliacao', '==', avaliacao).where('idade', '==', idade).orderBy('createAt', 'desc'))
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
@@ -1153,7 +1157,7 @@ let ProfissionalConteudoVideoService = class ProfissionalConteudoVideoService {
     }
     getTodosPorIdade(idade) {
         return this.db
-            .collection('ProfissionalConteudoVideo', ref => ref.where('idade', '==', idade))
+            .collection('ProfissionalConteudoVideo', ref => ref.where('idade', '==', idade).orderBy('createAt', 'desc'))
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
@@ -1167,9 +1171,11 @@ let ProfissionalConteudoVideoService = class ProfissionalConteudoVideoService {
         return this.todosCollection.doc(id).valueChanges();
     }
     updateTodo(toda, id) {
+        toda.createAt = new Date().getTime();
         return this.todosCollection.doc(id).update(toda);
     }
     addTodo(toda) {
+        toda.createAt = new Date().getTime();
         return this.todosCollection.add(toda);
     }
     removeTodo(id) {

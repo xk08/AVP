@@ -18,9 +18,14 @@ export class MenuPage implements OnInit, OnDestroy {
       icon: 'home'
     },
     {
-      title: 'Cadastrar Assistente',
+      title: 'Assistente Pessoal',
       url: '/assistente/cadastro',
       icon: 'logo-angular'
+    },
+    {
+      title: 'Meu Perfil',
+      url: '/assistente/cadastro',
+      icon: 'person'
     }
   ];
 
@@ -29,6 +34,11 @@ export class MenuPage implements OnInit, OnDestroy {
       title: 'Inicio',
       url: '/menu/profissional-todos-conteudos',
       icon: 'home'
+    },
+    {
+      title: 'Meu perfil',
+      url: '/menu/profissional-todos-conteudos',
+      icon: 'person'
     }
   ];
 

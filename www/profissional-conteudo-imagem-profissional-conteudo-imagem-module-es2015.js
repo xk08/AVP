@@ -176,7 +176,8 @@ let ProfissionalConteudoImagemPage = class ProfissionalConteudoImagemPage {
             tituloImagem: '',
             autorImagem: '',
             imagem: '',
-            maisInfoImagem: ''
+            maisInfoImagem: '',
+            createAt: null
         };
     }
     changeFiltro() {

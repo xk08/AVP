@@ -169,7 +169,8 @@ let ProfissionalConteudoVideoPage = class ProfissionalConteudoVideoPage {
             linkVideo: '',
             descricaoVideo: '',
             idade: '',
-            avaliacao: null
+            avaliacao: null,
+            createAt: null
         };
     }
     changeFiltro() {

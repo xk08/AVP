@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header translucent>\r\n  <ion-toolbar color=\"tertiary\">\r\n    <ion-title style=\"text-align: center; font-size: 15pt\"\r\n      >Mais informações</ion-title\r\n    >\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"menu/home\"></ion-back-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n  <ion-card style=\"background-color: #a695cc;\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle style=\"font-size: 12pt;\"\r\n        >Titulo do video</ion-card-subtitle\r\n      >\r\n      <ion-card-title>{{tituloVideoTela}}</ion-card-title>\r\n    </ion-card-header>\r\n  </ion-card>\r\n\r\n  <ion-card\r\n    style=\"background-color:#d0bbff\r\n;\"\r\n  >\r\n    <ion-card-header>\r\n      <ion-card-subtitle style=\"font-size: 12pt;\"\r\n        >Autoria do video</ion-card-subtitle\r\n      >\r\n      <ion-card-title *ngIf=\"!autorVideoTela\"\r\n        >Autor não encontrado</ion-card-title\r\n      >\r\n      <ion-card-title *ngIf=\"autorVideoTela\">{{autorVideoTela}}</ion-card-title>\r\n    </ion-card-header>\r\n  </ion-card>\r\n\r\n  <ion-card style=\"background-color: #d9c8ff;\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle style=\"font-size: 12pt;\"\r\n        >Descrição complementar do video</ion-card-subtitle\r\n      >\r\n      <ion-card-title *ngIf=\"!descricaoVideoTela\">\r\n        Nenhuma informação extra foi encontrada.\r\n      </ion-card-title>\r\n      <ion-card-title *ngIf=\"descricaoVideoTela\"\r\n        >{{descricaoVideoTela}}</ion-card-title\r\n      >\r\n    </ion-card-header>\r\n  </ion-card>\r\n\r\n  <ion-card style=\"background-color: #e2d6ff;\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle style=\"font-size: 12pt;\"\r\n        >URL do video</ion-card-subtitle\r\n      >\r\n      <ion-card-title *ngIf=\"!urlVideoTela\"\r\n        >Nenhuma URL foi encontrada.</ion-card-title\r\n      >\r\n      <ion-card-title *ngIf=\"urlVideoTela\">{{urlVideoTela}}</ion-card-title>\r\n    </ion-card-header>\r\n  </ion-card>\r\n</ion-content>\r\n"
+module.exports = "<ion-header translucent>\r\n  <ion-toolbar color=\"tertiary\">\r\n    <ion-title style=\"text-align: center; font-size: 15pt\"\r\n      >Mais informações</ion-title\r\n    >\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"menu/home\"></ion-back-button>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n\r\n  <ion-card style=\"background-color: #a695cc;\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle style=\"font-size: 12pt;\"\r\n        >Titulo do video</ion-card-subtitle\r\n      >\r\n      <ion-card-title>{{tituloVideoTela}}</ion-card-title>\r\n    </ion-card-header>\r\n  </ion-card>\r\n\r\n  <ion-card\r\n    style=\"background-color:#d0bbff\r\n;\"\r\n  >\r\n    <ion-card-header>\r\n      <ion-card-subtitle style=\"font-size: 12pt;\"\r\n        >Autoria do video</ion-card-subtitle\r\n      >\r\n      <ion-card-title *ngIf=\"!autorVideoTela\"\r\n        >Autor não encontrado</ion-card-title\r\n      >\r\n      <ion-card-title *ngIf=\"autorVideoTela\">{{autorVideoTela}}</ion-card-title>\r\n    </ion-card-header>\r\n  </ion-card>\r\n\r\n  <ion-card style=\"background-color: #d9c8ff;\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle style=\"font-size: 12pt;\"\r\n        >Descrição complementar do video</ion-card-subtitle\r\n      >\r\n      <ion-card-title *ngIf=\"!descricaoVideoTela\">\r\n        Nenhuma informação extra foi encontrada.\r\n      </ion-card-title>\r\n      <ion-card-title *ngIf=\"descricaoVideoTela\"\r\n        >{{descricaoVideoTela}}</ion-card-title\r\n      >\r\n    </ion-card-header>\r\n  </ion-card>\r\n\r\n  <ion-card style=\"background-color: #e2d6ff;\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle style=\"font-size: 12pt;\"\r\n        >URL do video</ion-card-subtitle\r\n      >\r\n      <ion-card-title *ngIf=\"!urlVideoTela\"\r\n        >Nenhuma URL foi encontrada.</ion-card-title\r\n      >\r\n      <ion-card-title *ngIf=\"urlVideoTela\">{{urlVideoTela}}</ion-card-title>\r\n    </ion-card-header>\r\n  </ion-card>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -169,17 +169,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service */ "./src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service.ts");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-
 
 
 
 
 var VideoDetalhesPage = /** @class */ (function () {
-    function VideoDetalhesPage(route, profissionalVideoService, dom) {
+    function VideoDetalhesPage(route, profissionalVideoService) {
         this.route = route;
         this.profissionalVideoService = profissionalVideoService;
-        this.dom = dom;
     }
     VideoDetalhesPage.prototype.ngOnInit = function () {
         var _this = this;
@@ -193,17 +190,12 @@ var VideoDetalhesPage = /** @class */ (function () {
             _this.urlVideoTela = res.linkVideo;
         });
     };
-    //Aqui que valida
-    VideoDetalhesPage.prototype.videoDoYoutube = function (vid) {
-        return this.dom.bypassSecurityTrustResourceUrl(vid);
-    };
     VideoDetalhesPage.prototype.ngOnDestroy = function () {
         this.list.unsubscribe();
     };
     VideoDetalhesPage.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-        { type: src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_3__["ProfissionalConteudoVideoService"] },
-        { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["DomSanitizer"] }
+        { type: src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_3__["ProfissionalConteudoVideoService"] }
     ]; };
     VideoDetalhesPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -212,8 +204,7 @@ var VideoDetalhesPage = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./video-detalhes.page.scss */ "./src/app/pages/video-detalhes/video-detalhes.page.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_3__["ProfissionalConteudoVideoService"],
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["DomSanitizer"]])
+            src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_3__["ProfissionalConteudoVideoService"]])
     ], VideoDetalhesPage);
     return VideoDetalhesPage;
 }());

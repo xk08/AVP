@@ -625,7 +625,7 @@ var ProfissionalConteudoImagemService = /** @class */ (function () {
     ProfissionalConteudoImagemService.prototype.getTodosPorID = function (idUsuario) {
         return this.db
             .collection('ProfissionalConteudoImagem', function (ref) {
-            return ref.where('idUsuario', '==', idUsuario);
+            return ref.where('idUsuario', '==', idUsuario).orderBy('createAt', 'desc');
         })
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
@@ -637,10 +637,10 @@ var ProfissionalConteudoImagemService = /** @class */ (function () {
         }));
     };
     //Pegando de acordo com a avaliação do "quero-conversar"
-    ProfissionalConteudoImagemService.prototype.getTodosPoAvaliacao = function (avaliacao) {
+    ProfissionalConteudoImagemService.prototype.getTodosPoAvaliacao = function (avaliacao, idade) {
         return this.db
             .collection('ProfissionalConteudoImagem', function (ref) {
-            return ref.where('avaliacao', '==', avaliacao);
+            return ref.where('avaliacao', '==', avaliacao).where('idade', '==', idade).orderBy('createAt', 'desc');
         })
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
@@ -654,7 +654,7 @@ var ProfissionalConteudoImagemService = /** @class */ (function () {
     ProfissionalConteudoImagemService.prototype.getTodosPorIdade = function (idade) {
         return this.db
             .collection('ProfissionalConteudoImagem', function (ref) {
-            return ref.where('idade', '==', idade);
+            return ref.where('idade', '==', idade).orderBy('createAt', 'desc');
         })
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
@@ -669,9 +669,11 @@ var ProfissionalConteudoImagemService = /** @class */ (function () {
         return this.todosCollection.doc(id).valueChanges();
     };
     ProfissionalConteudoImagemService.prototype.updateTodo = function (toda, id) {
+        toda.createAt = new Date().getTime();
         return this.todosCollection.doc(id).update(toda);
     };
     ProfissionalConteudoImagemService.prototype.addTodo = function (toda) {
+        toda.createAt = new Date().getTime();
         return this.todosCollection.add(toda);
     };
     ProfissionalConteudoImagemService.prototype.removeTodo = function (id) {
@@ -729,7 +731,7 @@ var ProfissionalConteudoTextoService = /** @class */ (function () {
     ProfissionalConteudoTextoService.prototype.getTodosPorID = function (idUsuario) {
         return this.db
             .collection('ProfissionalConteudoTexto', function (ref) {
-            return ref.where('idUsuario', '==', idUsuario);
+            return ref.where('idUsuario', '==', idUsuario).orderBy('createAt', 'desc');
         })
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
@@ -740,10 +742,10 @@ var ProfissionalConteudoTextoService = /** @class */ (function () {
             });
         }));
     };
-    ProfissionalConteudoTextoService.prototype.getTodosPoAvaliacao = function (avaliacao) {
+    ProfissionalConteudoTextoService.prototype.getTodosPoAvaliacao = function (avaliacao, idade) {
         return this.db
             .collection('ProfissionalConteudoTexto', function (ref) {
-            return ref.where('avaliacao', '==', avaliacao);
+            return ref.where('avaliacao', '==', avaliacao).where('idade', '==', idade).orderBy('createAt', 'desc');
         })
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
@@ -757,7 +759,7 @@ var ProfissionalConteudoTextoService = /** @class */ (function () {
     ProfissionalConteudoTextoService.prototype.getTodosPorIdade = function (idade) {
         return this.db
             .collection('ProfissionalConteudoTexto', function (ref) {
-            return ref.where('idade', '==', idade);
+            return ref.where('idade', '==', idade).orderBy('createAt', 'desc');
         })
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
@@ -772,9 +774,11 @@ var ProfissionalConteudoTextoService = /** @class */ (function () {
         return this.todosCollection.doc(id).valueChanges();
     };
     ProfissionalConteudoTextoService.prototype.updateTodo = function (toda, id) {
+        toda.createAt = new Date().getTime();
         return this.todosCollection.doc(id).update(toda);
     };
     ProfissionalConteudoTextoService.prototype.addTodo = function (toda) {
+        toda.createAt = new Date().getTime();
         return this.todosCollection.add(toda);
     };
     ProfissionalConteudoTextoService.prototype.removeTodo = function (id) {
@@ -832,7 +836,7 @@ var ProfissionalConteudoVideoService = /** @class */ (function () {
     ProfissionalConteudoVideoService.prototype.getTodosPorID = function (idUsuario) {
         return this.db
             .collection('ProfissionalConteudoVideo', function (ref) {
-            return ref.where('idUsuario', '==', idUsuario);
+            return ref.where('idUsuario', '==', idUsuario).orderBy('createAt', 'desc');
         })
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
@@ -843,10 +847,10 @@ var ProfissionalConteudoVideoService = /** @class */ (function () {
             });
         }));
     };
-    ProfissionalConteudoVideoService.prototype.getTodosPoAvaliacao = function (avaliacao) {
+    ProfissionalConteudoVideoService.prototype.getTodosPoAvaliacao = function (avaliacao, idade) {
         return this.db
             .collection('ProfissionalConteudoVideo', function (ref) {
-            return ref.where('avaliacao', '==', avaliacao);
+            return ref.where('avaliacao', '==', avaliacao).where('idade', '==', idade).orderBy('createAt', 'desc');
         })
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
@@ -860,7 +864,7 @@ var ProfissionalConteudoVideoService = /** @class */ (function () {
     ProfissionalConteudoVideoService.prototype.getTodosPorIdade = function (idade) {
         return this.db
             .collection('ProfissionalConteudoVideo', function (ref) {
-            return ref.where('idade', '==', idade);
+            return ref.where('idade', '==', idade).orderBy('createAt', 'desc');
         })
             .snapshotChanges()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
@@ -875,9 +879,11 @@ var ProfissionalConteudoVideoService = /** @class */ (function () {
         return this.todosCollection.doc(id).valueChanges();
     };
     ProfissionalConteudoVideoService.prototype.updateTodo = function (toda, id) {
+        toda.createAt = new Date().getTime();
         return this.todosCollection.doc(id).update(toda);
     };
     ProfissionalConteudoVideoService.prototype.addTodo = function (toda) {
+        toda.createAt = new Date().getTime();
         return this.todosCollection.add(toda);
     };
     ProfissionalConteudoVideoService.prototype.removeTodo = function (id) {

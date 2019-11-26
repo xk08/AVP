@@ -172,7 +172,8 @@ let ProfissionalConteudoTextoPage = class ProfissionalConteudoTextoPage {
             texto: '',
             maisInfoTexto: '',
             idade: '',
-            avaliacao: null
+            avaliacao: null,
+            createAt: null
         };
     }
     changeFiltro() {

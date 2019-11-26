@@ -152,7 +152,6 @@ var MenuPage = /** @class */ (function () {
         var _this = this;
         // Pegando dados do assistente para exibir na tela
         this.idAssistente = this.authService.auth.currentUser.uid;
-        console.log(this.idAssistente);
         this.list = this.assistenteCadastroService.getTodo(this.idAssistente).subscribe(function (res) {
             _this.apelido = res.apelido;
             _this.icone = res.icone;

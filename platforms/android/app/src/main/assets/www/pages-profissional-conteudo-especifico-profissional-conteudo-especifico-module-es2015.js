@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar color=\"success\">\r\n    <ion-buttons>\r\n      <ion-back-button defaultHref=\"menu/home\"></ion-back-button>\r\n      <div>\r\n        <ion-title>Para te ajudar neste momento</ion-title>\r\n      </div>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-fab\r\n  vertical=\"bottom\"\r\n  horizontal=\"end\"\r\n  slot=\"fixed\"\r\n>\r\n  <ion-fab-button\r\n    routerLink=\"/emergencia/emergencia-utilizacao\"\r\n    routerDirection=\"forward\"\r\n    color=\"success\"\r\n  >\r\n    S.O.S\r\n  </ion-fab-button>\r\n</ion-fab>\r\n\r\n<ion-content>\r\n  <ion-card\r\n    *ngFor=\"let texto of profissionalConteudoTexto\"\r\n    style=\"background-color: #FFFFC4;\"\r\n    [routerLink]=\"['/menu/texto-detalhes', texto.id]\"\r\n  >\r\n    <ion-card-header *ngIf=\"!tituloTextoTela\">\r\n      <ion-card-title hidden></ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-header *ngIf=\"tituloTextoTela\">\r\n      <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-content\r\n      *ngIf=\"descricaoTextoTela\"\r\n      style=\"text-align: center; font-size: 15pt;\"\r\n    >\r\n      “{{ texto.texto }}”\r\n    </ion-card-content>\r\n    <ion-card-content\r\n      *ngIf=\"!descricaoTextoTela\"\r\n      style=\"text-align: center;\"\r\n    >\r\n      Nenhum texto foi cadastrado até o momento\r\n    </ion-card-content>\r\n\r\n    <ion-card-header>\r\n      <ion-card-subtitle\r\n        *ngIf=\"!autorTextoTela\"\r\n        style=\"text-align: right;\"\r\n      >\r\n        Autor desconhecido\r\n      </ion-card-subtitle>\r\n      <ion-card-subtitle\r\n        *ngIf=\"autorTextoTela\"\r\n        style=\"text-align: right;\"\r\n      >\r\n        Autor: {{ texto.autorTexto }}\r\n      </ion-card-subtitle>\r\n    </ion-card-header>\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: silver;\"\r\n      [routerLink]=\"['/menu/texto-detalhes', texto.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n\r\n  </ion-card>\r\n\r\n  <ion-card\r\n    *ngFor=\"let imagem of profissionalConteudoImagem\"\r\n    style=\"background-color: #9AFFF1;\"\r\n  >\r\n    <ion-card-content *ngIf=\"imagem.imagem\">\r\n      <img\r\n        src=\"{{imagem.imagem}}\"\r\n        width=\"350px\"\r\n        height=\"320px\"\r\n      >\r\n    </ion-card-content>\r\n    <ion-card-content *ngIf=\"!imagem.imagem\">\r\n      <ion-card-header style=\"font-size: 15pt; text-align: center;\">Imagem não encontrada</ion-card-header>\r\n    </ion-card-content>\r\n\r\n    <ion-card-header *ngIf=\"!imagem.tituloImagem\">\r\n      <ion-card-title style=\"text-align: center;\">Titulo não cadastrado</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-header>\r\n      <ion-card-title style=\"text-align: center;\">{{imagem.tituloImagem}}</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: #FFFFC4;\"\r\n      [routerLink]=\"['/menu/imagem-detalhes', imagem.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n  <ion-card\r\n    *ngFor=\"let video of profissionalConteudoVideo\"\r\n    style=\"background-color: #D0BBFF;\"\r\n  >\r\n    <img src=\"../../../assets/img/abrirmente.PNG\">\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Video do Youtube</ion-card-subtitle>\r\n      <ion-card-title>{{video.tituloVideo}}</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>{{video.descricaoVideo}}</ion-card-content>\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: silver;\"\r\n      [routerLink]=\"['/menu/video-detalhes', video.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Assistir ao video</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"success\">\r\n    <ion-buttons>\r\n      <ion-back-button defaultHref=\"menu/home\"></ion-back-button>\r\n      <div>\r\n        <ion-title>Para te ajudar neste momento</ion-title>\r\n      </div>\r\n    </ion-buttons>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-fab\r\n  vertical=\"bottom\"\r\n  horizontal=\"end\"\r\n  slot=\"fixed\"\r\n>\r\n  <ion-fab-button\r\n    routerLink=\"/emergencia/emergencia-utilizacao\"\r\n    routerDirection=\"forward\"\r\n    color=\"success\"\r\n  >\r\n    S.O.S\r\n  </ion-fab-button>\r\n</ion-fab>\r\n\r\n<ion-content>\r\n  <ion-card\r\n    *ngFor=\"let texto of profissionalConteudoTexto\"\r\n    style=\"background-color: #FFFFC4;\"\r\n    [routerLink]=\"['/menu/texto-detalhes', texto.id]\"\r\n  >\r\n\r\n    <ion-card-header *ngIf=\"tituloTextoTela\">\r\n      <ion-card-title>{{ texto.tituloTexto }}</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-content\r\n      style=\"text-align: center; font-size: 15pt;\"\r\n    >\r\n      “{{ texto.texto }}”\r\n    </ion-card-content>\r\n\r\n    <ion-card-header>\r\n      <ion-card-subtitle\r\n        *ngIf=\"autorTextoTela\"\r\n        style=\"text-align: right;\"\r\n      >\r\n        Autor: {{ texto.autorTexto }}\r\n      </ion-card-subtitle>\r\n    </ion-card-header>\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: silver;\"\r\n      [routerLink]=\"['/menu/texto-detalhes', texto.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n\r\n  </ion-card>\r\n\r\n  <ion-card\r\n    *ngFor=\"let imagem of profissionalConteudoImagem\"\r\n    style=\"background-color: #9AFFF1;\"\r\n  >\r\n    <ion-card-content *ngIf=\"imagem.imagem\">\r\n      <img\r\n        src=\"{{imagem.imagem}}\"\r\n        width=\"350px\"\r\n        height=\"320px\"\r\n      >\r\n    </ion-card-content>\r\n    <ion-card-content *ngIf=\"!imagem.imagem\">\r\n      <ion-card-header style=\"font-size: 15pt; text-align: center;\">Imagem não encontrada</ion-card-header>\r\n    </ion-card-content>\r\n\r\n    <ion-card-header *ngIf=\"!imagem.tituloImagem\">\r\n      <ion-card-title style=\"text-align: center;\">Titulo não cadastrado</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-card-header>\r\n      <ion-card-title style=\"text-align: center;\">{{imagem.tituloImagem}}</ion-card-title>\r\n    </ion-card-header>\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: #FFFFC4;\"\r\n      [routerLink]=\"['/menu/imagem-detalhes', imagem.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Ver mais informações</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n\r\n  <ion-card\r\n    *ngFor=\"let video of profissionalConteudoVideo\"\r\n    style=\"background-color: #D0BBFF;\"\r\n  >\r\n  <iframe\r\n    width=\"350\"\r\n    height=\"300\"\r\n    [src]=\"videoDoYT(video.linkVideo)\"\r\n    frameborder=\"0\"\r\n    allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\r\n    allowfullscreen\r\n  ></iframe>\r\n\r\n    <ion-card-header>\r\n      <ion-card-subtitle>Video do Youtube</ion-card-subtitle>\r\n      <ion-card-title>{{video.tituloVideo}}</ion-card-title>\r\n    </ion-card-header>\r\n    <ion-card-content>{{video.descricaoVideo}}</ion-card-content>\r\n\r\n    <ion-item\r\n      href\r\n      class=\"activated\"\r\n      style=\"background-color: silver;\"\r\n      [routerLink]=\"['/menu/video-detalhes', video.id]\"\r\n    >\r\n      <ion-label class=\"ion-text-center\">Assistir ao video</ion-label>\r\n    </ion-item>\r\n  </ion-card>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -82,6 +82,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_profissionalConteudoImagem_profissional_conteudo_imagem_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/profissionalConteudoImagem/profissional-conteudo-imagem.service */ "./src/app/services/profissionalConteudoImagem/profissional-conteudo-imagem.service.ts");
 /* harmony import */ var src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service */ "./src/app/services/profissionalConteudoVideo/profissional-conteudo-video.service.ts");
 /* harmony import */ var src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/services/usuarioCadastro/usuario-cadastro.service */ "./src/app/services/usuarioCadastro/usuario-cadastro.service.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+
 
 
 
@@ -93,7 +95,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfissionalConteudoEspecificoPage = class ProfissionalConteudoEspecificoPage {
-    constructor(navctrl, auth, profissionalConteudoTextoService, profissionalConteudoImagemService, profissionalConteudoVideoService, queroConversarService, route, usuarioCadastro) {
+    constructor(navctrl, auth, profissionalConteudoTextoService, profissionalConteudoImagemService, profissionalConteudoVideoService, queroConversarService, route, usuarioCadastro, dom) {
         this.navctrl = navctrl;
         this.auth = auth;
         this.profissionalConteudoTextoService = profissionalConteudoTextoService;
@@ -102,29 +104,45 @@ let ProfissionalConteudoEspecificoPage = class ProfissionalConteudoEspecificoPag
         this.queroConversarService = queroConversarService;
         this.route = route;
         this.usuarioCadastro = usuarioCadastro;
+        this.dom = dom;
     }
     ngOnInit() {
         this.idUsuario = this.auth.auth.currentUser.uid;
+        this.buscaIdadeUsuario();
         this.buscaDadosTexto(this.idUsuario);
         this.buscaDadosImagem(this.idUsuario);
         this.buscaDadosVideo(this.idUsuario);
+    }
+    buscaIdadeUsuario() {
+        this.usuarioCadastro.getUsuario(this.idUsuario).subscribe(x => {
+            this.idadeUsuario = x.dataNasc;
+            //Convertendo a data em idade
+            var dob = new Date(this.idadeUsuario);
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            var birthdayThisYear = new Date(currentYear, dob.getMonth(), dob.getDate());
+            var age = currentYear - dob.getFullYear();
+            this.idadeConvertida = age;
+            if (this.idadeConvertida >= 8 && this.idadeConvertida <= 12) {
+                this.idadeDoIFF = "8 a 12"; // variavel que será enviada ao Service
+            }
+            if (this.idadeConvertida >= 13 && this.idadeConvertida <= 17) {
+                this.idadeDoIFF = "13 a 17";
+            }
+            if (this.idadeConvertida >= 18 && this.idadeConvertida <= 99) {
+                this.idadeDoIFF = "18 anos ou mais";
+            }
+        });
     }
     buscaDadosTexto(idUsuario) {
         //Pegando os dados informados pelo usuário, sobre a sua situação
         this.queroConversarService.getTodo(this.idUsuario).subscribe(res => {
             this.avalicaoQueroConversar = res.avaliacao;
             this.avaliacaoGlobal = this.avalicaoQueroConversar;
-            // Atribuindo na pesquisa
             this.profissionalConteudoTextoService
-                .getTodosPoAvaliacao(this.avaliacaoGlobal)
+                .getTodosPoAvaliacao(this.avaliacaoGlobal, this.idadeDoIFF)
                 .subscribe(res => {
                 this.profissionalConteudoTexto = res;
-                // Percorrendo os dados da coleção
-                res.forEach(x => {
-                    this.tituloTextoTela = x.tituloTexto;
-                    this.descricaoTextoTela = x.texto;
-                    this.autorTextoTela = x.autorTexto;
-                });
             });
         });
     }
@@ -135,16 +153,9 @@ let ProfissionalConteudoEspecificoPage = class ProfissionalConteudoEspecificoPag
             this.avaliacaoGlobal = this.avalicaoQueroConversar;
             // Atribuindo na pesquisa
             this.profissionalConteudoImagemService
-                .getTodosPoAvaliacao(this.avaliacaoGlobal)
+                .getTodosPoAvaliacao(this.avaliacaoGlobal, this.idadeDoIFF)
                 .subscribe(res => {
                 this.profissionalConteudoImagem = res;
-                // Percorrendo os dados da coleção
-                res.forEach(x => {
-                    this.tituloImagemTela = x.tituloImagem;
-                    this.maisInfoImagemTela = x.maisInfoImagem;
-                    this.autorImagemTela = x.autorImagem;
-                    this.imagem64Tela = x.imagem;
-                });
             });
         });
     }
@@ -155,18 +166,16 @@ let ProfissionalConteudoEspecificoPage = class ProfissionalConteudoEspecificoPag
             this.avaliacaoGlobal = this.avalicaoQueroConversar;
             // Atribuindo na pesquisa
             this.profissionalConteudoVideoService
-                .getTodosPoAvaliacao(this.avaliacaoGlobal)
+                .getTodosPoAvaliacao(this.avaliacaoGlobal, this.idadeDoIFF)
                 .subscribe(res => {
                 this.profissionalConteudoVideo = res;
-                // Percorrendo os dados da coleção
-                res.forEach(x => {
-                    this.tituloVideoTela = x.tituloVideo;
-                    this.descricaoVideoTela = x.descricaoVideo;
-                    this.linkVideoTela = x.linkVideo;
-                    this.autorVideoTela = x.autorVideo;
-                });
             });
         });
+    }
+    videoDoYT(vid) {
+        this.finalLink = vid.substring(vid.indexOf('=') + 1);
+        this.urlEmbd = `https://www.youtube.com/embed/${this.finalLink}`;
+        return this.dom.bypassSecurityTrustResourceUrl(this.urlEmbd);
     }
     ngOnDestroy() { }
 };
@@ -178,7 +187,8 @@ ProfissionalConteudoEspecificoPage.ctorParameters = () => [
     { type: src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_8__["ProfissionalConteudoVideoService"] },
     { type: src_app_services_queroConversar_quero_conversar_service__WEBPACK_IMPORTED_MODULE_5__["QueroConversarService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] },
-    { type: src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_9__["UsuarioCadastroService"] }
+    { type: src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_9__["UsuarioCadastroService"] },
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_10__["DomSanitizer"] }
 ];
 ProfissionalConteudoEspecificoPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -193,7 +203,8 @@ ProfissionalConteudoEspecificoPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         src_app_services_profissionalConteudoVideo_profissional_conteudo_video_service__WEBPACK_IMPORTED_MODULE_8__["ProfissionalConteudoVideoService"],
         src_app_services_queroConversar_quero_conversar_service__WEBPACK_IMPORTED_MODULE_5__["QueroConversarService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],
-        src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_9__["UsuarioCadastroService"]])
+        src_app_services_usuarioCadastro_usuario_cadastro_service__WEBPACK_IMPORTED_MODULE_9__["UsuarioCadastroService"],
+        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_10__["DomSanitizer"]])
 ], ProfissionalConteudoEspecificoPage);
 
 
