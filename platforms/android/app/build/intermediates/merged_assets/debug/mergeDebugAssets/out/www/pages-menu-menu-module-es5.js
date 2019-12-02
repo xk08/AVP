@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\r\n  <ion-split-pane>\r\n\r\n\r\n    <ion-menu>\r\n      <ion-toolbar color=\"primary\">\r\n        <ion-title>Menu</ion-title>\r\n        <ion-buttons slot=\"end\">\r\n          <ion-menu-button autoHide=\"true\"></ion-menu-button>\r\n        </ion-buttons>\r\n      </ion-toolbar>\r\n\r\n\r\n      <ion-content>\r\n\r\n\r\n        <!-- Se for USUÁRIO normal, pega foto e nome ou padrão -->\r\n        <ion-item *ngIf=\"!isProfissional\">\r\n          <ion-chip>\r\n\r\n\r\n\r\n            <ion-avatar *ngIf=\"icone != ''\">\r\n              <img src=\"{{icone}}\">\r\n            </ion-avatar>\r\n\r\n\r\n            <ion-avatar *ngIf=\"icone == ''\">\r\n              <img src=\"../../../assets/img/avp.png\">\r\n            </ion-avatar>\r\n\r\n\r\n            <ion-label *ngIf=\"apelido == ''\">Assistente não cadastrado</ion-label>\r\n            <ion-label *ngIf=\"apelido != ''\">Olá, sou {{apelido}} seu assistente</ion-label>\r\n\r\n\r\n          </ion-chip>\r\n        </ion-item>\r\n\r\n\r\n        <!-- Se for PROFISSIONAL  normal, pega foto e nome ou padrão -->\r\n        <ion-item *ngIf=\"isProfissional\">\r\n          <ion-chip>\r\n\r\n\r\n            <ion-avatar\r\n              slot=\"start\"\r\n              class=\"contact-avatar\"\r\n              *ngIf=\"fotoUsuario != ''\"\r\n            >\r\n              <img src=\"{{fotoUsuario}}\">\r\n            </ion-avatar>\r\n\r\n\r\n            <ion-avatar\r\n              slot=\"start\"\r\n              class=\"contact-avatar\"\r\n              *ngIf=\"fotoUsuario == ''\"\r\n            >\r\n              <img src=\"../../../assets/img/avp.png\">\r\n            </ion-avatar>\r\n\r\n\r\n\r\n            <ion-label>Bem vindo {{nomeUsuario}}</ion-label>\r\n\r\n\r\n          </ion-chip>\r\n        </ion-item>\r\n\r\n\r\n        <ion-list\r\n          ion-list\r\n          *ngIf=\"!isProfissional\"\r\n        >\r\n\r\n\r\n          <ion-menu-toggle\r\n            autoHide=\"false\"\r\n            *ngFor=\"let p of paginas; let i = index\"\r\n          >\r\n            <ion-item [routerLink]=\"p.url\">\r\n              <ion-icon\r\n                slot=\"start\"\r\n                [name]=\"p.icon\"\r\n              ></ion-icon>\r\n              <ion-label>{{p.title}}</ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n\r\n        <!-- Menus dos profissionais -->\r\n\r\n        <ion-list *ngIf=\"isProfissional\">\r\n\r\n          <ion-menu-toggle\r\n            autoHide=\"false\"\r\n            *ngFor=\"let pagina of paginasProfissional; let i = index\"\r\n          >\r\n            <ion-item [routerLink]=\"pagina.url\">\r\n              <ion-icon\r\n                slot=\"start\"\r\n                [name]=\"pagina.icon\"\r\n              ></ion-icon>\r\n              <ion-label>{{pagina.title}}</ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n\r\n\r\n        <ion-menu-toggle autoHide=\"false\">\r\n          <ion-item\r\n            button\r\n            (click)=\"signOut()\"\r\n          >\r\n            <ion-icon\r\n              slot=\"start\"\r\n              name=\"power\"\r\n            ></ion-icon>\r\n            <ion-label>Sair</ion-label>\r\n          </ion-item>\r\n        </ion-menu-toggle>\r\n\r\n\r\n      </ion-content>\r\n    </ion-menu>\r\n    <ion-router-outlet main></ion-router-outlet>\r\n\r\n\r\n  </ion-split-pane>\r\n\r\n\r\n</ion-app>\r\n"
+module.exports = "<ion-app>\r\n  <ion-split-pane>\r\n\r\n\r\n    <ion-menu>\r\n      <ion-toolbar color=\"primary\">\r\n        <ion-title>Menu</ion-title>\r\n        <ion-buttons slot=\"end\">\r\n          <ion-menu-button autoHide=\"true\"></ion-menu-button>\r\n        </ion-buttons>\r\n      </ion-toolbar>\r\n\r\n\r\n      <ion-content>\r\n\r\n\r\n        <!-- Se for USUÁRIO normal, pega foto e nome ou padrão -->\r\n        <ion-item *ngIf=\"!isProfissional\">\r\n          <ion-chip>\r\n\r\n\r\n\r\n            <ion-avatar *ngIf=\"icone != ''\">\r\n              <img src=\"{{icone}}\">\r\n            </ion-avatar>\r\n\r\n\r\n            <ion-avatar *ngIf=\"icone == ''\">\r\n              <img src=\"../../../assets/img/avp.png\">\r\n            </ion-avatar>\r\n\r\n\r\n            <ion-label *ngIf=\"apelido == ''\">Assistente não cadastrado</ion-label>\r\n            <ion-label *ngIf=\"apelido != ''\">Olá, sou {{apelido}} seu assistente</ion-label>\r\n\r\n\r\n          </ion-chip>\r\n        </ion-item>\r\n\r\n\r\n        <!-- Se for PROFISSIONAL  normal, pega foto e nome ou padrão -->\r\n        <ion-item *ngIf=\"isProfissional\">\r\n          <ion-chip>\r\n\r\n\r\n            <ion-avatar\r\n              slot=\"start\"\r\n              class=\"contact-avatar\"\r\n              *ngIf=\"fotoUsuario != ''\"\r\n            >\r\n              <img src=\"{{fotoUsuario}}\">\r\n            </ion-avatar>\r\n\r\n\r\n            <ion-avatar\r\n              slot=\"start\"\r\n              class=\"contact-avatar\"\r\n              *ngIf=\"fotoUsuario == ''\"\r\n            >\r\n              <img src=\"../../../assets/img/avp.png\">\r\n            </ion-avatar>\r\n\r\n            <ion-label>Bem vindo(a) {{nomeUsuario}}</ion-label>\r\n\r\n          </ion-chip>\r\n        </ion-item>\r\n\r\n\r\n        <ion-list\r\n          ion-list\r\n          *ngIf=\"!isProfissional\"\r\n        >\r\n\r\n\r\n          <ion-menu-toggle\r\n            autoHide=\"false\"\r\n            *ngFor=\"let p of paginas; let i = index\"\r\n          >\r\n            <ion-item [routerLink]=\"p.url\">\r\n              <ion-icon\r\n                slot=\"start\"\r\n                [name]=\"p.icon\"\r\n              ></ion-icon>\r\n              <ion-label>{{p.title}}</ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n\r\n        <!-- Menus dos profissionais -->\r\n\r\n        <ion-list *ngIf=\"isProfissional\">\r\n\r\n          <ion-menu-toggle\r\n            autoHide=\"false\"\r\n            *ngFor=\"let pagina of paginasProfissional; let i = index\"\r\n          >\r\n            <ion-item [routerLink]=\"pagina.url\">\r\n              <ion-icon\r\n                slot=\"start\"\r\n                [name]=\"pagina.icon\"\r\n              ></ion-icon>\r\n              <ion-label>{{pagina.title}}</ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n\r\n\r\n        <ion-menu-toggle autoHide=\"false\">\r\n          <ion-item\r\n            button\r\n            (click)=\"signOut()\"\r\n          >\r\n            <ion-icon\r\n              slot=\"start\"\r\n              name=\"power\"\r\n            ></ion-icon>\r\n            <ion-label>Sair</ion-label>\r\n          </ion-item>\r\n        </ion-menu-toggle>\r\n\r\n\r\n      </ion-content>\r\n    </ion-menu>\r\n    <ion-router-outlet main></ion-router-outlet>\r\n\r\n\r\n  </ion-split-pane>\r\n\r\n\r\n</ion-app>\r\n"
 
 /***/ }),
 
@@ -66,6 +66,16 @@ var routes = [
             {
                 path: 'profissional-todos-conteudos',
                 loadChildren: '../profissional-seus-conteudos/profissional-seus-conteudos.module#ProfissionalSeusConteudosPageModule',
+                canActivate: [src_app_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]]
+            },
+            {
+                path: 'usuario-perfil',
+                loadChildren: '../usuario-perfil/usuario-perfil.module#UsuarioPerfilPageModule',
+                canActivate: [src_app_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]]
+            },
+            {
+                path: 'profissional-perfil',
+                loadChildren: '../profissional-perfil/profissional-perfil.module#ProfissionalPerfilPageModule',
                 canActivate: [src_app_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]]
             },
             {
@@ -135,9 +145,14 @@ var MenuPage = /** @class */ (function () {
                 icon: 'home'
             },
             {
-                title: 'Cadastrar Assistente',
+                title: 'Assistente Pessoal',
                 url: '/assistente/cadastro',
                 icon: 'logo-angular'
+            },
+            {
+                title: 'Meu Perfil',
+                url: '/menu/usuario-perfil',
+                icon: 'person'
             }
         ];
         this.paginasProfissional = [
@@ -145,6 +160,11 @@ var MenuPage = /** @class */ (function () {
                 title: 'Inicio',
                 url: '/menu/profissional-todos-conteudos',
                 icon: 'home'
+            },
+            {
+                title: 'Meu perfil',
+                url: '/menu/profissional-perfil',
+                icon: 'person'
             }
         ];
     }

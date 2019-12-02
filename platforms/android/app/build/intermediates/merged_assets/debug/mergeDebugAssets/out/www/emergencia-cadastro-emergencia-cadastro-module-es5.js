@@ -172,6 +172,7 @@ var EmergenciaCadastroPage = /** @class */ (function () {
                                 this.todas.foto = this.photo;
                             }
                             /* TESTA SE JA EXISTE, ENTÃO FAZ UPDATE */
+                            this.todas.idUsuario = this.idUsuario;
                             this.emergenciaCadastroService.updateTodo(this.todas, this.idEmergenciaCadastro).then(function () {
                                 loading.dismiss();
                                 _this.navCtrl.navigateBack('emergencia/emergencia-utilizacao');
@@ -182,9 +183,10 @@ var EmergenciaCadastroPage = /** @class */ (function () {
                                 this.todas.foto = this.photo;
                             }
                             /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
+                            this.todas.idUsuario = this.idUsuario;
                             this.emergenciaCadastroService.addTodo(this.todas, this.idUsuario).then(function () {
                                 loading.dismiss();
-                                _this.navCtrl.navigateBack('emergencia/emergencia-utilizacao');
+                                _this.navCtrl.navigateBack('menu/home');
                             });
                         }
                         return [2 /*return*/];
@@ -259,85 +261,6 @@ var EmergenciaCadastroPage = /** @class */ (function () {
             angularfire2_auth__WEBPACK_IMPORTED_MODULE_10__["AngularFireAuth"]])
     ], EmergenciaCadastroPage);
     return EmergenciaCadastroPage;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/services/storage/storage.service.ts":
-/*!*****************************************************!*\
-  !*** ./src/app/services/storage/storage.service.ts ***!
-  \*****************************************************/
-/*! exports provided: StorageService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StorageService", function() { return StorageService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_fire_storage_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/storage/storage */ "./node_modules/@angular/fire/storage/storage.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-
-
- //Ver se n vai dar pau aqui
-
-var StorageService = /** @class */ (function () {
-    function StorageService(afs, alertController) {
-        this.afs = afs;
-        this.alertController = alertController;
-        //Mudar para o genérico
-    }
-    StorageService.prototype.presentAlert = function (msg) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var alert;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.alertController.create({
-                            header: 'Alert',
-                            subHeader: 'Subtitle',
-                            message: msg,
-                            buttons: ['OK']
-                        })];
-                    case 1:
-                        alert = _a.sent();
-                        return [4 /*yield*/, alert.present()];
-                    case 2:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    StorageService.prototype.uploadImagemUsuario = function (uidUsuarioCadastro, photo) {
-        var ref = this.afs.ref('UsuarioCadastro/' + uidUsuarioCadastro);
-        ref.putString(photo, 'data_url');
-        return ref.getDownloadURL();
-    };
-    StorageService.prototype.uploadImagemAssistenteCadastro = function (idAssistenteCadastro, photo) {
-        console.log(photo);
-        var ref = this.afs.ref('AssistenteCadastro/' + idAssistenteCadastro);
-        ref.putString(photo, 'data_url');
-        return ref.getDownloadURL();
-    };
-    StorageService.prototype.uploadImagemEmergenciaCadastro = function (idEmergenciaCadastro, photo) {
-        console.log(photo);
-        var ref = this.afs.ref('EmergenciaCadastro/' + idEmergenciaCadastro);
-        ref.putString(photo, 'data_url');
-        return ref.getDownloadURL();
-    };
-    StorageService.ctorParameters = function () { return [
-        { type: _angular_fire_storage_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"] },
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"] }
-    ]; };
-    StorageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-            providedIn: 'root'
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_storage_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]])
-    ], StorageService);
-    return StorageService;
 }());
 
 

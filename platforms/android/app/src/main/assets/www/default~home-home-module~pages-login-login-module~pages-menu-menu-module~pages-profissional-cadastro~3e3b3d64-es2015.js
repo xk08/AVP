@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~pages-profissional-conteudo-especifico-profissional-conteudo-especifico-module~pages-quero-c~f0e6ec63"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~3e3b3d64"],{
 
 /***/ "./src/app/core/overlay.service.ts":
 /*!*****************************************!*\
@@ -63,61 +63,70 @@ OverlayService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/services/queroConversar/quero-conversar.service.ts":
-/*!********************************************************************!*\
-  !*** ./src/app/services/queroConversar/quero-conversar.service.ts ***!
-  \********************************************************************/
-/*! exports provided: QueroConversarService */
+/***/ "./src/app/services/storage/storage.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/services/storage/storage.service.ts ***!
+  \*****************************************************/
+/*! exports provided: StorageService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QueroConversarService", function() { return QueroConversarService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StorageService", function() { return StorageService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
-/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_fire_storage_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/storage/storage */ "./node_modules/@angular/fire/storage/storage.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 
 
+ //Ver se n vai dar pau aqui
 
-
-let QueroConversarService = class QueroConversarService {
-    constructor(db) {
-        this.db = db;
-        this.todosCollection = db.collection('QueroConversar'); // Criando a coleção
+let StorageService = class StorageService {
+    constructor(afs, alertController) {
+        this.afs = afs;
+        this.alertController = alertController;
+        //Mudar para o genérico
     }
-    getTodos() {
-        return this.todosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
-            return actions.map(a => {
-                const data = a.payload.doc.data();
-                const id = a.payload.doc.id;
-                return Object.assign({ id }, data);
+    presentAlert(msg) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            //Mudar para o genérico
+            const alert = yield this.alertController.create({
+                header: 'Alert',
+                subHeader: 'Subtitle',
+                message: msg,
+                buttons: ['OK']
             });
-        }));
+            yield alert.present();
+        });
     }
-    getTodo(id) {
-        return this.todosCollection.doc(id).valueChanges();
+    uploadImagemUsuario(uidUsuarioCadastro, photo) {
+        const ref = this.afs.ref('UsuarioCadastro/' + uidUsuarioCadastro);
+        ref.putString(photo, 'data_url');
+        return ref.getDownloadURL();
     }
-    updateTodo(toda, id) {
-        return this.todosCollection.doc(id).update(toda);
+    uploadImagemAssistenteCadastro(idAssistenteCadastro, photo) {
+        console.log(photo);
+        const ref = this.afs.ref('AssistenteCadastro/' + idAssistenteCadastro);
+        ref.putString(photo, 'data_url');
+        return ref.getDownloadURL();
     }
-    addTodo(toda, idUsuario) {
-        return this.todosCollection.doc(idUsuario).set(toda);
-    }
-    removeTodo(id) {
-        return this.todosCollection.doc(id).delete();
+    uploadImagemEmergenciaCadastro(idEmergenciaCadastro, photo) {
+        console.log(photo);
+        const ref = this.afs.ref('EmergenciaCadastro/' + idEmergenciaCadastro);
+        ref.putString(photo, 'data_url');
+        return ref.getDownloadURL();
     }
 };
-QueroConversarService.ctorParameters = () => [
-    { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] }
+StorageService.ctorParameters = () => [
+    { type: _angular_fire_storage_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"] }
 ];
-QueroConversarService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+StorageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
-], QueroConversarService);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_storage_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]])
+], StorageService);
 
 
 
@@ -139,15 +148,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _storage_storage_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../storage/storage.service */ "./src/app/services/storage/storage.service.ts");
+
 
 
 
 
 
 let UsuarioCadastroService = class UsuarioCadastroService {
-    constructor(db, authService) {
+    constructor(db, authService, storage) {
         this.db = db;
         this.authService = authService;
+        this.storage = storage;
         this.todosCollection = db.collection('UsuarioCadastro');
         this.todosUsuarios = this.todosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(actions => {
             return actions.map(a => {
@@ -221,13 +233,15 @@ let UsuarioCadastroService = class UsuarioCadastroService {
 };
 UsuarioCadastroService.ctorParameters = () => [
     { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] },
-    { type: _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] }
+    { type: _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
+    { type: _storage_storage_service__WEBPACK_IMPORTED_MODULE_5__["StorageService"] }
 ];
 UsuarioCadastroService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"], _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"], _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+        _storage_storage_service__WEBPACK_IMPORTED_MODULE_5__["StorageService"]])
 ], UsuarioCadastroService);
 
 
@@ -411,4 +425,4 @@ SharedModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /***/ })
 
 }]);
-//# sourceMappingURL=default~pages-profissional-conteudo-especifico-profissional-conteudo-especifico-module~pages-quero-c~f0e6ec63-es2015.js.map
+//# sourceMappingURL=default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~3e3b3d64-es2015.js.map

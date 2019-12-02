@@ -20,6 +20,7 @@ var map = {
 	],
 	"../home/home.module": [
 		"./src/app/pages/home/home.module.ts",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~3e3b3d64",
 		"common",
 		"home-home-module"
 	],
@@ -47,6 +48,11 @@ var map = {
 		"./src/app/pages/profissional-conteudo/profissional-conteudo.module.ts",
 		"profissional-conteudo-profissional-conteudo-module"
 	],
+	"../profissional-perfil/profissional-perfil.module": [
+		"./src/app/pages/profissional-perfil/profissional-perfil.module.ts",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~3e3b3d64",
+		"profissional-perfil-profissional-perfil-module"
+	],
 	"../profissional-seus-conteudos/profissional-seus-conteudos.module": [
 		"./src/app/pages/profissional-seus-conteudos/profissional-seus-conteudos.module.ts",
 		"common",
@@ -56,6 +62,11 @@ var map = {
 		"./src/app/pages/texto-detalhes/texto-detalhes.module.ts",
 		"common",
 		"texto-detalhes-texto-detalhes-module"
+	],
+	"../usuario-perfil/usuario-perfil.module": [
+		"./src/app/pages/usuario-perfil/usuario-perfil.module.ts",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~3e3b3d64",
+		"usuario-perfil-usuario-perfil-module"
 	],
 	"../video-detalhes/video-detalhes.module": [
 		"./src/app/pages/video-detalhes/video-detalhes.module.ts",
@@ -73,30 +84,35 @@ var map = {
 	],
 	"./pages/login/login.module": [
 		"./src/app/pages/login/login.module.ts",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~3e3b3d64",
 		"pages-login-login-module"
 	],
 	"./pages/menu/menu.module": [
 		"./src/app/pages/menu/menu.module.ts",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~3e3b3d64",
 		"common",
 		"pages-menu-menu-module"
 	],
 	"./pages/profissional-cadastro/profissional-cadastro.module": [
 		"./src/app/pages/profissional-cadastro/profissional-cadastro.module.ts",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~3e3b3d64",
 		"pages-profissional-cadastro-profissional-cadastro-module"
 	],
 	"./pages/profissional-conteudo-especifico/profissional-conteudo-especifico.module": [
 		"./src/app/pages/profissional-conteudo-especifico/profissional-conteudo-especifico.module.ts",
-		"default~pages-profissional-conteudo-especifico-profissional-conteudo-especifico-module~pages-quero-c~f0e6ec63",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~3e3b3d64",
 		"common",
 		"pages-profissional-conteudo-especifico-profissional-conteudo-especifico-module"
 	],
 	"./pages/quero-conversar/quero-conversar.module": [
 		"./src/app/pages/quero-conversar/quero-conversar.module.ts",
-		"default~pages-profissional-conteudo-especifico-profissional-conteudo-especifico-module~pages-quero-c~f0e6ec63",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~3e3b3d64",
+		"common",
 		"pages-quero-conversar-quero-conversar-module"
 	],
 	"./pages/usuario-cadastro/usuario-cadastro.module": [
 		"./src/app/pages/usuario-cadastro/usuario-cadastro.module.ts",
+		"default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~3e3b3d64",
 		"pages-usuario-cadastro-usuario-cadastro-module"
 	]
 };

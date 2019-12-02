@@ -43,7 +43,7 @@ export class HomePage implements OnInit, OnDestroy {
   public autorImagemTela: string;
 
   //Referente ao video
-  public tituloVideoTela: string;
+  public tituloVideoTela: string; 
   public descricaoVideoTela: string;
   public linkVideoTela: string;
   public autorVideoTela: string;
@@ -62,7 +62,7 @@ export class HomePage implements OnInit, OnDestroy {
   //Dos toggles
   public mostraMaisInfoTexto: boolean = false;
   public mostraMaisInfoImagem: boolean = false;
-  public mostraMaisInfoVideo: boolean = true;
+  public mostraMaisInfoVideo: boolean = false;
 
 
   constructor(
@@ -136,29 +136,11 @@ export class HomePage implements OnInit, OnDestroy {
               this.tituloTextoTela = x.tituloTexto;
               this.descricaoTextoTela = x.texto;
               this.autorTextoTela = x.autorTexto;
-
-              // AQUI É A NOTIFICAÇÃO
-              if (this.profissionalConteudoTextoTela != null) {
-                this.openNotificacao(this.tituloTextoTela, this.descricaoTextoTela);
-                console.log("Teste se chega algo ->" + this.tituloTextoTela);
-
-              }
-
             });
           });
       });
   }
 
-  openNotificacao(titulo: string, texto: string) {
-
-    this.localNotifications.schedule({
-      title: titulo,
-      text: texto,
-      trigger: { at: new Date(new Date().getTime() + 2000) },
-      led: 'FF0000',
-      sound: null
-    });
-  }
 
   /* IMAGEM */
   buscaDadosImagem(idUsuario) {
@@ -213,6 +195,7 @@ export class HomePage implements OnInit, OnDestroy {
             });
           });
       });
+
   }
 
   /* VIDEO */
@@ -267,8 +250,26 @@ export class HomePage implements OnInit, OnDestroy {
                 this.autorVideoTela = x.autorVideo;
                 this.linkVideoTela = x.linkVideo;
               });
+
+              if(this.tituloVideoTela != null){
+                this.openNotificacao(this.tituloVideoTela)
+                console.log("essa aqui"+this.tituloVideoTela)
+              
+              }
+              
           });
       });
+  }
+
+  openNotificacao(titulo: string) {
+
+    this.localNotifications.schedule({
+      title: "Nova Video Disponível",
+      text: titulo,
+      trigger: { at: new Date(new Date().getTime() + 2000) },
+      led: 'FF0000',
+      sound: null
+    });
   }
 
   //Ver como pego de acordo com o link do app do youtube no celu

@@ -589,6 +589,68 @@ var AssistenteCadastroService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/emergenciaCadastro/emergencia-cadastro.service.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/services/emergenciaCadastro/emergencia-cadastro.service.ts ***!
+  \****************************************************************************/
+/*! exports provided: EmergenciaCadastroService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EmergenciaCadastroService", function() { return EmergenciaCadastroService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
+
+var EmergenciaCadastroService = /** @class */ (function () {
+    function EmergenciaCadastroService(db) {
+        this.db = db;
+        this.todosCollection = db.collection('EmergenciaCadastro');
+    }
+    EmergenciaCadastroService.prototype.getTodos = function (idUsuario) {
+        return this.db.collection('EmergenciaCadastro', function (ref) { return ref.where('idUsuario', '==', idUsuario); }).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+            return actions.map(function (a) {
+                var data = a.payload.doc.data();
+                var id = a.payload.doc.id;
+                console.log(id);
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ id: id }, data);
+            });
+        }));
+    };
+    EmergenciaCadastroService.prototype.getTodo = function (id) {
+        return this.todosCollection.doc(id).valueChanges();
+    };
+    EmergenciaCadastroService.prototype.updateTodo = function (toda, id) {
+        return this.todosCollection.doc(id).update(toda);
+    };
+    EmergenciaCadastroService.prototype.addTodo = function (toda, idUsuario) {
+        return this.todosCollection.doc(idUsuario).set(toda);
+    };
+    EmergenciaCadastroService.prototype.removeTodo = function (id) {
+        return this.todosCollection.doc(id).delete();
+    };
+    EmergenciaCadastroService.ctorParameters = function () { return [
+        { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] }
+    ]; };
+    EmergenciaCadastroService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
+    ], EmergenciaCadastroService);
+    return EmergenciaCadastroService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/profissionalConteudoImagem/profissional-conteudo-imagem.service.ts":
 /*!*********************************************************************************************!*\
   !*** ./src/app/services/profissionalConteudoImagem/profissional-conteudo-imagem.service.ts ***!
@@ -960,6 +1022,129 @@ var QueroConversarService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
     ], QueroConversarService);
     return QueroConversarService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/usuarioCadastro/usuario-cadastro.service.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/services/usuarioCadastro/usuario-cadastro.service.ts ***!
+  \**********************************************************************/
+/*! exports provided: UsuarioCadastroService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsuarioCadastroService", function() { return UsuarioCadastroService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _storage_storage_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../storage/storage.service */ "./src/app/services/storage/storage.service.ts");
+
+
+
+
+
+
+var UsuarioCadastroService = /** @class */ (function () {
+    function UsuarioCadastroService(db, authService, storage) {
+        this.db = db;
+        this.authService = authService;
+        this.storage = storage;
+        this.todosCollection = db.collection('UsuarioCadastro');
+        this.todosUsuarios = this.todosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (actions) {
+            return actions.map(function (a) {
+                var data = a.payload.doc.data();
+                var uid = a.payload.doc.id;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ uid: uid }, data);
+            });
+        }));
+    }
+    UsuarioCadastroService.prototype.getUsuarios = function () {
+        return this.todosUsuarios;
+    };
+    UsuarioCadastroService.prototype.getUsuario = function (id) {
+        return this.todosCollection.doc(id).valueChanges();
+    };
+    UsuarioCadastroService.prototype.updateUsuarioTodo = function (toda, id) {
+        return this.todosCollection.doc(id).update(toda);
+    };
+    UsuarioCadastroService.prototype.updateUsuarioAdmin = function (id, valor) {
+        return this.todosCollection.doc(id).update({ isAdmin: valor });
+    };
+    UsuarioCadastroService.prototype.updateUsuarioProfissional = function (id, valor) {
+        return this.todosCollection.doc(id).update({ isProfissional: valor });
+    };
+    //FUNÇÃO PARA CADASTRAR NOVO USUARIO
+    UsuarioCadastroService.prototype.addUsuarioTodo = function (dataUser) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var newUser;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.authService.createUser(dataUser.email, dataUser.senha)];
+                    case 1:
+                        newUser = _a.sent();
+                        //EXLUI A SENHA E O EMAIL, PARA NÃO IR A DATABASE
+                        delete dataUser.senha;
+                        // delete dataUser.email;
+                        dataUser.foto =
+                            'https://firebasestorage.googleapis.com/v0/b/primeirobanco-8d1a9.appspot.com/o/User.png?alt=media&token=78d69205-4005-4f3b-8925-10439a145ffa';
+                        //ADICIONA O RETANTES DOS DADOS DO USUARIO NO DATABASE
+                        this.db
+                            .collection('UsuarioCadastro')
+                            .doc(newUser.user.uid)
+                            .set(dataUser);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    UsuarioCadastroService.prototype.removeUsuarioTodo = function (id) {
+        return this.todosCollection.doc(id).delete();
+    };
+    // Não sei oq essa pohha ta fazendo
+    UsuarioCadastroService.prototype.getUsuarioPorid = function (categoria) {
+        return this.db
+            .collection('UsuarioCadastro', function (ref) { return ref.where('idCategoria', '==', categoria); })
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (actions) {
+            return actions.map(function (a) {
+                var data = a.payload.doc.data();
+                console.log(data);
+                var id = a.payload.doc.id;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ id: id }, data);
+            });
+        }));
+    };
+    UsuarioCadastroService.prototype.getUsuarioUmPorUm = function (id) {
+        return this.todosCollection
+            .doc(id)
+            .snapshotChanges()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (a) {
+            var data = a.payload.data();
+            console.log(data);
+            var id = a.payload.id;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ id: id }, data);
+        }));
+    };
+    UsuarioCadastroService.ctorParameters = function () { return [
+        { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] },
+        { type: _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
+        { type: _storage_storage_service__WEBPACK_IMPORTED_MODULE_5__["StorageService"] }
+    ]; };
+    UsuarioCadastroService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"], _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+            _storage_storage_service__WEBPACK_IMPORTED_MODULE_5__["StorageService"]])
+    ], UsuarioCadastroService);
+    return UsuarioCadastroService;
 }());
 
 

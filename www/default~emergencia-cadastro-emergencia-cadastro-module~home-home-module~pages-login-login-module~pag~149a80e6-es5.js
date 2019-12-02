@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~bb63723b"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~emergencia-cadastro-emergencia-cadastro-module~home-home-module~pages-login-login-module~pag~149a80e6"],{
 
 /***/ "./src/app/core/overlay.service.ts":
 /*!*****************************************!*\
@@ -91,118 +91,79 @@ var OverlayService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/services/usuarioCadastro/usuario-cadastro.service.ts":
-/*!**********************************************************************!*\
-  !*** ./src/app/services/usuarioCadastro/usuario-cadastro.service.ts ***!
-  \**********************************************************************/
-/*! exports provided: UsuarioCadastroService */
+/***/ "./src/app/services/storage/storage.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/services/storage/storage.service.ts ***!
+  \*****************************************************/
+/*! exports provided: StorageService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsuarioCadastroService", function() { return UsuarioCadastroService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StorageService", function() { return StorageService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
-/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../auth.service */ "./src/app/services/auth.service.ts");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_fire_storage_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/storage/storage */ "./node_modules/@angular/fire/storage/storage.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 
 
+ //Ver se n vai dar pau aqui
 
-
-
-var UsuarioCadastroService = /** @class */ (function () {
-    function UsuarioCadastroService(db, authService) {
-        this.db = db;
-        this.authService = authService;
-        this.todosCollection = db.collection('UsuarioCadastro');
-        this.todosUsuarios = this.todosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (actions) {
-            return actions.map(function (a) {
-                var data = a.payload.doc.data();
-                var uid = a.payload.doc.id;
-                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ uid: uid }, data);
-            });
-        }));
+var StorageService = /** @class */ (function () {
+    function StorageService(afs, alertController) {
+        this.afs = afs;
+        this.alertController = alertController;
+        //Mudar para o genérico
     }
-    UsuarioCadastroService.prototype.getUsuarios = function () {
-        return this.todosUsuarios;
-    };
-    UsuarioCadastroService.prototype.getUsuario = function (id) {
-        return this.todosCollection.doc(id).valueChanges();
-    };
-    UsuarioCadastroService.prototype.updateUsuarioTodo = function (toda, id) {
-        return this.todosCollection.doc(id).update(toda);
-    };
-    UsuarioCadastroService.prototype.updateUsuarioAdmin = function (id, valor) {
-        return this.todosCollection.doc(id).update({ isAdmin: valor });
-    };
-    UsuarioCadastroService.prototype.updateUsuarioProfissional = function (id, valor) {
-        return this.todosCollection.doc(id).update({ isProfissional: valor });
-    };
-    //FUNÇÃO PARA CADASTRAR NOVO USUARIO
-    UsuarioCadastroService.prototype.addUsuarioTodo = function (dataUser) {
+    StorageService.prototype.presentAlert = function (msg) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var newUser;
+            var alert;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.authService.createUser(dataUser.email, dataUser.senha)];
+                    case 0: return [4 /*yield*/, this.alertController.create({
+                            header: 'Alert',
+                            subHeader: 'Subtitle',
+                            message: msg,
+                            buttons: ['OK']
+                        })];
                     case 1:
-                        newUser = _a.sent();
-                        //EXLUI A SENHA E O EMAIL, PARA NÃO IR A DATABASE
-                        delete dataUser.senha;
-                        // delete dataUser.email;
-                        dataUser.foto =
-                            'https://firebasestorage.googleapis.com/v0/b/primeirobanco-8d1a9.appspot.com/o/User.png?alt=media&token=78d69205-4005-4f3b-8925-10439a145ffa';
-                        //ADICIONA O RETANTES DOS DADOS DO USUARIO NO DATABASE
-                        this.db
-                            .collection('UsuarioCadastro')
-                            .doc(newUser.user.uid)
-                            .set(dataUser);
+                        alert = _a.sent();
+                        return [4 /*yield*/, alert.present()];
+                    case 2:
+                        _a.sent();
                         return [2 /*return*/];
                 }
             });
         });
     };
-    UsuarioCadastroService.prototype.removeUsuarioTodo = function (id) {
-        return this.todosCollection.doc(id).delete();
+    StorageService.prototype.uploadImagemUsuario = function (uidUsuarioCadastro, photo) {
+        var ref = this.afs.ref('UsuarioCadastro/' + uidUsuarioCadastro);
+        ref.putString(photo, 'data_url');
+        return ref.getDownloadURL();
     };
-    // Não sei oq essa pohha ta fazendo
-    UsuarioCadastroService.prototype.getUsuarioPorid = function (categoria) {
-        return this.db
-            .collection('UsuarioCadastro', function (ref) { return ref.where('idCategoria', '==', categoria); })
-            .snapshotChanges()
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (actions) {
-            return actions.map(function (a) {
-                var data = a.payload.doc.data();
-                console.log(data);
-                var id = a.payload.doc.id;
-                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ id: id }, data);
-            });
-        }));
+    StorageService.prototype.uploadImagemAssistenteCadastro = function (idAssistenteCadastro, photo) {
+        console.log(photo);
+        var ref = this.afs.ref('AssistenteCadastro/' + idAssistenteCadastro);
+        ref.putString(photo, 'data_url');
+        return ref.getDownloadURL();
     };
-    UsuarioCadastroService.prototype.getUsuarioUmPorUm = function (id) {
-        return this.todosCollection
-            .doc(id)
-            .snapshotChanges()
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (a) {
-            var data = a.payload.data();
-            console.log(data);
-            var id = a.payload.id;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ id: id }, data);
-        }));
+    StorageService.prototype.uploadImagemEmergenciaCadastro = function (idEmergenciaCadastro, photo) {
+        console.log(photo);
+        var ref = this.afs.ref('EmergenciaCadastro/' + idEmergenciaCadastro);
+        ref.putString(photo, 'data_url');
+        return ref.getDownloadURL();
     };
-    UsuarioCadastroService.ctorParameters = function () { return [
-        { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] },
-        { type: _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] }
+    StorageService.ctorParameters = function () { return [
+        { type: _angular_fire_storage_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"] }
     ]; };
-    UsuarioCadastroService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    StorageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"], _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"]])
-    ], UsuarioCadastroService);
-    return UsuarioCadastroService;
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_storage_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]])
+    ], StorageService);
+    return StorageService;
 }());
 
 
@@ -406,4 +367,4 @@ var SharedModule = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=default~home-home-module~pages-login-login-module~pages-menu-menu-module~pages-profissional-cadastro~bb63723b-es5.js.map
+//# sourceMappingURL=default~emergencia-cadastro-emergencia-cadastro-module~home-home-module~pages-login-login-module~pag~149a80e6-es5.js.map

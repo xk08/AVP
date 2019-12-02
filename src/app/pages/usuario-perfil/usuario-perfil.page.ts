@@ -6,6 +6,7 @@ import { LoadingController, NavController, ToastController } from '@ionic/angula
 import { CoreModule } from 'src/app/core/core.module';
 import { Network } from '@ionic-native/network/ngx';
 import { UsuarioCadastro } from 'src/app/services/usuarioCadastro/usuarioCadastro';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-usuario-perfil',
@@ -15,6 +16,7 @@ import { UsuarioCadastro } from 'src/app/services/usuarioCadastro/usuarioCadastr
 export class UsuarioPerfilPage implements OnInit {
 
   public idUsuario: string;
+  private uidUsuario: string;
 
   public errorMensagens: any;
   public uidUser: any;
@@ -31,16 +33,15 @@ export class UsuarioPerfilPage implements OnInit {
     public formBuilder: FormBuilder,
     private network: Network,
     private toastController: ToastController,
-    private auth: AngularFireAuth
+    private auth: AngularFireAuth,
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {
-    this.idUsuario = this.auth.auth.currentUser.uid;
 
-    if (this.idUsuario) {
-      this.loadTodo();
-    }
-
+    this.uidUsuario = this.authService.getAuth().currentUser.uid
+    this.loadTodo(this.uidUsuario);
+   
     this.errorMensagens = this.core.identForm;
 
     this.formgroup = this.formBuilder.group({
@@ -69,13 +70,13 @@ export class UsuarioPerfilPage implements OnInit {
 
   }
 
-  async loadTodo() {
+  async loadTodo(uidUser: string) {
     const loading = await this.loadingController.create({
       message: 'Carregando seus dados, aguarde.'
     });
     await loading.present();
 
-    this.usuarioService.getUsuario(this.idUsuario).subscribe(res => {
+    this.usuarioService.getUsuario(uidUser).subscribe(res => {
       loading.dismiss();
       this.todoUser = res;
     });
@@ -83,37 +84,20 @@ export class UsuarioPerfilPage implements OnInit {
 
   async saveTodo() {
     const loading = await this.loadingController.create({
-      message: 'Salvando as novas informações'
+      message: 'Salvando novas informações'
     });
     await loading.present();
 
     if (this.idUsuario) {
 
-      this.usuarioService.updateUsuarioTodo(this.todoUser, this.idUsuario).then(() => {
+      this.usuarioService.updateUsuarioTodo(this.todoUser, this.authService.getAuth().currentUser.uid).then(() => {
         loading.dismiss();
         this.navCtrl.navigateBack('menu/home');
       });
     }
 
   }
-
-  //FUNÇÃO PARA CADASTRAR NOVO USUARIO
-  async concluiCadastro() {
-    const loading = await this.loadingController.create({
-      //Trocar pelo overlay
-      message: 'Salvando suas informações...'
-    });
-
-    //PASSA OS DADOS PARA CADASTRAR O USUARIO E SEU ENDEREÇO ENQUANTO ISSO EXIBE UM LOADING
-    this.uidUser = this.usuarioService.addUsuarioTodo(this.todoUser).then(() => {
-      loading.dismiss();
-      this.navCtrl.navigateBack('menu/home');
-      this.presentToast('Usuário, ' + this.todoUser.nome + ' \n atualizado(a) com sucesso.');
-    })
-      .catch((error: any) => {
-        this.core.identificaError(error.code);
-      });
-  }
+ 
 
   async presentToast(msg: string) {
     const toast = await this.toastController.create({
@@ -123,6 +107,10 @@ export class UsuarioPerfilPage implements OnInit {
     });
     toast.present();
   }
+
+
+
+
   async cadastroProfissional() {
     this.navCtrl.navigateBack('profissional/cadastro');
   }

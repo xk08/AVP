@@ -4,6 +4,7 @@ import { UsuarioCadastro } from './usuarioCadastro';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { map } from 'rxjs/operators';
+import { StorageService } from '../storage/storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class UsuarioCadastroService {
   private todosCollection: AngularFirestoreCollection<UsuarioCadastro>;
   private todosUsuarios: Observable<UsuarioCadastro[]>;
 
-  constructor(private db: AngularFirestore, private authService: AuthService) {
+  constructor(private db: AngularFirestore, private authService: AuthService,
+    private storage: StorageService,) {
     this.todosCollection = db.collection<UsuarioCadastro>('UsuarioCadastro');
 
     this.todosUsuarios = this.todosCollection.snapshotChanges().pipe(
@@ -34,7 +36,9 @@ export class UsuarioCadastroService {
     return this.todosCollection.doc<UsuarioCadastro>(id).valueChanges();
   }
 
+ 
   updateUsuarioTodo(toda: UsuarioCadastro, id: string) {
+   
     return this.todosCollection.doc<UsuarioCadastro>(id).update(toda);
   }
 

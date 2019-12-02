@@ -51,6 +51,12 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
+        path: 'profissional-perfil',
+        loadChildren:
+          '../profissional-perfil/profissional-perfil.module#ProfissionalPerfilPageModule',
+        canActivate: [AuthGuard]
+      },
+      {
         path: '',
         redirectTo: 'home'
       }

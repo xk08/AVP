@@ -37,7 +37,7 @@ export class MenuPage implements OnInit, OnDestroy {
     },
     {
       title: 'Meu perfil',
-      url: '/menu/profissional-todos-conteudos',
+      url: '/menu/profissional-perfil',
       icon: 'person'
     }
   ];

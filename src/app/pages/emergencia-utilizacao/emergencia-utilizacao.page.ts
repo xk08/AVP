@@ -8,6 +8,7 @@ import { NavController } from "@ionic/angular";
 import { CallNumber } from "@ionic-native/call-number/ngx";
 import { SMS } from '@ionic-native/sms/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @Component({
   selector: "app-emergencia-utilizacao",
@@ -29,18 +30,18 @@ export class EmergenciaUtilizacaoPage implements OnInit, OnDestroy {
   public n2publico: string;
   public n3cvv: string;
 
-
   constructor(
     private emergenciaCadastroService: EmergenciaCadastroService,
     private router: Router,
     private auth: AngularFireAuth,
     private navctrl: NavController,
     private callNumber: CallNumber,
-    
     private sms: SMS, //Voltar nessa parte
     private androidPermissions: AndroidPermissions
   
-  ) {}
+  ) {
+  
+  }
 
   public list: Subscription;
   
@@ -61,6 +62,7 @@ export class EmergenciaUtilizacaoPage implements OnInit, OnDestroy {
       this.n1publico = this.n1;
       this.n2publico = this.n2;
       this.n3cvv = "188";
+
     });
   }
 

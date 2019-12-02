@@ -80,7 +80,7 @@ export class EmergenciaCadastroPage implements OnInit {
         this.todas.foto = this.photo;
       }
       /* TESTA SE JA EXISTE, ENTÃO FAZ UPDATE */
-
+      this.todas.idUsuario = this.idUsuario;
       this.emergenciaCadastroService.updateTodo(this.todas, this.idEmergenciaCadastro).then(() => {
         loading.dismiss();
         this.navCtrl.navigateBack('emergencia/emergencia-utilizacao');
@@ -91,10 +91,10 @@ export class EmergenciaCadastroPage implements OnInit {
         this.todas.foto = this.photo;
       }
       /* SENÃO EXISTIR, FAZ CADASTRO DE NOVOS DADOS */
-
+      this.todas.idUsuario = this.idUsuario;
       this.emergenciaCadastroService.addTodo(this.todas, this.idUsuario).then(() => {
         loading.dismiss();
-        this.navCtrl.navigateBack('emergencia/emergencia-utilizacao');
+        this.navCtrl.navigateBack('menu/home');
        
       });
     }

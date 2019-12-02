@@ -49,7 +49,7 @@ export class CadastroAssistentePage implements OnInit {
 
   ngOnInit() {
     this.idUsuario = this.auth.auth.currentUser.uid;
-    this.idCadastroAssistente = this.route.snapshot.params['id'];
+   // this.idCadastroAssistente = this.auth.auth.currentUser.uid;
 
     this.errorMensagens = this.core.identForm;
 
@@ -61,23 +61,9 @@ export class CadastroAssistentePage implements OnInit {
       ])]
     });
 
-    if (this.idUsuario) {
-      this.loadTodo();
-    }
-    this.networkConnect();
+
   }
 
-  async loadTodo() {
-    const loading = await this.loadingController.create({
-      message: 'Carregando ""algoo""...'
-    });
-    await loading.present();
-
-    this.assistenteCadastroService.getTodos(this.idUsuario).subscribe(res => {
-      loading.dismiss();
-      this.listAssistente = res;
-    });
-  }
   async networkConnect() {
     const loading = await this.loadingController.create({
       message: 'Conectando com a Internet...'

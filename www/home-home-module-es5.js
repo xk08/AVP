@@ -280,6 +280,8 @@ var HomePage = /** @class */ (function () {
             });
         });
     };
+    //Ver como pego de acordo com o link do app do youtube no celu
+    /// que é assim -> https://youtu.be/Pi-s0ZFK3aM
     HomePage.prototype.videoDoYT = function (vid) {
         this.finalLink = vid.substring(vid.indexOf('=') + 1);
         this.urlEmbd = "https://www.youtube.com/embed/" + this.finalLink;

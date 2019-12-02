@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"menu/home\" color=\"success\"></ion-back-button>\r\n    </ion-buttons>\r\n      <ion-title color=\"success\">Personalize seu assistente</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-grid style=\"height: 100%\">\r\n  <ion-row justify-content-center align-items-center style=\"height: 100%\">\r\n    <form [formGroup]=\"formgroup\">\r\n     <ion-row>\r\n\r\n       <ion-card-content>\r\n         \r\n        <ion-card style=\"background-color: lightgreen;\" >\r\n            <ion-card-header>\r\n              <ion-card-title style=\"font-size: 17px; text-align: center;\">Apelido ou Nome</ion-card-title>\r\n            </ion-card-header>\r\n          \r\n            <ion-item>\r\n              <ion-input\r\n              type=\"text\"\r\n              formControlName=\"assistente\"\r\n              placeholder=\"Escreva aqui...\"\r\n              [(ngModel)]='todas.apelido'\r\n              required\r\n              ></ion-input>\r\n                \r\n              </ion-item>\r\n          </ion-card>\r\n          \r\n          <ion-card style=\"background-color: lightgreen;\" >\r\n              <ion-card-header>\r\n                <ion-card-title style=\"font-size: 17px; text-align: center;\">Foto ou Icone</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-item (click)=\"abrirGaleria()\">\r\n                    <ion-icon\r\n                      name=\"add\"\r\n                      color=\"success\"\r\n                      slot=\"start\"\r\n                    ></ion-icon>\r\n                    Clique aqui e escolha\r\n                  </ion-item>\r\n                </ion-card>\r\n          \r\n          <ion-card *ngIf=\"photo != ''\">\r\n                <ion-avatar class=\"contact-avatar\">\r\n               <img\r\n                 [src]='photo'\r\n                 [(ngModel)]='todas.icone'\r\n                 height=\"240px\"\r\n                 width=\"180px\"\r\n               >\r\n               </ion-avatar>\r\n               <ion-card-header>\r\n                 <ion-card-subtitle>Foto escolhida para seu assistente</ion-card-subtitle>\r\n               </ion-card-header>\r\n              </ion-card>\r\n      </ion-card-content>\r\n    </ion-row>\r\n            <ion-button\r\n            shape=\"round\"\r\n            fill=\"outline\"\r\n            expand=\"block\"\r\n            (click)=\"saveTodo()\"\r\n            color=\"success\"\r\n            [disabled]=\"formgroup.invalid\"\r\n            >\r\n            Pronto\r\n          </ion-button>\r\n      </form>\r\n  </ion-row>\r\n</ion-grid>\r\n</ion-content>\r\n\r\n\r\n\r\n"
+module.exports = "\r\n<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"menu/home\" color=\"success\"></ion-back-button>\r\n    </ion-buttons>\r\n      <ion-title color=\"success\">Personalize seu assistente</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-grid style=\"height: 100%\">\r\n  <ion-row justify-content-center align-items-center style=\"height: 100%\">\r\n    <form [formGroup]=\"formgroup\">\r\n     <ion-row>\r\n\r\n       <ion-card-content>\r\n         \r\n        <ion-card style=\"background-color: lightgreen;\" >\r\n            <ion-card-header>\r\n              <ion-card-title style=\"font-size: 17px; text-align: center;\">Apelido ou Nome</ion-card-title>\r\n            </ion-card-header>\r\n          \r\n            <ion-item>\r\n              <ion-input\r\n              type=\"text\"\r\n              formControlName=\"assistente\"\r\n              placeholder=\"Escreva aqui...\"\r\n              [(ngModel)]='todas.apelido'\r\n              required\r\n              ></ion-input>\r\n                \r\n              </ion-item>\r\n          </ion-card>\r\n          \r\n          <ion-card style=\"background-color: lightgreen;\" >\r\n              <ion-card-header>\r\n                <ion-card-title style=\"font-size: 17px; text-align: center;\">Foto ou Icone</ion-card-title>\r\n                </ion-card-header>\r\n                <ion-item (click)=\"abrirGaleria()\">\r\n                    <ion-icon\r\n                      name=\"add\"\r\n                      color=\"success\"\r\n                      slot=\"start\"\r\n                    ></ion-icon>\r\n                    Clique aqui e escolha\r\n                  </ion-item>\r\n                </ion-card>\r\n\r\n                <ion-card *ngIf=\"todas.icone != ''\">\r\n                  <ion-avatar class=\"contact-avatar\">\r\n                 <img\r\n                   [src]='todas.icone'\r\n                  \r\n                   height=\"240px\"\r\n                   width=\"180px\"\r\n                 >\r\n                 </ion-avatar>\r\n                 <ion-card-header>\r\n                   <ion-card-subtitle>Foto atual do assistente</ion-card-subtitle>\r\n                 </ion-card-header>\r\n                </ion-card>\r\n          \r\n          <ion-card *ngIf=\"photo != ''\">\r\n                <ion-avatar class=\"contact-avatar\">\r\n               <img\r\n                 [src]='photo'\r\n                 [(ngModel)]='todas.icone'\r\n                 height=\"240px\"\r\n                 width=\"180px\"\r\n               >\r\n               </ion-avatar>\r\n               <ion-card-header>\r\n                 <ion-card-subtitle style=\"text-align: center;\">Foto escolhida para seu assistente</ion-card-subtitle>\r\n               </ion-card-header>\r\n              </ion-card>\r\n      </ion-card-content>\r\n    </ion-row>\r\n            <ion-button\r\n            shape=\"round\"\r\n            fill=\"outline\"\r\n            expand=\"block\"\r\n            (click)=\"saveTodo()\"\r\n            color=\"success\"\r\n            [disabled]=\"formgroup.invalid\"\r\n            >\r\n            Pronto\r\n          </ion-button>\r\n      </form>\r\n  </ion-row>\r\n</ion-grid>\r\n</ion-content>\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -209,7 +209,7 @@ var CadastroAssistentePage = /** @class */ (function () {
     }
     CadastroAssistentePage.prototype.ngOnInit = function () {
         this.idUsuario = this.auth.auth.currentUser.uid;
-        this.idCadastroAssistente = this.route.snapshot.params['id'];
+        this.idCadastroAssistente = this.auth.auth.currentUser.uid;
         this.errorMensagens = this.core.identForm;
         this.formgroup = this.formBuilder.group({
             assistente: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].compose([
@@ -218,7 +218,7 @@ var CadastroAssistentePage = /** @class */ (function () {
                     _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].maxLength(10)
                 ])]
         });
-        if (this.idUsuario) {
+        if (this.idCadastroAssistente) {
             this.loadTodo();
         }
         this.networkConnect();
@@ -230,16 +230,16 @@ var CadastroAssistentePage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.loadingController.create({
-                            message: 'Carregando ""algoo""...'
+                            message: 'Buscando dados do assistente'
                         })];
                     case 1:
                         loading = _a.sent();
                         return [4 /*yield*/, loading.present()];
                     case 2:
                         _a.sent();
-                        this.assistenteCadastroService.getTodos(this.idUsuario).subscribe(function (res) {
+                        this.assistenteCadastroService.getTodo(this.idCadastroAssistente).subscribe(function (res) {
                             loading.dismiss();
-                            _this.listAssistente = res;
+                            _this.todas = res;
                         });
                         return [2 /*return*/];
                 }

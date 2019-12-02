@@ -34,6 +34,7 @@ export class EmergenciaCadastroService {
     return this.todosCollection.doc(id).update(toda);
   }
 
+
   addTodo(toda: EmergenciaCadastro, idUsuario: string) {
     return this.todosCollection.doc(idUsuario).set(toda);
   }
